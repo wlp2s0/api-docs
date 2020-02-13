@@ -430,6 +430,9 @@
                           <li>
                             <a href="#open-banking-api-account-and-transaction-api-get-account-transactions" class="toc-h3 toc-link" data-title="Get Account Transactions">Get Account Transactions</a>
                           </li>
+                          <li>
+                            <a href="#open-banking-api-account-and-transaction-api-get-account-beneficiaries" class="toc-h3 toc-link" data-title="Get Account Beneficiaries">Get Account Beneficiaries</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -3979,8 +3982,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 <code>openssl x509 -in /path/to/your/cert.cer -noout -subject -nameopt RFC2253</code></p>
 <h2 id='open-banking-api-open-banking-security-profile'>Open Banking Security Profile</h2>
 <p>Open Banking security profile is implemented as it is described in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/83919096/Open+Banking+Security+Profile+-+Implementer+s+Draft+v1.1.2">documentation</a></p>
-<h4 id='open-banking-api-open-banking-security-profile-certificate-dn-authorization-endpoint'>Authorization Endpoint</h4><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/ui/index.html
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/ui/index.html
+<h4 id='open-banking-api-open-banking-security-profile-certificate-dn-authorization-endpoint'>Authorization Endpoint</h4><pre class="highlight shell tab-shell--sandbox"><code>https://sandbox-oba.revolut.com/ui/index.html
+</code></pre><pre class="highlight shell tab-shell--production"><code>https://oba.revolut.com/ui/index.html
 </code></pre>
 <p><code>/ui/index.html</code> endpoint is for your application to redirect Revolut customer to authorize consent</p>
 <h4 id='open-banking-api-open-banking-security-profile-certificate-dn-token-endpoint'>Token Endpoint</h4>
@@ -3993,8 +3996,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 <p>Open Banking <code>Account and Transaction API</code> is implemented as specified in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/999622968/Account+and+Transaction+API+Specification+-+v3.1.1">documentation</a></p>
 
 <p>The Interfaces already implemented are below. We are keep implementing other endpoints (manadatory endpoints first). We will be updating this documentation as we progress.</p>
-<h3 id='open-banking-api-account-and-transaction-api-account-access-consent'>Account Access Consent</h3><h4 id='open-banking-api-account-and-transaction-api-account-access-consent-cancel-revoke-consent'>Cancel/Revoke Consent</h4><pre class="highlight shell tab-shell--sandbox"><code>curl -X DELETE curl https://sandbox-oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X DELETE curl https://oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
+<h3 id='open-banking-api-account-and-transaction-api-account-access-consent'>Account Access Consent</h3><h4 id='open-banking-api-account-and-transaction-api-account-access-consent-cancel-revoke-consent'>Cancel/Revoke Consent</h4><pre class="highlight shell tab-shell--sandbox"><code>curl -X DELETE https://sandbox-oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X DELETE https://oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
 </code></pre>
 <p>This end point:</p>
 
@@ -4002,12 +4005,12 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 <li><p>Rejects consent if a consent in <code>AwaitingAuthorisation</code> state</p></li>
 <li><p>Revokes consent if consent in <code>Authorised</code> state</p></li>
 </ul>
-<h4 id='open-banking-api-account-and-transaction-api-account-access-consent-get-consent'>Get Consent</h4><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
+<h4 id='open-banking-api-account-and-transaction-api-account-access-consent-get-consent'>Get Consent</h4><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
 </code></pre>
 <p>This endpoint returns consent details as it is described in the official documentation.</p>
-<h4 id='open-banking-api-account-and-transaction-api-account-access-consent-create-consent'>Create Consent</h4><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/account-access-consents
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/account-access-consents
+<h4 id='open-banking-api-account-and-transaction-api-account-access-consent-create-consent'>Create Consent</h4><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/account-access-consents
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/account-access-consents
 </code></pre>
 <blockquote>
 <p>Request:</p>
@@ -4039,8 +4042,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint creates a consent to be authorized by revolut user.</p>
-<h3 id='open-banking-api-account-and-transaction-api-get-accounts'>Get Accounts</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/accounts
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/accounts
+<h3 id='open-banking-api-account-and-transaction-api-get-accounts'>Get Accounts</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/accounts
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/accounts
 </code></pre>
 <blockquote>
 <p>Response:</p>
@@ -4074,8 +4077,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns list of the user accounts.</p>
-<h3 id='open-banking-api-account-and-transaction-api-get-account-details'>Get Account Details</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>
+<h3 id='open-banking-api-account-and-transaction-api-get-account-details'>Get Account Details</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p>Response:</p>
@@ -4109,8 +4112,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves individual account details.</p>
-<h3 id='open-banking-api-account-and-transaction-api-get-account-balances'>Get Account Balances</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/balances
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/balances
+<h3 id='open-banking-api-account-and-transaction-api-get-account-balances'>Get Account Balances</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/balances
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/balances
 </code></pre>
 <blockquote>
 <p>Response:</p>
@@ -4147,8 +4150,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves balances for an account.</p>
-<h3 id='open-banking-api-account-and-transaction-api-get-account-transactions'>Get Account Transactions</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/transactions
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/transactions
+<h3 id='open-banking-api-account-and-transaction-api-get-account-transactions'>Get Account Transactions</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/transactions
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/transactions
 </code></pre>
 <blockquote>
 <p>Response:</p>
@@ -4194,7 +4197,7 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 <p>This endpoint retrieves the recent transactions for an account.</p>
 
 <aside class="notice">
-    In order to ensure compliance with PSD2 SCA regulations, we only allow access to the last 90 daysâ€™ transactions. However, you will be able to access older transactions within the first 5 minutes of an account access token being authorised. This means that within the first 5 minutes after acquiring the access token, you will be able to request data older than 90 days. After the 5 minute mark, access will be automatically restricted to the last 90 days worth of data.
+    In order to ensure compliance with PSD2 SCA regulations, we only allow access to the last 90 days transactions. However, you will be able to access older transactions within the first 5 minutes of an account access token being authorised. This means that within the first 5 minutes after acquiring the access token, you will be able to request data older than 90 days. After the 5 minute mark, access will be automatically restricted to the last 90 days worth of data.
 </aside>
 <h5 id='open-banking-api-account-and-transaction-api-get-account-transactions-create-consent-additional-response-fields'>Additional response fields</h5>
 <table><thead>
@@ -4210,8 +4213,46 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 <td>Text</td>
 </tr>
 </tbody></table>
-<h2 id='open-banking-api-payment-initiation-api-specification'>Payment Initiation API Specification</h2><h3 id='open-banking-api-payment-initiation-api-specification-create-domestic-payment-consent'>Create Domestic Payment Consent</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/domestic-payment-consents
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/domestic-payment-consents
+<h3 id='open-banking-api-account-and-transaction-api-get-account-beneficiaries'>Get Account Beneficiaries</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/beneficiaries
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/beneficiaries
+</code></pre>
+<blockquote>
+<p>Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Beneficiary"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c68a6bb5-a63c-47cd-86c8-16a0a6890f09"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"BeneficiaryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beb87058-2ded-4593-b7b6-f816c8539ee5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB60LTZD85909994434483"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testFirstName testLastName"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c68a6bb5-a63c-47cd-86c8-16a0a6890f09"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"BeneficiaryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1eb6796-cf38-41d6-ba75-8bdbaf9ccbe7"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55887712345678"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testFirstName testLastName"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/accounts/c68a6bb5-a63c-47cd-86c8-16a0a6890f09/beneficiaries"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the list of beneficiaries for a specific user account. </p>
+<h2 id='open-banking-api-payment-initiation-api-specification'>Payment Initiation API Specification</h2><h3 id='open-banking-api-payment-initiation-api-specification-create-domestic-payment-consent'>Create Domestic Payment Consent</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/domestic-payment-consents
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/domestic-payment-consents
 </code></pre>
 <blockquote>
 <p>Request:</p>
@@ -4258,8 +4299,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 <aside class="notice">
     Unfortunately, cannot support the <b>EndToEndIdentification</b> field as it is described in the <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937656404/Read+Write+Data+API+Specification+-+v3.1">documentation</a>. We will update the documentation once we get support for it.
 </aside>
-<h3 id='open-banking-api-payment-initiation-api-specification-get-domestic-payment-consent'>Get Domestic Payment Consent</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/domestic-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/domestic-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
+<h3 id='open-banking-api-payment-initiation-api-specification-get-domestic-payment-consent'>Get Domestic Payment Consent</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/domestic-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p>Response:</p>
@@ -4301,8 +4342,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns consent details as it is described in the official documentation.</p>
-<h3 id='open-banking-api-payment-initiation-api-specification-get-funds-confirmation'>Get Funds Confirmation</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/domestic-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>/funds-confirmation
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/domestic-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/funds-confirmation
+<h3 id='open-banking-api-payment-initiation-api-specification-get-funds-confirmation'>Get Funds Confirmation</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>/funds-confirmation
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/domestic-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/funds-confirmation
 </code></pre>
 <p>This endpoint lets checking funds for the given consent. This endpoint returns successful only if user authorized the related consent.</p>
 
@@ -4321,8 +4362,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='open-banking-api-payment-initiation-api-specification-create-domestic-payment'>Create Domestic Payment</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST curl https://sandbox-oba.revolut.com/domestic-payments
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST curl https://oba.revolut.com/domestic-payments
+</span></code></pre><h3 id='open-banking-api-payment-initiation-api-specification-create-domestic-payment'>Create Domestic Payment</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/domestic-payments
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/domestic-payments
 </code></pre>
 <blockquote>
 <p>Request:</p>
@@ -4364,8 +4405,8 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>As it is defined in the Open Banking Specifications, <code>/Data/Initiation</code> and <code>/Data/Risk</code> sections of the request must be exact match for the related consent passed in <code>ConsentId</code>.</p>
-<h3 id='open-banking-api-payment-initiation-api-specification-get-domestic-payment'>Get Domestic Payment</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET curl https://sandbox-oba.revolut.com/domestic-payments/<span class="o">{</span>payment_id<span class="o">}</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET curl https://oba.revolut.com/domestic-payments/<span class="o">{</span>payment_id<span class="o">}</span>
+<h3 id='open-banking-api-payment-initiation-api-specification-get-domestic-payment'>Get Domestic Payment</h3><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-payments/<span class="o">{</span>payment_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/domestic-payments/<span class="o">{</span>payment_id<span class="o">}</span>
 </code></pre>
 <blockquote>
 <p>Response:</p>
