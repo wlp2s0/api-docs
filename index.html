@@ -648,23 +648,23 @@ Download OpenSSL for Windows</p>
 <p>Signature - base64-encoded private key</p>
 
 <p>To test the validity of your JWT, you can use an online tool such as <a href="https://jwt.io/">jwt.io</a>.</p>
-<h4 id='business-api-authentication-setting-up-access-to-your-business-account-step-3-authorise-your-app'>Step 3: Authorise your app</h4>
+<h4 id='business-api-authentication-setting-up-access-to-your-business-account-step-4-authorise-your-app'>Step 4: Authorise your app</h4>
 <p>The next step is to authorise the API to access your account. In order to do so, in the web interface, click on the &quot;Authorise API access&quot; button. You wil see an authorisation popup with a summary of the resources the API will be able to access.</p>
 
 <p>Once you click on authorise, you will be redirected to your specified OAuth redirect link. The redirect url will have attached an authorisation code.</p>
-<h4 id='business-api-authentication-setting-up-access-to-your-business-account-step-4-request-a-reusable-access-token'>Step 4: Request a reusable access token</h4>
+<h4 id='business-api-authentication-setting-up-access-to-your-business-account-step-5-request-a-reusable-access-token'>Step 5: Request a reusable access token</h4>
 <p>Once you have received the authorisation code, you can exchange it for an access token.</p>
 
 <p><a href="#business-api-oauth-exchange-authorisation-code">See more here about token exchange endpoint and its parameters</a></p>
-<h4 id='business-api-authentication-setting-up-access-to-your-business-account-step-5-you-are-ready-to-go'>Step 5: You are ready to go!</h4>
+<h4 id='business-api-authentication-setting-up-access-to-your-business-account-step-6-you-are-ready-to-go'>Step 6: You are ready to go!</h4>
 <p>Once you have the access token, you can use any of the API endpoints described below (according to the permissions granted to your app), applying the access token everywhere you see the mention <code>&lt;your access token&gt;</code>. Please make sure you store access tokens somewhere secure.</p>
-<h4 id='business-api-authentication-setting-up-access-to-your-business-account-step-6-refreshing-the-access-token'>Step 6: Refreshing the access token</h4>
-<p>After step 4, you will receive two tokens: an access token and a refresh token.</p>
+<h4 id='business-api-authentication-setting-up-access-to-your-business-account-step-7-refreshing-the-access-token'>Step 7: Refreshing the access token</h4>
+<p>After step 5, you will receive two tokens: an access token and a refresh token.</p>
 
 <p>Every access token is valid for 40 minutes, after which you can use the refresh_token to request a new one. </p>
 
 <aside class="warning">
-  Please note: Businesses on the Freelancer plan: you can do this for 90 days, after which you will need to repeat the authorisation process (from Step 3), as required by the PSD2 regulations.
+  Please note: Businesses on the Freelancer plan: you can do this for 90 days, after which you will need to repeat the authorisation process (from Step 4), as required by the PSD2 regulations.
 </aside>
 
 <p><a href="#business-api-oauth-refresh-access-token">Check the corresponding endpoint documentation</a></p>
