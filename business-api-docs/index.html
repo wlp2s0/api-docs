@@ -429,6 +429,9 @@
                           <li>
                             <a href="#open-banking-api-open-banking-api-account-and-transaction-api-get-account-beneficiaries" class="toc-h3 toc-link" data-title="Get Account Beneficiaries">Get Account Beneficiaries</a>
                           </li>
+                          <li>
+                            <a href="#open-banking-api-open-banking-api-account-and-transaction-api-get-account-direct-debits" class="toc-h3 toc-link" data-title="Get Account Direct Debits">Get Account Direct Debits</a>
+                          </li>
                       </ul>
                   </li>
                   <li>
@@ -4980,6 +4983,62 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the list of beneficiaries for a specific user account.</p>
+<h3 id='open-banking-api-open-banking-api-account-and-transaction-api-get-account-direct-debits'>Get Account Direct Debits</h3><blockquote>
+      <div><p>Get a list of account direct debits</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/direct-debits
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/direct-debits
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"DirectDebit"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b81470d-a24b-491c-b6f8-ae4f27cb0447"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DirectDebitId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f36e19d2-e870-438b-b4f5-32ac9a05d375"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"MandateIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testIdentification"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DirectDebitStatusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testName"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PreviousPaymentAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.00"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b81470d-a24b-491c-b6f8-ae4f27cb0447"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DirectDebitId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ffaa70b6-d94c-479e-b5c4-b570036280ba"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"MandateIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"someOtherIdentification"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DirectDebitStatusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inactive"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"someOtherName"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PreviousPaymentAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.43"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/accounts/5b81470d-a24b-491c-b6f8-ae4f27cb0447/direct-debits"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the list of direct debits for a specific user account.</p>
 <h2 id='open-banking-api-payment-initiation-api-specification'>Payment Initiation API Specification</h2><h3 id='open-banking-api-open-banking-api-payment-initiation-api-specification-create-domestic-payment-consent'>Create Domestic Payment Consent</h3><blockquote>
       <div><p>Create Domestic Payment Consent</p>
 </div>
