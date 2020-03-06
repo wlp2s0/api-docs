@@ -203,6 +203,47 @@
   </head>
 
   <body class="index" data-languages="[&quot;shell--sandbox&quot;,&quot;shell--production&quot;]">
+
+    <header>
+  <div class="header-wrapper">
+    <a href="https://developers.revolut.com">
+      <div class="header-logo">
+        <img
+          src="https://assets.revolut.com/media/developer-portal/logo.svg"
+          alt="Revolut"
+          class="header-logo"
+        />
+        <span class="header-text">
+          Developer
+        </span>
+      </div>
+    </a>
+    <div class="header-links">
+      <a class="header-link" href="/portal">Developer portal</a
+      ><a
+        href="https://sandbox-business.revolut.com"
+        target="_blank"
+        class="header-link"
+        rel="noopener noreferrer"
+        >Sandbox</a
+      ><a
+        href="https://www.revolut.com/business/help/exploring-revolut/using-revolut-open-api-for-business"
+        target="_blank"
+        class="header-link"
+        rel="noopener noreferrer"
+        >FAQ</a
+      ><a
+        href="https://www.revolut.com/careers/department/technology"
+        target="_blank"
+        class="header-link"
+        rel="noopener noreferrer"
+        >We’re hiring!</a
+      >
+    </div>
+  </div>
+</header>
+
+
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -210,7 +251,6 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo.svg" class="logo" alt="Logo" />
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -534,7 +574,7 @@
           </li>
       </div>
         <ul class="toc-footer">
-            <li><a href='https://business.revolut.com/signup'>Sign up for Revolut for Business</a></li>
+            <li><a href='https://business.revolut.com/signup'>Sign up for Revolut Business</a></li>
             <li><br/>Copyright © 2020 Revolut Ltd</li>
         </ul>
     </div>
@@ -542,10 +582,10 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='business-api'>Business API</h1><h2 id='business-api-getting-started'>Getting started</h2><h3 id='business-api-business-api-getting-started-introduction'>Introduction</h3>
-<p>Welcome to the Revolut for Business Open API!
+<p>Welcome to the Revolut Business Open API!
 Here you will find all the information to get started with our API. We&#39;re building a future beyond banking, we&#39;re excited to have you onboard.</p>
 
-<p>You can use the Open API to automate your own business financial operations. This means you will be able to only access your own Revolut for Business account.</p>
+<p>You can use the Open API to automate your own business financial operations. This means you will be able to only access your own Revolut Business account.</p>
 
 <p>If, instead, you&#39;re planning to build an app or integration to publish for others to use, please check out our <a href="#open-banking-api">Open Banking API</a>, using our <a href="https://www.openbanking.org.uk/">Open Banking Standard API</a></p>
 
@@ -573,7 +613,7 @@ Sign up for a demo account here: <a href="https://sandbox-business.revolut.com">
     In order to use the API on a Demo account, please change the API requests URL prefix to: <code>https://sandbox-b2b.revolut.com/api/1.0</code>
 </aside>
 <h2 id='business-api-authentication'>Authentication</h2><h3 id='business-api-business-api-authentication-setting-up-access-to-your-business-account'>Setting up access to your Business account</h3>
-<p>You will need to authorize the API to access your Revolut for Business account. You can do this via the <a href="https://business.revolut.com/settings/api">API settings page</a> in the Revolut for Business web app.</p>
+<p>You will need to authorize the API to access your Revolut Business account. You can do this via the <a href="https://business.revolut.com/settings/api">API settings page</a> in the Revolut Business web app.</p>
 
 <p>The authorisation flow follows the <a href="https://tools.ietf.org/html/rfc7523">JSON Web Token (JWT) for OAuth 2.0 Client Authentication standard</a>, to ensure security while allowing you full access to your own account.</p>
 
@@ -5439,7 +5479,7 @@ You can also review detailed Open Banking metrics <a href="https://revolut-engin
 
 <p><a href="#merchant-api-backend-api">Reference to Back-end API.</a></p>
 <h3 id='merchant-api-beta-merchant-api-beta-getting-started-first-steps'>First Steps</h3>
-<p><strong>Step 1.</strong> In your <a href="https://business.revolut.com/merchant">Revolut for Business</a> account, setup merchant account and <a href="#merchant-api-backend-api-introduction">get API token</a>.</p>
+<p><strong>Step 1.</strong> In your <a href="https://business.revolut.com/merchant">Revolut Business</a> account, setup merchant account and <a href="#merchant-api-backend-api-introduction">get API token</a>.</p>
 
 <p><strong>Step 2.</strong> <a href="#merchant-api-backend-api-order-object-create-payment-order">Create a new order</a> on your server with <code>amount</code> and <code>currency</code>.</p>
 <blockquote>
@@ -6372,11 +6412,11 @@ You can also review detailed Open Banking metrics <a href="https://revolut-engin
   <span class="p">});</span>
 <span class="p">});</span>
 </code></pre><h2 id='merchant-api-beta-backend-api'>Backend API</h2><h3 id='merchant-api-beta-merchant-api-beta-backend-api-introduction'>Introduction</h3>
-<p>Merchant API allows Revolut for Business customers to accept online (Card Not Present) payments made with debit/credit cards, and, subsequently, to manage these transactions by means of capturing, canceling or refunding orders.</p>
+<p>Merchant API allows Revolut Business customers to accept online (Card Not Present) payments made with debit/credit cards, and, subsequently, to manage these transactions by means of capturing, canceling or refunding orders.</p>
 
 <p>All merchant requests should contain an authorisation header which includes the name of the merchant account Bearer and the <code>MERCHANT_API_KEY</code>.</p>
 
-<p>You can generate the <code>MERCHANT_API_KEY</code> on a merchant portal. In order to do so, please proceed to the <strong>Merchant</strong> tab in your Revolut for Business App, click on the <strong>API</strong> menu option, and you will find the <code>MERCHANT_API_KEY</code> under the section called <strong>Production API key</strong>.</p>
+<p>You can generate the <code>MERCHANT_API_KEY</code> on a merchant portal. In order to do so, please proceed to the <strong>Merchant</strong> tab in your Revolut Business App, click on the <strong>API</strong> menu option, and you will find the <code>MERCHANT_API_KEY</code> under the section called <strong>Production API key</strong>.</p>
 
 <p><img width="1456" alt="Screenshot 2020-02-10 at 15 43 13" src="https://user-images.githubusercontent.com/442932/74165710-704bcd80-4c1d-11ea-89db-8bc8dbfbc2c9.png"></p>
 
