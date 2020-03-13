@@ -585,23 +585,14 @@
 <p>Welcome to the Revolut Business Open API!
 Here you will find all the information to get started with our API. We&#39;re building a future beyond banking, we&#39;re excited to have you onboard.</p>
 
-<p>You can use the Open API to automate your own business financial operations. This means you will be able to only access your own Revolut Business account.</p>
+<p>You can use the Business API to automate your own business financial operations. This means you will be able to only access your own Revolut Business account.</p>
 
 <p>If, instead, you&#39;re planning to build an app or integration to publish for others to use, please check out our <a href="#open-banking-api">Open Banking API</a>, using our <a href="https://www.openbanking.org.uk/">Open Banking Standard API</a></p>
-
-<p>To help you navigate the docs, this page is split into 3 vertical sections:</p>
-
-<ul>
-<li>the navigation menu and search on the left,</li>
-<li>the content in the middle,</li>
-<li>and usage examples on the right.</li>
-</ul>
 <h3 id='business-api-business-api-getting-started-usage-and-limits'><a href='#business-api-business-api-getting-started-usage-and-limits' class='header-link'><i></i></a>Usage and limits</h3>
 <p>In order to ensure safe and fair resource sharing, we define the following usage limits:</p>
 
 <ul>
 <li>Maximum 60 requests per minute for a given business</li>
-<li>Maximum 120 requests per minute per application</li>
 </ul>
 
 <p>Please note that for businesses on the Freelancer plan we are also required to ask users for explicit authorisation to access their account via the API every 90 days. This means that access tokens will expire every 90 days and you (or your users) will need to authorise access to the app once more. This is due to the recent PSD2 SCA regulations.</p>
@@ -633,7 +624,7 @@ We&#39;ve created a test app to help you get started with JWT. <a href="https://
     </blockquote><pre class="highlight shell tab-shell"><code>openssl genrsa -out privatekey.pem 1024
 openssl req -new -x509 -key privatekey.pem -out publickey.cer -days 1825
 </code></pre>
-<p>To get started with creating a public/private key-pair we recommend the use of <a href="https://www.openssl.org/">OpenSSL</a>.</p>
+<p>To get started with creating a public/private key-pair we recommend the use of <a href="https://www.openssl.org/">OpenSSL</a>. When you open your terminal and excute the basic steps on the right, you are prompted to fill in some fields. For the purposes of the sandbox you can enter a country code, a province, a city and then “.” to leave the rest blank. For production certificates, please fill in all the fields.</p>
 
 <p><strong>Mac users</strong>
 OpenSSL comes shipped with Mac OS X version 10.6.2 onwards. You can use Terminal to run OpenSSL commands.</p>
@@ -647,9 +638,9 @@ Download OpenSSL for Windows</p>
 
 <aside class="warning">You might need admin privileges (Run as administrator) to execute the commands. If OpenSSL has just been installed, you might need to restart your computer before it can generate certs.</aside>
 <h4 id='business-api-business-api-authentication-business-api-business-api-authentication-setting-up-access-to-your-business-account-step-2-upload-your-public-key'><a href='#business-api-business-api-authentication-business-api-business-api-authentication-setting-up-access-to-your-business-account-step-2-upload-your-public-key' class='header-link'><i></i></a>Step 2: Upload your public key</h4>
-<p>This is simple. Head over to your Revolut for Bussiness account <a href="https://business.revolut.com/settings/api">API settings</a>, click on &quot;Setup API Access&quot;, then paste your public key in the &quot;X509 public key&quot; input.</p>
+<p>This is simple. Go to the directory in which you have generated the public keys and copy the text in the &quot;publickey.cer&quot; certificate file. Head over to your Revolut for Bussiness account <a href="https://business.revolut.com/settings/api">API settings</a>, click on &quot;Add certificate&quot;, then paste your public key in the &quot;X509 public key&quot; input.</p>
 
-<p>In order to complete the setup, you will also need to provide a OAuth redirect URI. The redirect URI is a url to which you will be redirected after the authorisation step.</p>
+<p>In order to complete the setup, you will also need to provide a OAuth redirect URI. The redirect URI is a url to which you will be redirected after the authorisation step. For sandbox you could use <a href="https://revolut-jwt-sandbox.glitch.me/">our JWT test application</a> as a redirect URI, as it will simplify the next steps for you.</p>
 <h4 id='business-api-business-api-authentication-business-api-business-api-authentication-setting-up-access-to-your-business-account-step-3-sign-a-jwt'><a href='#business-api-business-api-authentication-business-api-business-api-authentication-setting-up-access-to-your-business-account-step-3-sign-a-jwt' class='header-link'><i></i></a>Step 3: Sign a JWT</h4>
 <p>In order to perform requests to the API, you will need to provide your client_id and a JSON Web Token. At the end of the previous step, you will be assigned a client_id.</p>
 
@@ -776,8 +767,8 @@ Download OpenSSL for Windows</p>
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>https://sandbox-business.revolut.com/app-confirm?client_id<span class="o">=</span>rmPBoIc-LR3ObABUn-NKHq6WyEoCr6Lh__DFohuMRVM&amp;redirect_uri<span class="o">=</span>https://myapp.com/authresp
-</code></pre><pre class="highlight shell tab-shell--production"><code>https://business.revolut.com/app-confirm?client_id<span class="o">=</span>rmPBoIc-LR3ObABUn-NKHq6WyEoCr6Lh__DFohuMRVM&amp;redirect_uri<span class="o">=</span>https://myapp.com/authresp
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>https://sandbox-business.revolut.com/app-confirm?client_id<span class="o">=</span>&lt;yourclientID&gt;&amp;redirect_uri<span class="o">=</span>&lt;https://yourapp.com/authresp&gt;
+</code></pre><pre class="highlight shell tab-shell--production"><code>https://business.revolut.com/app-confirm?client_id<span class="o">=</span>&lt;yourclientID&gt;&amp;redirect_uri<span class="o">=</span>&lt;https://yourapp.com/authresp&gt;
 </code></pre>
 <p>Navigate the user to this address to request an authorisation code</p>
 <h4 id='business-api-business-api-oauth-business-api-business-api-oauth-get-authorisation-code-request'><a href='#business-api-business-api-oauth-business-api-business-api-oauth-get-authorisation-code-request' class='header-link'><i></i></a>Request</h4>
