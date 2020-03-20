@@ -413,27 +413,16 @@
                     <a href="#open-banking-api-getting-started" class="toc-h2 toc-link" data-title="Getting started">Getting started</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#open-banking-api-open-banking-api-getting-started-introduction-to-revolut-open-banking-api-v3-1" class="toc-h3 toc-link" data-title="Introduction to Revolut Open Banking API v3.1">Introduction to Revolut Open Banking API v3.1</a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li>
-                    <a href="#open-banking-api-the-developer-portal" class="toc-h2 toc-link" data-title="The Developer Portal">The Developer Portal</a>
-                      <ul class="toc-list-h3">
-                          <li>
-                            <a href="#open-banking-api-open-banking-api-the-developer-portal-what-is-the-developer-portal" class="toc-h3 toc-link" data-title="What is the Developer Portal?">What is the Developer Portal?</a>
+                            <a href="#open-banking-api-open-banking-api-getting-started-introduction" class="toc-h3 toc-link" data-title="Introduction">Introduction</a>
                           </li>
                           <li>
-                            <a href="#open-banking-api-open-banking-api-the-developer-portal-signin-up" class="toc-h3 toc-link" data-title="Signin Up">Signin Up</a>
+                            <a href="#open-banking-api-open-banking-api-getting-started-the-developer-portal" class="toc-h3 toc-link" data-title="The Developer Portal">The Developer Portal</a>
                           </li>
                           <li>
-                            <a href="#open-banking-api-open-banking-api-the-developer-portal-how-does-the-developer-portal-work" class="toc-h3 toc-link" data-title="How does the Developer Portal work?">How does the Developer Portal work?</a>
+                            <a href="#open-banking-api-open-banking-api-getting-started-open-id-configuration-urls" class="toc-h3 toc-link" data-title="Open Id Configuration URLs">Open Id Configuration URLs</a>
                           </li>
                           <li>
-                            <a href="#open-banking-api-open-banking-api-the-developer-portal-open-id-configuration-urls" class="toc-h3 toc-link" data-title="Open Id Configuration URLs">Open Id Configuration URLs</a>
-                          </li>
-                          <li>
-                            <a href="#open-banking-api-open-banking-api-the-developer-portal-usage-and-limits" class="toc-h3 toc-link" data-title="Usage and limits">Usage and limits</a>
+                            <a href="#open-banking-api-open-banking-api-getting-started-usage-and-limits" class="toc-h3 toc-link" data-title="Usage and limits">Usage and limits</a>
                           </li>
                       </ul>
                   </li>
@@ -4587,45 +4576,62 @@ EOF
 <td>Text</td>
 </tr>
 </tbody></table>
-<h1 id='open-banking-api'><a href='#open-banking-api' class='header-link'><i></i></a>Open Banking API</h1><h2 id='open-banking-api-getting-started'><a href='#open-banking-api-getting-started' class='header-link'><i></i></a>Getting started</h2><h3 id='open-banking-api-open-banking-api-getting-started-introduction-to-revolut-open-banking-api-v3-1'><a href='#open-banking-api-open-banking-api-getting-started-introduction-to-revolut-open-banking-api-v3-1' class='header-link'><i></i></a>Introduction to Revolut Open Banking API v3.1</h3>
-<p>Welcome to the Revolut Open Banking API!
+<h1 id='open-banking-api'><a href='#open-banking-api' class='header-link'><i></i></a>Open Banking API</h1><h2 id='open-banking-api-getting-started'><a href='#open-banking-api-getting-started' class='header-link'><i></i></a>Getting started</h2><h3 id='open-banking-api-open-banking-api-getting-started-introduction'><a href='#open-banking-api-open-banking-api-getting-started-introduction' class='header-link'><i></i></a>Introduction</h3>
+<p>Welcome to the Revolut Open Banking API v3.1!
 Here you will find all the information to get started with Open Banking API. We&#39;re building a future beyond banking, we&#39;re excited to have you onboard.</p>
 
-<p>To help you navigate the docs, this page is split into 3 vertical sections:</p>
+<p>There is two ways to get access to our Open Banking API: 
+<aside class="notice">
+For businesses that can do so, we recommend to enroll as a third party provider (TPP) in <a href="https://www.openbanking.org.uk/providers/directory/">Open Banking Directory</a>. 
+Follow the Open Banking API v3.1 documentation <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937656404/Read+Write+Data+API+Specification+-+v3.1">here</a>. 
+We support the following OB certificates: OBWAC (Open Banking QWAC-like certificates), OBSEAL (Open Banking QSEAL-like certificates) and OB non-eIDAS like certificates for transport and signing.
+</aside>
+<aside class="notice">
+For TPP that cannot get registered in the Open Banking Directory, and want to integrate with us directly. 
+Valid eIDAS QWAC or QSEAL certificates from some of the following QTSPs will directly if you follow the instructions in this documentation: Izba Rozliczeniowa S.A., InfoCert S.p.A. 
+If you require a new QTSP to be added please <a href="mailto:api-requests@revolut.com">contact us</a> and the QTSP will be added. After having obtained all information, our SLA is to do this within two weeks.
+</aside></p>
 
-<ul>
-<li>the navigation menu and search on the left,</li>
-<li>the content in the middle,</li>
-<li>and usage examples on the right.</li>
-</ul>
-
-<p>Please note that in order to use the open banking api, you need to first enroll as a TPP in <a href="https://www.openbanking.org.uk/providers/directory/">open banking directory</a> and then follow the official Open Banking API v3.1 documentation can be found <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937656404/Read+Write+Data+API+Specification+-+v3.1">here</a></p>
-
-<p>This Open Banking API can be used to access the accounts of customers of both Revolut Ltd (UK) and Revolut Payments UAB (Lithuania)</p>
-<h2 id='open-banking-api-the-developer-portal'><a href='#open-banking-api-the-developer-portal' class='header-link'><i></i></a>The Developer Portal</h2><h3 id='open-banking-api-open-banking-api-the-developer-portal-what-is-the-developer-portal'><a href='#open-banking-api-open-banking-api-the-developer-portal-what-is-the-developer-portal' class='header-link'><i></i></a>What is the Developer Portal?</h3>
+<p>This Open Banking API can be used to access the accounts of customers of both Revolut Ltd (UK) and Revolut Payments UAB (Lithuania).</p>
+<h3 id='open-banking-api-open-banking-api-getting-started-the-developer-portal'><a href='#open-banking-api-open-banking-api-getting-started-the-developer-portal' class='header-link'><i></i></a>The Developer Portal</h3><h4 id='open-banking-api-open-banking-api-getting-started-open-banking-api-open-banking-api-getting-started-the-developer-portal-what-is-the-developer-portal'><a href='#open-banking-api-open-banking-api-getting-started-open-banking-api-open-banking-api-getting-started-the-developer-portal-what-is-the-developer-portal' class='header-link'><i></i></a>What is the Developer Portal?</h4>
 <p>If you are building a great app and would like to integrate it with Revolut, then the Developer Portal is for you.
-The Developer Portal allows you to easily create, manage and distribute apps which are developed for both <a href="https://revolutdev.github.io/business-api/">Revolut Business Open API</a> and <a href="https://www.openbanking.org.uk/">Open Banking API</a>.
-Apps allow you to ask Revolut users to give you permission to use their account on their behalf. Once you will feel confident enough in your integration, the Developer Portal will allow you to submit and publish your apps and integrations.</p>
-<h3 id='open-banking-api-open-banking-api-the-developer-portal-signin-up'><a href='#open-banking-api-open-banking-api-the-developer-portal-signin-up' class='header-link'><i></i></a>Signin Up</h3>
+The Developer Portal allows you to easily manage the applications which are developed for our <a href="https://www.openbanking.org.uk/">Open Banking API</a>.</p>
+<h4 id='open-banking-api-open-banking-api-getting-started-open-banking-api-open-banking-api-getting-started-the-developer-portal-1-sign-up-to-the-developer-portal'><a href='#open-banking-api-open-banking-api-getting-started-open-banking-api-open-banking-api-getting-started-the-developer-portal-1-sign-up-to-the-developer-portal' class='header-link'><i></i></a>1. Sign up to the Developer Portal</h4>
+<p>To get an access to Developer Portal you need to sign up to <a href="https://developers.revolut.com/portal/signup">developers.revolut.com/portal/signup</a>. After you sign up, please set your Open Banking organisation id in <code>Profile</code> section. This will help us to link your applications with your developer account during <code>dynamic application registration</code> process of Open Banking API.</p>
+<h4 id='open-banking-api-open-banking-api-getting-started-open-banking-api-open-banking-api-getting-started-the-developer-portal-2-get-a-sandbox-user-account'><a href='#open-banking-api-open-banking-api-getting-started-open-banking-api-open-banking-api-getting-started-the-developer-portal-2-get-a-sandbox-user-account' class='header-link'><i></i></a>2. Get a Sandbox User account</h4>
+<p>Once you created your account and set your organization id, you can ask for a test user account for sandbox environment by mailing to <a href="mailto:api-requests@revolut.com">api-requests@revolut.com</a>. </p>
+
+<p>In your request please mention </p>
+
 <ul>
-<li><p>To get an access to Developer Portal you need to signup to <a href="https://developers.revolut.com">developers.revolut.com</a>. After you sign up, please set your Open Banking organisation id in <code>Profile</code> section. This will help us to link your applications with your developer account during <code>dynamic application registration</code> process of Open Banking API.</p></li>
-<li><p>Once you created your account and set your organization id, you can ask for a test user account for sandbox environment by mailing to <a href="mailto:api-requests@revolut.com">api-requests@revolut.com</a></p></li>
+<li>if you are a <code>AISP or PISP</code></li>
+<li>if your have registered on <code>Open Banking Directory</code> or which <code>QTSP</code> have registered with</li>
+<li>with which <code>Organisation ID</code> you have registered on the portal and</li>
+<li>your <code>contact details</code>.</li>
 </ul>
-<h3 id='open-banking-api-open-banking-api-the-developer-portal-how-does-the-developer-portal-work'><a href='#open-banking-api-open-banking-api-the-developer-portal-how-does-the-developer-portal-work' class='header-link'><i></i></a>How does the Developer Portal work?</h3>
-<p>In the Developer Portal, you can review and manage your Open Banking Applications. Open Banking Applications can only be created by <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937066600/Dynamic+Client+Registration+-+v3.1#DynamicClientRegistration-v3.1-POST/register">dynamic client registration</a> as it is described in the offical documentation. You must set your Open Banking API organisation id in <code>Profile</code> section before registering your application with us.</p>
-<h3 id='open-banking-api-open-banking-api-the-developer-portal-open-id-configuration-urls'><a href='#open-banking-api-open-banking-api-the-developer-portal-open-id-configuration-urls' class='header-link'><i></i></a>Open Id Configuration URLs</h3>
+<h4 id='open-banking-api-open-banking-api-getting-started-open-banking-api-open-banking-api-getting-started-the-developer-portal-3-create-review-manage-and-delete-your-apps'><a href='#open-banking-api-open-banking-api-getting-started-open-banking-api-open-banking-api-getting-started-the-developer-portal-3-create-review-manage-and-delete-your-apps' class='header-link'><i></i></a>3. Create, review, manage and delete your Apps</h4>
+<p>First, double check if you are registered on <a href="https://developers.revolut.com/portal/signup">developers.revolut.com/portal/signup</a> and have set your <code>open banking organisation id</code> or another <code>unique identifier</code> in your profile.</p>
+
+<p>Then you can create Open Banking Applications using the <a href="#open-banking-api-dynamic-client-registration">dynamic client registration</a> endpoint.</p>
+
+<p>Subsequently you can review and delete your Open Banking Applications in the <a href="https://developers.revolut.com/portal">developer portal</a>. If something has not been setup properly we recommend deleting your app in the developer portal and recreating it through dynamic registration.</p>
+<h3 id='open-banking-api-open-banking-api-getting-started-open-id-configuration-urls'><a href='#open-banking-api-open-banking-api-getting-started-open-id-configuration-urls' class='header-link'><i></i></a>Open Id Configuration URLs</h3>
 <ul>
 <li>Production: https://oba.revolut.com/openid-configuration</li>
 <li>Sandbox: https://sandbox-oba.revolut.com/openid-configuration</li>
 </ul>
-<h3 id='open-banking-api-open-banking-api-the-developer-portal-usage-and-limits'><a href='#open-banking-api-open-banking-api-the-developer-portal-usage-and-limits' class='header-link'><i></i></a>Usage and limits</h3>
+<h3 id='open-banking-api-open-banking-api-getting-started-usage-and-limits'><a href='#open-banking-api-open-banking-api-getting-started-usage-and-limits' class='header-link'><i></i></a>Usage and limits</h3>
 <p>In order to ensure safe and fair resource sharing, we define the following usage limits:</p>
 
 <ul>
 <li>Maximum 16 requests per second for one application</li>
 </ul>
+
+<p>Please make sure to stay under this limit. Should you estimate this limit be a problem for your usecase of our API, please <a href="mailto:api-requests@revolut.com">reach out to us</a> directly. </p>
 <h2 id='open-banking-api-dynamic-client-registration'><a href='#open-banking-api-dynamic-client-registration' class='header-link'><i></i></a>Dynamic Client Registration</h2>
-<p>All API endpoints are implemented as it is described in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937066600/Dynamic+Client+Registration+-+v3.1#DynamicClientRegistration-v3.1-POST/register">documentation</a></p>
+<p>In order to create an Application in the Developer Portal you will need to use Dynamic Registration. </p>
+
+<p>The register endpoint is implemented as it is described in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937066600/Dynamic+Client+Registration+-+v3.1#DynamicClientRegistration-v3.1-POST/register">documentation</a></p>
 <blockquote>
       <div><p>Register client</p>
 </div>
@@ -4638,7 +4644,14 @@ Apps allow you to ask Revolut users to give you permission to use their account 
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/register
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/register
 </code></pre>
-<p>This endpoint will work only if you register to <a href="https://developers.revolut.com">Developer Portal</a> and set open banking organisation id.</p>
+<aside class="warning">
+Before using this endpoint, first register to <a href="https://developers.revolut.com/portal">Developer Portal</a> and set either your `open banking organisation id` when registered on the open banking directory
+or an alternative `unique identifier` in your profile.
+</aside>
+
+<aside class="warning">
+In order to change your configuration: go to the <a href="https://developers.revolut.com/portal">developers.revolut.com</a>, delete your application and re-register. 
+</aside>
 <h3 id='open-banking-api-open-banking-api-dynamic-client-registration-certificate-dn'><a href='#open-banking-api-open-banking-api-dynamic-client-registration-certificate-dn' class='header-link'><i></i></a>Certificate DN</h3>
 <p>Please note that Dynamic Registration requires using the RFC2253 DN format in your request. To obtain the DN of your certificate in this format, you may use the following command:
 <code>openssl x509 -in /path/to/your/cert.cer -noout -subject -nameopt RFC2253</code></p>
@@ -4965,7 +4978,7 @@ Apps allow you to ask Revolut users to give you permission to use their account 
 <p>This endpoint retrieves the recent transactions for an account.</p>
 
 <aside class="notice">
-    In order to ensure compliance with PSD2 SCA regulations, we only allow access to the last 90 days’ transactions. However, you will be able to access older transactions within the first 5 minutes of an account access token being authorised. This means that within the first 5 minutes after acquiring the access token, you will be able to request data older than 90 days. After the 5 minute mark, access will be automatically restricted to the last 90 days worth of data.
+    In order to ensure compliance with PSD2 SCA regulations, we only allow access to the last 90 days transaction history. However, you will be able to access older transactions within the first 5 minutes of an account access token being authorised. This means that within the first 5 minutes after acquiring the access token, you will be able to request data older than 90 days. After the 5 minute mark, access will be automatically restricted to the last 90 days worth of data.
 </aside>
 <h5 id='open-banking-api-open-banking-api-account-and-transaction-api-open-banking-api-open-banking-api-account-and-transaction-api-get-account-transactions-open-banking-api-open-banking-api-account-and-transaction-api-open-banking-api-open-banking-api-account-and-transaction-api-account-access-consent-create-consent-additional-response-fields'><a href='#open-banking-api-open-banking-api-account-and-transaction-api-open-banking-api-open-banking-api-account-and-transaction-api-get-account-transactions-open-banking-api-open-banking-api-account-and-transaction-api-open-banking-api-open-banking-api-account-and-transaction-api-account-access-consent-create-consent-additional-response-fields' class='header-link'><i></i></a>Additional response fields</h5>
 <table><thead>
