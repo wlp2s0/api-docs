@@ -592,6 +592,8 @@ Here you will find all the information to get started with our API. We&#39;re bu
 <p>You can use the Business API to automate your own business financial operations. This means you will be able to only access your own Revolut Business account.</p>
 
 <p>If, instead, you&#39;re planning to build an app or integration to publish for others to use, please check out our <a href="#open-banking-api">Open Banking API</a>, using our <a href="https://www.openbanking.org.uk/">Open Banking Standard API</a></p>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-getting-started-usage-and-limits'><a href='#business-api-business-api-getting-started-usage-and-limits' class='header-link'><i></i></a>Usage and limits</h3>
 <p>In order to ensure safe and fair resource sharing, we define the following usage limits:</p>
 
@@ -600,6 +602,8 @@ Here you will find all the information to get started with our API. We&#39;re bu
 </ul>
 
 <p>Please note that for businesses on the Freelancer plan we are also required to ask users for explicit authorisation to access their account via the API every 90 days. This means that access tokens will expire every 90 days and you (or your users) will need to authorise access to the app once more. This is due to the recent PSD2 SCA regulations.</p>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-getting-started-demo-account'><a href='#business-api-business-api-getting-started-demo-account' class='header-link'><i></i></a>Demo account</h3>
 <p>In order to make it easier for you to start working with the API, we&#39;ve created a sandbox: a test account that replicates the same functionalities as a real business account, but with fake data. This means you don&#39;t need to open a business account to start using the API and, more importantly, you won&#39;t risk accidentally transferring real money to the wrong person.
 Sign up for a demo account here: <a href="https://sandbox-business.revolut.com">https://sandbox-business.revolut.com</a></p>
@@ -607,6 +611,8 @@ Sign up for a demo account here: <a href="https://sandbox-business.revolut.com">
 <aside class="notice">
     In order to use the API on a Demo account, please change the API requests URL prefix to: <code>https://sandbox-b2b.revolut.com/api/1.0</code>
 </aside>
+
+<div class="feedback"></div>
 <h2 id='business-api-authentication'><a href='#business-api-authentication' class='header-link'><i></i></a>Authentication</h2><h3 id='business-api-business-api-authentication-setting-up-access-to-your-business-account'><a href='#business-api-business-api-authentication-setting-up-access-to-your-business-account' class='header-link'><i></i></a>Setting up access to your Business account</h3>
 <p>You will need to authorize the API to access your Revolut Business account. You can do this via the <a href="https://business.revolut.com/settings/api">API settings page</a> in the Revolut Business web app.</p>
 
@@ -762,6 +768,8 @@ Download OpenSSL for Windows</p>
 </aside>
 
 <p><a href="#business-api-oauth-refresh-access-token">Check the corresponding endpoint documentation</a></p>
+
+<div class="feedback"></div>
 <h2 id='business-api-oauth'><a href='#business-api-oauth' class='header-link'><i></i></a>OAuth</h2><h3 id='business-api-business-api-oauth-get-authorisation-code'><a href='#business-api-business-api-oauth-get-authorisation-code' class='header-link'><i></i></a>Get authorisation code</h3><blockquote>
       <div><p>Example URL</p>
 </div>
@@ -825,6 +833,8 @@ Download OpenSSL for Windows</p>
 <td>Text</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-oauth-exchange-authorisation-code'><a href='#business-api-business-api-oauth-exchange-authorisation-code' class='header-link'><i></i></a>Exchange Authorisation Code</h3><blockquote>
       <div><p>Exchange auth code to an access token</p>
 </div>
@@ -942,6 +952,8 @@ Download OpenSSL for Windows</p>
 <td>Text</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-oauth-refresh-access-token'><a href='#business-api-business-api-oauth-refresh-access-token' class='header-link'><i></i></a>Refresh Access Token</h3><blockquote>
       <div><p>Refresh access token</p>
 </div>
@@ -1045,6 +1057,8 @@ Download OpenSSL for Windows</p>
 <td>Integer</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h2 id='business-api-accounts'><a href='#business-api-accounts' class='header-link'><i></i></a>Accounts</h2>
 <p><a href="https://raw.githubusercontent.com/revolutdev/business-api-spec/master/accounts.yaml">OpenAPI Specification</a></p>
 <h3 id='business-api-business-api-accounts-get-accounts'><a href='#business-api-business-api-accounts-get-accounts' class='header-link'><i></i></a>Get Accounts</h3><blockquote>
@@ -1144,6 +1158,8 @@ Download OpenSSL for Windows</p>
 <td>ISO date/time</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-accounts-get-account'><a href='#business-api-business-api-accounts-get-account' class='header-link'><i></i></a>Get Account</h3><blockquote>
       <div><p>Get account by ID</p>
 </div>
@@ -1243,6 +1259,8 @@ Download OpenSSL for Windows</p>
 <td>ISO date/time</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-accounts-get-account-details'><a href='#business-api-business-api-accounts-get-account-details' class='header-link'><i></i></a>Get Account Details</h3><blockquote>
       <div><p>Get account details</p>
 </div>
@@ -1416,6 +1434,8 @@ Download OpenSSL for Windows</p>
 <td>Decimal</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h2 id='business-api-counterparties'><a href='#business-api-counterparties' class='header-link'><i></i></a>Counterparties</h2>
 <p><a href="https://raw.githubusercontent.com/revolutdev/business-api-spec/master/counterparties.yaml">OpenAPI Specification</a></p>
 
@@ -1655,6 +1675,8 @@ EOF
 <td>Text</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-counterparties-add-non-revolut-counterparty'><a href='#business-api-business-api-counterparties-add-non-revolut-counterparty' class='header-link'><i></i></a>Add non-Revolut Counterparty</h3><blockquote>
       <div><p>Add a non-Revolut bank account as counterparty</p>
 </div>
@@ -1996,6 +2018,8 @@ EOF
 <td>Text</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-counterparties-delete-counterparty'><a href='#business-api-business-api-counterparties-delete-counterparty' class='header-link'><i></i></a>Delete Counterparty</h3><blockquote>
       <div><p>Delete counterparty</p>
 </div>
@@ -2037,6 +2061,8 @@ EOF
 <td>UUID</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-counterparties-get-counterparty'><a href='#business-api-business-api-counterparties-get-counterparty' class='header-link'><i></i></a>Get Counterparty</h3><blockquote>
       <div><p>Get counterparty</p>
 </div>
@@ -2209,6 +2235,8 @@ EOF
 <td>Text</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-counterparties-get-counterparties'><a href='#business-api-business-api-counterparties-get-counterparties' class='header-link'><i></i></a>Get Counterparties</h3><blockquote>
       <div><p>Get a list of counterparties</p>
 </div>
@@ -2385,6 +2413,8 @@ EOF
 <td>Text</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h2 id='business-api-transfers'><a href='#business-api-transfers' class='header-link'><i></i></a>Transfers</h2>
 <p><a href="https://raw.githubusercontent.com/revolutdev/business-api-spec/master/transactions.yaml">OpenAPI Specification</a></p>
 <h3 id='business-api-business-api-transfers-create-transfer'><a href='#business-api-business-api-transfers-create-transfer' class='header-link'><i></i></a>Create transfer</h3><blockquote>
@@ -2513,6 +2543,8 @@ EOF
 <td>ISO date/time</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h2 id='business-api-payments'><a href='#business-api-payments' class='header-link'><i></i></a>Payments</h2>
 <p><a href="https://raw.githubusercontent.com/revolutdev/business-api-spec/master/transactions.yaml">OpenAPI Specification</a></p>
 
@@ -2687,6 +2719,8 @@ EOF
 <td>ISO date/time</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-payments-schedule-payment'><a href='#business-api-business-api-payments-schedule-payment' class='header-link'><i></i></a>Schedule Payment</h3><blockquote>
       <div><p>Schedule an internal payment</p>
 </div>
@@ -2753,6 +2787,8 @@ To schedule a future payment, as opposed to immediate execution, just pass an ad
 </tbody></table>
 
 <aside class="notice">Payments scheduled for the same time are not guaranteed to be executed all at the same time. As scheduled processor runs every several hours, the payments will be processed in batches, and if you schedule too many payments it will require more time to process all of them.</aside>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-payments-get-transaction'><a href='#business-api-business-api-payments-get-transaction' class='header-link'><i></i></a>Get Transaction</h3><blockquote>
       <div><p>Get transaction details</p>
 </div>
@@ -3195,6 +3231,8 @@ It also allows you to find out more about the transaction, such as cardholder de
 <td>Text</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-payments-cancel-payment'><a href='#business-api-business-api-payments-cancel-payment' class='header-link'><i></i></a>Cancel Payment</h3><blockquote>
       <div><p>Cancel a scheduled transaction</p>
 </div>
@@ -3236,6 +3274,8 @@ It also allows you to find out more about the transaction, such as cardholder de
 <td>UUID</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-payments-get-transactions'><a href='#business-api-business-api-payments-get-transactions' class='header-link'><i></i></a>Get Transactions</h3><blockquote>
       <div><p>Get historical transactions list</p>
 </div>
@@ -3543,6 +3583,8 @@ It also allows you to find out more about the transaction, such as cardholder de
 </tbody></table>
 <h4 id='business-api-business-api-payments-business-api-business-api-payments-get-transactions-pagination'><a href='#business-api-business-api-payments-business-api-business-api-payments-get-transactions-pagination' class='header-link'><i></i></a>Pagination</h4>
 <p>The endpoint supports time-based pagination. It returns transactions in reverse chronological order (<code>from</code> &lt;= <code>created_at</code> &lt; <code>to</code>) limited to most recent <code>count</code> entities. Thus, to get the next page of results, you should set parameter <code>to</code> with the value of <code>created_at</code> last item of the previous page.</p>
+
+<div class="feedback"></div>
 <h2 id='business-api-payment-drafts'><a href='#business-api-payment-drafts' class='header-link'><i></i></a>Payment Drafts</h2>
 <p><a href="https://raw.githubusercontent.com/revolutdev/business-api-spec/master/drafts.yaml">OpenAPI Specification</a></p>
 
@@ -3794,6 +3836,8 @@ EOF
 <td>Integer</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-get-payment-drafts-get-payment-draft-by-id'><a href='#business-api-business-api-get-payment-drafts-get-payment-draft-by-id' class='header-link'><i></i></a>Get Payment Draft by ID</h3><blockquote>
       <div><p>Get Payment Draft details</p>
 </div>
@@ -3945,6 +3989,8 @@ EOF
 <td>json</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-get-payment-drafts-delete-payment-draft'><a href='#business-api-business-api-get-payment-drafts-delete-payment-draft' class='header-link'><i></i></a>Delete Payment Draft</h3><blockquote>
       <div><p>Delete payment draft</p>
 </div>
@@ -3988,6 +4034,8 @@ EOF
 <td>UUID</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h2 id='business-api-exchanges'><a href='#business-api-exchanges' class='header-link'><i></i></a>Exchanges</h2>
 <p><a href="https://raw.githubusercontent.com/revolutdev/business-api-spec/master/exchanges.yaml">OpenAPI Specification</a></p>
 <h3 id='business-api-business-api-exchanges-get-exchange-rates'><a href='#business-api-business-api-exchanges-get-exchange-rates' class='header-link'><i></i></a>Get exchange rates</h3><blockquote>
@@ -4118,6 +4166,8 @@ EOF
 <td>ISO date/time</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-exchanges-exchange-currency'><a href='#business-api-business-api-exchanges-exchange-currency' class='header-link'><i></i></a>Exchange currency</h3><blockquote>
       <div><p>Make an exchange</p>
 </div>
@@ -4288,6 +4338,8 @@ EOF
 <td>ISO date/time</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h2 id='business-api-web-hooks'><a href='#business-api-web-hooks' class='header-link'><i></i></a>Web-hooks</h2>
 <p><a href="https://raw.githubusercontent.com/revolutdev/business-api-spec/master/webhooks.yaml">OpenAPI Specification</a></p>
 
@@ -4344,6 +4396,8 @@ EOF
 <td>URL</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-web-hooks-deleting-a-web-hook'><a href='#business-api-business-api-web-hooks-deleting-a-web-hook' class='header-link'><i></i></a>Deleting a web-hook</h3><blockquote>
       <div><p>Delete a web-hook</p>
 </div>
@@ -4359,6 +4413,8 @@ EOF
   -H <span class="s2">"Authorization: Bearer &lt;your access token&gt;"</span>
 </code></pre>
 <p>Use this API request to delete a web-hook</p>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-web-hooks-transaction-created-event'><a href='#business-api-business-api-web-hooks-transaction-created-event' class='header-link'><i></i></a>Transaction Created event</h3><blockquote>
       <div><p>Payload example</p>
 </div>
@@ -4524,6 +4580,8 @@ EOF
 <td>Decimal</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='business-api-business-api-web-hooks-transaction-state-changed-event'><a href='#business-api-business-api-web-hooks-transaction-state-changed-event' class='header-link'><i></i></a>Transaction State Changed event</h3><blockquote>
       <div><p>Payload example</p>
 </div>
@@ -4576,31 +4634,37 @@ EOF
 <td>Text</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h1 id='open-banking-api'><a href='#open-banking-api' class='header-link'><i></i></a>Open Banking API</h1><h2 id='open-banking-api-getting-started'><a href='#open-banking-api-getting-started' class='header-link'><i></i></a>Getting started</h2><h3 id='open-banking-api-open-banking-api-getting-started-introduction'><a href='#open-banking-api-open-banking-api-getting-started-introduction' class='header-link'><i></i></a>Introduction</h3>
 <p>Welcome to the Revolut Open Banking API v3.1!
 Here you will find all the information to get started with Open Banking API. We&#39;re building a future beyond banking, we&#39;re excited to have you onboard.</p>
 
-<p>There is two ways to get access to our Open Banking API: 
+<p>There is two ways to get access to our Open Banking API:</p>
+
 <aside class="notice">
-For businesses that can do so, we recommend to enroll as a third party provider (TPP) in <a href="https://www.openbanking.org.uk/providers/directory/">Open Banking Directory</a>. 
-Follow the Open Banking API v3.1 documentation <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937656404/Read+Write+Data+API+Specification+-+v3.1">here</a>. 
+For businesses that can do so, we recommend to enroll as a third party provider (TPP) in <a href="https://www.openbanking.org.uk/providers/directory/">Open Banking Directory</a>.
+Follow the Open Banking API v3.1 documentation <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937656404/Read+Write+Data+API+Specification+-+v3.1">here</a>.
 We support the following OB certificates: OBWAC (Open Banking QWAC-like certificates), OBSEAL (Open Banking QSEAL-like certificates) and OB non-eIDAS like certificates for transport and signing.
 </aside>
+
 <aside class="notice">
-For TPPs that cannot get registered in the Open Banking Directory and want to integrate with our Open Banking API directly, it is possible to use valid eIDAS QWAC or QSEAL certificates from any of the following QTSPs: Izba Rozliczeniowa S.A., InfoCert S.p.A.<br>
+For TPPs that cannot get registered in the Open Banking Directory and want to integrate with our Open Banking API directly, it is possible to use valid eIDAS QWAC or QSEAL certificates from any of the following QTSPs: Izba Rozliczeniowa S.A., InfoCert S.p.A.
 If you require a new QTSP to be added please <a href="mailto:api-requests@revolut.com">contact us</a> and the QTSP will be added. After having obtained all information, our SLA is to do this within two weeks.
-</aside></p>
+</aside>
 
 <p>This Open Banking API can be used to access the accounts of customers of both Revolut Ltd (UK) and Revolut Payments UAB (Lithuania).</p>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-getting-started-the-developer-portal'><a href='#open-banking-api-open-banking-api-getting-started-the-developer-portal' class='header-link'><i></i></a>The Developer Portal</h3><h4 id='open-banking-api-open-banking-api-getting-started-open-banking-api-open-banking-api-getting-started-the-developer-portal-what-is-the-developer-portal'><a href='#open-banking-api-open-banking-api-getting-started-open-banking-api-open-banking-api-getting-started-the-developer-portal-what-is-the-developer-portal' class='header-link'><i></i></a>What is the Developer Portal?</h4>
 <p>If you are building a great app and would like to integrate it with Revolut, then the Developer Portal is for you.
 The Developer Portal allows you to easily manage the applications which are developed for our <a href="https://www.openbanking.org.uk/">Open Banking API</a>.</p>
 <h4 id='open-banking-api-open-banking-api-getting-started-open-banking-api-open-banking-api-getting-started-the-developer-portal-1-sign-up-to-the-developer-portal'><a href='#open-banking-api-open-banking-api-getting-started-open-banking-api-open-banking-api-getting-started-the-developer-portal-1-sign-up-to-the-developer-portal' class='header-link'><i></i></a>1. Sign up to the Developer Portal</h4>
 <p>To get an access to Developer Portal you need to sign up to <a href="https://developers.revolut.com/portal/signup">developers.revolut.com/portal/signup</a>. After you sign up, please set your Open Banking organisation id in <code>Profile</code> section. This will help us to link your applications with your developer account during <code>dynamic application registration</code> process of Open Banking API.</p>
 <h4 id='open-banking-api-open-banking-api-getting-started-open-banking-api-open-banking-api-getting-started-the-developer-portal-2-get-a-sandbox-user-account'><a href='#open-banking-api-open-banking-api-getting-started-open-banking-api-open-banking-api-getting-started-the-developer-portal-2-get-a-sandbox-user-account' class='header-link'><i></i></a>2. Get a Sandbox User account</h4>
-<p>Once you created your account and set your organization id, you can ask for a test user account for sandbox environment by mailing to <a href="mailto:api-requests@revolut.com">api-requests@revolut.com</a>. </p>
+<p>Once you created your account and set your organization id, you can ask for a test user account for sandbox environment by mailing to <a href="mailto:api-requests@revolut.com">api-requests@revolut.com</a>.</p>
 
-<p>In your request please mention </p>
+<p>In your request please mention</p>
 
 <ul>
 <li>if you are a <code>AISP or PISP</code></li>
@@ -4614,6 +4678,8 @@ The Developer Portal allows you to easily manage the applications which are deve
 <p>Then you can create Open Banking Applications using the <a href="#open-banking-api-dynamic-client-registration">dynamic client registration</a> endpoint.</p>
 
 <p>Subsequently you can review and delete your Open Banking Applications in the <a href="https://developers.revolut.com/portal">developer portal</a>. If something has not been setup properly we recommend deleting your app in the developer portal and recreating it through dynamic registration.</p>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-getting-started-open-id-configuration-urls'><a href='#open-banking-api-open-banking-api-getting-started-open-id-configuration-urls' class='header-link'><i></i></a>Open Id Configuration URLs</h3>
 <ul>
 <li>Production: https://oba.revolut.com/openid-configuration</li>
@@ -4626,9 +4692,9 @@ The Developer Portal allows you to easily manage the applications which are deve
 <li>Maximum 16 requests per second for one application</li>
 </ul>
 
-<p>Please make sure to stay under this limit. Should you estimate this limit be a problem for your usecase of our API, please <a href="mailto:api-requests@revolut.com">reach out to us</a> directly. </p>
+<p>Please make sure to stay under this limit. Should you estimate this limit be a problem for your usecase of our API, please <a href="mailto:api-requests@revolut.com">reach out to us</a> directly.</p>
 <h2 id='open-banking-api-dynamic-client-registration'><a href='#open-banking-api-dynamic-client-registration' class='header-link'><i></i></a>Dynamic Client Registration</h2>
-<p>In order to create an Application in the Developer Portal you will need to use Dynamic Registration. </p>
+<p>In order to create an Application in the Developer Portal you will need to use Dynamic Registration.</p>
 
 <p>The register endpoint is implemented as it is described in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937066600/Dynamic+Client+Registration+-+v3.1#DynamicClientRegistration-v3.1-POST/register">documentation</a></p>
 <blockquote>
@@ -4649,11 +4715,13 @@ or an alternative `unique identifier` in your profile.
 </aside>
 
 <aside class="warning">
-In order to change your configuration: go to the <a href="https://developers.revolut.com/portal">developers.revolut.com</a>, delete your application and re-register. 
+In order to change your configuration: go to the <a href="https://developers.revolut.com/portal">developers.revolut.com</a>, delete your application and re-register.
 </aside>
 <h3 id='open-banking-api-open-banking-api-dynamic-client-registration-certificate-dn'><a href='#open-banking-api-open-banking-api-dynamic-client-registration-certificate-dn' class='header-link'><i></i></a>Certificate DN</h3>
 <p>Please note that Dynamic Registration requires using the RFC2253 DN format in your request. To obtain the DN of your certificate in this format, you may use the following command:
 <code>openssl x509 -in /path/to/your/cert.cer -noout -subject -nameopt RFC2253</code></p>
+
+<div class="feedback"></div>
 <h2 id='open-banking-api-open-banking-security-profile'><a href='#open-banking-api-open-banking-security-profile' class='header-link'><i></i></a>Open Banking Security Profile</h2>
 <p>Open Banking security profile is implemented as it is described in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/83919096/Open+Banking+Security+Profile+-+Implementer+s+Draft+v1.1.2">documentation</a></p>
 <h4 id='open-banking-api-open-banking-api-open-banking-security-profile-open-banking-api-open-banking-api-dynamic-client-registration-certificate-dn-authorization-endpoint'><a href='#open-banking-api-open-banking-api-open-banking-security-profile-open-banking-api-open-banking-api-dynamic-client-registration-certificate-dn-authorization-endpoint' class='header-link'><i></i></a>Authorization Endpoint</h4><blockquote>
@@ -4684,6 +4752,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba-auth.revolut.com/token
 </code></pre>
 <p><code>/token</code> endpoint served via Revolut authorization server. This endpoints requires client certificate authentication for MATLS</p>
+
+<div class="feedback"></div>
 <h2 id='open-banking-api-account-and-transaction-api'><a href='#open-banking-api-account-and-transaction-api' class='header-link'><i></i></a>Account and Transaction API</h2>
 <p>Open Banking <code>Account and Transaction API</code> is implemented as specified in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/999622968/Account+and+Transaction+API+Specification+-+v3.1.1">documentation</a></p>
 
@@ -4766,6 +4836,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint creates a consent to be authorized by revolut user.</p>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-account-and-transaction-api-get-accounts'><a href='#open-banking-api-open-banking-api-account-and-transaction-api-get-accounts' class='header-link'><i></i></a>Get Accounts</h3><blockquote>
       <div><p>Get list of accounts</p>
 </div>
@@ -4815,6 +4887,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns list of the user accounts.</p>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-account-and-transaction-api-get-account-details'><a href='#open-banking-api-open-banking-api-account-and-transaction-api-get-account-details' class='header-link'><i></i></a>Get Account Details</h3><blockquote>
       <div><p>Get account details</p>
 </div>
@@ -4864,6 +4938,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves individual account details.</p>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-account-and-transaction-api-get-account-balances'><a href='#open-banking-api-open-banking-api-account-and-transaction-api-get-account-balances' class='header-link'><i></i></a>Get Account Balances</h3><blockquote>
       <div><p>Get account balances</p>
 </div>
@@ -4916,6 +4992,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves balances for an account.</p>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-account-and-transaction-api-get-account-transactions'><a href='#open-banking-api-open-banking-api-account-and-transaction-api-get-account-transactions' class='header-link'><i></i></a>Get Account Transactions</h3><blockquote>
       <div><p>Get account transactions</p>
 </div>
@@ -4993,6 +5071,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 <td>Text</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-account-and-transaction-api-get-account-beneficiaries'><a href='#open-banking-api-open-banking-api-account-and-transaction-api-get-account-beneficiaries' class='header-link'><i></i></a>Get Account Beneficiaries</h3><blockquote>
       <div><p>Get a list of account beneficiaries</p>
 </div>
@@ -5045,6 +5125,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the list of beneficiaries for a specific user account.</p>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-account-and-transaction-api-get-account-direct-debits'><a href='#open-banking-api-open-banking-api-account-and-transaction-api-get-account-direct-debits' class='header-link'><i></i></a>Get Account Direct Debits</h3><blockquote>
       <div><p>Get a list of account direct debits</p>
 </div>
@@ -5101,6 +5183,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the list of direct debits for a specific user account.</p>
+
+<div class="feedback"></div>
 <h2 id='open-banking-api-payment-initiation-api-specification'><a href='#open-banking-api-payment-initiation-api-specification' class='header-link'><i></i></a>Payment Initiation API Specification</h2><h3 id='open-banking-api-open-banking-api-payment-initiation-api-specification-create-domestic-payment-consent'><a href='#open-banking-api-open-banking-api-payment-initiation-api-specification-create-domestic-payment-consent' class='header-link'><i></i></a>Create Domestic Payment Consent</h3><blockquote>
       <div><p>Create Domestic Payment Consent</p>
 </div>
@@ -5163,6 +5247,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 <aside class="notice">
     Unfortunately, cannot support the <b>EndToEndIdentification</b> field as it is described in the <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937656404/Read+Write+Data+API+Specification+-+v3.1">documentation</a>. We will update the documentation once we get support for it.
 </aside>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-payment-initiation-api-specification-get-domestic-payment-consent'><a href='#open-banking-api-open-banking-api-payment-initiation-api-specification-get-domestic-payment-consent' class='header-link'><i></i></a>Get Domestic Payment Consent</h3><blockquote>
       <div><p>Get Domestic Payment Consent details</p>
 </div>
@@ -5220,6 +5306,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns consent details as it is described in the official documentation.</p>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-payment-initiation-api-specification-get-funds-confirmation'><a href='#open-banking-api-open-banking-api-payment-initiation-api-specification-get-funds-confirmation' class='header-link'><i></i></a>Get Funds Confirmation</h3><blockquote>
       <div><p>Get Funds Confirmation</p>
 </div>
@@ -5254,7 +5342,9 @@ In order to change your configuration: go to the <a href="https://developers.rev
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='open-banking-api-open-banking-api-payment-initiation-api-specification-create-domestic-payment'><a href='#open-banking-api-open-banking-api-payment-initiation-api-specification-create-domestic-payment' class='header-link'><i></i></a>Create Domestic Payment</h3><blockquote>
+</span></code></pre>
+<div class="feedback"></div>
+<h3 id='open-banking-api-open-banking-api-payment-initiation-api-specification-create-domestic-payment'><a href='#open-banking-api-open-banking-api-payment-initiation-api-specification-create-domestic-payment' class='header-link'><i></i></a>Create Domestic Payment</h3><blockquote>
       <div><p>Create Domestic Payment</p>
 </div>
       <div class='env-selector'>
@@ -5311,6 +5401,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>As it is defined in the Open Banking Specifications, <code>/Data/Initiation</code> and <code>/Data/Risk</code> sections of the request must be exact match for the related consent passed in <code>ConsentId</code>.</p>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-payment-initiation-api-specification-get-domestic-payment'><a href='#open-banking-api-open-banking-api-payment-initiation-api-specification-get-domestic-payment' class='header-link'><i></i></a>Get Domestic Payment</h3><blockquote>
       <div><p>Get Domestic Payment details</p>
 </div>
@@ -5372,6 +5464,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns state of a payment</p>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-payment-initiation-api-specification-create-international-payment-consent'><a href='#open-banking-api-open-banking-api-payment-initiation-api-specification-create-international-payment-consent' class='header-link'><i></i></a>Create International Payment Consent</h3><blockquote>
       <div><p>Create International Payment Consent</p>
 </div>
@@ -5409,7 +5503,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
         </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-       </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB38REVO00996907112483"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut LTD"</span><span class="p">,</span><span class="w">
@@ -5430,10 +5524,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
     </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5967"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"MerchantCustomerIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"053598653254"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"Flat 7"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Acacia Lodge"</span><span class="w">
-      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Flat 7"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Acacia Lodge"</span><span class="p">],</span><span class="w">
       </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acacia Avenue"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GU31 2ZZ"</span><span class="p">,</span><span class="w">
@@ -5445,7 +5536,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span></code></pre>
 <p>This endpoint is for creating payment consent as described in Open Banking API documentation. International Payments are used for international SWIFT payments in all currencies supported by Revolut.</p>
 
-<p>Only payments with <code>InstructedAmount</code> in the same currency as <code>CurrencyOfTransfer</code> are supported. </p>
+<p>Only payments with <code>InstructedAmount</code> in the same currency as <code>CurrencyOfTransfer</code> are supported.</p>
 
 <p>At the moment, currency exchange is not supported, which means that a PSU should have enough funds in a currency specified in the <code>CurrencyOfTransfer</code> field to execute a payment.</p>
 
@@ -5454,6 +5545,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 <aside class="notice">
     Unfortunately, cannot support the <b>EndToEndIdentification</b> field as it is described in the <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937656404/Read+Write+Data+API+Specification+-+v3.1">documentation</a>. We will update the documentation once we get support for it.
 </aside>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-payment-initiation-api-specification-get-international-payment-consent'><a href='#open-banking-api-open-banking-api-payment-initiation-api-specification-get-international-payment-consent' class='header-link'><i></i></a>Get International Payment Consent</h3><blockquote>
       <div><p>Get International Payment Consent details</p>
 </div>
@@ -5495,7 +5588,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
         </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-       </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB38REVO00996907112483"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut LTD"</span><span class="p">,</span><span class="w">
@@ -5521,10 +5614,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
     </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5967"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"MerchantCustomerIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"053598653254"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"Flat 7"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Acacia Lodge"</span><span class="w">
-      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Flat 7"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Acacia Lodge"</span><span class="p">],</span><span class="w">
       </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acacia Avenue"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GU31 2ZZ"</span><span class="p">,</span><span class="w">
@@ -5535,10 +5625,12 @@ In order to change your configuration: go to the <a href="https://developers.rev
   </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:33453/international-payment-consents/b4206fed-5265-48ce-91af-cb7182018991"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns consent details as it is described in the official documentation.</p>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-payment-initiation-api-specification-get-international-payment-consent-funds-confirmation'><a href='#open-banking-api-open-banking-api-payment-initiation-api-specification-get-international-payment-consent-funds-confirmation' class='header-link'><i></i></a>Get International Payment Consent Funds Confirmation</h3><blockquote>
       <div><p>Get Funds Confirmation</p>
 </div>
@@ -5573,6 +5665,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint allows checking funds for the given consent. This endpoint returns successfully only if user has authorized the related consent.</p>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-payment-initiation-api-specification-create-international-payment'><a href='#open-banking-api-open-banking-api-payment-initiation-api-specification-create-international-payment' class='header-link'><i></i></a>Create International Payment</h3><blockquote>
       <div><p>Create International Payment</p>
 </div>
@@ -5611,7 +5705,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
         </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-       </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB38REVO00996907112483"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut LTD"</span><span class="p">,</span><span class="w">
@@ -5643,6 +5737,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>As it is defined in the Open Banking Specifications, <code>/Data/Initiation</code> and <code>/Data/Risk</code> sections of the request must be exact match for the related consent passed in <code>ConsentId</code>.</p>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-payment-initiation-api-specification-get-international-payment'><a href='#open-banking-api-open-banking-api-payment-initiation-api-specification-get-international-payment' class='header-link'><i></i></a>Get International Payment</h3><blockquote>
       <div><p>Get International Payment details</p>
 </div>
@@ -5685,7 +5781,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
         </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-       </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB38REVO00996907112483"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut LTD"</span><span class="p">,</span><span class="w">
@@ -5717,6 +5813,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns a state of a payment</p>
+
+<div class="feedback"></div>
 <h2 id='open-banking-api-confirmation-of-funds'><a href='#open-banking-api-confirmation-of-funds' class='header-link'><i></i></a>Confirmation of funds</h2>
 <p>Open Banking <code>Funds Confirmation API</code> is implemented as specified in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937951380/Confirmation+of+Funds+API+Specification+-+v3.1">documentation</a></p>
 <h3 id='open-banking-api-open-banking-api-confirmation-of-funds-funds-confirmation-consent'><a href='#open-banking-api-open-banking-api-confirmation-of-funds-funds-confirmation-consent' class='header-link'><i></i></a>Funds Confirmation Consent</h3><blockquote>
@@ -5749,6 +5847,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This API allows the CBPII to create a new funds-confirmation-consent resource, implemented as described in Open Banking API documentation.</p>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-confirmation-of-funds-create-funds-confirmations'><a href='#open-banking-api-open-banking-api-confirmation-of-funds-create-funds-confirmations' class='header-link'><i></i></a>Create Funds Confirmations</h3><blockquote>
       <div><p>Create Funds Confirmation</p>
 </div>
@@ -5781,6 +5881,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This API allows the CBPII to create a new funds-confirmation resource, and check the funds available flag in the response.</p>
+
+<div class="feedback"></div>
 <h3 id='open-banking-api-open-banking-api-confirmation-of-funds-get-funds-confirmation'><a href='#open-banking-api-open-banking-api-confirmation-of-funds-get-funds-confirmation' class='header-link'><i></i></a>Get Funds Confirmation</h3><blockquote>
       <div><p>Get Funds Confirmation details</p>
 </div>
@@ -5820,6 +5922,8 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This API fetches the already created funds confirmation resource which indicates the availability of the funds</p>
+
+<div class="feedback"></div>
 <h2 id='open-banking-api-api-metrics'><a href='#open-banking-api-api-metrics' class='header-link'><i></i></a>API Metrics</h2>
 <p>You can view the latest API metrics for Mobile, Business and Open Banking APIs <a href="https://revolut-engineering.github.io/oba/reports/indexLine.html" target="_blank">here</a>.
 You can also review detailed Open Banking metrics <a href="https://revolut-engineering.github.io/oba/reports/index.html" target="_blank">here</a>.</p>
@@ -5907,6 +6011,8 @@ You can also review detailed Open Banking metrics <a href="https://revolut-engin
 <span class="nt">&lt;/head&gt;</span>
 </code></pre>
 <p><strong>Step 4.</strong> <a href="#merchant-api-getting-started-collect-card-details">Collect card details</a>.</p>
+
+<div class="feedback"></div>
 <h3 id='merchant-api-beta-merchant-api-beta-getting-started-collect-card-details'><a href='#merchant-api-beta-merchant-api-beta-getting-started-collect-card-details' class='header-link'><i></i></a>Collect card details</h3>
 <p>After inserting a code snippet into the document head, you have two options to collect a card number and make a payment:</p>
 
@@ -6043,6 +6149,8 @@ You can also review detailed Open Banking metrics <a href="https://revolut-engin
 <p>The snippet shows how we can create a form with a <code>div</code> element in it which will render a <a href="#merchant-api-revolut-checkout-widget-api-instance-createcardfield">card field</a> and then submit a payment.</p>
 
 <p><img src="https://user-images.githubusercontent.com/442932/73471842-ed578700-4381-11ea-907f-5d55fd4b7d00.png" /></p>
+
+<div class="feedback"></div>
 <h3 id='merchant-api-beta-merchant-api-beta-getting-started-test-different-scenarios-with-dummy-cards'><a href='#merchant-api-beta-merchant-api-beta-getting-started-test-different-scenarios-with-dummy-cards' class='header-link'><i></i></a>Test different scenarios with dummy cards</h3>
 <p>In order for you to be able to test various payment flows, we provide the following dummy card numbers for each of those scenarios:</p>
 
@@ -6089,6 +6197,8 @@ You can also review detailed Open Banking metrics <a href="https://revolut-engin
 <td>RISK_DECLINED_CARD</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='merchant-api-beta-merchant-api-beta-getting-started-wrap-up'><a href='#merchant-api-beta-merchant-api-beta-getting-started-wrap-up' class='header-link'><i></i></a>Wrap-up</h3>
 <p>To sum up, one can follow the following high-level flow in order to integrate FE and BE:
 <img width="555" alt="Screen Shot 2020-02-11 at 15 47 13" src="https://user-images.githubusercontent.com/60622352/74252610-d4d25f80-4ce5-11ea-897f-5d814375f12b.png"></p>
@@ -6096,9 +6206,13 @@ You can also review detailed Open Banking metrics <a href="https://revolut-engin
 <p><a href="#merchant-api-revolut-checkout-widget-api">Read detailed reference to Revolut Checkout Widget API.</a></p>
 
 <p><a href="#merchant-api-backend-api">Read detailed reference to Back-end API.</a></p>
+
+<div class="feedback"></div>
 <h2 id='merchant-api-beta-revolut-checkout-widget-api'><a href='#merchant-api-beta-revolut-checkout-widget-api' class='header-link'><i></i></a>Revolut Checkout Widget API</h2><h3 id='merchant-api-beta-merchant-api-beta-revolut-checkout-widget-api-embed-script'><a href='#merchant-api-beta-merchant-api-beta-revolut-checkout-widget-api-embed-script' class='header-link'><i></i></a>Embed script</h3><pre class="highlight html tab-html"><code><span class="nt">&lt;script&gt;</span><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="nx">n</span><span class="p">){</span><span class="nx">o</span><span class="p">.</span><span class="nx">RevolutCheckout</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span><span class="nx">e</span><span class="p">){</span><span class="kd">var</span> <span class="nx">c</span><span class="o">=</span><span class="nx">n</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span><span class="nx">c</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"revolut-checkout"</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s2">"https://merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="s2">"function"</span><span class="o">==</span><span class="k">typeof</span> <span class="nx">e</span><span class="o">&amp;&amp;</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">async</span><span class="o">=!</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="o">===</span><span class="nx">e</span><span class="p">.</span><span class="nx">length</span><span class="p">?</span><span class="nx">c</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">e</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="nx">t</span><span class="p">))}:(</span><span class="nx">c</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">e</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="nx">o</span><span class="p">.</span><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="nx">t</span><span class="p">))},</span><span class="nx">c</span><span class="p">.</span><span class="nx">onerror</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">o</span><span class="p">){</span><span class="nx">e</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="kc">null</span><span class="p">)})),</span><span class="nx">n</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">c</span><span class="p">)}}(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
 </code></pre>
 <p>Embed the following script on all pages that you intend to use <a href="#merchant-api-revolut-checkout-widget-api-revolutcheckout"><code>RevolutCheckout</code></a> on. Please note it should be inserted <strong>before</strong> the code that actually calls <code>RevolutCheckout</code>.</p>
+
+<div class="feedback"></div>
 <h3 id='merchant-api-beta-merchant-api-beta-revolut-checkout-widget-api-revolutcheckout'><a href='#merchant-api-beta-merchant-api-beta-revolut-checkout-widget-api-revolutcheckout' class='header-link'><i></i></a><code>RevolutCheckout</code></h3><pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">RevolutCheckout</span> <span class="o">=</span> <span class="p">(</span>
   <span class="nx">token</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
   <span class="nx">callback</span><span class="p">:</span> <span class="p">(</span><span class="nx">error</span><span class="p">:</span> <span class="nb">Error</span> <span class="o">|</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">instance</span><span class="p">:</span> <span class="nx">Instance</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
@@ -6131,6 +6245,8 @@ You can also review detailed Open Banking metrics <a href="https://revolut-engin
 <li><code>token</code> - <code>public_id</code> returned from the BE request</li>
 <li><code>callback</code> - used to access the order <a href="#merchant-api-revolut-checkout-widget-api-instance"><code>Instance</code></a> and returns an error if the script has failed to load.</li>
 </ul>
+
+<div class="feedback"></div>
 <h3 id='merchant-api-beta-merchant-api-beta-revolut-checkout-widget-api-instance'><a href='#merchant-api-beta-merchant-api-beta-revolut-checkout-widget-api-instance' class='header-link'><i></i></a><code>Instance</code></h3><pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">Instance</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">open</span><span class="p">:</span> <span class="nx">InstancePayWithPopup</span><span class="p">;</span>
   <span class="nl">cardElement</span><span class="p">:</span> <span class="nx">InstanceCreateCardField</span><span class="p">;</span>
@@ -6163,7 +6279,9 @@ You can also review detailed Open Banking metrics <a href="https://revolut-engin
     <span class="p">}</span>
   <span class="p">});</span>
 <span class="p">});</span>
-</code></pre><h3 id='merchant-api-beta-merchant-api-beta-revolut-checkout-widget-api-instance-paywithpopup'><a href='#merchant-api-beta-merchant-api-beta-revolut-checkout-widget-api-instance-paywithpopup' class='header-link'><i></i></a><code>Instance.payWithPopup</code></h3>
+</code></pre>
+<div class="feedback"></div>
+<h3 id='merchant-api-beta-merchant-api-beta-revolut-checkout-widget-api-instance-paywithpopup'><a href='#merchant-api-beta-merchant-api-beta-revolut-checkout-widget-api-instance-paywithpopup' class='header-link'><i></i></a><code>Instance.payWithPopup</code></h3>
 <p>Open a <a href="#merchant-api-getting-started-collect-card-details-pop-up">payment pop-up</a> which is available on the <a href="#merchant-api-revolut-checkout-widget-api-instance"><code>Instance</code></a>.</p>
 <pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">InstancePayWithPopup</span> <span class="o">=</span> <span class="p">(</span>
   <span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span>
@@ -6402,7 +6520,9 @@ You can also review detailed Open Banking metrics <a href="https://revolut-engin
 
   <span class="nx">popup</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
 <span class="p">});</span>
-</code></pre><h3 id='merchant-api-beta-merchant-api-beta-revolut-checkout-widget-api-instance-createcardfield'><a href='#merchant-api-beta-merchant-api-beta-revolut-checkout-widget-api-instance-createcardfield' class='header-link'><i></i></a><code>Instance.createCardField</code></h3>
+</code></pre>
+<div class="feedback"></div>
+<h3 id='merchant-api-beta-merchant-api-beta-revolut-checkout-widget-api-instance-createcardfield'><a href='#merchant-api-beta-merchant-api-beta-revolut-checkout-widget-api-instance-createcardfield' class='header-link'><i></i></a><code>Instance.createCardField</code></h3>
 <p>Create a <a href="#merchant-api-getting-started-collect-card-details-card-field">card field</a> which is available on the <a href="#merchant-api-revolut-checkout-widget-api-instance"><code>Instance</code></a>:</p>
 <pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">InstanceCreateCardField</span> <span class="o">=</span> <span class="p">(</span>
   <span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span>
@@ -6778,7 +6898,9 @@ You can also review detailed Open Banking metrics <a href="https://revolut-engin
     <span class="p">});</span>
   <span class="p">});</span>
 <span class="p">});</span>
-</code></pre><h2 id='merchant-api-beta-backend-api'><a href='#merchant-api-beta-backend-api' class='header-link'><i></i></a>Backend API</h2><h3 id='merchant-api-beta-merchant-api-beta-backend-api-introduction'><a href='#merchant-api-beta-merchant-api-beta-backend-api-introduction' class='header-link'><i></i></a>Introduction</h3>
+</code></pre>
+<div class="feedback"></div>
+<h2 id='merchant-api-beta-backend-api'><a href='#merchant-api-beta-backend-api' class='header-link'><i></i></a>Backend API</h2><h3 id='merchant-api-beta-merchant-api-beta-backend-api-introduction'><a href='#merchant-api-beta-merchant-api-beta-backend-api-introduction' class='header-link'><i></i></a>Introduction</h3>
 <p>Merchant API allows Revolut Business customers to accept online (Card Not Present) payments made with debit/credit cards, and, subsequently, to manage these transactions by means of capturing, canceling or refunding orders.</p>
 
 <p>All merchant requests should contain an authorisation header which includes the name of the merchant account Bearer and the <code>MERCHANT_API_KEY</code>.</p>
@@ -6800,7 +6922,9 @@ You can also review detailed Open Banking metrics <a href="https://revolut-engin
     </blockquote><pre class="highlight plaintext"><code>curl
 --header 'authorization: Bearer AUTHORIZATION_TOKEN'
 --header 'content-type: application/json'
-</code></pre><h3 id='merchant-api-beta-merchant-api-beta-backend-api-order-object'><a href='#merchant-api-beta-merchant-api-beta-backend-api-order-object' class='header-link'><i></i></a>Order object</h3>
+</code></pre>
+<div class="feedback"></div>
+<h3 id='merchant-api-beta-merchant-api-beta-backend-api-order-object'><a href='#merchant-api-beta-merchant-api-beta-backend-api-order-object' class='header-link'><i></i></a>Order object</h3>
 <p>Orders correspond to an <code>order_id</code> for a merchant and to a temporary <code>public_id</code> for a customer.</p>
 
 <p><code>Order</code> object:</p>
@@ -7627,6 +7751,8 @@ You can also review detailed Open Banking metrics <a href="https://revolut-engin
 <td>ISO-4217</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h3 id='merchant-api-beta-merchant-api-beta-backend-api-webhooks'><a href='#merchant-api-beta-merchant-api-beta-backend-api-webhooks' class='header-link'><i></i></a>Webhooks</h3>
 <p>Webhooks are used to notify a merchant about various events hapenning to his Revolut Merchant accounts. Please note that at the moment webhooks are created only order completion events.</p>
 <h4 id='merchant-api-beta-merchant-api-beta-backend-api-merchant-api-beta-merchant-api-beta-backend-api-webhooks-set-or-revoke-webhook-url'><a href='#merchant-api-beta-merchant-api-beta-backend-api-merchant-api-beta-merchant-api-beta-backend-api-webhooks-set-or-revoke-webhook-url' class='header-link'><i></i></a>Set or revoke webhook url</h4><blockquote>
@@ -7763,6 +7889,8 @@ You can also review detailed Open Banking metrics <a href="https://revolut-engin
 <td>UUID</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
 <h1 id='errors'><a href='#errors' class='header-link'><i></i></a>Errors</h1>
 <p>The API uses the following error codes:</p>
 
@@ -7810,7 +7938,10 @@ You can also review detailed Open Banking metrics <a href="https://revolut-engin
 </tr>
 </tbody></table>
 
+<div class="feedback"></div>
+
       </div>
     </div>
   </body>
+  <script src="javascripts/components/feedbackForm.js" async="true"></script>
 </html>
