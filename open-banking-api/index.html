@@ -1,0 +1,1739 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference v1.0</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&amp;display=swap" rel="stylesheet" media="all" />
+      <script src="../javascripts/all.js"></script>
+  </head>
+
+  <body class="open-banking-api open-banking-api_index" data-api-type="open-banking-api" data-languages="[&quot;shell--sandbox&quot;,&quot;shell--production&quot;]">
+
+    <header>
+  <div class="header-wrapper">
+    <a href="https://developers.revolut.com">
+      <div class="header-logo">
+        <img
+          src="https://assets.revolut.com/media/developer-portal/logo.svg"
+          alt="Revolut"
+          class="header-logo"
+        />
+        <span class="header-text">
+          Developer
+        </span>
+      </div>
+    </a>
+    <div class="header-links">
+      <a class="header-link" href="https://developers.revolut.com/portal">Developer portal</a
+      ><a
+        href="https://sandbox-business.revolut.com"
+        target="_blank"
+        class="header-link"
+        rel="noopener noreferrer"
+        >Sandbox</a
+      ><a
+        href="https://www.revolut.com/business/help/exploring-revolut/using-revolut-open-api-for-business"
+        target="_blank"
+        class="header-link"
+        rel="noopener noreferrer"
+        >FAQ</a
+      ><a
+        href="https://www.revolut.com/careers/department/technology"
+        target="_blank"
+        class="header-link"
+        rel="noopener noreferrer"
+        >We’re hiring!</a
+      >
+    </div>
+  </div>
+</header>
+
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <div id="doc_selector"></div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+        <ul class="toc-list-h2">
+            <li>
+              <a href="#getting-started" class="toc-h2 toc-link" data-title="Getting started">Getting started</a>
+                <ul class="toc-list-h3">
+                    <li>
+                      <a href="#getting-started-introduction" class="toc-h3 toc-link" data-title="Introduction">Introduction</a>
+                    </li>
+                    <li>
+                      <a href="#getting-started-the-developer-portal" class="toc-h3 toc-link" data-title="The Developer Portal">The Developer Portal</a>
+                    </li>
+                    <li>
+                      <a href="#getting-started-open-id-configuration-urls" class="toc-h3 toc-link" data-title="Open Id Configuration URLs">Open Id Configuration URLs</a>
+                    </li>
+                    <li>
+                      <a href="#getting-started-usage-and-limits" class="toc-h3 toc-link" data-title="Usage and limits">Usage and limits</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <a href="#dynamic-client-registration" class="toc-h2 toc-link" data-title="Dynamic Client Registration">Dynamic Client Registration</a>
+                <ul class="toc-list-h3">
+                    <li>
+                      <a href="#dynamic-client-registration-certificate-dn" class="toc-h3 toc-link" data-title="Certificate DN">Certificate DN</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <a href="#open-banking-security-profile" class="toc-h2 toc-link" data-title="Open Banking Security Profile">Open Banking Security Profile</a>
+                <ul class="toc-list-h3">
+                    <li>
+                      <a href="#open-banking-security-profile-dynamic-client-registration-certificate-dn-authorization-endpoint" class="toc-h3 toc-link" data-title="Authorization Endpoint">Authorization Endpoint</a>
+                    </li>
+                    <li>
+                      <a href="#open-banking-security-profile-dynamic-client-registration-certificate-dn-token-endpoint" class="toc-h3 toc-link" data-title="Token Endpoint">Token Endpoint</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <a href="#account-and-transaction-api" class="toc-h2 toc-link" data-title="Account and Transaction API">Account and Transaction API</a>
+                <ul class="toc-list-h3">
+                    <li>
+                      <a href="#account-and-transaction-api-account-access-consent" class="toc-h3 toc-link" data-title="Account Access Consent">Account Access Consent</a>
+                    </li>
+                    <li>
+                      <a href="#account-and-transaction-api-get-accounts" class="toc-h3 toc-link" data-title="Get Accounts">Get Accounts</a>
+                    </li>
+                    <li>
+                      <a href="#account-and-transaction-api-get-account-details" class="toc-h3 toc-link" data-title="Get Account Details">Get Account Details</a>
+                    </li>
+                    <li>
+                      <a href="#account-and-transaction-api-get-account-balances" class="toc-h3 toc-link" data-title="Get Account Balances">Get Account Balances</a>
+                    </li>
+                    <li>
+                      <a href="#account-and-transaction-api-get-account-transactions" class="toc-h3 toc-link" data-title="Get Account Transactions">Get Account Transactions</a>
+                    </li>
+                    <li>
+                      <a href="#account-and-transaction-api-get-account-beneficiaries" class="toc-h3 toc-link" data-title="Get Account Beneficiaries">Get Account Beneficiaries</a>
+                    </li>
+                    <li>
+                      <a href="#account-and-transaction-api-get-account-direct-debits" class="toc-h3 toc-link" data-title="Get Account Direct Debits">Get Account Direct Debits</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <a href="#payment-initiation-api-specification" class="toc-h2 toc-link" data-title="Payment Initiation API Specification">Payment Initiation API Specification</a>
+                <ul class="toc-list-h3">
+                    <li>
+                      <a href="#payment-initiation-api-specification-create-domestic-payment-consent" class="toc-h3 toc-link" data-title="Create Domestic Payment Consent">Create Domestic Payment Consent</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-domestic-payment-consent" class="toc-h3 toc-link" data-title="Get Domestic Payment Consent">Get Domestic Payment Consent</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-funds-confirmation" class="toc-h3 toc-link" data-title="Get Funds Confirmation">Get Funds Confirmation</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-create-domestic-payment" class="toc-h3 toc-link" data-title="Create Domestic Payment">Create Domestic Payment</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-domestic-payment" class="toc-h3 toc-link" data-title="Get Domestic Payment">Get Domestic Payment</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-create-international-payment-consent" class="toc-h3 toc-link" data-title="Create International Payment Consent">Create International Payment Consent</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-international-payment-consent" class="toc-h3 toc-link" data-title="Get International Payment Consent">Get International Payment Consent</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-international-payment-consent-funds-confirmation" class="toc-h3 toc-link" data-title="Get International Payment Consent Funds Confirmation">Get International Payment Consent Funds Confirmation</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-create-international-payment" class="toc-h3 toc-link" data-title="Create International Payment">Create International Payment</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-international-payment" class="toc-h3 toc-link" data-title="Get International Payment">Get International Payment</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <a href="#confirmation-of-funds" class="toc-h2 toc-link" data-title="Confirmation of funds">Confirmation of funds</a>
+                <ul class="toc-list-h3">
+                    <li>
+                      <a href="#confirmation-of-funds-funds-confirmation-consent" class="toc-h3 toc-link" data-title="Funds Confirmation Consent">Funds Confirmation Consent</a>
+                    </li>
+                    <li>
+                      <a href="#confirmation-of-funds-create-funds-confirmations" class="toc-h3 toc-link" data-title="Create Funds Confirmations">Create Funds Confirmations</a>
+                    </li>
+                    <li>
+                      <a href="#confirmation-of-funds-get-funds-confirmation" class="toc-h3 toc-link" data-title="Get Funds Confirmation">Get Funds Confirmation</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <a href="#api-metrics" class="toc-h2 toc-link" data-title="API Metrics">API Metrics</a>
+            </li>
+            <li>
+              <a href="#errors" class="toc-h2 toc-link" data-title="Errors">Errors</a>
+            </li>
+        </ul>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://business.revolut.com/signup'>Sign up for Revolut Business</a></li>
+            <li><br/>Copyright © 2020 Revolut Ltd</li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h2 id='getting-started'><a href='#getting-started' class='header-link'><i></i></a>Getting started</h2><h3 id='getting-started-introduction'><a href='#getting-started-introduction' class='header-link'><i></i></a>Introduction</h3>
+<p>Welcome to the Revolut Open Banking API v3.1!
+Here you will find all the information to get started with Open Banking API. We&#39;re building a future beyond banking, we&#39;re excited to have you onboard.</p>
+
+<p>There is two ways to get access to our Open Banking API:</p>
+
+<aside class="notice">
+For businesses that can do so, we recommend to enroll as a third party provider (TPP) in <a href="https://www.openbanking.org.uk/providers/directory/">Open Banking Directory</a>.
+Follow the <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937656404/Read+Write+Data+API+Specification+-+v3.1">Open Banking API v3.1 documentation</a>.
+We support the following OB certificates: OBWAC (Open Banking QWAC-like certificates), OBSEAL (Open Banking QSEAL-like certificates) and OB non-eIDAS like certificates for transport and signing.
+</aside>
+
+<aside class="notice">
+For TPPs that cannot get registered in the Open Banking Directory and want to integrate with our Open Banking API directly, it is possible to use valid eIDAS QWAC or QSEAL certificates from any of the following QTSPs: Izba Rozliczeniowa S.A., InfoCert S.p.A.
+If you require a new QTSP to be added please <a href="mailto:api-requests@revolut.com">contact us</a> and the QTSP will be added. After having obtained all information, our SLA is to do this within two weeks.
+</aside>
+
+<p>This Open Banking API can be used to access the accounts of customers of both Revolut Ltd (UK) and Revolut Payments UAB (Lithuania).</p>
+
+<div class="feedback"></div>
+<h3 id='getting-started-the-developer-portal'><a href='#getting-started-the-developer-portal' class='header-link'><i></i></a>The Developer Portal</h3><h4 id='getting-started-getting-started-the-developer-portal-what-is-the-developer-portal'><a href='#getting-started-getting-started-the-developer-portal-what-is-the-developer-portal' class='header-link'><i></i></a>What is the Developer Portal?</h4>
+<p>If you are building a great app and would like to integrate it with Revolut, then the Developer Portal is for you.
+The Developer Portal allows you to easily manage the applications which are developed for our <a href="https://www.openbanking.org.uk/">Open Banking API</a>.</p>
+<h4 id='getting-started-getting-started-the-developer-portal-1-sign-up-to-the-developer-portal'><a href='#getting-started-getting-started-the-developer-portal-1-sign-up-to-the-developer-portal' class='header-link'><i></i></a>1. Sign up to the Developer Portal</h4>
+<p>To get an access to Developer Portal you need to sign up to <a href="https://developers.revolut.com/portal/signup">developers.revolut.com/portal/signup</a>. After you sign up, please set your Open Banking organisation id in <code>Profile</code> section. This will help us to link your applications with your developer account during <code>dynamic application registration</code> process of Open Banking API.</p>
+<h4 id='getting-started-getting-started-the-developer-portal-2-get-a-sandbox-user-account'><a href='#getting-started-getting-started-the-developer-portal-2-get-a-sandbox-user-account' class='header-link'><i></i></a>2. Get a Sandbox User account</h4>
+<p>Once you created your account and set your organization id, you can ask for a test user account for sandbox environment by mailing to <a href="mailto:api-requests@revolut.com">api-requests@revolut.com</a>.</p>
+
+<p>In your request please mention</p>
+
+<ul>
+<li>if you are a <code>AISP or PISP</code></li>
+<li>if your have registered on <code>Open Banking Directory</code> or which <code>QTSP</code> have registered with</li>
+<li>with which <code>Organisation ID</code> you have registered on the portal and</li>
+<li>your <code>contact details</code>.</li>
+</ul>
+<h4 id='getting-started-getting-started-the-developer-portal-3-create-review-manage-and-delete-your-apps'><a href='#getting-started-getting-started-the-developer-portal-3-create-review-manage-and-delete-your-apps' class='header-link'><i></i></a>3. Create, review, manage and delete your Apps</h4>
+<p>First, double check if you are registered on <a href="https://developers.revolut.com/portal/signup">developers.revolut.com/portal/signup</a> and have set your <code>open banking organisation id</code> or another <code>unique identifier</code> in your profile.</p>
+
+<p>Then you can create Open Banking Applications using the <a href="#dynamic-client-registration">dynamic client registration</a> endpoint.</p>
+
+<p>Subsequently you can review and delete your Open Banking Applications in the <a href="https://developers.revolut.com/portal">developer portal</a>. If something has not been setup properly we recommend deleting your app in the developer portal and recreating it through dynamic registration.</p>
+
+<div class="feedback"></div>
+<h3 id='getting-started-open-id-configuration-urls'><a href='#getting-started-open-id-configuration-urls' class='header-link'><i></i></a>Open Id Configuration URLs</h3>
+<ul>
+<li>Production: https://oba.revolut.com/openid-configuration</li>
+<li>Sandbox: https://sandbox-oba.revolut.com/openid-configuration</li>
+</ul>
+<h3 id='getting-started-usage-and-limits'><a href='#getting-started-usage-and-limits' class='header-link'><i></i></a>Usage and limits</h3>
+<p>In order to ensure safe and fair resource sharing, we define the following usage limits:</p>
+
+<ul>
+<li>Maximum 16 requests per second for one application</li>
+</ul>
+
+<p>Please make sure to stay under this limit. Should you estimate this limit be a problem for your usecase of our API, please <a href="mailto:api-requests@revolut.com">reach out to us</a> directly.</p>
+<h2 id='dynamic-client-registration'><a href='#dynamic-client-registration' class='header-link'><i></i></a>Dynamic Client Registration</h2>
+<p>In order to create an Application in the Developer Portal you will need to use Dynamic Registration.</p>
+
+<p>The register endpoint is implemented as it is described in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937066600/Dynamic+Client+Registration+-+v3.1#DynamicClientRegistration-v3.1-POST/register">documentation</a></p>
+<blockquote>
+      <div><p>Register client</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/register
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/register
+</code></pre>
+<aside class="warning">
+Before using this endpoint, first register to <a href="https://developers.revolut.com/portal">Developer Portal</a> and set either your `open banking organisation id` when registered on the open banking directory
+or an alternative `unique identifier` in your profile.
+</aside>
+
+<aside class="warning">
+In order to change your configuration: go to the <a href="https://developers.revolut.com/portal">developers.revolut.com</a>, delete your application and re-register.
+</aside>
+<h3 id='dynamic-client-registration-certificate-dn'><a href='#dynamic-client-registration-certificate-dn' class='header-link'><i></i></a>Certificate DN</h3>
+<p>Please note that Dynamic Registration requires using the RFC2253 DN format in your request. To obtain the DN of your certificate in this format, you may use the following command:
+<code>openssl x509 -in /path/to/your/cert.cer -noout -subject -nameopt RFC2253</code></p>
+
+<div class="feedback"></div>
+<h2 id='open-banking-security-profile'><a href='#open-banking-security-profile' class='header-link'><i></i></a>Open Banking Security Profile</h2>
+<p>Open Banking security profile is implemented as it is described in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/83919096/Open+Banking+Security+Profile+-+Implementer+s+Draft+v1.1.2">documentation</a></p>
+<h4 id='open-banking-security-profile-dynamic-client-registration-certificate-dn-authorization-endpoint'><a href='#open-banking-security-profile-dynamic-client-registration-certificate-dn-authorization-endpoint' class='header-link'><i></i></a>Authorization Endpoint</h4><blockquote>
+      <div><p>Authorize consent</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>https://sandbox-oba.revolut.com/ui/index.html
+</code></pre><pre class="highlight shell tab-shell--production"><code>https://oba.revolut.com/ui/index.html
+</code></pre>
+<p><code>/ui/index.html</code> endpoint is for your application to redirect Revolut customer to authorize consent</p>
+<h4 id='open-banking-security-profile-dynamic-client-registration-certificate-dn-token-endpoint'><a href='#open-banking-security-profile-dynamic-client-registration-certificate-dn-token-endpoint' class='header-link'><i></i></a>Token Endpoint</h4>
+<p>Allows you to get an access token, please refer to <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/83919096/Open+Banking+Security+Profile+-+Implementer+s+Draft+v1.1.2">open banking specification</a> for more information about the semantics of this API</p>
+<blockquote>
+      <div><p>Get access token</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba-auth.revolut.com/token
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba-auth.revolut.com/token
+</code></pre>
+<p><code>/token</code> endpoint served via Revolut authorization server. This endpoints requires client certificate authentication for MATLS</p>
+
+<div class="feedback"></div>
+<h2 id='account-and-transaction-api'><a href='#account-and-transaction-api' class='header-link'><i></i></a>Account and Transaction API</h2>
+<p>Open Banking <code>Account and Transaction API</code> is implemented as specified in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/999622968/Account+and+Transaction+API+Specification+-+v3.1.1">documentation</a></p>
+
+<p>The Interfaces already implemented are below. We are keep implementing other endpoints (manadatory endpoints first). We will be updating this documentation as we progress.</p>
+<h3 id='account-and-transaction-api-account-access-consent'><a href='#account-and-transaction-api-account-access-consent' class='header-link'><i></i></a>Account Access Consent</h3><h4 id='account-and-transaction-api-account-and-transaction-api-account-access-consent-cancel-revoke-consent'><a href='#account-and-transaction-api-account-and-transaction-api-account-access-consent-cancel-revoke-consent' class='header-link'><i></i></a>Cancel/Revoke Consent</h4><blockquote>
+      <div><p>Reject or revoke Consent</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X DELETE https://sandbox-oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X DELETE https://oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
+</code></pre>
+<p>This endpoint:</p>
+
+<ul>
+<li><p>Rejects consent if a consent in <code>AwaitingAuthorisation</code> state</p></li>
+<li><p>Revokes consent if consent in <code>Authorised</code> state</p></li>
+</ul>
+<h4 id='account-and-transaction-api-account-and-transaction-api-account-access-consent-get-consent'><a href='#account-and-transaction-api-account-and-transaction-api-account-access-consent-get-consent' class='header-link'><i></i></a>Get Consent</h4><blockquote>
+      <div><p>Get consent details</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/account-access-consents/<span class="o">{</span>consent-id<span class="o">}</span>
+</code></pre>
+<p>This endpoint returns consent details as it is described in the official documentation.</p>
+<h4 id='account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent'><a href='#account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent' class='header-link'><i></i></a>Create Consent</h4><blockquote>
+      <div><p>Create consent</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/account-access-consents
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/account-access-consents
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"ReadAccountsDetail"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadBalances"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadBeneficiariesDetail"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadDirectDebits"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadProducts"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadStandingOrdersDetail"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadTransactionsCredits"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadTransactionsDebits"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadTransactionsDetail"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadOffers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadPAN"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadParty"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadPartyPSU"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadScheduledPaymentsDetail"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ReadStatementsDetail"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"ExpirationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-02T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"TransactionFromDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-03T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"TransactionToDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-03T00:00:00+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a consent to be authorized by revolut user.</p>
+
+<div class="feedback"></div>
+<h3 id='account-and-transaction-api-get-accounts'><a href='#account-and-transaction-api-get-accounts' class='header-link'><i></i></a>Get Accounts</h3><blockquote>
+      <div><p>Get list of accounts</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/accounts
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/accounts
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Account"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1086696-D134-472D-B83E-A3F4D201C058"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"AccountSubType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CurrentAccount"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bills"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Account"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80200110203345"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr Kevin"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00021"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/accounts/"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns list of the user accounts.</p>
+
+<div class="feedback"></div>
+<h3 id='account-and-transaction-api-get-account-details'><a href='#account-and-transaction-api-get-account-details' class='header-link'><i></i></a>Get Account Details</h3><blockquote>
+      <div><p>Get account details</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Account"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1086696-D134-472D-B83E-A3F4D201C058"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"AccountType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Personal"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"AccountSubType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CurrentAccount"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Nickname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bills"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Account"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"80200110203345"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr Kevin"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00021"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/accounts/"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves individual account details.</p>
+
+<div class="feedback"></div>
+<h3 id='account-and-transaction-api-get-account-balances'><a href='#account-and-transaction-api-get-account-balances' class='header-link'><i></i></a>Get Account Balances</h3><blockquote>
+      <div><p>Get account balances</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/balances
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/balances
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Balance"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1086696-D134-472D-B83E-A3F4D201C058"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.00"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"CreditLine"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Included"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Available"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150.23"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"CreditDebitIndicator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debit"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InterimAvailable"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-02T00:00:00+00:00"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/accounts/A1086696-D134-472D-B83E-A3F4D201C058/balances"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves balances for an account.</p>
+
+<div class="feedback"></div>
+<h3 id='account-and-transaction-api-get-account-transactions'><a href='#account-and-transaction-api-get-account-transactions' class='header-link'><i></i></a>Get Account Transactions</h3><blockquote>
+      <div><p>Get account transactions</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/transactions
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/transactions
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Transaction"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A1086696-D134-472D-B83E-A3F4D201C058"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25.00"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"Balance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11.00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="s2">"CreditDebitIndicator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debit"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InterimBooked"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"BookingDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-02T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ChargeAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.00"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"CreditDebitIndicator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Debit"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ProprietaryBankTransactionCode"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ATM"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Issuer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Booked"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"acd157de-f877-44f1-9190-58051bec3815"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"TransactionInformation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SupplementaryData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"UserComments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Transaction"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves the recent transactions for an account.</p>
+
+<aside class="notice">
+    In order to ensure compliance with PSD2 SCA regulations, we only allow access to the last 90 days transaction history. However, you will be able to access older transactions within the first 5 minutes of an account access token being authorised. This means that within the first 5 minutes after acquiring the access token, you will be able to request data older than 90 days. After the 5 minute mark, access will be automatically restricted to the last 90 days worth of data.
+</aside>
+<h5 id='account-and-transaction-api-account-and-transaction-api-get-account-transactions-account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent-additional-response-fields'><a href='#account-and-transaction-api-account-and-transaction-api-get-account-transactions-account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent-additional-response-fields' class='header-link'><i></i></a>Additional response fields</h5>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SupplementaryData.UserComments</td>
+<td>a user provided payment comments</td>
+<td>Text</td>
+</tr>
+</tbody></table>
+
+<div class="feedback"></div>
+<h3 id='account-and-transaction-api-get-account-beneficiaries'><a href='#account-and-transaction-api-get-account-beneficiaries' class='header-link'><i></i></a>Get Account Beneficiaries</h3><blockquote>
+      <div><p>Get a list of account beneficiaries</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/beneficiaries
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/beneficiaries
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Beneficiary"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c68a6bb5-a63c-47cd-86c8-16a0a6890f09"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"BeneficiaryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beb87058-2ded-4593-b7b6-f816c8539ee5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB60LTZD85909994434483"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testFirstName testLastName"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c68a6bb5-a63c-47cd-86c8-16a0a6890f09"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"BeneficiaryId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1eb6796-cf38-41d6-ba75-8bdbaf9ccbe7"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55887712345678"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testFirstName testLastName"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/accounts/c68a6bb5-a63c-47cd-86c8-16a0a6890f09/beneficiaries"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the list of beneficiaries for a specific user account.</p>
+
+<div class="feedback"></div>
+<h3 id='account-and-transaction-api-get-account-direct-debits'><a href='#account-and-transaction-api-get-account-direct-debits' class='header-link'><i></i></a>Get Account Direct Debits</h3><blockquote>
+      <div><p>Get a list of account direct debits</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/direct-debits
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/accounts/<span class="o">{</span>account-id<span class="o">}</span>/direct-debits
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"DirectDebit"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b81470d-a24b-491c-b6f8-ae4f27cb0447"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DirectDebitId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f36e19d2-e870-438b-b4f5-32ac9a05d375"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"MandateIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testIdentification"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DirectDebitStatusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Active"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testName"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PreviousPaymentAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.00"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"AccountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5b81470d-a24b-491c-b6f8-ae4f27cb0447"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DirectDebitId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ffaa70b6-d94c-479e-b5c4-b570036280ba"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"MandateIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"someOtherIdentification"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"DirectDebitStatusCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Inactive"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"someOtherName"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PreviousPaymentAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.43"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/accounts/5b81470d-a24b-491c-b6f8-ae4f27cb0447/direct-debits"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns the list of direct debits for a specific user account.</p>
+
+<div class="feedback"></div>
+<h2 id='payment-initiation-api-specification'><a href='#payment-initiation-api-specification' class='header-link'><i></i></a>Payment Initiation API Specification</h2><h3 id='payment-initiation-api-specification-create-domestic-payment-consent'><a href='#payment-initiation-api-specification-create-domestic-payment-consent' class='header-link'><i></i></a>Create Domestic Payment Consent</h3><blockquote>
+      <div><p>Create Domestic Payment Consent</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/domestic-payment-consents
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/domestic-payment-consents
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2E123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11223321325698"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Receiver Co."</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ReceiverRef"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipment fee"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EcommerceGoods"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5967"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCustomerIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1238808123123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"7"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Street"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2 7AA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is for creating payment consent as described in Open Banking API documentation. Domestic Payments are used for local payments in the local currency of the user. Revolut supports only GBP as local in the UK and EUR in SEPA countries.</p>
+
+<p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the JWS header. As it specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format</p>
+
+<aside class="notice">
+    Unfortunately, cannot support the <b>EndToEndIdentification</b> field as it is described in the <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937656404/Read+Write+Data+API+Specification+-+v3.1">documentation</a>. We will update the documentation once we get support for it.
+</aside>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-domestic-payment-consent'><a href='#payment-initiation-api-specification-get-domestic-payment-consent' class='header-link'><i></i></a>Get Domestic Payment Consent</h3><blockquote>
+      <div><p>Get Domestic Payment Consent details</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/domestic-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2E123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11223321325698"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Receiver Co."</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ReceiverRef"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipment fee"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EcommerceGoods"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5967"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCustomerIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1238808123123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"7"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Street"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2 7AA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns consent details as it is described in the official documentation.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-funds-confirmation'><a href='#payment-initiation-api-specification-get-funds-confirmation' class='header-link'><i></i></a>Get Funds Confirmation</h3><blockquote>
+      <div><p>Get Funds Confirmation</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>/funds-confirmation
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/domestic-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/funds-confirmation
+</code></pre>
+<p>This endpoint lets checking funds for the given consent. This endpoint returns successful only if user has authorized the related consent.</p>
+<blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"FundsAvailableResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"FundsAvailableDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:23+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"FundsAvailable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/domestic-payment-consents/14083aa6-3f22-495d-a9e7-75abd118d8e9/funds-confirmation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-create-domestic-payment'><a href='#payment-initiation-api-specification-create-domestic-payment' class='header-link'><i></i></a>Create Domestic Payment</h3><blockquote>
+      <div><p>Create Domestic Payment</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/domestic-payments
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/domestic-payments
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2E123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11223321325698"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Receiver Co."</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ReceiverRef"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipment fee"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EcommerceGoods"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5967"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCustomerIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1238808123123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"7"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Street"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2 7AA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>As it is defined in the Open Banking Specifications, <code>/Data/Initiation</code> and <code>/Data/Risk</code> sections of the request must be exact match for the related consent passed in <code>ConsentId</code>.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-domestic-payment'><a href='#payment-initiation-api-specification-get-domestic-payment' class='header-link'><i></i></a>Get Domestic Payment</h3><blockquote>
+      <div><p>Get Domestic Payment details</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-payments/<span class="o">{</span>payment_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/domestic-payments/<span class="o">{</span>payment_id<span class="o">}</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"DomesticPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a51bafa2-1b9f-466e-ae30-168672f0661c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptedSettlementInProcess"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:22+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"StatusUpdateDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2E123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11223321325698"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Receiver Co."</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ReceiverRef"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipment fee"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EcommerceGoods"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5967"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCustomerIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1238808123123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"7"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Street"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2 7AA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns state of a payment</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-create-international-payment-consent'><a href='#payment-initiation-api-specification-create-international-payment-consent' class='header-link'><i></i></a>Create International Payment Consent</h3><blockquote>
+      <div><p>Create International Payment Consent</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/international-payment-consents
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/international-payment-consents
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRESCO.21302.GFX.20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructionPriority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CurrencyOfTransfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165.88"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE89370400440532013000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB38REVO00996907112483"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut LTD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRESCO-101"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal ops code 5120101"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"ExchangeRateInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"UnitCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indicative"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EcommerceGoods"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5967"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCustomerIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"053598653254"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Flat 7"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Acacia Lodge"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acacia Avenue"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GU31 2ZZ"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sparsholt"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is for creating payment consent as described in Open Banking API documentation. International Payments are used for international SWIFT payments in all currencies supported by Revolut.</p>
+
+<p>Only payments with <code>InstructedAmount</code> in the same currency as <code>CurrencyOfTransfer</code> are supported.</p>
+
+<p>At the moment, currency exchange is not supported, which means that a PSU should have enough funds in a currency specified in the <code>CurrencyOfTransfer</code> field to execute a payment.</p>
+
+<p>As part of API requirement, you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from a request body with TPP signing key that is specified in the JWS header. As it specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format</p>
+
+<aside class="notice">
+    Unfortunately, cannot support the <b>EndToEndIdentification</b> field as it is described in the <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937656404/Read+Write+Data+API+Specification+-+v3.1">documentation</a>. We will update the documentation once we get support for it.
+</aside>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-international-payment-consent'><a href='#payment-initiation-api-specification-get-international-payment-consent' class='header-link'><i></i></a>Get International Payment Consent</h3><blockquote>
+      <div><p>Get International Payment Consent details</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/international-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b4206fed-5265-48ce-91af-cb7182018991"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AwaitingAuthorisation"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-06T16:17:22+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"StatusUpdateDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-07T13:25:22+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRESCO.21302.GFX.20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructionPriority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CurrencyOfTransfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165.88"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE89370400440532013000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB38REVO00996907112483"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut LTD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRESCO-101"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal ops code 5120101"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"ExchangeRateInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"UnitCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indicative"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"ExchangeRateInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"UnitCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ExchangeRate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.6050"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"RateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indicative"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EcommerceGoods"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5967"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCustomerIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"053598653254"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Flat 7"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Acacia Lodge"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Acacia Avenue"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GU31 2ZZ"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sparsholt"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:33453/international-payment-consents/b4206fed-5265-48ce-91af-cb7182018991"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns consent details as it is described in the official documentation.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-international-payment-consent-funds-confirmation'><a href='#payment-initiation-api-specification-get-international-payment-consent-funds-confirmation' class='header-link'><i></i></a>Get International Payment Consent Funds Confirmation</h3><blockquote>
+      <div><p>Get Funds Confirmation</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>/funds-confirmation
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/international-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/funds-confirmation
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"FundsAvailableResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"FundsAvailableDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-06T16:16:22+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"FundsAvailable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/international-payment-consents/a0f338f1-1827-49a3-82f7-eaa3783cadb6/funds-confirmation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows checking funds for the given consent. This endpoint returns successfully only if user has authorized the related consent.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-create-international-payment'><a href='#payment-initiation-api-specification-create-international-payment' class='header-link'><i></i></a>Create International Payment</h3><blockquote>
+      <div><p>Create International Payment</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/international-payments
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/international-payments
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRESCO.21302.GFX.20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructionPriority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CurrencyOfTransfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165.88"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE89370400440532013000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB38REVO00996907112483"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut LTD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRESCO-101"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal ops code 5120101"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"ExchangeRateInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"UnitCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indicative"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EcommerceGoods"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5967"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCustomerIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1238808123123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"7"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Street"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2 7AA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>As it is defined in the Open Banking Specifications, <code>/Data/Initiation</code> and <code>/Data/Risk</code> sections of the request must be exact match for the related consent passed in <code>ConsentId</code>.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-international-payment'><a href='#payment-initiation-api-specification-get-international-payment' class='header-link'><i></i></a>Get International Payment</h3><blockquote>
+      <div><p>Get International Payment details</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-payments/<span class="o">{</span>payment_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/international-payments/<span class="o">{</span>payment_id<span class="o">}</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"InternationalPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a51bafa2-1b9f-466e-ae30-168672f0661c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AcceptedSettlementInProcess"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:22+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"StatusUpdateDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRESCO.21302.GFX.20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructionPriority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CurrencyOfTransfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165.88"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DE89370400440532013000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB38REVO00996907112483"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut LTD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRESCO-101"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal ops code 5120101"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"ExchangeRateInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"UnitCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indicative"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EcommerceGoods"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCategoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5967"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"MerchantCustomerIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1238808123123"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"DeliveryAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"7"</span><span class="p">],</span><span class="w">
+      </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple Street"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2 7AA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns a state of a payment</p>
+
+<div class="feedback"></div>
+<h2 id='confirmation-of-funds'><a href='#confirmation-of-funds' class='header-link'><i></i></a>Confirmation of funds</h2>
+<p>Open Banking <code>Funds Confirmation API</code> is implemented as specified in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937951380/Confirmation+of+Funds+API+Specification+-+v3.1">documentation</a></p>
+<h3 id='confirmation-of-funds-funds-confirmation-consent'><a href='#confirmation-of-funds-funds-confirmation-consent' class='header-link'><i></i></a>Funds Confirmation Consent</h3><blockquote>
+      <div><p>Create Funds Confirmation Consent</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/funds-confirmation-consents
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/funds-confirmation-consents
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00000069994595"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This API allows the CBPII to create a new funds-confirmation-consent resource, implemented as described in Open Banking API documentation.</p>
+
+<div class="feedback"></div>
+<h3 id='confirmation-of-funds-create-funds-confirmations'><a href='#confirmation-of-funds-create-funds-confirmations' class='header-link'><i></i></a>Create Funds Confirmations</h3><blockquote>
+      <div><p>Create Funds Confirmation</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/funds-confirmations
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/funds-confirmations
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purchase"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20.00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This API allows the CBPII to create a new funds-confirmation resource, and check the funds available flag in the response.</p>
+
+<div class="feedback"></div>
+<h3 id='confirmation-of-funds-get-funds-confirmation'><a href='#confirmation-of-funds-get-funds-confirmation' class='header-link'><i></i></a>Get Funds Confirmation</h3><blockquote>
+      <div><p>Get Funds Confirmation details</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/funds-confirmations/<span class="o">{</span>funds-confirmation-id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/funds-confirmations/<span class="o">{</span>funds-confirmation-id<span class="o">}</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"FundsConfirmationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:22+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"FundsAvailable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purchase01"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20.00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/funds-confirmations/14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This API fetches the already created funds confirmation resource which indicates the availability of the funds</p>
+
+<div class="feedback"></div>
+<h2 id='api-metrics'><a href='#api-metrics' class='header-link'><i></i></a>API Metrics</h2>
+<p>You can view the latest API metrics for Mobile, Business and Open Banking APIs <a href="https://revolut-engineering.github.io/oba/reports/indexLine.html" target="_blank">here</a>.
+You can also review detailed Open Banking metrics <a href="https://revolut-engineering.github.io/oba/reports/index.html" target="_blank">here</a>.</p>
+
+<p>We update these reports daily and keep them for last 90 days.</p>
+
+<p><br/>
+<br/>
+<br/>
+<br/></p>
+<h2 id='errors'><a href='#errors' class='header-link'><i></i></a>Errors</h2>
+<p>The API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your access token is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- Access to the requested resource or action is forbidden.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The requested resource could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access an endpoint with an invalid method.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t JSON.</td>
+</tr>
+<tr>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re sending too many requests.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+<div class="feedback"></div>
+
+      </div>
+    </div>
+  </body>
+  <script src="../javascripts/components.js" async="true"></script>
+</html>
