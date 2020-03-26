@@ -266,6 +266,9 @@
               <a href="#dynamic-client-registration" class="toc-h2 toc-link" data-title="Dynamic Client Registration">Dynamic Client Registration</a>
                 <ul class="toc-list-h3">
                     <li>
+                      <a href="#dynamic-client-registration-software-statement-format" class="toc-h3 toc-link" data-title="Software statement format">Software statement format</a>
+                    </li>
+                    <li>
                       <a href="#dynamic-client-registration-certificate-dn" class="toc-h3 toc-link" data-title="Certificate DN">Certificate DN</a>
                     </li>
                 </ul>
@@ -453,6 +456,68 @@ or an alternative `unique identifier` in your profile.
 <aside class="warning">
 In order to change your configuration: go to the <a href="https://developers.revolut.com/portal">developers.revolut.com</a>, delete your application and re-register.
 </aside>
+<h3 id='dynamic-client-registration-software-statement-format'><a href='#dynamic-client-registration-software-statement-format' class='header-link'><i></i></a>Software statement format</h3>
+<p>If a TPP prefers to register directly without using Open Banking Directory, it&#39;s possible to use a self-signed software statement. In such case the SSA should satisfy the following format:</p>
+<h4 id='dynamic-client-registration-dynamic-client-registration-software-statement-format-header'><a href='#dynamic-client-registration-dynamic-client-registration-software-statement-format-header' class='header-link'><i></i></a>Header</h4>
+<table><thead>
+<tr>
+<th>Header Parameter</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>alg</td>
+<td>none</td>
+</tr>
+</tbody></table>
+<h4 id='dynamic-client-registration-dynamic-client-registration-software-statement-format-body'><a href='#dynamic-client-registration-dynamic-client-registration-software-statement-format-body' class='header-link'><i></i></a>Body</h4><blockquote>
+      <div><p>Software statement payload</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"org_jwks_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://tpp.com/keys.jwks"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"org_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organisation-id from dev-portal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"software_client_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app name"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"software_redirect_uris"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"http://redirect_url"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Claim</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>org_jwks_endpoint</td>
+<td>URL</td>
+<td>a JWKS location</td>
+</tr>
+<tr>
+<td>org_id</td>
+<td>String</td>
+<td>an organization ID from the Developer portal</td>
+</tr>
+<tr>
+<td>software_client_name</td>
+<td>String</td>
+<td>a name of a software (shown in the UI)</td>
+</tr>
+<tr>
+<td>software_redirect_uris</td>
+<td>URL[]</td>
+<td>a list of allowed redirect URLs</td>
+</tr>
+</tbody></table>
+<h4 id='dynamic-client-registration-dynamic-client-registration-software-statement-format-signature'><a href='#dynamic-client-registration-dynamic-client-registration-software-statement-format-signature' class='header-link'><i></i></a>Signature</h4>
+<p>The signature should be an empty string.</p>
+
+<div class="feedback"></div>
 <h3 id='dynamic-client-registration-certificate-dn'><a href='#dynamic-client-registration-certificate-dn' class='header-link'><i></i></a>Certificate DN</h3>
 <p>Please note that Dynamic Registration requires using the RFC2253 DN format in your request. To obtain the DN of your certificate in this format, you may use the following command:
 <code>openssl x509 -in /path/to/your/cert.cer -noout -subject -nameopt RFC2253</code></p>
