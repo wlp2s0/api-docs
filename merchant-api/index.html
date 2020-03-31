@@ -320,7 +320,9 @@
       <div class="dark-box"></div>
       <div class="content">
         <h2 id='getting-started'><a href='#getting-started' class='header-link'><i></i></a>Getting started</h2>
-<p>This guide will help you to set up a Revolut Checkout Widget and configure your back-end infrastructure to start accepting online debit &amp; credit card payments on your website.</p>
+<p><em>Please note that Merchant Accounts feature is available only to businesses that have been invited to participate in our private launch. In the meantime, our team is working hard to make it available to every eligible business. Stay tuned!</em></p>
+
+<p>This guide will help you to set up a Revolut Checkout Widget and configure your back-end infrastructure to start accepting online debit &amp; credit card payments on your website. </p>
 
 <p>The Checkout Widget can be integrated in two different ways:</p>
 
@@ -335,9 +337,9 @@
 
 <p><a href="#backend-api">Reference to Back-end API.</a></p>
 <h3 id='getting-started-first-steps'><a href='#getting-started-first-steps' class='header-link'><i></i></a>First Steps</h3>
-<p><strong>Step 1.</strong> In your <a href="https://business.revolut.com/merchant">Revolut Business</a> account, setup merchant account and <a href="#backend-api-introduction">get API token</a>.</p>
+<p><strong>Step 1.</strong> In your <a href="https://business.revolut.com/merchant">Revolut Business</a> account, apply for a Merchant Account. Once your application gets approved, <a href="#backend-api-introduction">get API token</a>.</p>
 
-<p><strong>Step 2.</strong> <a href="#backend-api-backend-api-order-object-create-payment-order">Create a new order</a> on your server with <code>amount</code> and <code>currency</code>.</p>
+<p><strong>Step 2.</strong> <a href="#backend-api-backend-api-order-object-create-payment-order">Create a new order</a> on your server back-end with <code>amount</code> and <code>currency</code>.</p>
 <blockquote>
       <div><p>Create a new order</p>
 </div>
@@ -348,6 +350,8 @@
         </select>
       </div>
     </blockquote><pre class="highlight shell tab-shell"><code>POST https://merchant.revolut.com/api/1.0/orders
+
+Authorisation: Bearer &lt;your_API_token&gt;
 
 <span class="o">{</span>
   <span class="s2">"amount"</span>: 200,
@@ -1525,7 +1529,7 @@
 <tr>
 <td><code>payments.type</code></td>
 <td>Payment type</td>
-<td>One of the following options: <code>Card</code>, <code>RevPay</code>, <code>Alipay</code>, <code>PayPal</code> etc.</td>
+<td><code>Card</code></td>
 </tr>
 <tr>
 <td><code>payments.amount.value</code></td>
@@ -1679,12 +1683,12 @@
 </tr>
 <tr>
 <td><code>attempts[n].amount.currency</code></td>
-<td>Minor currency of any of any attempted, but unsucccessful transactions</td>
+<td>Minor currency of any attempted, but unsucccessful transactions</td>
 <td>ISO-4217</td>
 </tr>
 <tr>
 <td><code>attempts[n].amount.value</code></td>
-<td>Value of of any attempted, but unsucccessful transactions</td>
+<td>Value of any attempted, but unsucccessful transactions</td>
 <td>Integer</td>
 </tr>
 <tr>
@@ -1905,7 +1909,7 @@
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">Order</span><span class="w"> </span><span class="n">object</span><span class="w">
 </span></code></pre>
-<p>Once the payment is authorised, the merchant needs to capture it in order for it to be sent into the processing stage.</p>
+<p>Once the payment is authorised, you need to capture it in order for it to be sent into the processing stage.</p>
 
 <p>As a merchant you can choose between <strong>automatic</strong> or <strong>manual</strong> capturing.</p>
 
@@ -1945,9 +1949,9 @@
       </div>
     </blockquote><pre class="highlight plaintext"><code>Order object
 </code></pre>
-<p>In case the payment has not been captured yet and the merchant decides to not proceed with the order, the order can be cancelled manually.</p>
+<p>In case the payment has not been captured yet and you decide to not proceed with the order, the order can be cancelled manually.</p>
 <h4 id='backend-api-backend-api-order-object-refund-order'><a href='#backend-api-backend-api-order-object-refund-order' class='header-link'><i></i></a>Refund order</h4>
-<p>In case the customer requires a refund for a payment that has been already captured, the merchant can always issue a full or partial refund for a particular payment.</p>
+<p>In case a customer requires a refund for a payment that has been already captured, you can always issue a full or partial refund for a particular payment.</p>
 <blockquote>
       <div><p>Request</p>
 </div>
@@ -2073,7 +2077,7 @@
 <tr>
 <td><code>type</code></td>
 <td>Order type</td>
-<td>One of the following options: <code>PAYMENT</code>, <code>REFUND</code>, <code>CHARGEBACK</code></td>
+<td><code>REFUND</code></td>
 </tr>
 <tr>
 <td><code>state</code></td>
