@@ -1076,7 +1076,9 @@ In order to change your configuration: go to the <a href="https://developers.rev
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint is for creating payment consent as described in Open Banking API documentation. Domestic Payments are used for local payments in the local currency of the user. Revolut supports only GBP as local in the UK and EUR in SEPA countries.</p>
+<p>This endpoint is for creating payment consent as described in Open Banking API documentation. Domestic Payments are used for local payments in the local currency of the user. Revolut supports only GBP as local in the UK and EUR in SEPA countries. </p>
+
+<p>Since Revolut Business users can have multiple accounts in the same currency, we allow them to choose which account they want to be charged in the consent authorization UI.</p>
 
 <p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the JWS header. As it specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format</p>
 
@@ -1350,7 +1352,9 @@ In order to change your configuration: go to the <a href="https://developers.rev
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint is for creating standing order consent as described in Open Banking API documentation. Domestic Standing Orders are used for local recurring payments in the local currency of the user. Revolut supports only GBP as local in the UK and EUR in SEPA countries.</p>
+<p>This endpoint is for creating standing order consent as described in Open Banking API documentation. Domestic Standing Orders are used for local recurring payments in the local currency of the user. Revolut supports only GBP as local in the UK and EUR in SEPA countries. </p>
+
+<p>Since Revolut Business users can have multiple accounts in the same currency, we allow them to choose which account they want to be charged in the consent authorization UI.</p>
 
 <p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the JWS header. As it specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format</p>
 
@@ -1617,9 +1621,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span></code></pre>
 <p>This endpoint is for creating payment consent as described in Open Banking API documentation. International Payments are used for international SWIFT payments in all currencies supported by Revolut.</p>
 
-<p>Only payments with <code>InstructedAmount</code> in the same currency as <code>CurrencyOfTransfer</code> are supported.</p>
-
-<p>At the moment, currency exchange is not supported, which means that a PSU should have enough funds in a currency specified in the <code>CurrencyOfTransfer</code> field to execute a payment.</p>
+<p>Only payments with <code>InstructedAmount</code> in the same currency as <code>CurrencyOfTransfer</code> are supported. However, we allow users to change which account they want to be charged in consent authorization UI. Even if it is in a different currency. In such a case, the response field ExchangeRateInformation will contain information about the fx rate between source account currency and CurrencyOfTransfer. In case the user doesn&#39;t have enough funds on the selected account, the consent authorisation will be rejected.</p>
 
 <p>As part of API requirement, you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from a request body with TPP signing key that is specified in the JWS header. As it specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format</p>
 
