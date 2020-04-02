@@ -541,9 +541,44 @@ Authorisation: Bearer &lt;your_API_token&gt;
 
 <div class="feedback"></div>
 <h3 id='getting-started-test-different-scenarios-with-dummy-cards'><a href='#getting-started-test-different-scenarios-with-dummy-cards' class='header-link'><i></i></a>Test different scenarios with dummy cards</h3>
-<p>If you would like to test your Merchant Accounts integration before going into production, we have created <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a> so that you can do this. 
-Please create a dummy account on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>, and copy the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> into the headers of requests from your back-end. </p>
+<p>If you would like to test your Merchant Accounts integration before going into production, we have provided <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a> so that you can do this. </p>
 
+<p>Please create a dummy account on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>. Once you have it, please do the following 2 steps:</p>
+
+<p><strong>1.</strong> Adjust the endpoints addresses by replacing <code>https://merchant.revolut.com/</code> with <code>https://sandbox-merchant.revolut.com/</code> and by using the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> in the headers of requests from your back-end. For example:</p>
+<blockquote>
+      <div><p>Create a new order</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell"><code>POST https://sandbox-merchant.revolut.com/api/1.0/orders
+
+Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
+
+<span class="o">{</span>
+  <span class="s2">"amount"</span>: 200,
+  <span class="s2">"currency"</span>: <span class="s2">"GBP"</span>
+<span class="o">}</span>
+</code></pre>
+<p><strong>2.</strong> Adjust the <a href="#revolut-checkout-widget-api-embed-script">embed script snippet</a> in the html document head of the page template. You need to replace <code>https://merchant.revolut.com/embed.js</code> with <code>https://sandbox-merchant.revolut.com/embed.js</code>.</p>
+<blockquote>
+      <div><p>Embed script snippet</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight html tab-html"><code><span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;title&gt;</span>Shop<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;script&gt;</span><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="nx">o</span><span class="p">,</span><span class="nx">n</span><span class="p">){</span><span class="nx">e</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">){</span><span class="kd">var</span> <span class="nx">r</span><span class="o">=</span><span class="nx">o</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span><span class="nx">r</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"revolut-checkout"</span><span class="p">,</span><span class="nx">r</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s2">"https://sandbox-merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="nx">r</span><span class="p">.</span><span class="nx">async</span><span class="o">=!</span><span class="mi">0</span><span class="p">,</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">r</span><span class="p">);</span><span class="kd">var</span> <span class="nx">c</span><span class="o">=</span><span class="p">{</span><span class="na">then</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span><span class="nx">i</span><span class="p">){</span><span class="nx">r</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">c</span><span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">n</span><span class="p">](</span><span class="nx">t</span><span class="p">))},</span><span class="nx">r</span><span class="p">.</span><span class="nx">onerror</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">r</span><span class="p">),</span><span class="nx">i</span><span class="o">&amp;&amp;</span><span class="nx">i</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">n</span><span class="o">+</span><span class="s2">" is failed to load"</span><span class="p">))}}};</span><span class="k">return</span><span class="s2">"function"</span><span class="o">==</span><span class="k">typeof</span> <span class="nx">Promise</span><span class="p">?</span><span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">c</span><span class="p">):</span><span class="nx">c</span><span class="p">}}(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">,</span><span class="s2">"RevolutCheckout"</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+</code></pre>
 <p>In order for you to be able to test various payment flows, we provide the following dummy card numbers for a variety of scenarios. These cards only work in our Sandbox environment:</p>
 
 <table><thead>
@@ -590,7 +625,7 @@ Please create a dummy account on <a href="https://sandbox-business.revolut.com/s
 </tr>
 </tbody></table>
 
-<p>Once you make sure that everything works as expected on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>, simply replace the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> with <a href="https://business.revolut.com/merchant/api">Production API key</a>. Now you are ready to accept real card payments!</p>
+<p>Once you make sure that everything works as expected on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>, simply revert back to using <code>https://merchant.revolut.com/</code> in both back-end requests and the embed script snippet, and replace the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> with <a href="https://business.revolut.com/merchant/api">Production API key</a> in the back-end requests. Now you are ready to accept real card payments!</p>
 
 <div class="feedback"></div>
 <h3 id='getting-started-wrap-up'><a href='#getting-started-wrap-up' class='header-link'><i></i></a>Wrap-up</h3>
