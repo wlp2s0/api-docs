@@ -322,7 +322,7 @@
         <h2 id='getting-started'><a href='#getting-started' class='header-link'><i></i></a>Getting started</h2>
 <p><em>Please note that Merchant Accounts feature is available only to businesses that have been invited to participate in our private launch. In the meantime, our team is working hard to make it available to every eligible business. Stay tuned!</em></p>
 
-<p>This guide will help you to set up a Revolut Checkout Widget and configure your back-end infrastructure to start accepting online debit &amp; credit card payments on your website. </p>
+<p>This guide will help you to set up a Revolut Checkout Widget and configure your back-end infrastructure to start accepting online debit &amp; credit card payments on your website.</p>
 
 <p>The Checkout Widget can be integrated in two different ways:</p>
 
@@ -418,35 +418,35 @@ Authorisation: Bearer &lt;your_API_token&gt;
 <span class="nt">&lt;/button&gt;</span>
 
 <span class="nt">&lt;script&gt;</span>
-  <span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"TOKEN_XXX"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">RC</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"TOKEN_XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">RC</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">payButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"pay-button"</span><span class="p">);</span>
 
     <span class="c1">// On click open payment pop-up</span>
     <span class="nx">payButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="nx">RC</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
         <span class="c1">// (optional) name of the customer</span>
-        <span class="na">customerName</span><span class="p">:</span> <span class="s2">"First Last"</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s2">"First Last"</span><span class="p">,</span>
         <span class="c1">// (optional) email of the customer</span>
-        <span class="na">customerEmail</span><span class="p">:</span> <span class="s2">"customer@example.com"</span><span class="p">,</span>
+        <span class="na">email</span><span class="p">:</span> <span class="s2">"customer@example.com"</span><span class="p">,</span>
         <span class="c1">// (optional) phone of the customer</span>
-        <span class="na">customerPhone</span><span class="p">:</span> <span class="s2">"+447950630319"</span><span class="p">,</span>
+        <span class="na">phone</span><span class="p">:</span> <span class="s2">"+447950630319"</span><span class="p">,</span>
         <span class="c1">// (optional) billing address of the customer</span>
-        <span class="na">customerBillingAddress</span><span class="p">:</span> <span class="p">{</span>
-          <span class="na">country</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
-          <span class="na">state</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
+        <span class="na">billingAddress</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
+          <span class="na">region</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
           <span class="na">city</span><span class="p">:</span> <span class="s2">"London"</span><span class="p">,</span>
-          <span class="na">line1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
-          <span class="na">line2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
-          <span class="na">postal</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span>
+          <span class="na">streetLine1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
+          <span class="na">streetLine2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
+          <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span>
         <span class="p">},</span>
         <span class="c1">// (optional) shipping address of the customer</span>
-        <span class="na">customerShippingAddress</span><span class="p">:</span> <span class="p">{</span>
-          <span class="na">country</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
-          <span class="na">state</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
+        <span class="na">shippingAddress</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
+          <span class="na">region</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
           <span class="na">city</span><span class="p">:</span> <span class="s2">"London"</span><span class="p">,</span>
-          <span class="na">line1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
-          <span class="na">line2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
-          <span class="na">postal</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span>
+          <span class="na">streetLine1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
+          <span class="na">streetLine2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
+          <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span>
         <span class="p">},</span>
         <span class="c1">// Callback called when payment finished successfuly</span>
         <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
@@ -472,7 +472,7 @@ Authorisation: Bearer &lt;your_API_token&gt;
 <span class="nt">&lt;/form&gt;</span>
 
 <span class="nt">&lt;script&gt;</span>
-  <span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s1">'TOKEN_XXX'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">RC</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s1">'TOKEN_XXX'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">RC</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">form</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'form'</span><span class="p">)</span>
     <span class="kd">var</span> <span class="nx">cardInput</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'card-input'</span><span class="p">);</span>
 
@@ -507,28 +507,28 @@ Authorisation: Bearer &lt;your_API_token&gt;
 
       <span class="nx">card</span><span class="p">.</span><span class="nx">submit</span><span class="p">({</span>
         <span class="c1">// (optional) name of the customer</span>
-        <span class="na">customerName</span><span class="p">:</span> <span class="s1">'First Last'</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s1">'First Last'</span><span class="p">,</span>
         <span class="c1">// (optional) email of the customer</span>
-        <span class="na">customerEmail</span><span class="p">:</span> <span class="s1">'customer@example.com'</span><span class="p">,</span>
+        <span class="na">email</span><span class="p">:</span> <span class="s1">'customer@example.com'</span><span class="p">,</span>
         <span class="c1">// (optional) phone of the customer</span>
-        <span class="na">customerPhone</span><span class="p">:</span> <span class="s1">'+447950630319'</span><span class="p">,</span>
+        <span class="na">phone</span><span class="p">:</span> <span class="s1">'+447950630319'</span><span class="p">,</span>
         <span class="c1">// (optional) billing address of the customer</span>
-        <span class="na">customerBillingAddress</span><span class="p">:</span> <span class="p">{</span>
-          <span class="na">country</span><span class="p">:</span> <span class="s1">'UK'</span><span class="p">,</span>
-          <span class="na">state</span><span class="p">:</span> <span class="s1">'Greater London'</span><span class="p">,</span>
+        <span class="na">billingAddress</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">countryCode</span><span class="p">:</span> <span class="s1">'UK'</span><span class="p">,</span>
+          <span class="na">region</span><span class="p">:</span> <span class="s1">'Greater London'</span><span class="p">,</span>
           <span class="na">city</span><span class="p">:</span> <span class="s1">'London'</span><span class="p">,</span>
-          <span class="na">line1</span><span class="p">:</span> <span class="s1">'Revolut'</span><span class="p">,</span>
-          <span class="na">line2</span><span class="p">:</span> <span class="s1">'1 Canada Square'</span><span class="p">,</span>
-          <span class="na">postal</span><span class="p">:</span> <span class="s1">'EC2V 6DN'</span><span class="p">,</span>
+          <span class="na">streetLine1</span><span class="p">:</span> <span class="s1">'Revolut'</span><span class="p">,</span>
+          <span class="na">streetLine2</span><span class="p">:</span> <span class="s1">'1 Canada Square'</span><span class="p">,</span>
+          <span class="na">postcode</span><span class="p">:</span> <span class="s1">'EC2V 6DN'</span><span class="p">,</span>
         <span class="p">},</span>
         <span class="c1">// (optional) shipping address of the customer</span>
-        <span class="na">customerShippingAddress</span><span class="p">:</span> <span class="p">{</span>
-          <span class="na">country</span><span class="p">:</span> <span class="s1">'UK'</span><span class="p">,</span>
-          <span class="na">state</span><span class="p">:</span> <span class="s1">'Greater London'</span><span class="p">,</span>
+        <span class="na">shippingAddress</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">countryCode</span><span class="p">:</span> <span class="s1">'UK'</span><span class="p">,</span>
+          <span class="na">region</span><span class="p">:</span> <span class="s1">'Greater London'</span><span class="p">,</span>
           <span class="na">city</span><span class="p">:</span> <span class="s1">'London'</span><span class="p">,</span>
-          <span class="na">line1</span><span class="p">:</span> <span class="s1">'Revolut'</span><span class="p">,</span>
-          <span class="na">line2</span><span class="p">:</span> <span class="s1">'1 Canada Square'</span><span class="p">,</span>
-          <span class="na">postal</span><span class="p">:</span> <span class="s1">'EC2V 6DN'</span><span class="p">,</span>
+          <span class="na">streetLine1</span><span class="p">:</span> <span class="s1">'Revolut'</span><span class="p">,</span>
+          <span class="na">streetLine2</span><span class="p">:</span> <span class="s1">'1 Canada Square'</span><span class="p">,</span>
+          <span class="na">postcode</span><span class="p">:</span> <span class="s1">'EC2V 6DN'</span><span class="p">,</span>
         <span class="p">},</span>
       <span class="p">})</span>
     <span class="p">})</span>
@@ -541,7 +541,7 @@ Authorisation: Bearer &lt;your_API_token&gt;
 
 <div class="feedback"></div>
 <h3 id='getting-started-test-different-scenarios-with-dummy-cards'><a href='#getting-started-test-different-scenarios-with-dummy-cards' class='header-link'><i></i></a>Test different scenarios with dummy cards</h3>
-<p>If you would like to test your Merchant Accounts integration before going into production, we have provided <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a> so that you can do this. </p>
+<p>If you would like to test your Merchant Accounts integration before going into production, we have provided <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a> so that you can do this.</p>
 
 <p>Please create a dummy account on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>. Once you have it, please do the following 2 steps:</p>
 
@@ -637,15 +637,12 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
 <p><a href="#backend-api">Read detailed reference to Back-end API.</a></p>
 
 <div class="feedback"></div>
-<h2 id='revolut-checkout-widget-api'><a href='#revolut-checkout-widget-api' class='header-link'><i></i></a>Revolut Checkout Widget API</h2><h3 id='revolut-checkout-widget-api-embed-script'><a href='#revolut-checkout-widget-api-embed-script' class='header-link'><i></i></a>Embed script</h3><pre class="highlight html tab-html"><code><span class="nt">&lt;script&gt;</span><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="nx">n</span><span class="p">){</span><span class="nx">o</span><span class="p">.</span><span class="nx">RevolutCheckout</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">,</span><span class="nx">e</span><span class="p">){</span><span class="kd">var</span> <span class="nx">c</span><span class="o">=</span><span class="nx">n</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span><span class="nx">c</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"revolut-checkout"</span><span class="p">,</span><span class="nx">c</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s2">"https://merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="s2">"function"</span><span class="o">==</span><span class="k">typeof</span> <span class="nx">e</span><span class="o">&amp;&amp;</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">async</span><span class="o">=!</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="o">===</span><span class="nx">e</span><span class="p">.</span><span class="nx">length</span><span class="p">?</span><span class="nx">c</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">e</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="nx">t</span><span class="p">))}:(</span><span class="nx">c</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">e</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span><span class="nx">o</span><span class="p">.</span><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="nx">t</span><span class="p">))},</span><span class="nx">c</span><span class="p">.</span><span class="nx">onerror</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">o</span><span class="p">){</span><span class="nx">e</span><span class="p">(</span><span class="nx">o</span><span class="p">,</span><span class="kc">null</span><span class="p">)})),</span><span class="nx">n</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">c</span><span class="p">)}}(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
+<h2 id='revolut-checkout-widget-api'><a href='#revolut-checkout-widget-api' class='header-link'><i></i></a>Revolut Checkout Widget API</h2><h3 id='revolut-checkout-widget-api-embed-script'><a href='#revolut-checkout-widget-api-embed-script' class='header-link'><i></i></a>Embed script</h3><pre class="highlight html tab-html"><code><span class="nt">&lt;script&gt;</span><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="nx">o</span><span class="p">,</span><span class="nx">n</span><span class="p">){</span><span class="nx">e</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">){</span><span class="kd">var</span> <span class="nx">r</span><span class="o">=</span><span class="nx">o</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span><span class="nx">r</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"revolut-checkout"</span><span class="p">,</span><span class="nx">r</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s2">"https://merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="nx">r</span><span class="p">.</span><span class="nx">async</span><span class="o">=!</span><span class="mi">0</span><span class="p">,</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">r</span><span class="p">);</span><span class="kd">var</span> <span class="nx">c</span><span class="o">=</span><span class="p">{</span><span class="na">then</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span><span class="nx">i</span><span class="p">){</span><span class="nx">r</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">c</span><span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">n</span><span class="p">](</span><span class="nx">t</span><span class="p">))},</span><span class="nx">r</span><span class="p">.</span><span class="nx">onerror</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">r</span><span class="p">),</span><span class="nx">i</span><span class="o">&amp;&amp;</span><span class="nx">i</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">n</span><span class="o">+</span><span class="s2">" is failed to load"</span><span class="p">))}}};</span><span class="k">return</span><span class="s2">"function"</span><span class="o">==</span><span class="k">typeof</span> <span class="nx">Promise</span><span class="p">?</span><span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">c</span><span class="p">):</span><span class="nx">c</span><span class="p">}}(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">,</span><span class="s2">"RevolutCheckout"</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
 </code></pre>
 <p>Embed the following script on all pages that you intend to use <a href="#revolut-checkout-widget-api-revolutcheckout"><code>RevolutCheckout</code></a> on. Please note it should be inserted <strong>before</strong> the code that actually calls <code>RevolutCheckout</code>.</p>
 
 <div class="feedback"></div>
-<h3 id='revolut-checkout-widget-api-revolutcheckout'><a href='#revolut-checkout-widget-api-revolutcheckout' class='header-link'><i></i></a><code>RevolutCheckout</code></h3><pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">RevolutCheckout</span> <span class="o">=</span> <span class="p">(</span>
-  <span class="nx">token</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
-  <span class="nx">callback</span><span class="p">:</span> <span class="p">(</span><span class="nx">error</span><span class="p">:</span> <span class="nb">Error</span> <span class="o">|</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">instance</span><span class="p">:</span> <span class="nx">Instance</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
-<span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+<h3 id='revolut-checkout-widget-api-revolutcheckout'><a href='#revolut-checkout-widget-api-revolutcheckout' class='header-link'><i></i></a><code>RevolutCheckout</code></h3><pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">RevolutCheckout</span> <span class="o">=</span> <span class="p">(</span><span class="nx">token</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Instance</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre>
 <p>Load the embedded script and create an <a href="#revolut-checkout-widget-api-instance"><code>Instance</code></a> for the order <code>token</code>.</p>
 <h4 id='revolut-checkout-widget-api-revolut-checkout-widget-api-revolutcheckout-parameters'><a href='#revolut-checkout-widget-api-revolut-checkout-widget-api-revolutcheckout-parameters' class='header-link'><i></i></a>Parameters</h4><blockquote>
@@ -657,12 +654,7 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Script not loaded</span>
-    <span class="k">return</span><span class="p">;</span>
-  <span class="p">}</span>
-
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Work with instance:</span>
 
   <span class="c1">// instance.payWithPopup()</span>
@@ -672,13 +664,14 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
 </code></pre>
 <ul>
 <li><code>token</code> - <code>public_id</code> returned from the BE request</li>
-<li><code>callback</code> - used to access the order <a href="#revolut-checkout-widget-api-instance"><code>Instance</code></a> and returns an error if the script has failed to load.</li>
 </ul>
+
+<p>Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> with order <a href="#revolut-checkout-widget-api-instance"><code>Instance</code></a>.</p>
 
 <div class="feedback"></div>
 <h3 id='revolut-checkout-widget-api-instance'><a href='#revolut-checkout-widget-api-instance' class='header-link'><i></i></a><code>Instance</code></h3><pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">Instance</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">open</span><span class="p">:</span> <span class="nx">InstancePayWithPopup</span><span class="p">;</span>
-  <span class="nl">cardElement</span><span class="p">:</span> <span class="nx">InstanceCreateCardField</span><span class="p">;</span>
+  <span class="na">payWithPopup</span><span class="p">:</span> <span class="nx">InstancePayWithPopup</span><span class="p">;</span>
+  <span class="nl">createCardField</span><span class="p">:</span> <span class="nx">InstanceCreateCardField</span><span class="p">;</span>
   <span class="nl">destroy</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre>
@@ -692,13 +685,7 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Error while loading checkout widget"</span><span class="p">);</span>
-
-    <span class="k">return</span><span class="p">;</span>
-  <span class="p">}</span>
-
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
     <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
       <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
@@ -721,24 +708,24 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
 <span class="kd">type</span> <span class="nx">Options</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">onSuccess</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
   <span class="nx">onError</span><span class="p">?:</span> <span class="p">(</span><span class="na">message</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
-  <span class="nx">customerName</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
-  <span class="nx">customerEmail</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
-  <span class="nx">customerPhone</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
-  <span class="nx">customerBillingAddress</span><span class="p">?:</span> <span class="p">{</span>
-    <span class="na">country</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">state</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">name</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">email</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">phone</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">billingAddress</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="na">countryCode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">region</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
     <span class="nl">city</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">postal</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">line1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">line2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">postcode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="p">};</span>
-  <span class="nx">customerShippingAddress</span><span class="p">?:</span> <span class="p">{</span>
-    <span class="na">country</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">state</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">shippingAddress</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="na">countryCode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">region</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
     <span class="nl">city</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">postal</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">line1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">line2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">postcode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="p">};</span>
 <span class="p">};</span>
 </code></pre>
@@ -762,58 +749,58 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
 <td>Function</td>
 </tr>
 <tr>
-<td><code>options.customerName</code></td>
+<td><code>options.name</code></td>
 <td>Customer name in form of <code>FirstName LastName</code></td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.customerEmail</code></td>
+<td><code>options.email</code></td>
 <td>Customer&#39;s e-mail</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.customerPhone</code></td>
+<td><code>options.phone</code></td>
 <td>Customer&#39;s phone number if available</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.customerBillingAddress</code></td>
+<td><code>options.billingAddress</code></td>
 <td>Contains customer&#39;s billing address which is required if not set on order via API</td>
 <td>Object</td>
 </tr>
 <tr>
-<td><code>options.customerBillingAddress.country</code></td>
+<td><code>options.billingAddress.countryCode</code></td>
 <td><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">Country code</a> (i.e. <code>GB</code>)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.customerBillingAddress.state</code></td>
+<td><code>options.billingAddress.region</code></td>
 <td>State, county or region</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.customerBillingAddress.city</code></td>
+<td><code>options.billingAddress.city</code></td>
 <td>Name of the city (i.e. <code>London</code>)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.customerBillingAddress.postal</code></td>
+<td><code>options.billingAddress.postcode</code></td>
 <td>Postal code (i.e. <code>EC2V 6DN</code>)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.customerBillingAddress.line1</code></td>
+<td><code>options.billingAddress.streetLine1</code></td>
 <td>Address line 1 (i.e. <code>1 Canada Square</code>)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.customerBillingAddress.line2</code></td>
+<td><code>options.billingAddress.streetLine2</code></td>
 <td>Address line 2 (optional)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.customerShippingAddress</code></td>
-<td>The same object as <code>customerBillingAddress</code> object, however, it is only displayed in the order details on the <a href="htttp://business.revolut.com/merchant">merchant dashboard</a></td>
+<td><code>options.shippingAddress</code></td>
+<td>The same object as <code>billingAddress</code> object, however, it is only displayed in the order details on the <a href="htttp://business.revolut.com/merchant">merchant dashboard</a></td>
 <td>Object</td>
 </tr>
 </tbody></table>
@@ -844,13 +831,7 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
-
-    <span class="k">return</span><span class="p">;</span>
-  <span class="p">}</span>
-
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
     <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
       <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
@@ -863,9 +844,9 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
 </code></pre>
 <div></div>
 
-<p>Minimal required parameters assuming that the <code>customerBillingAddress</code> object is not sent via API</p>
+<p>Minimal required parameters assuming that the <code>billingAddress</code> object is not sent via API</p>
 <blockquote>
-      <div><p>Minimal example with customerBillingAddress</p>
+      <div><p>Minimal example with billingAddress</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -873,21 +854,15 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
-
-    <span class="k">return</span><span class="p">;</span>
-  <span class="p">}</span>
-
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
-    <span class="na">customerBillingAddress</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">country</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
-      <span class="na">state</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
+    <span class="na">billingAddress</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
+      <span class="na">region</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
       <span class="na">city</span><span class="p">:</span> <span class="s2">"London"</span><span class="p">,</span>
-      <span class="na">line1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
-      <span class="na">line2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
-      <span class="na">postal</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span>
+      <span class="na">streetLine1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
+      <span class="na">streetLine2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
+      <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span>
     <span class="p">},</span>
     <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
       <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
@@ -910,32 +885,26 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
-
-    <span class="k">return</span><span class="p">;</span>
-  <span class="p">}</span>
-
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">popup</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
-    <span class="na">customerName</span><span class="p">:</span> <span class="s2">"First Last"</span><span class="p">,</span>
-    <span class="na">customerEmail</span><span class="p">:</span> <span class="s2">"customer@example.com"</span><span class="p">,</span>
-    <span class="na">customerPhone</span><span class="p">:</span> <span class="s2">"+447950630319"</span><span class="p">,</span>
-    <span class="na">customerBillingAddress</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">country</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
-      <span class="na">state</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s2">"First Last"</span><span class="p">,</span>
+    <span class="na">email</span><span class="p">:</span> <span class="s2">"customer@example.com"</span><span class="p">,</span>
+    <span class="na">phone</span><span class="p">:</span> <span class="s2">"+447950630319"</span><span class="p">,</span>
+    <span class="na">billingAddress</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
+      <span class="na">region</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
       <span class="na">city</span><span class="p">:</span> <span class="s2">"London"</span><span class="p">,</span>
-      <span class="na">line1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
-      <span class="na">line2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
-      <span class="na">postal</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span>
+      <span class="na">streetLine1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
+      <span class="na">streetLine2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
+      <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span>
     <span class="p">},</span>
-    <span class="na">customerShippingAddress</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">country</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
-      <span class="na">state</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
+    <span class="na">shippingAddress</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
+      <span class="na">region</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
       <span class="na">city</span><span class="p">:</span> <span class="s2">"London"</span><span class="p">,</span>
-      <span class="na">line1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
-      <span class="na">line2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
-      <span class="na">postal</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span>
+      <span class="na">streetLine1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
+      <span class="na">streetLine2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
+      <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span>
     <span class="p">},</span>
     <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
       <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
@@ -984,24 +953,24 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
 <span class="p">};</span>
 
 <span class="kd">type</span> <span class="nx">Meta</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">customerName</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
-  <span class="nx">customerEmail</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
-  <span class="nx">customerPhone</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
-  <span class="nx">customerBillingAddress</span><span class="p">?:</span> <span class="p">{</span>
-    <span class="na">country</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">state</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">name</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">email</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">phone</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">billingAddress</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="na">countryCode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">region</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
     <span class="nl">city</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">postal</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">line1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">line2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">postcode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="p">};</span>
-  <span class="nx">customerShippingAddress</span><span class="p">?:</span> <span class="p">{</span>
-    <span class="na">country</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">state</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">shippingAddress</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="na">countryCode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">region</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
     <span class="nl">city</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">postal</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">line1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">line2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">postcode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="p">};</span>
 <span class="p">};</span>
 </code></pre>
@@ -1147,58 +1116,58 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 </thead><tbody>
 <tr>
-<td><code>meta.customerName</code></td>
+<td><code>meta.name</code></td>
 <td>Customer name in the form of <code>FirstName LastName</code></td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>meta.customerEmail</code></td>
+<td><code>meta.email</code></td>
 <td>Customer&#39;s e-mail (required if not set on the order via API)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>meta.customerPhone</code></td>
+<td><code>meta.phone</code></td>
 <td>Customer&#39;s phone number if available</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>meta.customerBillingAddress</code></td>
+<td><code>meta.billingAddress</code></td>
 <td>Customer&#39;s billing address (required if not set on order via API)</td>
 <td>Object</td>
 </tr>
 <tr>
-<td><code>meta.customerBillingAddress.country</code></td>
+<td><code>meta.billingAddress.countryCode</code></td>
 <td><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">Country code</a> (i.e. <code>GB</code>)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>meta.customerBillingAddress.state</code></td>
+<td><code>meta.billingAddress.region</code></td>
 <td>State, county or region</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>meta.customerBillingAddress.city</code></td>
+<td><code>meta.billingAddress.city</code></td>
 <td>Name of the city (i.e. <code>London</code>)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>meta.customerBillingAddress.postal</code></td>
+<td><code>meta.billingAddress.postcode</code></td>
 <td>Postal code (i.e. <code>EC2V 6DN</code>)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>meta.customerBillingAddress.line1</code></td>
+<td><code>meta.billingAddress.streetLine1</code></td>
 <td>Address line 1 (i.e. <code>1 Canada Square</code>)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>meta.customerBillingAddress.line2</code></td>
+<td><code>meta.billingAddress.streetLine2</code></td>
 <td>Address line 2 (optional)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>meta.customerShippingAddres</code></td>
-<td>Same as <code>meta.customerBillingAddress</code>, but only used to display in the order details on <a href="htttp://business.revolut.com/merchant">merchant dashboard</a></td>
+<td><code>meta.shippingAddres</code></td>
+<td>Same as <code>meta.billingAddress</code>, but only used to display in the order details on <a href="htttp://business.revolut.com/merchant">merchant dashboard</a></td>
 <td>Object</td>
 </tr>
 </tbody></table>
@@ -1224,13 +1193,7 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
-
-    <span class="k">return</span><span class="p">;</span>
-  <span class="p">}</span>
-
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">card</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">createCardField</span><span class="p">({</span>
     <span class="na">target</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"card-field"</span><span class="p">),</span>
     <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
@@ -1250,7 +1213,7 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
 </code></pre>
 <div></div>
 
-<p>Minimal required parameters example, assuming <code>customerBillingAddress</code> and <code>customerEmail</code> are not sent via API</p>
+<p>Minimal required parameters example, assuming <code>billingAddress</code> and <code>email</code> are not sent via API</p>
 <blockquote>
       <div><p>HTML</p>
 </div>
@@ -1290,13 +1253,7 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
-
-    <span class="k">return</span><span class="p">;</span>
-  <span class="p">}</span>
-
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">form</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"form"</span><span class="p">);</span>
   <span class="kd">var</span> <span class="nx">card</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">createCardField</span><span class="p">({</span>
     <span class="na">target</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"[name=card]"</span><span class="p">),</span>
@@ -1315,14 +1272,14 @@ Authorisation: Bearer &lt;your_Sandbox_API_token&gt;
     <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">(</span><span class="nx">form</span><span class="p">);</span>
 
     <span class="nx">card</span><span class="p">.</span><span class="nx">submit</span><span class="p">({</span>
-      <span class="na">customerEmail</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"email"</span><span class="p">),</span>
-      <span class="na">customerBillingAddress</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">country</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"country"</span><span class="p">),</span>
-        <span class="na">state</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"state"</span><span class="p">),</span>
+      <span class="na">email</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"email"</span><span class="p">),</span>
+      <span class="na">billingAddress</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">countryCode</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"country"</span><span class="p">),</span>
+        <span class="na">region</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"state"</span><span class="p">),</span>
         <span class="na">city</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"city"</span><span class="p">),</span>
-        <span class="na">line1</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"line1"</span><span class="p">),</span>
-        <span class="na">line2</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"line2"</span><span class="p">),</span>
-        <span class="na">postal</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"postal"</span><span class="p">)</span>
+        <span class="na">streetLine1</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"line1"</span><span class="p">),</span>
+        <span class="na">streetLine2</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"line2"</span><span class="p">),</span>
+        <span class="na">postcode</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"postal"</span><span class="p">)</span>
       <span class="p">}</span>
     <span class="p">});</span>
   <span class="p">});</span>
