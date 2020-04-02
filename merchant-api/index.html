@@ -541,7 +541,10 @@ Authorisation: Bearer &lt;your_API_token&gt;
 
 <div class="feedback"></div>
 <h3 id='getting-started-test-different-scenarios-with-dummy-cards'><a href='#getting-started-test-different-scenarios-with-dummy-cards' class='header-link'><i></i></a>Test different scenarios with dummy cards</h3>
-<p>In order for you to be able to test various payment flows, we provide the following dummy card numbers for each of those scenarios:</p>
+<p>If you would like to test your Merchant Accounts integration before going into production, we have created <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a> so that you can do this. 
+Please create a dummy account on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>, and copy the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> into the headers of requests from your back-end. </p>
+
+<p>In order for you to be able to test various payment flows, we provide the following dummy card numbers for a variety of scenarios. These cards only work in our Sandbox environment:</p>
 
 <table><thead>
 <tr>
@@ -587,10 +590,12 @@ Authorisation: Bearer &lt;your_API_token&gt;
 </tr>
 </tbody></table>
 
+<p>Once you make sure that everything works as expected on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>, simply replace the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> with <a href="https://business.revolut.com/merchant/api">Production API key</a>. Now you are ready to accept real card payments!</p>
+
 <div class="feedback"></div>
 <h3 id='getting-started-wrap-up'><a href='#getting-started-wrap-up' class='header-link'><i></i></a>Wrap-up</h3>
 <p>To sum up, one can follow the following high-level flow in order to integrate FE and BE:
-<img width="555" alt="Screen Shot 2020-02-11 at 15 47 13" src="https://user-images.githubusercontent.com/60622352/74252610-d4d25f80-4ce5-11ea-897f-5d814375f12b.png"></p>
+<img width="555" src="https://user-images.githubusercontent.com/60622352/74252610-d4d25f80-4ce5-11ea-897f-5d814375f12b.png" /></p>
 
 <p><a href="#revolut-checkout-widget-api">Read detailed reference to Revolut Checkout Widget API.</a></p>
 
