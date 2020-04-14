@@ -371,6 +371,18 @@
                     <li>
                       <a href="#payment-initiation-api-specification-get-international-payment" class="toc-h3 toc-link" data-title="Get International Payment">Get International Payment</a>
                     </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-create-international-standing-order-consent" class="toc-h3 toc-link" data-title="Create International Standing Order Consent">Create International Standing Order Consent</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-international-standing-order-consent" class="toc-h3 toc-link" data-title="Get International Standing Order Consent">Get International Standing Order Consent</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-create-international-standing-order" class="toc-h3 toc-link" data-title="Create International Standing Order">Create International Standing Order</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-international-standing-order" class="toc-h3 toc-link" data-title="Get International Standing Order">Get International Standing Order</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -1955,6 +1967,318 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns a state of a payment</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-create-international-standing-order-consent'><a href='#payment-initiation-api-specification-create-international-standing-order-consent' class='header-link'><i></i></a>Create International Standing Order Consent</h3><blockquote>
+      <div><p>Create International Standing Order Consent</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/international-satnding-order-consents
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/international-standing-order-consents
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Permission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Create"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EvryDay"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pocket money for Damien"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CurrencyOfTransfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.66"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"FirstPaymentDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1976-06-06T06:06:06+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB76LOYD30949301273801"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"Creditor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Clements"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correspondence"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Liberty"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1 2CD"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"one"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"two"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PartyToParty"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is for creating standing order consent as described in Open Banking API documentation. International Standing Orders are used for international SWIFT payments in all currencies supported by Revolut.</p>
+
+<p>Only payments with <code>InstructedAmount</code> in the same currency as <code>CurrencyOfTransfer</code> are supported. However, we allow users to change which account they want to be charged in consent authorization UI. Even if it is in a different currency. In case the user doesn&#39;t have enough funds on the selected account, the consent authorisation will be rejected.</p>
+
+<p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the JWS header. As it specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format</p>
+
+<p>We support only the following types of standing orders frequency:</p>
+
+<table><thead>
+<tr>
+<th>Frequency</th>
+<th>Example</th>
+<th>Details</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>EvryDay</td>
+<td>EvryDay</td>
+<td>daily, supported only for personal accounts</td>
+</tr>
+<tr>
+<td>IntrvlWkDay</td>
+<td>IntrvlWkDay:01:03</td>
+<td>weekly on a specified week day, only 1 week intervals are supported</td>
+</tr>
+<tr>
+<td>IntrvlWkDay</td>
+<td>IntrvlMnthDay:01:03</td>
+<td>monthly on a specified day of month, only 1 month intervals are supported</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+    Standing orders API is currently in Beta stage - some elements of the UI might not fully visualise the consent data.
+</aside>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-international-standing-order-consent'><a href='#payment-initiation-api-specification-get-international-standing-order-consent' class='header-link'><i></i></a>Get International Standing Order Consent</h3><blockquote>
+      <div><p>Get International Standing Order Consent details</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-standing-order-consents/<span class="o">{</span>conset_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/international-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Permission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Create"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AwaitingAuthorisation"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"StatusUpdateDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EvryDay"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pocket money for Damien"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CurrencyOfTransfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165.88"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"FirstPaymentDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$startDate"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB76LOYD30949301273801"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"Creditor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Clements"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correspondence"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Liberty"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1 2CD"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"one"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"two"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PartyToParty"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:33453/international-standing-order-consents/14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns consent details as it is described in the official documentation.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-create-international-standing-order'><a href='#payment-initiation-api-specification-create-international-standing-order' class='header-link'><i></i></a>Create International Standing Order</h3><blockquote>
+      <div><p>Create International Standing Order</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/international-standing-orders
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/international-standing-orders
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRESCO.21302.GFX.20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructionPriority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CurrencyOfTransfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165.88"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB76LOYD30949301273801"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"Creditor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correspondence"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Liberty"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1 2CD"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"one"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"two"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRESCO-101"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal ops code 5120101"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"ExchangeRateInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"UnitCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indicative"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PartyToParty"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>As it is defined in the Open Banking Specifications, <code>/Data/Initiation</code> and <code>/Data/Risk</code> sections of the request must be exact match for the related consent passed in <code>ConsentId</code>.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-international-standing-order'><a href='#payment-initiation-api-specification-get-international-standing-order' class='header-link'><i></i></a>Get International Standing Order</h3><blockquote>
+      <div><p>Get International Standing Order</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-standing-orders/<span class="o">{</span>standing_order_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/international-standing-orders/<span class="o">{</span>standing_order_id<span class="o">}</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRESCO.21302.GFX.20"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructionPriority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Normal"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CurrencyOfTransfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165.88"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB76LOYD30949301273801"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"Creditor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correspondence"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Liberty"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1 2CD"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"one"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"two"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRESCO-101"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal ops code 5120101"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"ExchangeRateInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"UnitCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indicative"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PartyToParty"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/international-standing-orders/14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns state of a standing order</p>
 
 <div class="feedback"></div>
 <h2 id='confirmation-of-funds'><a href='#confirmation-of-funds' class='header-link'><i></i></a>Confirmation of funds</h2>
