@@ -371,7 +371,7 @@
 <h3 id='checkout-with-revolut-integration-guide-configuration'><a href='#checkout-with-revolut-integration-guide-configuration' class='header-link'><i></i></a>Configuration</h3>
 <p><strong>Step 1.</strong> In your <a href="https://business.revolut.com/merchant">Revolut Business</a> account, apply for a Merchant Account. Once your application gets approved, <a href="#backend-api-introduction">get API token</a>.</p>
 
-<p><strong>Step 2.</strong> <a href="#backend-api-order-object-create-payment-order">Create a new order</a> on your server back-end with <code>amount</code> and <code>currency</code>.</p>
+<p><strong>Step 2.</strong> <a href="#backend-api-backend-api-order-object-create-payment-order">Create a new order</a> on your server back-end with <code>amount</code> and <code>currency</code>.</p>
 <blockquote>
       <div><p>Create a new order</p>
 </div>
@@ -732,7 +732,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </code></pre>
 <div class="feedback"></div>
 <h3 id='widget-api-instance-paywithpopup'><a href='#widget-api-instance-paywithpopup' class='header-link'><i></i></a><code>Instance.payWithPopup</code></h3>
-<p>Open a <a href="#checkout-with-revolut-integration-guide-collect-card-details-pop-up">payment pop-up</a> which is available on the <a href="#widget-api-instance"><code>Instance</code></a>.</p>
+<p>Open a <a href="#checkout-with-revolut-integration-guide-checkout-with-revolut-integration-guide-collect-card-details-pop-up">payment pop-up</a> which is available on the <a href="#widget-api-instance"><code>Instance</code></a>.</p>
 <pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">InstancePayWithPopup</span> <span class="o">=</span> <span class="p">(</span>
   <span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span>
 <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -961,7 +961,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </code></pre>
 <div class="feedback"></div>
 <h3 id='widget-api-instance-createcardfield'><a href='#widget-api-instance-createcardfield' class='header-link'><i></i></a><code>Instance.createCardField</code></h3>
-<p>Create a <a href="#checkout-with-revolut-integration-guide-collect-card-details-card-field">card field</a> which is available on the <a href="#widget-api-instance"><code>Instance</code></a>:</p>
+<p>Create a <a href="#checkout-with-revolut-integration-guide-checkout-with-revolut-integration-guide-collect-card-details-card-field">card field</a> which is available on the <a href="#widget-api-instance"><code>Instance</code></a>:</p>
 <pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">InstanceCreateCardField</span> <span class="o">=</span> <span class="p">(</span>
   <span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span>
 <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -2324,7 +2324,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 
 <div class="feedback"></div>
 <h2 id='integration-examples'><a href='#integration-examples' class='header-link'><i></i></a>Integration examples</h2><h3 id='integration-examples-payment-pop-up-integration-react-js-next-js'><a href='#integration-examples-payment-pop-up-integration-react-js-next-js' class='header-link'><i></i></a>Payment pop-up integration: React.js + Next.js</h3>
-<p>This sample shows how to use <a href="#widget-api">Revolut Checkout widget</a> with a <a href="#checkout-with-revolut-integration-guide-checkout-with-revolut-integration-guide-collect-card-details-pop-up">payment pop-up</a> and <a href="#backend-api">Merchant API</a>. The hosted version is running on sandbox environemnet — use one of our <a href="#checkout-with-revolut-integration-guide-test-with-dummy-cards">test cards</a> еo ensure that the Checkout widget works properly.</p>
+<p>This sample shows how to use <a href="#widget-api">Revolut Checkout widget</a> with a <a href="#checkout-with-revolut-integration-guide-checkout-with-revolut-integration-guide-collect-card-details-pop-up">payment pop-up</a> and <a href="#backend-api">Merchant API</a>. The hosted version is running on sandbox environemnet — use one of our <a href="#checkout-with-revolut-integration-guide-test-with-dummy-cards">test cards</a> to ensure that the Checkout widget works properly.</p>
 
 <div>
   <iframe
@@ -2346,29 +2346,37 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <h4 id='checkout-with-official-plugins-checkout-with-official-plugins-woocommerce-installation'><a href='#checkout-with-official-plugins-checkout-with-official-plugins-woocommerce-installation' class='header-link'><i></i></a>Installation</h4>
 <p><strong>Step 1.</strong> Log in to the admin section of your WooCommerce webstore.</p>
 
-<p><strong>Step 2.</strong> On the menu on the left hand side of the page, go the the <code>Plugins</code> section.
-<img width="100" src="https://user-images.githubusercontent.com/60622352/77462035-65c74b00-6dfb-11ea-85df-c033b049a828.png"></p>
+<p><strong>Step 2.</strong> On the menu on the left hand side of the page, go the the <code>Plugins</code> section.</p>
 
-<p><strong>Step 3.</strong> At the very top of the page, click on <code>Add New</code> button next to the plugins page title.
-<img width="1434" src="https://user-images.githubusercontent.com/60622352/77462129-91e2cc00-6dfb-11ea-8aae-1c636556c5d6.png"></p>
+<p><img width="100" src="https://user-images.githubusercontent.com/60622352/77462035-65c74b00-6dfb-11ea-85df-c033b049a828.png"></p>
 
-<p><strong>Step 4.</strong> You will be redirected to the following page:
-<img width="1368" src="https://user-images.githubusercontent.com/60622352/76890093-a1ec3000-687e-11ea-84ca-964fa6a0faf9.png">
-Click on <code>Upload Plugin</code> button next to the <code>Add Plugin</code> page title.</p>
+<p><strong>Step 3.</strong> At the very top of the page, click on <code>Add New</code> button next to the plugins page title.</p>
 
-<p><strong>Step 5.</strong> Download the following <a href="https://assets.revolut.com/business/merchant/woocommerce-revolut-gateway.zip">Woocommerce-Revolut-Gateway.zip</a> file and upload it on this page:
-<img width="1396" src="https://user-images.githubusercontent.com/60622352/77462365-f3a33600-6dfb-11ea-98dc-27adc85fc28e.png"></p>
+<p><img width="1434" src="https://user-images.githubusercontent.com/60622352/77462129-91e2cc00-6dfb-11ea-8aae-1c636556c5d6.png"></p>
 
-<p><strong>Step 6.</strong> Once the installation of the Revolut WooCommerce plugin is successfully finished, you can go ahead and click on the <code>Activate Plugin</code> button. 
-<img width="878" src="https://user-images.githubusercontent.com/60622352/77463612-c788b480-6dfd-11ea-80a6-b52dd689d6a9.png"></p>
+<p><strong>Step 4.</strong> You will be redirected to the following page:</p>
 
-<p><strong>Step 7.</strong> Congrats! You have just activated the Revolut WooCommerce plugin. You&#39;ll be automatically redirected to the page with all the plugins you have installed. 
-<img width="1394" src="https://user-images.githubusercontent.com/60622352/77464397-00755900-6dff-11ea-8138-e4d9c3eb5032.png"></p>
+<p><img width="1368" src="https://user-images.githubusercontent.com/60622352/76890093-a1ec3000-687e-11ea-84ca-964fa6a0faf9.png"></p>
+
+<p>Click on <code>Upload Plugin</code> button next to the <code>Add Plugin</code> page title.</p>
+
+<p><strong>Step 5.</strong> Download the following <a href="https://assets.revolut.com/business/merchant/woocommerce-revolut-gateway.zip">Woocommerce-Revolut-Gateway.zip</a> file and upload it on this page:</p>
+
+<p><img width="1396" src="https://user-images.githubusercontent.com/60622352/77462365-f3a33600-6dfb-11ea-98dc-27adc85fc28e.png"></p>
+
+<p><strong>Step 6.</strong> Once the installation of the Revolut WooCommerce plugin is successfully finished, you can go ahead and click on the <code>Activate Plugin</code> button. </p>
+
+<p><img width="878" src="https://user-images.githubusercontent.com/60622352/77463612-c788b480-6dfd-11ea-80a6-b52dd689d6a9.png"></p>
+
+<p><strong>Step 7.</strong> Congrats! You have just activated the Revolut WooCommerce plugin. You&#39;ll be automatically redirected to the page with all the plugins you have installed. </p>
+
+<p><img width="1394" src="https://user-images.githubusercontent.com/60622352/77464397-00755900-6dff-11ea-8138-e4d9c3eb5032.png"></p>
 <h4 id='checkout-with-official-plugins-checkout-with-official-plugins-woocommerce-configuration'><a href='#checkout-with-official-plugins-checkout-with-official-plugins-woocommerce-configuration' class='header-link'><i></i></a>Configuration</h4>
 <p><strong>Step 1.</strong> Testing the WooCommerce Revolut Gateway plugin:</p>
 
-<p>In the admin settings of your WooCommerce shop, under <code>WooCommerce Revolut Gateway</code> plugin, click <code>Settings</code>. You will land on the following page:
-<img width="982" src="https://user-images.githubusercontent.com/60622352/77464762-914c3480-6dff-11ea-905a-ce881ec8e193.png"></p>
+<p>In the admin settings of your WooCommerce shop, under <code>WooCommerce Revolut Gateway</code> plugin, click <code>Settings</code>. You will land on the following page:</p>
+
+<p><img width="982" src="https://user-images.githubusercontent.com/60622352/77464762-914c3480-6dff-11ea-905a-ce881ec8e193.png"></p>
 
 <p>Make sure you perform the following actions to enable test mode:</p>
 
@@ -2382,8 +2390,9 @@ Click on <code>Upload Plugin</code> button next to the <code>Add Plugin</code> p
 
 <p><strong>Step 2.</strong> Using WooCommerce Revolut Gateway plugin in production environment:</p>
 
-<p>Go back to the admin settings of your WooCommerce shop and under <code>WooCommerce Revolut Gateway</code> plugin click <code>Settings</code>.
-<img width="969"  src="https://user-images.githubusercontent.com/60622352/77466068-9f02b980-6e01-11ea-9537-0507e73140e1.png"></p>
+<p>Go back to the admin settings of your WooCommerce shop and under <code>WooCommerce Revolut Gateway</code> plugin click <code>Settings</code>.</p>
+
+<p><img width="969"  src="https://user-images.githubusercontent.com/60622352/77466068-9f02b980-6e01-11ea-9537-0507e73140e1.png"></p>
 
 <p>Make sure you perform the following actions to enable payments in production environment:</p>
 
