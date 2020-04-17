@@ -256,39 +256,42 @@
       <div id="toc">
         <ul class="toc-list-h2">
             <li>
-              <a href="#getting-started" class="toc-h2 toc-link" data-title="Getting started">Getting started</a>
+              <a href="#introduction-to-merchant-accounts" class="toc-h2 toc-link" data-title="Introduction to Merchant accounts">Introduction to Merchant accounts</a>
+            </li>
+            <li>
+              <a href="#checkout-with-revolut-integration-guide" class="toc-h2 toc-link" data-title="Checkout with Revolut: Integration guide">Checkout with Revolut: Integration guide</a>
                 <ul class="toc-list-h3">
                     <li>
-                      <a href="#getting-started-first-steps" class="toc-h3 toc-link" data-title="First Steps">First Steps</a>
+                      <a href="#checkout-with-revolut-integration-guide-configuration" class="toc-h3 toc-link" data-title="Configuration">Configuration</a>
                     </li>
                     <li>
-                      <a href="#getting-started-collect-card-details" class="toc-h3 toc-link" data-title="Collect card details">Collect card details</a>
+                      <a href="#checkout-with-revolut-integration-guide-collect-card-details" class="toc-h3 toc-link" data-title="Collect card details">Collect card details</a>
                     </li>
                     <li>
-                      <a href="#getting-started-test-different-scenarios-with-dummy-cards" class="toc-h3 toc-link" data-title="Test different scenarios with dummy cards">Test different scenarios with dummy cards</a>
+                      <a href="#checkout-with-revolut-integration-guide-test-with-dummy-cards" class="toc-h3 toc-link" data-title="Test with dummy cards">Test with dummy cards</a>
                     </li>
                     <li>
-                      <a href="#getting-started-wrap-up" class="toc-h3 toc-link" data-title="Wrap-up">Wrap-up</a>
+                      <a href="#checkout-with-revolut-integration-guide-wrap-up" class="toc-h3 toc-link" data-title="Wrap-up">Wrap-up</a>
                     </li>
                 </ul>
             </li>
             <li>
-              <a href="#revolut-checkout-widget-api" class="toc-h2 toc-link" data-title="Revolut Checkout Widget API">Revolut Checkout Widget API</a>
+              <a href="#widget-api" class="toc-h2 toc-link" data-title="Widget API">Widget API</a>
                 <ul class="toc-list-h3">
                     <li>
-                      <a href="#revolut-checkout-widget-api-embed-script" class="toc-h3 toc-link" data-title="Embed script">Embed script</a>
+                      <a href="#widget-api-embed-script" class="toc-h3 toc-link" data-title="Embed script">Embed script</a>
                     </li>
                     <li>
-                      <a href="#revolut-checkout-widget-api-revolutcheckout" class="toc-h3 toc-link" data-title="RevolutCheckout">RevolutCheckout</a>
+                      <a href="#widget-api-revolutcheckout" class="toc-h3 toc-link" data-title="RevolutCheckout">RevolutCheckout</a>
                     </li>
                     <li>
-                      <a href="#revolut-checkout-widget-api-instance" class="toc-h3 toc-link" data-title="Instance">Instance</a>
+                      <a href="#widget-api-instance" class="toc-h3 toc-link" data-title="Instance">Instance</a>
                     </li>
                     <li>
-                      <a href="#revolut-checkout-widget-api-instance-paywithpopup" class="toc-h3 toc-link" data-title="Instance.payWithPopup">Instance.payWithPopup</a>
+                      <a href="#widget-api-instance-paywithpopup" class="toc-h3 toc-link" data-title="Instance.payWithPopup">Instance.payWithPopup</a>
                     </li>
                     <li>
-                      <a href="#revolut-checkout-widget-api-instance-createcardfield" class="toc-h3 toc-link" data-title="Instance.createCardField">Instance.createCardField</a>
+                      <a href="#widget-api-instance-createcardfield" class="toc-h3 toc-link" data-title="Instance.createCardField">Instance.createCardField</a>
                     </li>
                 </ul>
             </li>
@@ -307,6 +310,22 @@
                 </ul>
             </li>
             <li>
+              <a href="#integration-examples" class="toc-h2 toc-link" data-title="Integration examples">Integration examples</a>
+                <ul class="toc-list-h3">
+                    <li>
+                      <a href="#integration-examples-payment-pop-up-integration-react-js-next-js" class="toc-h3 toc-link" data-title="Payment pop-up integration: React.js + Next.js">Payment pop-up integration: React.js + Next.js</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              <a href="#checkout-with-official-plugins" class="toc-h2 toc-link" data-title="Checkout with official plugins">Checkout with official plugins</a>
+                <ul class="toc-list-h3">
+                    <li>
+                      <a href="#checkout-with-official-plugins-woocommerce" class="toc-h3 toc-link" data-title="WooCommerce">WooCommerce</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
               <a href="#errors" class="toc-h2 toc-link" data-title="Errors">Errors</a>
             </li>
         </ul>
@@ -319,9 +338,22 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h2 id='getting-started'><a href='#getting-started' class='header-link'><i></i></a>Getting started</h2>
+        <h2 id='introduction-to-merchant-accounts'><a href='#introduction-to-merchant-accounts' class='header-link'><i></i></a>Introduction to Merchant accounts</h2>
 <p><em>Please note that Merchant Accounts feature is available only to businesses that have been invited to participate in our private launch. In the meantime, our team is working hard to make it available to every eligible business. Stay tuned!</em></p>
 
+<p>Revolut has created Merchant Accounts to provide customers with an opportunity to accept online debit &amp; credit card payments straight into their Revolut for Business Merchant accounts. </p>
+
+<p>There are two ways to accept card payments:</p>
+
+<ul>
+<li><p><a href="#checkout-with-revolut-integration-guide"><strong>Checkout with Revolut</strong></a>: if you have your own e-commerce website, you can use either a payment pop-up or a card element to add into your checkout page. This will require integration with Revolut Backend API.</p></li>
+<li><p><a href="#checkout-with-official-plugins"><strong>Checkout with official plugins</strong></a>: if you already have a website running on one of e-commerce platforms, you can install a respective plugin which Revolut has created. At the moment we support WooCommerce. Stay tuned for more plugins becoming available soon.</p></li>
+</ul>
+
+<p>You can decide which one of those checkout methods suits your website and proceed to the respective guide to start the integration!</p>
+
+<div class="feedback"></div>
+<h2 id='checkout-with-revolut-integration-guide'><a href='#checkout-with-revolut-integration-guide' class='header-link'><i></i></a>Checkout with Revolut: Integration guide</h2>
 <p>This guide will help you to set up a Revolut Checkout Widget and configure your back-end infrastructure to start accepting online debit &amp; credit card payments on your website.</p>
 
 <p>The Checkout Widget can be integrated in two different ways:</p>
@@ -333,13 +365,13 @@
 
 <p>This page provides a general overview of how to integrate the Checkout Widget. For more detailed documentation, please refer to the following guides:</p>
 
-<p><a href="#revolut-checkout-widget-api">Reference to Revolut Checkout Widget API.</a></p>
+<p><a href="#widget-api">Reference to Revolut Checkout Widget API.</a></p>
 
 <p><a href="#backend-api">Reference to Back-end API.</a></p>
-<h3 id='getting-started-first-steps'><a href='#getting-started-first-steps' class='header-link'><i></i></a>First Steps</h3>
+<h3 id='checkout-with-revolut-integration-guide-configuration'><a href='#checkout-with-revolut-integration-guide-configuration' class='header-link'><i></i></a>Configuration</h3>
 <p><strong>Step 1.</strong> In your <a href="https://business.revolut.com/merchant">Revolut Business</a> account, apply for a Merchant Account. Once your application gets approved, <a href="#backend-api-introduction">get API token</a>.</p>
 
-<p><strong>Step 2.</strong> <a href="#backend-api-backend-api-order-object-create-payment-order">Create a new order</a> on your server back-end with <code>amount</code> and <code>currency</code>.</p>
+<p><strong>Step 2.</strong> <a href="#backend-api-order-object-create-payment-order">Create a new order</a> on your server back-end with <code>amount</code> and <code>currency</code>.</p>
 <blockquote>
       <div><p>Create a new order</p>
 </div>
@@ -384,7 +416,7 @@ Authorization: Bearer &lt;your_API_token&gt;
 
 <div></div>
 
-<p><strong>Step 3.</strong> Add an <a href="#revolut-checkout-widget-api-embed-script">embed script snippet</a> to the html document head in page template. This script will be requested asynchronously so you don&#39;t have to worry about content blocking the loading of the page.</p>
+<p><strong>Step 3.</strong> Add an <a href="#widget-api-embed-script">embed script snippet</a> to the html document head in page template. This script will be requested asynchronously so you don&#39;t have to worry about content blocking the loading of the page.</p>
 <blockquote>
       <div><p>Embed script snippet</p>
 </div>
@@ -399,19 +431,19 @@ Authorization: Bearer &lt;your_API_token&gt;
 <span class="nt">&lt;script&gt;</span><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="nx">o</span><span class="p">,</span><span class="nx">n</span><span class="p">){</span><span class="nx">e</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">){</span><span class="kd">var</span> <span class="nx">r</span><span class="o">=</span><span class="nx">o</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span><span class="nx">r</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"revolut-checkout"</span><span class="p">,</span><span class="nx">r</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s2">"https://merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="nx">r</span><span class="p">.</span><span class="nx">async</span><span class="o">=!</span><span class="mi">0</span><span class="p">,</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">r</span><span class="p">);</span><span class="kd">var</span> <span class="nx">c</span><span class="o">=</span><span class="p">{</span><span class="na">then</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span><span class="nx">i</span><span class="p">){</span><span class="nx">r</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">c</span><span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">n</span><span class="p">](</span><span class="nx">t</span><span class="p">))},</span><span class="nx">r</span><span class="p">.</span><span class="nx">onerror</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">r</span><span class="p">),</span><span class="nx">i</span><span class="o">&amp;&amp;</span><span class="nx">i</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">n</span><span class="o">+</span><span class="s2">" is failed to load"</span><span class="p">))}}};</span><span class="k">return</span><span class="s2">"function"</span><span class="o">==</span><span class="k">typeof</span> <span class="nx">Promise</span><span class="p">?</span><span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">c</span><span class="p">):</span><span class="nx">c</span><span class="p">}}(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">,</span><span class="s2">"RevolutCheckout"</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
 <span class="nt">&lt;/head&gt;</span>
 </code></pre>
-<p><strong>Step 4.</strong> <a href="#getting-started-collect-card-details">Collect card details</a>.</p>
+<p><strong>Step 4.</strong> <a href="#checkout-with-revolut-integration-guide-collect-card-details">Collect card details</a>.</p>
 
 <div class="feedback"></div>
-<h3 id='getting-started-collect-card-details'><a href='#getting-started-collect-card-details' class='header-link'><i></i></a>Collect card details</h3>
+<h3 id='checkout-with-revolut-integration-guide-collect-card-details'><a href='#checkout-with-revolut-integration-guide-collect-card-details' class='header-link'><i></i></a>Collect card details</h3>
 <p>After inserting a code snippet into the document head, you have two options to collect a card number and make a payment:</p>
 
 <ul>
-<li><a href="#getting-started-getting-started-collect-card-details-pop-up">Pop-up</a> - the easiest and fastest method to get started;</li>
-<li><a href="#getting-started-getting-started-collect-card-details-card-field">Card field</a> - fits right in you custom designed checkout flow</li>
+<li><a href="#checkout-with-revolut-integration-guide-checkout-with-revolut-integration-guide-collect-card-details-pop-up">Pop-up</a> - the easiest and fastest method to get started;</li>
+<li><a href="#checkout-with-revolut-integration-guide-checkout-with-revolut-integration-guide-collect-card-details-card-field">Card field</a> - fits right in you custom designed checkout flow</li>
 </ul>
 
 <p>Below you will find detailed instructions on how to set up either of those methods.</p>
-<h4 id='getting-started-getting-started-collect-card-details-pop-up'><a href='#getting-started-getting-started-collect-card-details-pop-up' class='header-link'><i></i></a>Pop-up</h4>
+<h4 id='checkout-with-revolut-integration-guide-checkout-with-revolut-integration-guide-collect-card-details-pop-up'><a href='#checkout-with-revolut-integration-guide-checkout-with-revolut-integration-guide-collect-card-details-pop-up' class='header-link'><i></i></a>Pop-up</h4>
 <p>A pop-up window is the easiest method to accept payments with Revolut. Here is how it looks like:</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"pay-button"</span><span class="nt">&gt;</span>
   Pay
@@ -467,8 +499,8 @@ Authorization: Bearer &lt;your_API_token&gt;
 </code></pre>
 <p><img src="https://user-images.githubusercontent.com/442932/73471824-e761a600-4381-11ea-8b84-8b2d1103823c.png" /></p>
 
-<p>The shown snippet will open a payment pop-up window when a user decides to click on the payment button. Therefore, we need to create a button and attach a click event listener to it that will trigger <a href="#revolut-checkout-widget-api-instance-paywithpopup"><code>RC.payWithPopup(options)</code></a>.</p>
-<h4 id='getting-started-getting-started-collect-card-details-card-field'><a href='#getting-started-getting-started-collect-card-details-card-field' class='header-link'><i></i></a>Card Field</h4>
+<p>The shown snippet will open a payment pop-up window when a user decides to click on the payment button. Therefore, we need to create a button and attach a click event listener to it that will trigger <a href="#widget-api-instance-paywithpopup"><code>RC.payWithPopup(options)</code></a>.</p>
+<h4 id='checkout-with-revolut-integration-guide-checkout-with-revolut-integration-guide-collect-card-details-card-field'><a href='#checkout-with-revolut-integration-guide-checkout-with-revolut-integration-guide-collect-card-details-card-field' class='header-link'><i></i></a>Card Field</h4>
 <p>Inserting a card field into the check-out page allows you to create a separate field securely accepting card details from the users and to submit payments with the rest of your payment form.</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">"form"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"card-input"</span><span class="nt">&gt;&lt;/div&gt;</span>
@@ -543,12 +575,12 @@ Authorization: Bearer &lt;your_API_token&gt;
   <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span>
 </code></pre>
-<p>The snippet shows how we can create a form with a <code>div</code> element in it which will render a <a href="#revolut-checkout-widget-api-instance-createcardfield">card field</a> and then submit a payment.</p>
+<p>The snippet shows how we can create a form with a <code>div</code> element in it which will render a <a href="#widget-api-instance-createcardfield">card field</a> and then submit a payment.</p>
 
 <p><img src="https://user-images.githubusercontent.com/442932/73471842-ed578700-4381-11ea-907f-5d55fd4b7d00.png" /></p>
 
 <div class="feedback"></div>
-<h3 id='getting-started-test-different-scenarios-with-dummy-cards'><a href='#getting-started-test-different-scenarios-with-dummy-cards' class='header-link'><i></i></a>Test different scenarios with dummy cards</h3>
+<h3 id='checkout-with-revolut-integration-guide-test-with-dummy-cards'><a href='#checkout-with-revolut-integration-guide-test-with-dummy-cards' class='header-link'><i></i></a>Test with dummy cards</h3>
 <p>If you would like to test your Merchant Accounts integration before going into production, we have provided <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a> so that you can do this.</p>
 
 <p>Please create a dummy account on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>. Once you have it, please do the following 2 steps:</p>
@@ -572,7 +604,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   <span class="s2">"currency"</span>: <span class="s2">"GBP"</span>
 <span class="o">}</span>
 </code></pre>
-<p><strong>2.</strong> Adjust the <a href="#revolut-checkout-widget-api-embed-script">embed script snippet</a> in the html document head of the page template. You need to replace <code>https://merchant.revolut.com/embed.js</code> with <code>https://sandbox-merchant.revolut.com/embed.js</code>.</p>
+<p><strong>2.</strong> Adjust the <a href="#widget-api-embed-script">embed script snippet</a> in the html document head of the page template. You need to replace <code>https://merchant.revolut.com/embed.js</code> with <code>https://sandbox-merchant.revolut.com/embed.js</code>.</p>
 <blockquote>
       <div><p>Embed script snippet</p>
 </div>
@@ -628,24 +660,26 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <p>Once you make sure that everything works as expected on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>, simply revert back to using <code>https://merchant.revolut.com/</code> in both back-end requests and the embed script snippet, and replace the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> with <a href="https://business.revolut.com/merchant/api">Production API key</a> in the back-end requests. Now you are ready to accept real card payments!</p>
 
 <div class="feedback"></div>
-<h3 id='getting-started-wrap-up'><a href='#getting-started-wrap-up' class='header-link'><i></i></a>Wrap-up</h3>
+<h3 id='checkout-with-revolut-integration-guide-wrap-up'><a href='#checkout-with-revolut-integration-guide-wrap-up' class='header-link'><i></i></a>Wrap-up</h3>
 <p>To sum up, one can follow the following high-level flow in order to integrate FE and BE:
 <img width="555" src="https://user-images.githubusercontent.com/60622352/74252610-d4d25f80-4ce5-11ea-897f-5d814375f12b.png" /></p>
 
-<p><a href="#revolut-checkout-widget-api">Read detailed reference to Revolut Checkout Widget API.</a></p>
+<p><a href="#widget-api">Read detailed reference to Revolut Checkout Widget API.</a></p>
 
 <p><a href="#backend-api">Read detailed reference to Back-end API.</a></p>
 
-<div class="feedback"></div>
-<h2 id='revolut-checkout-widget-api'><a href='#revolut-checkout-widget-api' class='header-link'><i></i></a>Revolut Checkout Widget API</h2><h3 id='revolut-checkout-widget-api-embed-script'><a href='#revolut-checkout-widget-api-embed-script' class='header-link'><i></i></a>Embed script</h3><pre class="highlight html tab-html"><code><span class="nt">&lt;script&gt;</span><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="nx">o</span><span class="p">,</span><span class="nx">n</span><span class="p">){</span><span class="nx">e</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">){</span><span class="kd">var</span> <span class="nx">r</span><span class="o">=</span><span class="nx">o</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span><span class="nx">r</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"revolut-checkout"</span><span class="p">,</span><span class="nx">r</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s2">"https://merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="nx">r</span><span class="p">.</span><span class="nx">async</span><span class="o">=!</span><span class="mi">0</span><span class="p">,</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">r</span><span class="p">);</span><span class="kd">var</span> <span class="nx">c</span><span class="o">=</span><span class="p">{</span><span class="na">then</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span><span class="nx">i</span><span class="p">){</span><span class="nx">r</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">c</span><span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">n</span><span class="p">](</span><span class="nx">t</span><span class="p">))},</span><span class="nx">r</span><span class="p">.</span><span class="nx">onerror</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">r</span><span class="p">),</span><span class="nx">i</span><span class="o">&amp;&amp;</span><span class="nx">i</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">n</span><span class="o">+</span><span class="s2">" is failed to load"</span><span class="p">))}}};</span><span class="k">return</span><span class="s2">"function"</span><span class="o">==</span><span class="k">typeof</span> <span class="nx">Promise</span><span class="p">?</span><span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">c</span><span class="p">):</span><span class="nx">c</span><span class="p">}}(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">,</span><span class="s2">"RevolutCheckout"</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
-</code></pre>
-<p>Embed the following script on all pages that you intend to use <a href="#revolut-checkout-widget-api-revolutcheckout"><code>RevolutCheckout</code></a> on. Please note it should be inserted <strong>before</strong> the code that actually calls <code>RevolutCheckout</code>.</p>
+<p><a href="#integration-examples">Browse Integration examples.</a></p>
 
 <div class="feedback"></div>
-<h3 id='revolut-checkout-widget-api-revolutcheckout'><a href='#revolut-checkout-widget-api-revolutcheckout' class='header-link'><i></i></a><code>RevolutCheckout</code></h3><pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">RevolutCheckout</span> <span class="o">=</span> <span class="p">(</span><span class="nx">token</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Instance</span><span class="o">&gt;</span><span class="p">;</span>
+<h2 id='widget-api'><a href='#widget-api' class='header-link'><i></i></a>Widget API</h2><h3 id='widget-api-embed-script'><a href='#widget-api-embed-script' class='header-link'><i></i></a>Embed script</h3><pre class="highlight html tab-html"><code><span class="nt">&lt;script&gt;</span><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="nx">o</span><span class="p">,</span><span class="nx">n</span><span class="p">){</span><span class="nx">e</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">t</span><span class="p">){</span><span class="kd">var</span> <span class="nx">r</span><span class="o">=</span><span class="nx">o</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span><span class="nx">r</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"revolut-checkout"</span><span class="p">,</span><span class="nx">r</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="s2">"https://merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="nx">r</span><span class="p">.</span><span class="nx">async</span><span class="o">=!</span><span class="mi">0</span><span class="p">,</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">r</span><span class="p">);</span><span class="kd">var</span> <span class="nx">c</span><span class="o">=</span><span class="p">{</span><span class="na">then</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span><span class="nx">i</span><span class="p">){</span><span class="nx">r</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">c</span><span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">n</span><span class="p">](</span><span class="nx">t</span><span class="p">))},</span><span class="nx">r</span><span class="p">.</span><span class="nx">onerror</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">r</span><span class="p">),</span><span class="nx">i</span><span class="o">&amp;&amp;</span><span class="nx">i</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">n</span><span class="o">+</span><span class="s2">" is failed to load"</span><span class="p">))}}};</span><span class="k">return</span><span class="s2">"function"</span><span class="o">==</span><span class="k">typeof</span> <span class="nx">Promise</span><span class="p">?</span><span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">c</span><span class="p">):</span><span class="nx">c</span><span class="p">}}(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">,</span><span class="s2">"RevolutCheckout"</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
 </code></pre>
-<p>Load the embedded script and create an <a href="#revolut-checkout-widget-api-instance"><code>Instance</code></a> for the order <code>token</code>.</p>
-<h4 id='revolut-checkout-widget-api-revolut-checkout-widget-api-revolutcheckout-parameters'><a href='#revolut-checkout-widget-api-revolut-checkout-widget-api-revolutcheckout-parameters' class='header-link'><i></i></a>Parameters</h4><blockquote>
+<p>Embed the following script on all pages that you intend to use <a href="#widget-api-revolutcheckout"><code>RevolutCheckout</code></a> on. Please note it should be inserted <strong>before</strong> the code that actually calls <code>RevolutCheckout</code>.</p>
+
+<div class="feedback"></div>
+<h3 id='widget-api-revolutcheckout'><a href='#widget-api-revolutcheckout' class='header-link'><i></i></a><code>RevolutCheckout</code></h3><pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">RevolutCheckout</span> <span class="o">=</span> <span class="p">(</span><span class="nx">token</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Instance</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre>
+<p>Load the embedded script and create an <a href="#widget-api-instance"><code>Instance</code></a> for the order <code>token</code>.</p>
+<h4 id='widget-api-widget-api-revolutcheckout-parameters'><a href='#widget-api-widget-api-revolutcheckout-parameters' class='header-link'><i></i></a>Parameters</h4><blockquote>
       <div><p>Script load example</p>
 </div>
       <div class='env-selector'>
@@ -666,10 +700,10 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <li><code>token</code> - <code>public_id</code> returned from the BE request</li>
 </ul>
 
-<p>Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> with order <a href="#revolut-checkout-widget-api-instance"><code>Instance</code></a>.</p>
+<p>Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> with order <a href="#widget-api-instance"><code>Instance</code></a>.</p>
 
 <div class="feedback"></div>
-<h3 id='revolut-checkout-widget-api-instance'><a href='#revolut-checkout-widget-api-instance' class='header-link'><i></i></a><code>Instance</code></h3><pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">Instance</span> <span class="o">=</span> <span class="p">{</span>
+<h3 id='widget-api-instance'><a href='#widget-api-instance' class='header-link'><i></i></a><code>Instance</code></h3><pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">Instance</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">payWithPopup</span><span class="p">:</span> <span class="nx">InstancePayWithPopup</span><span class="p">;</span>
   <span class="nl">createCardField</span><span class="p">:</span> <span class="nx">InstanceCreateCardField</span><span class="p">;</span>
   <span class="nl">destroy</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
@@ -697,8 +731,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <span class="p">});</span>
 </code></pre>
 <div class="feedback"></div>
-<h3 id='revolut-checkout-widget-api-instance-paywithpopup'><a href='#revolut-checkout-widget-api-instance-paywithpopup' class='header-link'><i></i></a><code>Instance.payWithPopup</code></h3>
-<p>Open a <a href="#getting-started-getting-started-collect-card-details-pop-up">payment pop-up</a> which is available on the <a href="#revolut-checkout-widget-api-instance"><code>Instance</code></a>.</p>
+<h3 id='widget-api-instance-paywithpopup'><a href='#widget-api-instance-paywithpopup' class='header-link'><i></i></a><code>Instance.payWithPopup</code></h3>
+<p>Open a <a href="#checkout-with-revolut-integration-guide-collect-card-details-pop-up">payment pop-up</a> which is available on the <a href="#widget-api-instance"><code>Instance</code></a>.</p>
 <pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">InstancePayWithPopup</span> <span class="o">=</span> <span class="p">(</span>
   <span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span>
 <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -810,7 +844,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>Object</td>
 </tr>
 </tbody></table>
-<h4 id='revolut-checkout-widget-api-revolut-checkout-widget-api-instance-paywithpopup-returns'><a href='#revolut-checkout-widget-api-revolut-checkout-widget-api-instance-paywithpopup-returns' class='header-link'><i></i></a>Returns</h4>
+<h4 id='widget-api-widget-api-instance-paywithpopup-returns'><a href='#widget-api-widget-api-instance-paywithpopup-returns' class='header-link'><i></i></a>Returns</h4>
 <p><code>Methods</code> object:</p>
 
 <table><thead>
@@ -826,7 +860,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>Function</td>
 </tr>
 </tbody></table>
-<h4 id='revolut-checkout-widget-api-revolut-checkout-widget-api-instance-paywithpopup-examples'><a href='#revolut-checkout-widget-api-revolut-checkout-widget-api-instance-paywithpopup-examples' class='header-link'><i></i></a>Examples</h4>
+<h4 id='widget-api-widget-api-instance-paywithpopup-examples'><a href='#widget-api-widget-api-instance-paywithpopup-examples' class='header-link'><i></i></a>Examples</h4>
 <p>Example with minimal required parameters</p>
 <blockquote>
       <div><p>Minimal required parameters example</p>
@@ -926,8 +960,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <span class="p">});</span>
 </code></pre>
 <div class="feedback"></div>
-<h3 id='revolut-checkout-widget-api-instance-createcardfield'><a href='#revolut-checkout-widget-api-instance-createcardfield' class='header-link'><i></i></a><code>Instance.createCardField</code></h3>
-<p>Create a <a href="#getting-started-getting-started-collect-card-details-card-field">card field</a> which is available on the <a href="#revolut-checkout-widget-api-instance"><code>Instance</code></a>:</p>
+<h3 id='widget-api-instance-createcardfield'><a href='#widget-api-instance-createcardfield' class='header-link'><i></i></a><code>Instance.createCardField</code></h3>
+<p>Create a <a href="#checkout-with-revolut-integration-guide-collect-card-details-card-field">card field</a> which is available on the <a href="#widget-api-instance"><code>Instance</code></a>:</p>
 <pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">InstanceCreateCardField</span> <span class="o">=</span> <span class="p">(</span>
   <span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span>
 <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -1096,7 +1130,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>String</td>
 </tr>
 </tbody></table>
-<h4 id='revolut-checkout-widget-api-revolut-checkout-widget-api-instance-createcardfield-returns'><a href='#revolut-checkout-widget-api-revolut-checkout-widget-api-instance-createcardfield-returns' class='header-link'><i></i></a>Returns</h4>
+<h4 id='widget-api-widget-api-instance-createcardfield-returns'><a href='#widget-api-widget-api-instance-createcardfield-returns' class='header-link'><i></i></a>Returns</h4>
 <p><code>Methods</code> object:</p>
 
 <table><thead>
@@ -1183,7 +1217,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>Object</td>
 </tr>
 </tbody></table>
-<h4 id='revolut-checkout-widget-api-revolut-checkout-widget-api-instance-createcardfield-examples'><a href='#revolut-checkout-widget-api-revolut-checkout-widget-api-instance-createcardfield-examples' class='header-link'><i></i></a>Examples</h4>
+<h4 id='widget-api-widget-api-instance-createcardfield-examples'><a href='#widget-api-widget-api-instance-createcardfield-examples' class='header-link'><i></i></a>Examples</h4>
 <p>Minimal required parameters example</p>
 <blockquote>
       <div><p>HTML</p>
@@ -2287,6 +2321,79 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>UUID</td>
 </tr>
 </tbody></table>
+
+<div class="feedback"></div>
+<h2 id='integration-examples'><a href='#integration-examples' class='header-link'><i></i></a>Integration examples</h2><h3 id='integration-examples-payment-pop-up-integration-react-js-next-js'><a href='#integration-examples-payment-pop-up-integration-react-js-next-js' class='header-link'><i></i></a>Payment pop-up integration: React.js + Next.js</h3>
+<p>This sample shows how to use <a href="#widget-api">Revolut Checkout widget</a> with a <a href="#checkout-with-revolut-integration-guide-checkout-with-revolut-integration-guide-collect-card-details-pop-up">payment pop-up</a> and <a href="#backend-api">Merchant API</a>. The hosted version is running on sandbox environemnet — use one of our <a href="#checkout-with-revolut-integration-guide-test-with-dummy-cards">test cards</a> еo ensure that the Checkout widget works properly.</p>
+
+<div>
+  <iframe
+    src="https://codesandbox.io/embed/github/revolut-engineering/revolut-merchant-api-example-next-js/tree/master/?fontsize=14&hidenavigation=1&module=%2Fpages%2Fcheckout.js&theme=dark"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="revolut-checkout-widget-next-example"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
+</div>
+
+<p>You can also fork this example to your GitHub repository and start playing with it yourself:</p>
+
+<p><a class="github-button" href="https://github.com/revolut-engineering/revolut-merchant-api-example-next-js/fork" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Fork revolut-engineering/revolut-merchant-api-example-next-js on GitHub">Fork</a>
+<script async defer src="https://buttons.github.io/buttons.js"></script></p>
+<h4 id='integration-examples-integration-examples-payment-pop-up-integration-react-js-next-js-more-examples-are-coming-soon'><a href='#integration-examples-integration-examples-payment-pop-up-integration-react-js-next-js-more-examples-are-coming-soon' class='header-link'><i></i></a>More examples are coming soon.</h4>
+<div class="feedback"></div>
+<h2 id='checkout-with-official-plugins'><a href='#checkout-with-official-plugins' class='header-link'><i></i></a>Checkout with official plugins</h2><h3 id='checkout-with-official-plugins-woocommerce'><a href='#checkout-with-official-plugins-woocommerce' class='header-link'><i></i></a>WooCommerce</h3>
+<p>Revolut WooCommerce plugin lets you accept online card payments via your WooCommerce e-store - in an easy and hassle-free fashion. The following guide will help you install and configure Revolut WooCommerce plugin.</p>
+<h4 id='checkout-with-official-plugins-checkout-with-official-plugins-woocommerce-installation'><a href='#checkout-with-official-plugins-checkout-with-official-plugins-woocommerce-installation' class='header-link'><i></i></a>Installation</h4>
+<p><strong>Step 1.</strong> Log in to the admin section of your WooCommerce webstore.</p>
+
+<p><strong>Step 2.</strong> On the menu on the left hand side of the page, go the the <code>Plugins</code> section.
+<img width="100" src="https://user-images.githubusercontent.com/60622352/77462035-65c74b00-6dfb-11ea-85df-c033b049a828.png"></p>
+
+<p><strong>Step 3.</strong> At the very top of the page, click on <code>Add New</code> button next to the plugins page title.
+<img width="1434" src="https://user-images.githubusercontent.com/60622352/77462129-91e2cc00-6dfb-11ea-8aae-1c636556c5d6.png"></p>
+
+<p><strong>Step 4.</strong> You will be redirected to the following page:
+<img width="1368" src="https://user-images.githubusercontent.com/60622352/76890093-a1ec3000-687e-11ea-84ca-964fa6a0faf9.png">
+Click on <code>Upload Plugin</code> button next to the <code>Add Plugin</code> page title.</p>
+
+<p><strong>Step 5.</strong> Download the following <a href="https://assets.revolut.com/business/merchant/woocommerce-revolut-gateway.zip">Woocommerce-Revolut-Gateway.zip</a> file and upload it on this page:
+<img width="1396" src="https://user-images.githubusercontent.com/60622352/77462365-f3a33600-6dfb-11ea-98dc-27adc85fc28e.png"></p>
+
+<p><strong>Step 6.</strong> Once the installation of the Revolut WooCommerce plugin is successfully finished, you can go ahead and click on the <code>Activate Plugin</code> button. 
+<img width="878" src="https://user-images.githubusercontent.com/60622352/77463612-c788b480-6dfd-11ea-80a6-b52dd689d6a9.png"></p>
+
+<p><strong>Step 7.</strong> Congrats! You have just activated the Revolut WooCommerce plugin. You&#39;ll be automatically redirected to the page with all the plugins you have installed. 
+<img width="1394" src="https://user-images.githubusercontent.com/60622352/77464397-00755900-6dff-11ea-8138-e4d9c3eb5032.png"></p>
+<h4 id='checkout-with-official-plugins-checkout-with-official-plugins-woocommerce-configuration'><a href='#checkout-with-official-plugins-checkout-with-official-plugins-woocommerce-configuration' class='header-link'><i></i></a>Configuration</h4>
+<p><strong>Step 1.</strong> Testing the WooCommerce Revolut Gateway plugin:</p>
+
+<p>In the admin settings of your WooCommerce shop, under <code>WooCommerce Revolut Gateway</code> plugin, click <code>Settings</code>. You will land on the following page:
+<img width="982" src="https://user-images.githubusercontent.com/60622352/77464762-914c3480-6dff-11ea-905a-ce881ec8e193.png"></p>
+
+<p>Make sure you perform the following actions to enable test mode:</p>
+
+<ul>
+<li><p>Tick the <code>Enable Revolut</code> option</p></li>
+<li><p>Tick the <code>Revolut Sandbox</code> option</p></li>
+<li><p>Add your Sandbox API Key found in your Merchant account settings on the <a href="https://sandbox-business.revolut.com/merchant/api">Revolut Business Sandbox environment</a></p></li>
+<li><p>Click on the <code>Save changes</code> button to confirm the changes</p></li>
+<li><p>Start testing payments using our <a href="#checkout-with-revolut-integration-guide-test-with-dummy-cards">test cards</a></p></li>
+</ul>
+
+<p><strong>Step 2.</strong> Using WooCommerce Revolut Gateway plugin in production environment:</p>
+
+<p>Go back to the admin settings of your WooCommerce shop and under <code>WooCommerce Revolut Gateway</code> plugin click <code>Settings</code>.
+<img width="969"  src="https://user-images.githubusercontent.com/60622352/77466068-9f02b980-6e01-11ea-9537-0507e73140e1.png"></p>
+
+<p>Make sure you perform the following actions to enable payments in production environment:</p>
+
+<ul>
+<li><p>Tick the <code>Enable Revolut</code> option</p></li>
+<li><p>Untick the <code>Revolut Sandbox</code> option</p></li>
+<li><p>Add your API Key found in your Merchant account settings on <a href="https://business.revolut.com/merchant/api">Revolut Business portal</a></p></li>
+<li><p>Click on the <code>Save changes</code> button to confirm the changes</p></li>
+<li><p>Start accepting real card payments in your WooCommerce online shop</p></li>
+</ul>
 
 <div class="feedback"></div>
 <h2 id='errors'><a href='#errors' class='header-link'><i></i></a>Errors</h2>
