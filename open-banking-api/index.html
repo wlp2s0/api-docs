@@ -357,6 +357,18 @@
                       <a href="#payment-initiation-api-specification-get-domestic-standing-order" class="toc-h3 toc-link" data-title="Get Domestic Standing Order">Get Domestic Standing Order</a>
                     </li>
                     <li>
+                      <a href="#payment-initiation-api-specification-create-domestic-scheduled-payment-consent" class="toc-h3 toc-link" data-title="Create Domestic Scheduled Payment Consent">Create Domestic Scheduled Payment Consent</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-domestic-scheduled-payment-consent" class="toc-h3 toc-link" data-title="Get Domestic Scheduled Payment Consent">Get Domestic Scheduled Payment Consent</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-create-domestic-scheduled-payment" class="toc-h3 toc-link" data-title="Create Domestic Scheduled Payment">Create Domestic Scheduled Payment</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-domestic-scheduled-payment" class="toc-h3 toc-link" data-title="Get Domestic Scheduled Payment">Get Domestic Scheduled Payment</a>
+                    </li>
+                    <li>
                       <a href="#payment-initiation-api-specification-create-international-payment-consent" class="toc-h3 toc-link" data-title="Create International Payment Consent">Create International Payment Consent</a>
                     </li>
                     <li>
@@ -1147,7 +1159,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
 
 <p>Since Revolut Business users can have multiple accounts in the same currency, we allow them to choose which account they want to be charged in the consent authorization UI.</p>
 
-<p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the JWS header. As it specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format</p>
+<p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the JWS header. As specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format.</p>
 
 <aside class="notice">
     Unfortunately, cannot support the <b>EndToEndIdentification</b> field as it is described in the <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937656404/Read+Write+Data+API+Specification+-+v3.1">documentation</a>. We will update the documentation once we get support for it.
@@ -1177,6 +1189,9 @@ In order to change your configuration: go to the <a href="https://developers.rev
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AwaitingAuthorisation"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"StatusUpdateDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ID412"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E2E123"</span><span class="p">,</span><span class="w">
@@ -1207,7 +1222,11 @@ In order to change your configuration: go to the <a href="https://developers.rev
       </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/domestic-payment-consents/14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns consent details as it is described in the official documentation.</p>
@@ -1352,7 +1371,11 @@ In order to change your configuration: go to the <a href="https://developers.rev
         </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipment fee"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/domestic-payments/a51bafa2-1b9f-466e-ae30-168672f0661c"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns state of a payment</p>
@@ -1410,7 +1433,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
 
 <p>Since Revolut Business users can have multiple accounts in the same currency, we allow them to choose which account they want to be charged in the consent authorization UI.</p>
 
-<p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the JWS header. As it specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format</p>
+<p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the JWS header. As specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format.</p>
 
 <p>We support only the following types of standing orders frequency:</p>
 
@@ -1453,7 +1476,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
         </select>
       </div>
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-standing-order-consents/<span class="o">{</span>conset_id<span class="o">}</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/domestic-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/domestic-standing-order-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre><blockquote>
       <div><p>Response</p>
 </div>
@@ -1467,6 +1490,9 @@ In order to change your configuration: go to the <a href="https://developers.rev
    </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
      </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Permission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Create"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AwaitingAuthorisation"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"StatusUpdateDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
      </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
        </span><span class="s2">"Frequency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EvryDay"</span><span class="p">,</span><span class="w">
        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pocket money for Damien"</span><span class="p">,</span><span class="w">
@@ -1489,7 +1515,11 @@ In order to change your configuration: go to the <a href="https://developers.rev
    </span><span class="p">},</span><span class="w">
    </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
      </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PartyToParty"</span><span class="w">
-   </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/domestic-standing-order-consents/14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns consent details as it is described in the official documentation.</p>
@@ -1602,6 +1632,207 @@ In order to change your configuration: go to the <a href="https://developers.rev
 <p>This endpoint returns state of a standing order</p>
 
 <div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-create-domestic-scheduled-payment-consent'><a href='#payment-initiation-api-specification-create-domestic-scheduled-payment-consent' class='header-link'><i></i></a>Create Domestic Scheduled Payment Consent</h3><blockquote>
+      <div><p>Create Domestic Scheduled Payment Consent</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/domestic-scheduled-payment-consents
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/domestic-scheduled-payment-consents
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Permission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Create"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89f0a53a91ee47f6a383536f851d6b5a"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"RequestedExecutionDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-06T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08080021325698"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Clements"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PartyToParty"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is for creating scheduled payment consent as described in Open Banking API documentation. Domestic Scheduled Payments are used for local scheduled payments in the local currency of the user. Revolut supports only GBP as local in the UK and EUR in SEPA countries. </p>
+
+<p>Since Revolut Business users can have multiple accounts in the same currency, we allow them to choose which account they want to be charged in the consent authorization UI.</p>
+
+<p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the JWS header. As specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format.</p>
+
+<aside class="warning">
+    Domestic scheduled payments API is currently in Beta stage - some elements of the UI might not fully visualise the consent data.
+</aside>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-domestic-scheduled-payment-consent'><a href='#payment-initiation-api-specification-get-domestic-scheduled-payment-consent' class='header-link'><i></i></a>Get Domestic Scheduled Payment Consent</h3><blockquote>
+      <div><p>Get Domestic Scheduled Payment Consent details</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-scheduled-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/domestic-scheduled-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Permission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Create"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AwaitingAuthorisation"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"StatusUpdateDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89f0a53a91ee47f6a383536f851d6b5a"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"RequestedExecutionDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-06T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+       </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.00"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08080021325698"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Clements"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PartyToParty"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/domestic-scheduled-payment-consents/14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns consent details as it is described in the official documentation.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-create-domestic-scheduled-payment'><a href='#payment-initiation-api-specification-create-domestic-scheduled-payment' class='header-link'><i></i></a>Create Domestic Scheduled Payment</h3><blockquote>
+      <div><p>Create Domestic Scheduled Payment</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/domestic-scheduled-payments
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/domestic-scheduled-payments
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89f0a53a91ee47f6a383536f851d6b5a"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"RequestedExecutionDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-06T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08080021325698"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Clements"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PartyToParty"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>As it is defined in the Open Banking Specifications, <code>/Data/Initiation</code> and <code>/Data/Risk</code> sections of the request must be exact match for the related consent passed in <code>ConsentId</code>.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-domestic-scheduled-payment'><a href='#payment-initiation-api-specification-get-domestic-scheduled-payment' class='header-link'><i></i></a>Get Domestic Scheduled Payment</h3><blockquote>
+      <div><p>Get Domestic Scheduled Payment</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-scheduled-payments/<span class="o">{</span>domestic_scheduled_payment_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/domestic-scheduled-payments/<span class="o">{</span>domestic_scheduled_payment_id<span class="o">}</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"DomesticScheduledPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"537e2fb4-7eb7-44fe-83fd-2152e360c5b3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InitiationCompleted"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"StatusUpdateDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89f0a53a91ee47f6a383536f851d6b5a"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"RequestedExecutionDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-06T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08080021325698"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Clements"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/domestic-scheduled-payments/537e2fb4-7eb7-44fe-83fd-2152e360c5b3"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns state of a domestic scheduled payment</p>
+
+<div class="feedback"></div>
 <h3 id='payment-initiation-api-specification-create-international-payment-consent'><a href='#payment-initiation-api-specification-create-international-payment-consent' class='header-link'><i></i></a>Create International Payment Consent</h3><blockquote>
       <div><p>Create International Payment Consent</p>
 </div>
@@ -1674,7 +1905,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
 
 <p>Only payments with <code>InstructedAmount</code> in the same currency as <code>CurrencyOfTransfer</code> are supported. However, we allow users to change which account they want to be charged in consent authorization UI. Even if it is in a different currency. In such a case, the response field ExchangeRateInformation will contain information about the fx rate between source account currency and CurrencyOfTransfer. In case the user doesn&#39;t have enough funds on the selected account, the consent authorisation will be rejected.</p>
 
-<p>As part of API requirement, you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from a request body with TPP signing key that is specified in the JWS header. As it specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format</p>
+<p>As part of API requirement, you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from a request body with TPP signing key that is specified in the JWS header. As specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format.</p>
 
 <aside class="notice">
     Unfortunately, cannot support the <b>EndToEndIdentification</b> field as it is described in the <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937656404/Read+Write+Data+API+Specification+-+v3.1">documentation</a>. We will update the documentation once we get support for it.
@@ -1761,7 +1992,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:33453/international-payment-consents/b4206fed-5265-48ce-91af-cb7182018991"</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/international-payment-consents/b4206fed-5265-48ce-91af-cb7182018991"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1934,7 +2165,11 @@ In order to change your configuration: go to the <a href="https://developers.rev
         </span><span class="s2">"RateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indicative"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/international-payments/a51bafa2-1b9f-466e-ae30-168672f0661c"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns a state of a payment</p>
@@ -2004,7 +2239,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
 
 <p>Only payments with <code>InstructedAmount</code> in the same currency as <code>CurrencyOfTransfer</code> are supported. However, we allow users to change which account they want to be charged in consent authorization UI. Even if it is in a different currency. In case the user doesn&#39;t have enough funds on the selected account, the consent authorisation will be rejected.</p>
 
-<p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the JWS header. As it specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format</p>
+<p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the JWS header. As specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format.</p>
 
 <p>We support only the following types of standing orders frequency:</p>
 
@@ -2100,7 +2335,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
     </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PartyToParty"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:33453/international-standing-order-consents/14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/international-standing-order-consents/14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
