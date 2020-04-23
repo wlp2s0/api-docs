@@ -700,6 +700,36 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span></code></pre>
 <p>This endpoint creates a consent to be authorized by revolut user.</p>
 
+<p>The following combinations of permissions are not allowed, and such account-access-consents will be rejected with a 400 response code:</p>
+
+<ul>
+<li>Account Access Consents with an empty <strong>Permissions</strong> array.</li>
+<li>Account Access Consents with a permission code that is not supported (supported permission codes are listed below).</li>
+<li>Account Access Consents with a <strong>Permissions</strong> array that contains <strong>ReadTransactionsBasic</strong> but does not contain at least one of <strong>ReadTransactionsCredits</strong> and <strong>ReadTransactionsDebits</strong>.</li>
+<li>Account Access Consents with a <strong>Permissions</strong> array that contains <strong>ReadTransactionsDetail</strong> but does not contain at least one of <strong>ReadTransactionsCredits</strong> and <strong>ReadTransactionsDebits</strong>.</li>
+<li>Account Access Consents with a <strong>Permissions</strong> array that contains <strong>ReadTransactionsCredits</strong> but does not contain at least one of <strong>ReadTransactionsBasic</strong> and <strong>ReadTransactionsDetail</strong>.</li>
+<li>Account Access Consents with a <strong>Permissions</strong> array that contains <strong>ReadTransactionsDebits</strong> but does not contain at least one of <strong>ReadTransactionsBasic</strong> and <strong>ReadTransactionsDetail</strong>.</li>
+</ul>
+
+<p>We support the following list of Permissions:</p>
+
+<ol>
+<li>ReadAccountsBasic</li>
+<li>ReadAccountsDetail</li>
+<li>ReadBalances</li>
+<li>ReadBeneficiariesBasic</li>
+<li>ReadBeneficiariesDetail</li>
+<li>ReadDirectDebits</li>
+<li>ReadScheduledPaymentsBasic</li>
+<li>ReadScheduledPaymentsDetail</li>
+<li>ReadStandingOrdersBasic</li>
+<li>ReadStandingOrdersDetail</li>
+<li>ReadTransactionsBasic</li>
+<li>ReadTransactionsCredits</li>
+<li>ReadTransactionsDebits</li>
+<li>ReadTransactionsDetail</li>
+</ol>
+
 <div class="feedback"></div>
 <h3 id='account-and-transaction-api-get-accounts'><a href='#account-and-transaction-api-get-accounts' class='header-link'><i></i></a>Get Accounts</h3><blockquote>
       <div><p>Get list of accounts</p>
