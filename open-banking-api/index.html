@@ -395,6 +395,21 @@
                     <li>
                       <a href="#payment-initiation-api-specification-get-international-standing-order" class="toc-h3 toc-link" data-title="Get International Standing Order">Get International Standing Order</a>
                     </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-create-international-scheduled-payment-consent" class="toc-h3 toc-link" data-title="Create International Scheduled Payment Consent">Create International Scheduled Payment Consent</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-international-scheduled-payment-consent" class="toc-h3 toc-link" data-title="Get International Scheduled Payment Consent">Get International Scheduled Payment Consent</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-international-scheduled-payment-consent-funds-confirmation" class="toc-h3 toc-link" data-title="Get International Scheduled Payment Consent Funds Confirmation">Get International Scheduled Payment Consent Funds Confirmation</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-create-international-scheduled-payment" class="toc-h3 toc-link" data-title="Create International Scheduled Payment">Create International Scheduled Payment</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-international-scheduled-payment" class="toc-h3 toc-link" data-title="Get International Scheduled Payment">Get International Scheduled Payment</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -1408,7 +1423,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
   </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns state of a payment</p>
+<p>This endpoint returns state of a payment.</p>
 
 <div class="feedback"></div>
 <h3 id='payment-initiation-api-specification-create-domestic-standing-order-consent'><a href='#payment-initiation-api-specification-create-domestic-standing-order-consent' class='header-link'><i></i></a>Create Domestic Standing Order Consent</h3><blockquote>
@@ -1654,12 +1669,12 @@ In order to change your configuration: go to the <a href="https://developers.rev
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/domestic-standing-orders/14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/domestic-standing-orders/537e2fb4-7eb7-44fe-83fd-2152e360c5b3"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns state of a standing order</p>
+<p>This endpoint returns state of a standing order.</p>
 
 <div class="feedback"></div>
 <h3 id='payment-initiation-api-specification-create-domestic-scheduled-payment-consent'><a href='#payment-initiation-api-specification-create-domestic-scheduled-payment-consent' class='header-link'><i></i></a>Create Domestic Scheduled Payment Consent</h3><blockquote>
@@ -1860,7 +1875,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
   </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns state of a domestic scheduled payment</p>
+<p>This endpoint returns state of a domestic scheduled payment.</p>
 
 <div class="feedback"></div>
 <h3 id='payment-initiation-api-specification-create-international-payment-consent'><a href='#payment-initiation-api-specification-create-international-payment-consent' class='header-link'><i></i></a>Create International Payment Consent</h3><blockquote>
@@ -2202,7 +2217,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
   </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns a state of a payment</p>
+<p>This endpoint returns a state of a payment.</p>
 
 <div class="feedback"></div>
 <h3 id='payment-initiation-api-specification-create-international-standing-order-consent'><a href='#payment-initiation-api-specification-create-international-standing-order-consent' class='header-link'><i></i></a>Create International Standing Order Consent</h3><blockquote>
@@ -2312,7 +2327,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
         </select>
       </div>
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-standing-order-consents/<span class="o">{</span>conset_id<span class="o">}</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/international-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/international-standing-order-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre><blockquote>
       <div><p>Response</p>
 </div>
@@ -2465,7 +2480,11 @@ In order to change your configuration: go to the <a href="https://developers.rev
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"InternationalStandingOrderId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0f338f1-1827-49a3-82f7-eaa3783cadb6"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T06:06:36+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InitiationCompleted"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"StatusUpdateDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01T06:36:06+00:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME412"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"EndToEndIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRESCO.21302.GFX.20"</span><span class="p">,</span><span class="w">
@@ -2506,12 +2525,331 @@ In order to change your configuration: go to the <a href="https://developers.rev
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/international-standing-orders/14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/international-standing-orders/a0f338f1-1827-49a3-82f7-eaa3783cadb6"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint returns state of a standing order</p>
+<p>This endpoint returns state of a standing order.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-create-international-scheduled-payment-consent'><a href='#payment-initiation-api-specification-create-international-scheduled-payment-consent' class='header-link'><i></i></a>Create International Scheduled Payment Consent</h3><blockquote>
+      <div><p>Create International Scheduled Payment Consent</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/international-scheduled-payment-consents
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/international-scheduled-payment-consents
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Permission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Create"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"RequestedExecutionDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CurrencyOfTransfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6.66"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB76LOYD30949301273801"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"Creditor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Clements"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correspondence"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Liberty"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1 2CD"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"one"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"two"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PartyToParty"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is for creating scheduled payment consent as described in Open Banking API documentation. International Scheduled Payments are used for international SWIFT payments in all currencies supported by Revolut.</p>
+
+<p>Only payments with <code>InstructedAmount</code> in the same currency as <code>CurrencyOfTransfer</code> are supported. However, we allow users to change which account they want to be charged in consent authorization UI. Even if it is in a different currency. In case the user doesn&#39;t have enough funds on the selected account, the consent authorisation will be rejected.</p>
+
+<p>As part of API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from request body with TPP signing key that is specified in the JWS header. As specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format.</p>
+
+<aside class="warning">
+    Scheduled paymentss API is currently in Beta stage - some elements of the UI might not fully visualise the consent data.
+</aside>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-international-scheduled-payment-consent'><a href='#payment-initiation-api-specification-get-international-scheduled-payment-consent' class='header-link'><i></i></a>Get International Scheduled Payment Consent</h3><blockquote>
+      <div><p>Get International Scheduled Payment Consent details</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-scheduled-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/international-scheduled-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Permission"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Create"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AwaitingAuthorisation"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"StatusUpdateDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-06-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"RequestedExecutionDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CurrencyOfTransfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165.88"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB76LOYD30949301273801"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"Creditor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob Clements"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correspondence"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Liberty"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1 2CD"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"one"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"two"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PartyToParty"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/international-scheduled-payment-consents/14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns consent details as it is described in the official documentation.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-international-scheduled-payment-consent-funds-confirmation'><a href='#payment-initiation-api-specification-get-international-scheduled-payment-consent-funds-confirmation' class='header-link'><i></i></a>Get International Scheduled Payment Consent Funds Confirmation</h3><blockquote>
+      <div><p>Get Funds Confirmation</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-scheduled-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>/funds-confirmation
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/international-scheduled-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/funds-confirmation
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"FundsAvailableResult"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"FundsAvailableDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-06T16:16:22+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"FundsAvailable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/international-scheduled-payment-consents/a0f338f1-1827-49a3-82f7-eaa3783cadb6/funds-confirmation"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows checking funds for the given consent. This endpoint returns successfully only if user has authorized the related consent.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-create-international-scheduled-payment'><a href='#payment-initiation-api-specification-create-international-scheduled-payment' class='header-link'><i></i></a>Create International Scheduled Payment</h3><blockquote>
+      <div><p>Create International Scheduled Payment</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/international-scheduled-payments
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/international-scheduled-payments
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"RequestedExecutionDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CurrencyOfTransfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165.88"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB76LOYD30949301273801"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"Creditor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correspondence"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Liberty"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1 2CD"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"one"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"two"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRESCO-101"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal ops code 5120101"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"ExchangeRateInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"UnitCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indicative"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Risk"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"PaymentContextCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PartyToParty"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>As it is defined in the Open Banking Specifications, <code>/Data/Initiation</code> and <code>/Data/Risk</code> sections of the request must be exact match for the related consent passed in <code>ConsentId</code>.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-international-scheduled-payment'><a href='#payment-initiation-api-specification-get-international-scheduled-payment' class='header-link'><i></i></a>Get International Scheduled Payment</h3><blockquote>
+      <div><p>Get International Scheduled Payment</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-scheduled-payments/<span class="o">{</span>scheduled_payment_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/international-scheduled-payments/<span class="o">{</span>scheduled_payment_id<span class="o">}</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"InternationalScheduledPaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0f338f1-1827-49a3-82f7-eaa3783cadb6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InitiationCompleted"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"StatusUpdateDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"InstructionIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME412"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"RequestedExecutionDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06T00:00:00+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"CurrencyOfTransfer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"165.88"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"CreditorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.IBAN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB76LOYD30949301273801"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME Inc"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"SecondaryIdentification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0002"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"Creditor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"PostalAddress"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"AddressType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Correspondence"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"StreetName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Liberty"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"BuildingNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"PostCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AB1 2CD"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"TownName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"London"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"AddressLine"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"one"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"two"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"Country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"RemittanceInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FRESCO-101"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Unstructured"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internal ops code 5120101"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"ExchangeRateInformation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"UnitCurrency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"RateType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Indicative"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/international-scheduled-payments/a0f338f1-1827-49a3-82f7-eaa3783cadb6"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns state of a scheduled payment.</p>
 
 <div class="feedback"></div>
 <h2 id='confirmation-of-funds'><a href='#confirmation-of-funds' class='header-link'><i></i></a>Confirmation of funds</h2>
