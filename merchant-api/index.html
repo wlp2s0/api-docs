@@ -293,16 +293,16 @@
                 </ul>
             </li>
             <li>
-              <a href="#api" class="toc-h2 toc-link" data-title="API">API</a>
+              <a href="#backend-api" class="toc-h2 toc-link" data-title="Backend API">Backend API</a>
                 <ul class="toc-list-h3">
                     <li>
-                      <a href="#api-introduction" class="toc-h3 toc-link" data-title="Introduction">Introduction</a>
+                      <a href="#backend-api-introduction" class="toc-h3 toc-link" data-title="Introduction">Introduction</a>
                     </li>
                     <li>
-                      <a href="#api-order-object" class="toc-h3 toc-link" data-title="Order object">Order object</a>
+                      <a href="#backend-api-order-object" class="toc-h3 toc-link" data-title="Order object">Order object</a>
                     </li>
                     <li>
-                      <a href="#api-webhooks" class="toc-h3 toc-link" data-title="Webhooks">Webhooks</a>
+                      <a href="#backend-api-webhooks" class="toc-h3 toc-link" data-title="Webhooks">Webhooks</a>
                     </li>
                 </ul>
             </li>
@@ -335,10 +335,10 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h2 id='introduction-to-merchant-accounts'><a href='#introduction-to-merchant-accounts' class='header-link'><i></i></a>Introduction to Merchant accounts</h2>
+        <h1 id='merchant-api'><a href='#merchant-api' class='header-link'><i></i></a>Merchant API</h1><h2 id='introduction-to-merchant-accounts'><a href='#introduction-to-merchant-accounts' class='header-link'><i></i></a>Introduction to Merchant accounts</h2>
 <p><em>Please note that Merchant Accounts feature is available only to businesses that have been invited to participate in our private launch. In the meantime, our team is working hard to make it available to every eligible business. Stay tuned!</em></p>
 
-<p>Revolut has created Merchant Accounts to provide customers with an opportunity to accept online debit &amp; credit card payments straight into their Revolut for Business Merchant accounts. </p>
+<p>Revolut has created Merchant Accounts to provide customers with an opportunity to accept online debit &amp; credit card payments straight into their Revolut Business Merchant accounts.</p>
 
 <p>There are two ways to accept card payments:</p>
 
@@ -356,7 +356,7 @@
 <p>The Checkout Widget can be integrated in two different ways:</p>
 
 <ul>
-<li>as a pop-up window appearing over the currently open web-page and requesting payer&#39;s card information;</li>
+<li>as a pop-up window appearing over the currently open web-page and requesting the payer&#39;s card information;</li>
 <li>as a card field which is integrated as a separate object on your checkout page.</li>
 </ul>
 
@@ -366,9 +366,9 @@
 
 <p><a href="#api">Reference to Back-end API</a></p>
 <h3 id='revolut-widget-integration-guide'><a href='#revolut-widget-integration-guide' class='header-link'><i></i></a>Integration guide</h3>
-<p><strong>Step 1.</strong> In your <a href="https://business.revolut.com/merchant">Revolut Business</a> account, apply for a Merchant Account. Once your application gets approved, <a href="#api-introduction">get API token</a>.</p>
+<p><strong>Step 1.</strong> In your <a href="https://business.revolut.com/merchant">Revolut Business</a> account, apply for a Merchant Account. Once your application gets approved, <a href="#api-introduction">get an API token</a>.</p>
 
-<p><strong>Step 2.</strong> <a href="#api-api-order-object-create-payment-order">Create a new order</a> on your server back-end with <code>amount</code> and <code>currency</code>.</p>
+<p><strong>Step 2.</strong> <a href="#api-api-order-object-create-payment-order">Create a new order</a> on your server back-end with the <code>amount</code> and <code>currency</code>.</p>
 <blockquote>
       <div><p>Create a new order</p>
 </div>
@@ -407,13 +407,13 @@ Authorization: Bearer &lt;your_API_token&gt;
   </span><span class="s2">"order_amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>From the response save <code>public_id</code> as it will be used to initialize widget later.</p>
+<p>From the response save <code>public_id</code>, as it will be used to initialize the widget later.</p>
 
 <p>You will need to create a new order for each purchase.</p>
 
 <div></div>
 
-<p><strong>Step 3.</strong> Add an <a href="#revolutcheckout-js-reference-embed-script">embed script snippet</a> to the html document head in page template. This script will be requested asynchronously so you don&#39;t have to worry about content blocking the loading of the page.</p>
+<p><strong>Step 3.</strong> Add an <a href="#revolutcheckout-js-reference-embed-script">embed script snippet</a> to the html document head in the page template. This script will be requested asynchronously so you don&#39;t have to worry about content blocking the loading of the page.</p>
 <blockquote>
       <div><p>Embed script snippet</p>
 </div>
@@ -475,11 +475,11 @@ Authorization: Bearer &lt;your_API_token&gt;
           <span class="na">streetLine2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
           <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span>
         <span class="p">},</span>
-        <span class="c1">// Callback called when payment finished successfuly</span>
+        <span class="c1">// Callback called when payment finished successfully</span>
         <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
           <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
         <span class="p">},</span>
-        <span class="c1">// Callback in case some error happend</span>
+        <span class="c1">// Callback in case some error happened</span>
         <span class="nx">onError</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
           <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
         <span class="p">},</span>
@@ -510,15 +510,15 @@ Authorization: Bearer &lt;your_API_token&gt;
     <span class="kd">var</span> <span class="nx">card</span> <span class="o">=</span> <span class="nx">RC</span><span class="p">.</span><span class="nx">createCardField</span><span class="p">({</span>
       <span class="c1">// empty `&lt;div&gt;` inside your form</span>
       <span class="na">target</span><span class="p">:</span> <span class="nx">cardInput</span><span class="p">,</span>
-      <span class="c1">// callback called when payment finished successfuly</span>
+      <span class="c1">// callback called when payment finished successfully</span>
       <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
         <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s1">'Thank you!'</span><span class="p">)</span>
       <span class="p">},</span>
-      <span class="c1">// callback in case error happend</span>
+      <span class="c1">// callback in case error happened</span>
       <span class="nx">onError</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
         <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s1">'Oh no :('</span><span class="p">)</span>
       <span class="p">},</span>
-      <span class="c1">// calback in validation status change</span>
+      <span class="c1">// callback in validation status change</span>
       <span class="nx">onValidation</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">messages</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">messages</span><span class="p">)</span> <span class="c1">// -&gt; [ 'Your card has expired' ]</span>
       <span class="p">}</span>
@@ -800,7 +800,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>options.email</code></td>
-<td>Customer&#39;s e-mail</td>
+<td>Customer&#39;s email</td>
 <td>String</td>
 </tr>
 <tr>
@@ -889,7 +889,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </code></pre>
 <div></div>
 
-<p>Minimal required parameters assuming that the <code>billingAddress</code> object is not sent via API</p>
+<p>Minimal required parameters assuming that the <code>billingAddress</code> object is not sent via API.</p>
 <blockquote>
       <div><p>Minimal example with billingAddress</p>
 </div>
@@ -920,7 +920,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </code></pre>
 <div></div>
 
-<p>Full example with all possible parameters</p>
+<p>Full example with all possible parameters.</p>
 <blockquote>
       <div><p>All possible parameters</p>
 </div>
@@ -1173,7 +1173,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>meta.email</code></td>
-<td>Customer&#39;s e-mail (required if not set on the order via API)</td>
+<td>Customer&#39;s email (required if not set on the order via API)</td>
 <td>String</td>
 </tr>
 <tr>
@@ -1337,12 +1337,12 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <span class="p">});</span>
 </code></pre>
 <div class="feedback"></div>
-<h2 id='api'><a href='#api' class='header-link'><i></i></a>API</h2><h3 id='api-introduction'><a href='#api-introduction' class='header-link'><i></i></a>Introduction</h3>
+<h2 id='backend-api'><a href='#backend-api' class='header-link'><i></i></a>Backend API</h2><h3 id='backend-api-introduction'><a href='#backend-api-introduction' class='header-link'><i></i></a>Introduction</h3>
 <p>Merchant API allows Revolut Business customers to accept online (Card Not Present) payments made with debit/credit cards, and, subsequently, to manage these transactions by means of capturing, canceling or refunding orders.</p>
 
 <p>All merchant requests should contain an authorisation header which includes the name of the merchant account Bearer and the <code>MERCHANT_API_KEY</code>.</p>
 
-<p>You can generate the <code>MERCHANT_API_KEY</code> on a merchant portal. In order to do so, please proceed to the <strong>Merchant</strong> tab in your Revolut Business App, click on the <strong>API</strong> menu option, and you will find the <code>MERCHANT_API_KEY</code> under the section called <strong>Production API key</strong>.</p>
+<p>You can generate the <code>MERCHANT_API_KEY</code> on a merchant portal. In order to do so, please proceed to the <strong>Merchant</strong> tab in your Revolut Business app, click on the <strong>API</strong> menu option, and you will find the <code>MERCHANT_API_KEY</code> under the section called <strong>Production API key</strong>.</p>
 
 <p><img width="1456" alt="Screenshot 2020-02-10 at 15 43 13" src="https://user-images.githubusercontent.com/442932/74165710-704bcd80-4c1d-11ea-89db-8bc8dbfbc2c9.png"></p>
 
@@ -1361,7 +1361,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 --header 'content-type: application/json'
 </code></pre>
 <div class="feedback"></div>
-<h3 id='api-order-object'><a href='#api-order-object' class='header-link'><i></i></a>Order object</h3>
+<h3 id='backend-api-order-object'><a href='#backend-api-order-object' class='header-link'><i></i></a>Order object</h3>
 <p>Orders correspond to an <code>order_id</code> for a merchant and to a temporary <code>public_id</code> for a customer.</p>
 
 <p><code>Order</code> object:</p>
@@ -1536,8 +1536,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>email</code></td>
-<td>Customer e-mail</td>
-<td>E-mail or <code>null</code></td>
+<td>Customer email</td>
+<td>Email or <code>null</code></td>
 </tr>
 <tr>
 <td><code>settled_amount.value</code></td>
@@ -1661,7 +1661,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>payments.card.checks.authorization_code</code></td>
-<td>Authorization code returned by the Processor</td>
+<td>Authorization code returned by the processor</td>
 <td>String or <code>null</code></td>
 </tr>
 <tr>
@@ -1721,22 +1721,22 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>attempts[n].id</code></td>
-<td>ID of any attempted, but unsucccessful transactions</td>
+<td>ID of any attempted, but unsuccessful transactions</td>
 <td>UUID</td>
 </tr>
 <tr>
 <td><code>attempts[n].type</code></td>
-<td>Type of any attempted, but unsucccessful transactions</td>
+<td>Type of any attempted, but unsuccessful transactions</td>
 <td>One of the following options: <code>PAYMENT</code>, <code>REFUND</code>, <code>CHARGEBACK</code></td>
 </tr>
 <tr>
 <td><code>attempts[n].amount.currency</code></td>
-<td>Minor currency of any attempted, but unsucccessful transactions</td>
+<td>Minor currency of any attempted, but unsuccessful transactions</td>
 <td>ISO-4217</td>
 </tr>
 <tr>
 <td><code>attempts[n].amount.value</code></td>
-<td>Value of any attempted, but unsucccessful transactions</td>
+<td>Value of any attempted, but unsuccessful transactions</td>
 <td>Integer</td>
 </tr>
 <tr>
@@ -1790,7 +1790,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>String</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-order-object-create-payment-order'><a href='#api-api-order-object-create-payment-order' class='header-link'><i></i></a>Create payment order</h4><blockquote>
+<h4 id='backend-api-backend-api-order-object-create-payment-order'><a href='#backend-api-backend-api-order-object-create-payment-order' class='header-link'><i></i></a>Create payment order</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -1858,8 +1858,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>customer_email</code></td>
-<td>Customer e-mail</td>
-<td>E-mail or <code>null</code></td>
+<td>Customer email</td>
+<td>Email or <code>null</code></td>
 </tr>
 <tr>
 <td><code>description</code></td>
@@ -1892,7 +1892,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
         </select>
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">Order</span><span class="w"> </span><span class="n">object</span><span class="w">
-</span></code></pre><h4 id='api-api-order-object-retrieve-order'><a href='#api-api-order-object-retrieve-order' class='header-link'><i></i></a>Retrieve order</h4><blockquote>
+</span></code></pre><h4 id='backend-api-backend-api-order-object-retrieve-order'><a href='#backend-api-backend-api-order-object-retrieve-order' class='header-link'><i></i></a>Retrieve order</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -1925,7 +1925,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
     </blockquote><pre class="highlight r"><code><span class="n">Order</span><span class="w"> </span><span class="n">object</span><span class="w">
 </span></code></pre>
 <p>If you would like to get information about the created order, please use the following request.</p>
-<h4 id='api-api-order-object-capture-order'><a href='#api-api-order-object-capture-order' class='header-link'><i></i></a>Capture order</h4><blockquote>
+<h4 id='backend-api-backend-api-order-object-capture-order'><a href='#backend-api-backend-api-order-object-capture-order' class='header-link'><i></i></a>Capture order</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -1965,7 +1965,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <li>By choosing <strong>automatic</strong>, you don&#39;t have to perform any further steps after confirmation.</li>
 <li>By choosing <strong>manual</strong> you will need to go to the web interface and click &quot;Authorise&quot;, or do the authorization via the API.</li>
 </ul>
-<h4 id='api-api-order-object-cancel-order'><a href='#api-api-order-object-cancel-order' class='header-link'><i></i></a>Cancel order</h4><blockquote>
+<h4 id='backend-api-backend-api-order-object-cancel-order'><a href='#backend-api-backend-api-order-object-cancel-order' class='header-link'><i></i></a>Cancel order</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -1998,7 +1998,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
     </blockquote><pre class="highlight plaintext"><code>Order object
 </code></pre>
 <p>In case the payment has not been captured yet and you decide to not proceed with the order, the order can be cancelled manually.</p>
-<h4 id='api-api-order-object-refund-order'><a href='#api-api-order-object-refund-order' class='header-link'><i></i></a>Refund order</h4>
+<h4 id='backend-api-backend-api-order-object-refund-order'><a href='#backend-api-backend-api-order-object-refund-order' class='header-link'><i></i></a>Refund order</h4>
 <p>In case a customer requires a refund for a payment that has been already captured, you can always issue a full or partial refund for a particular payment.</p>
 <blockquote>
       <div><p>Request</p>
@@ -2164,8 +2164,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>email</code></td>
-<td>Customer e-mail</td>
-<td>E-mail or <code>null</code></td>
+<td>Customer email</td>
+<td>Email or <code>null</code></td>
 </tr>
 <tr>
 <td><code>related[n].id</code></td>
@@ -2190,9 +2190,9 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tbody></table>
 
 <div class="feedback"></div>
-<h3 id='api-webhooks'><a href='#api-webhooks' class='header-link'><i></i></a>Webhooks</h3>
-<p>Webhooks are used to notify a merchant about various events hapenning to his Revolut Merchant accounts. Please note that at the moment webhooks are created only order completion events.</p>
-<h4 id='api-api-webhooks-set-or-revoke-webhook-url'><a href='#api-api-webhooks-set-or-revoke-webhook-url' class='header-link'><i></i></a>Set or revoke webhook url</h4><blockquote>
+<h3 id='backend-api-webhooks'><a href='#backend-api-webhooks' class='header-link'><i></i></a>Webhooks</h3>
+<p>Webhooks are used to notify a merchant about various events happening to his Revolut Merchant accounts. Please note that at the moment webhooks are created only to order completion events.</p>
+<h4 id='backend-api-backend-api-webhooks-set-or-revoke-webhook-url'><a href='#backend-api-backend-api-webhooks-set-or-revoke-webhook-url' class='header-link'><i></i></a>Set or revoke webhook url</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2248,7 +2248,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>URL</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-webhooks-retrieve-webhooks'><a href='#api-api-webhooks-retrieve-webhooks' class='header-link'><i></i></a>Retrieve webhooks</h4><blockquote>
+<h4 id='backend-api-backend-api-webhooks-retrieve-webhooks'><a href='#backend-api-backend-api-webhooks-retrieve-webhooks' class='header-link'><i></i></a>Retrieve webhooks</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2288,7 +2288,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>URL</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-webhooks-webhook-request'><a href='#api-api-webhooks-webhook-request' class='header-link'><i></i></a>Webhook request</h4><blockquote>
+<h4 id='backend-api-backend-api-webhooks-webhook-request'><a href='#backend-api-backend-api-webhooks-webhook-request' class='header-link'><i></i></a>Webhook request</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2415,8 +2415,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 
 <table><thead>
 <tr>
-<th>Code</th>
-<th>Meaning</th>
+<th>CODE</th>
+<th>MEANING</th>
 </tr>
 </thead><tbody>
 <tr>

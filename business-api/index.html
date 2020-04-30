@@ -422,7 +422,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h2 id='getting-started'><a href='#getting-started' class='header-link'><i></i></a>Getting started</h2><h3 id='getting-started-useful-links'><a href='#getting-started-useful-links' class='header-link'><i></i></a>Useful links</h3>
+        <h1 id='business-api'><a href='#business-api' class='header-link'><i></i></a>Business API</h1><h2 id='getting-started'><a href='#getting-started' class='header-link'><i></i></a>Getting started</h2><h3 id='getting-started-useful-links'><a href='#getting-started-useful-links' class='header-link'><i></i></a>Useful links</h3>
 <div class="useful-links">
 
 <a href="https://sandbox-business.revolut.com/" target="_blank">Sandbox account</a>
@@ -433,9 +433,9 @@
 </div>
 <h3 id='getting-started-introduction'><a href='#getting-started-introduction' class='header-link'><i></i></a>Introduction</h3>
 <p>Welcome to the Revolut Business Open API!
-Here you will find all the information to get started with our API. We&#39;re building a future beyond banking, we&#39;re excited to have you onboard.</p>
+Here you will find all the information to get started with our API. We’re building a financial superapp and we’re excited to have you on board.</p>
 
-<p>You can use the Business API to automate your own business financial operations. This means you will be able to only access your own Revolut Business account.</p>
+<p>You can use the Business API to automate your own business financial operations. This means you will only be able to access your own Revolut Business account.</p>
 
 <p>If, instead, you&#39;re planning to build an app or integration to publish for others to use, please check out our <a href="https://developer.revolut.com/docs/open-banking-api/">Open Banking API</a>, using our <a href="https://www.openbanking.org.uk/">Open Banking Standard API</a></p>
 
@@ -444,10 +444,10 @@ Here you will find all the information to get started with our API. We&#39;re bu
 <p>In order to ensure safe and fair resource sharing, we define the following usage limits:</p>
 
 <ul>
-<li>Maximum 60 requests per minute for a given business</li>
+<li>a maximum of 60 requests per minute for a given business</li>
 </ul>
 
-<p>Please note that for businesses on the Freelancer plan we are also required to ask users for explicit authorisation to access their account via the API every 90 days. This means that access tokens will expire every 90 days and you (or your users) will need to authorise access to the app once more. This is due to the recent PSD2 SCA regulations.</p>
+<p>Please note that for businesses on a Freelancer plan we are also required to ask users for explicit authorisation to access their account via the API every 90 days. This means that access tokens will expire every 90 days and you (or your users) will need to authorise access to the app once more. This is due to the recent PSD2 SCA regulations.</p>
 
 <div class="feedback"></div>
 <h3 id='getting-started-demo-account'><a href='#getting-started-demo-account' class='header-link'><i></i></a>Demo account</h3>
@@ -468,7 +468,7 @@ Here you will find all the information to get started with our API. We&#39;re bu
 <p>At the end of the authentication flow, you will receive a user access token. This is what you will have to use to perform any API call, whenever you see the mention <code>&lt;your access token&gt;</code>.</p>
 
 <p>The JWT mechanism requires using a private/public key to sign your token request.
-We&#39;ve created a <a href="https://revolut-jwt-sandbox.glitch.me/">test app</a> to help you get started with JWT. Please note this will only work in the Sandbox environment.</p>
+We&#39;ve created a <a href="https://revolut-jwt-sandbox.glitch.me/">test app</a> to help you get started with JWT. Please note this will only work in the sandbox environment.</p>
 <h4 id='authentication-authentication-setting-up-access-to-your-business-account-step-1-generate-a-pair-of-public-private-keys'><a href='#authentication-authentication-setting-up-access-to-your-business-account-step-1-generate-a-pair-of-public-private-keys' class='header-link'><i></i></a>Step 1: Generate a pair of public/private keys</h4><blockquote>
       <div><p>The basic steps to generate a private and public key</p>
 </div>
@@ -481,7 +481,7 @@ We&#39;ve created a <a href="https://revolut-jwt-sandbox.glitch.me/">test app</a
     </blockquote><pre class="highlight shell tab-shell"><code>openssl genrsa -out privatekey.pem 1024
 openssl req -new -x509 -key privatekey.pem -out publickey.cer -days 1825
 </code></pre>
-<p>To get started with creating a public/private key-pair we recommend the use of <a href="https://www.openssl.org/">OpenSSL</a>. When you open your terminal and excute the basic steps on the right, you are prompted to fill in some fields. For the purposes of the sandbox you can enter a country code, a province, a city and then “.” to leave the rest blank. For production certificates, please fill in all the fields.</p>
+<p>To get started with creating a public/private key-pair we recommend the use of <a href="https://www.openssl.org/">OpenSSL</a>. When you open your terminal and execute the basic steps on the right, you are prompted to fill in some fields. For the purposes of the sandbox you can enter a country code, a province, a city and then “.” to leave the rest blank. For production certificates, please fill in all the fields.</p>
 
 <p><strong>Mac users</strong>
 OpenSSL comes shipped with Mac OS X version 10.6.2 onwards. You can use Terminal to run OpenSSL commands.</p>
@@ -493,9 +493,9 @@ Download OpenSSL for Windows</p>
 
 <p>To run the commands below, go to the OpenSSL32 directory on your PC, and change to the /bin directory.</p>
 
-<aside class="warning">You might need admin privileges (Run as administrator) to execute the commands. If OpenSSL has just been installed, you might need to restart your computer before it can generate certs.</aside>
+<aside class="warning">You might need admin privileges (run as administrator) to execute the commands. If OpenSSL has just been installed, you might need to restart your computer before it can generate certificates.</aside>
 <h4 id='authentication-authentication-setting-up-access-to-your-business-account-step-2-upload-your-public-key'><a href='#authentication-authentication-setting-up-access-to-your-business-account-step-2-upload-your-public-key' class='header-link'><i></i></a>Step 2: Upload your public key</h4>
-<p>This is simple. Go to the directory in which you have generated the public keys and copy the text in the &quot;publickey.cer&quot; certificate file. Head over to your Revolut for Bussiness account <a href="https://business.revolut.com/settings/api">API settings</a>, click on &quot;Add certificate&quot;, then paste your public key in the &quot;X509 public key&quot; input.</p>
+<p>This is simple. Go to the directory in which you have generated the public keys and copy the text in the &quot;publickey.cer&quot; certificate file. Head over to your Revolut Business account <a href="https://business.revolut.com/settings/api">API settings</a>, click on &quot;Add certificate&quot;, then paste your public key in the &quot;X509 public key&quot; input.</p>
 
 <p>In order to complete the setup, you will also need to provide a OAuth redirect URI. The redirect URI is a url to which you will be redirected after the authorisation step. For sandbox you could use <a href="https://revolut-jwt-sandbox.glitch.me/">our JWT test application</a> as a redirect URI, as it will simplify the next steps for you.</p>
 <h4 id='authentication-authentication-setting-up-access-to-your-business-account-step-3-sign-a-jwt'><a href='#authentication-authentication-setting-up-access-to-your-business-account-step-3-sign-a-jwt' class='header-link'><i></i></a>Step 3: Sign a JWT</h4>
@@ -596,7 +596,7 @@ Download OpenSSL for Windows</p>
 
 <p>To test the validity of your JWT, you can use an online tool such as <a href="https://jwt.io/">jwt.io</a>.</p>
 <h4 id='authentication-authentication-setting-up-access-to-your-business-account-step-4-authorise-your-app'><a href='#authentication-authentication-setting-up-access-to-your-business-account-step-4-authorise-your-app' class='header-link'><i></i></a>Step 4: Authorise your app</h4>
-<p>The next step is to authorise the API to access your account. In order to do so, in the web interface, click on the &quot;Authorise API access&quot; button. You wil see an authorisation popup with a summary of the resources the API will be able to access.</p>
+<p>The next step is to authorise the API to access your account. In order to do so, in the web interface, click on the &quot;Authorise API access&quot; button. You will see an authorisation popup with a summary of the resources the API will be able to access.</p>
 
 <p>Once you click on authorise, you will be redirected to your specified OAuth redirect link. The redirect url will have attached an authorisation code.</p>
 <h4 id='authentication-authentication-setting-up-access-to-your-business-account-step-5-request-a-reusable-access-token'><a href='#authentication-authentication-setting-up-access-to-your-business-account-step-5-request-a-reusable-access-token' class='header-link'><i></i></a>Step 5: Request a reusable access token</h4>
@@ -986,7 +986,7 @@ Download OpenSSL for Windows</p>
 </tr>
 <tr>
 <td>state</td>
-<td>the account state, one of <code>active</code>, <code>inactive</code></td>
+<td>the account state, one of <code>active</code> or <code>inactive</code></td>
 <td>Text</td>
 </tr>
 <tr>
@@ -1087,7 +1087,7 @@ Download OpenSSL for Windows</p>
 </tr>
 <tr>
 <td>state</td>
-<td>the account state, one of <code>active</code>, <code>inactive</code></td>
+<td>the account state, one of <code>active</code> or <code>inactive</code></td>
 <td>Text</td>
 </tr>
 <tr>
@@ -1217,12 +1217,12 @@ Download OpenSSL for Windows</p>
 </tr>
 <tr>
 <td>beneficiary_address.street_line1</td>
-<td>the address line 1 of the beneficiary</td>
+<td>line 1 of the beneficiary’s address</td>
 <td>Text</td>
 </tr>
 <tr>
 <td>beneficiary_address.street_line2</td>
-<td>the address line 2 of the beneficiary</td>
+<td>line 2 of the beneficiary’s address</td>
 <td>Text</td>
 </tr>
 <tr>
@@ -1286,10 +1286,10 @@ Download OpenSSL for Windows</p>
 <h2 id='counterparties'><a href='#counterparties' class='header-link'><i></i></a>Counterparties</h2>
 <p><a href="https://raw.githubusercontent.com/revolutdev/business-api-spec/master/counterparties.yaml">OpenAPI Specification</a></p>
 
-<p>Before a transfer or payment can be made, you need to add the counterparties with which you intend to transact with.</p>
+<p>Before a transfer or payment can be made, you need to add the counterparties with which you intend to transact.</p>
 
 <aside class="notice">
-    In the sandbox environment, it is not possible to add "real" people and businesses as Revolut counterparties. So, to help you simulate "Add Revolut Counterparty" requests, we have created some test accounts:
+    In the sandbox environment, it is not possible to add "real" people and businesses as Revolut counterparties. Therefore, to help you simulate "Add Revolut Counterparty" requests, we have created some test accounts:
     <ul>
         <li><b>Business</b> (use <code>email</code> field): <code>test@sandboxcorp.com</code></li>
         <li><b>Retail</b> (use <code>mobile</code> field): <code>+4412345678900</code>, <code>+4412345678901</code>, <code>+4412345678902</code> ... <code>+4412345678909</code></li>
@@ -1488,7 +1488,7 @@ EOF
 </tr>
 <tr>
 <td>state</td>
-<td>the state of the counterparty, one of <code>created</code>, <code>deleted</code></td>
+<td>the state of the counterparty, one of <code>created</code> or <code>deleted</code></td>
 <td>Text</td>
 </tr>
 <tr>
@@ -1657,12 +1657,12 @@ EOF
 </tr>
 <tr>
 <td>address.street_line1</td>
-<td>an optional address line 1 of the counterparty</td>
+<td>an optional line 1 of the counterparty’s address</td>
 <td>Text</td>
 </tr>
 <tr>
 <td>address.street_line2</td>
-<td>an optional address line 2 of the counterparty</td>
+<td>an optional line 2 of the counterparty’s address</td>
 <td>Text</td>
 </tr>
 <tr>
@@ -1677,7 +1677,7 @@ EOF
 </tr>
 <tr>
 <td>address.country</td>
-<td>an optional the bankCountry of the counterparty</td>
+<td>an optional bankCountry of the counterparty</td>
 <td>2-letter ISO code</td>
 </tr>
 <tr>
@@ -1801,7 +1801,7 @@ EOF
 </tr>
 <tr>
 <td>state</td>
-<td>the state of the counterparty, one of <code>created</code>, <code>deleted</code></td>
+<td>the state of the counterparty, one of <code>created</code> or <code>deleted</code></td>
 <td>Text</td>
 </tr>
 <tr>
@@ -2018,7 +2018,7 @@ EOF
 </tr>
 <tr>
 <td>state</td>
-<td>the state of the counterparty, one of <code>created</code>, <code>deleted</code></td>
+<td>the state of the counterparty, one of <code>created</code> or <code>deleted</code></td>
 <td>Text</td>
 </tr>
 <tr>
@@ -2196,7 +2196,7 @@ EOF
 </tr>
 <tr>
 <td>state</td>
-<td>the state of the counterparty, one of <code>created</code>, <code>deleted</code></td>
+<td>the state of the counterparty, one of <code>created</code> or <code>deleted</code></td>
 <td>Text</td>
 </tr>
 <tr>
@@ -2376,7 +2376,7 @@ EOF
 </tr>
 <tr>
 <td>state</td>
-<td>the transction state: <code>pending</code>, <code>completed</code>, <code>declined</code> or <code>failed</code></td>
+<td>the transaction state: <code>pending</code>, <code>completed</code>, <code>declined</code> or <code>failed</code></td>
 <td>Text</td>
 </tr>
 <tr>
@@ -2404,7 +2404,7 @@ EOF
 
 <ul>
 <li>credit/debit on both sides of transaction if Revolut-to-Revolut,</li>
-<li>posted to the external payment network (Faster Paymetns, SEPA, SWIFT etc.).</li>
+<li>posted to the external payment network (Faster Payments, SEPA, SWIFT, etc.).</li>
 </ul>
 
 <p>A new transaction has <code>pending</code> state, and a processed transaction&#39;s state can be one of <code>completed</code>, <code>failed</code>, <code>reverted</code> or <code>declined</code>.</p>
@@ -2614,7 +2614,7 @@ EOF
 
 EOF
 </span></code></pre>
-<p>It is possible to schedule an internal payments for up to 30 days ahead.
+<p>It is possible to schedule internal payments for up to 30 days ahead.
 Scheduling external payments is not supported at the moment.
 Scheduled payments must be in the currency of the account from which you pay.
 To schedule a future payment, as opposed to immediate execution, just pass an additional field in the <code>POST /pay</code> request:</p>
@@ -2633,7 +2633,7 @@ To schedule a future payment, as opposed to immediate execution, just pass an ad
 </tr>
 </tbody></table>
 
-<aside class="notice">Payments scheduled for the same time are not guaranteed to be executed all at the same time. As scheduled processor runs every several hours, the payments will be processed in batches, and if you schedule too many payments it will require more time to process all of them.</aside>
+<aside class="notice">Payments scheduled for the same time are not guaranteed to be executed all at the same time. As the scheduled processor runs every several hours, the payments will be processed in batches; if you schedule too many payments it will require more time to process all of them.</aside>
 
 <div class="feedback"></div>
 <h3 id='payments-get-transaction'><a href='#payments-get-transaction' class='header-link'><i></i></a>Get Transaction</h3><blockquote>
@@ -2929,7 +2929,7 @@ It also allows you to find out more about the transaction, such as cardholder de
 </tr>
 <tr>
 <td>state</td>
-<td>the transction state: <code>pending</code>, <code>completed</code>, <code>declined</code> or <code>failed</code></td>
+<td>the transaction state: <code>pending</code>, <code>completed</code>, <code>declined</code> or <code>failed</code></td>
 <td>Text</td>
 </tr>
 <tr>
@@ -2994,7 +2994,7 @@ It also allows you to find out more about the transaction, such as cardholder de
 </tr>
 <tr>
 <td>legs</td>
-<td>the legs of transaction, there&#39;ll be 2 legs between your Revolut accounts and 1 leg in other cases</td>
+<td>the legs of a transaction, there&#39;ll be 2 legs between your Revolut accounts and 1 leg in other cases</td>
 <td>Array</td>
 </tr>
 <tr>
@@ -3104,7 +3104,7 @@ It also allows you to find out more about the transaction, such as cardholder de
       </div>
     </blockquote><pre class="highlight plaintext"><code>204 No Content
 </code></pre>
-<p>This endpoint allows to cancel a scheduled transaction that was initiated by you, via API.</p>
+<p>This endpoint allows you to cancel a scheduled transaction that was initiated by you, via API.</p>
 <h4 id='payments-payments-cancel-payment-request'><a href='#payments-payments-cancel-payment-request' class='header-link'><i></i></a>Request</h4>
 <p><code>DELETE https://b2b.revolut.com/api/1.0/transaction/&lt;id&gt;</code></p>
 <h5 id='payments-payments-cancel-payment-payments-payments-cancel-payment-request-url-parameters'><a href='#payments-payments-cancel-payment-payments-payments-cancel-payment-request-url-parameters' class='header-link'><i></i></a>URL Parameters</h5>
@@ -3234,7 +3234,7 @@ It also allows you to find out more about the transaction, such as cardholder de
 <p>This endpoint retrieves historical transactions based on the provided query criteria.</p>
 
 <aside class="notice">
-    The API will return a maximum of 1000 transactions per request.
+    The API will return a maximum of 1,000 transactions per request.
 </aside>
 
 <aside class="notice">
@@ -3304,7 +3304,7 @@ It also allows you to find out more about the transaction, such as cardholder de
 </tr>
 <tr>
 <td>state</td>
-<td>the transction state: <code>pending</code>, <code>completed</code>, <code>declined</code>, <code>failed</code> or <code>reverted</code></td>
+<td>the transaction state: <code>pending</code>, <code>completed</code>, <code>declined</code>, <code>failed</code> or <code>reverted</code></td>
 <td>Text</td>
 </tr>
 <tr>
@@ -3344,7 +3344,7 @@ It also allows you to find out more about the transaction, such as cardholder de
 </tr>
 <tr>
 <td>legs</td>
-<td>the legs of transaction, there&#39;ll be 2 legs between your Revolut accounts and 1 leg in other cases</td>
+<td>the legs of a transaction, there&#39;ll be 2 legs between your Revolut accounts and 1 leg in other cases</td>
 <td>Array</td>
 </tr>
 <tr>
@@ -4328,7 +4328,7 @@ EOF
 </tr>
 <tr>
 <td>data.state</td>
-<td>the transction state: <code>pending</code>, <code>completed</code>, <code>declined</code> or <code>failed</code></td>
+<td>the transaction state: <code>pending</code>, <code>completed</code>, <code>declined</code> or <code>failed</code></td>
 <td>Text</td>
 </tr>
 <tr>
@@ -4363,7 +4363,7 @@ EOF
 </tr>
 <tr>
 <td>data.legs</td>
-<td>the legs of transaction, there&#39;ll be 2 legs between your Revolut accounts and 1 leg in other cases</td>
+<td>the legs of a transaction, there&#39;ll be 2 legs between your Revolut accounts and 1 leg in other cases</td>
 <td>Array</td>
 </tr>
 <tr>
@@ -4488,8 +4488,8 @@ EOF
 
 <table><thead>
 <tr>
-<th>Code</th>
-<th>Meaning</th>
+<th>CODE</th>
+<th>MEANING</th>
 </tr>
 </thead><tbody>
 <tr>
