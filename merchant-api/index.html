@@ -302,16 +302,16 @@
                 </ul>
             </li>
             <li>
-              <a href="#backend-api" class="toc-h2 toc-link" data-title="Backend API">Backend API</a>
+              <a href="#api" class="toc-h2 toc-link" data-title="API">API</a>
                 <ul class="toc-list-h3">
                     <li>
-                      <a href="#backend-api-introduction" class="toc-h3 toc-link" data-title="Introduction">Introduction</a>
+                      <a href="#api-introduction" class="toc-h3 toc-link" data-title="Introduction">Introduction</a>
                     </li>
                     <li>
-                      <a href="#backend-api-order-object" class="toc-h3 toc-link" data-title="Order object">Order object</a>
+                      <a href="#api-order-object" class="toc-h3 toc-link" data-title="Order object">Order object</a>
                     </li>
                     <li>
-                      <a href="#backend-api-webhooks" class="toc-h3 toc-link" data-title="Webhooks">Webhooks</a>
+                      <a href="#api-webhooks" class="toc-h3 toc-link" data-title="Webhooks">Webhooks</a>
                     </li>
                 </ul>
             </li>
@@ -700,8 +700,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <p>You have 2 options to add RevolutCheckout.js to your website as:</p>
 
 <ul>
-<li><p><a href="#revolutcheckout-js-reference-embed-script">Embed script</a> - this entails using the script we provide below and inserting it into all pages of the web-site yourself.</p></li>
-<li><p><a href="#revolutcheckout-js-reference-npm-package">NPM package</a> - simply download the Revolut Checkout package and avoid having to deal with the embed script.</p></li>
+<li><a href="#revolutcheckout-js-reference-embed-script">Embed script</a></li>
+<li><a href="#revolutcheckout-js-reference-npm-package">NPM package</a></li>
 </ul>
 <h3 id='revolutcheckout-js-reference-embed-script'><a href='#revolutcheckout-js-reference-embed-script' class='header-link'><i></i></a>Embed script</h3><pre class="highlight html tab-html"><code><span class="nt">&lt;script&gt;</span><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="nx">o</span><span class="p">,</span><span class="nx">t</span><span class="p">){</span><span class="nx">e</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="nx">r</span><span class="p">){</span><span class="kd">var</span> <span class="nx">c</span><span class="o">=</span><span class="p">{</span><span class="na">sandbox</span><span class="p">:</span><span class="s2">"https://sandbox-merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="na">prod</span><span class="p">:</span><span class="s2">"https://merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="na">dev</span><span class="p">:</span><span class="s2">"https://merchant.revolut.codes/embed.js"</span><span class="p">},</span><span class="nx">d</span><span class="o">=</span><span class="nx">o</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span><span class="nx">d</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"revolut-checkout"</span><span class="p">,</span><span class="nx">d</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="nx">c</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="o">||</span><span class="nx">c</span><span class="p">.</span><span class="nx">prod</span><span class="p">,</span><span class="nx">d</span><span class="p">.</span><span class="nx">async</span><span class="o">=!</span><span class="mi">0</span><span class="p">,</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span><span class="kd">var</span> <span class="nx">s</span><span class="o">=</span><span class="p">{</span><span class="na">then</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">){</span><span class="nx">d</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">r</span><span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">t</span><span class="p">](</span><span class="nx">n</span><span class="p">))},</span><span class="nx">d</span><span class="p">.</span><span class="nx">onerror</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">d</span><span class="p">),</span><span class="nx">c</span><span class="o">&amp;&amp;</span><span class="nx">c</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">t</span><span class="o">+</span><span class="s2">" is failed to load"</span><span class="p">))}}};</span><span class="k">return</span><span class="s2">"function"</span><span class="o">==</span><span class="k">typeof</span> <span class="nx">Promise</span><span class="p">?</span><span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span><span class="nx">s</span><span class="p">}}(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">,</span><span class="s2">"RevolutCheckout"</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
 </code></pre>
@@ -742,7 +742,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <span class="p">});</span>
 </code></pre>
 <ul>
-<li><code>token</code> - <code>public_id</code> returned from the BE request</li>
+<li><code>token</code> - <code>public_id</code> returned from the <a href="#api-api-order-object-create-payment-order">API request</a></li>
+<li><code>mode</code> - (optional) <a href="#backend-api">API</a> environment either <code>&#39;prod&#39;</code> or <code>&#39;sandbox&#39;</code>, default to <code>&#39;prod&#39;</code></li>
 </ul>
 
 <p>Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> with order <a href="#revolutcheckout-js-reference-instance"><code>Instance</code></a>.</p>
@@ -1377,7 +1378,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <span class="p">});</span>
 </code></pre>
 <div class="feedback"></div>
-<h2 id='backend-api'><a href='#backend-api' class='header-link'><i></i></a>Backend API</h2><h3 id='backend-api-introduction'><a href='#backend-api-introduction' class='header-link'><i></i></a>Introduction</h3>
+<h2 id='api'><a href='#api' class='header-link'><i></i></a>API</h2><h3 id='api-introduction'><a href='#api-introduction' class='header-link'><i></i></a>Introduction</h3>
 <p>Merchant API allows Revolut Business customers to accept online (Card Not Present) payments made with debit/credit cards, and, subsequently, to manage these transactions by means of capturing, canceling or refunding orders.</p>
 
 <p>All merchant requests should contain an authorisation header which includes the name of the merchant account Bearer and the <code>MERCHANT_API_KEY</code>.</p>
@@ -1401,7 +1402,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 --header 'content-type: application/json'
 </code></pre>
 <div class="feedback"></div>
-<h3 id='backend-api-order-object'><a href='#backend-api-order-object' class='header-link'><i></i></a>Order object</h3>
+<h3 id='api-order-object'><a href='#api-order-object' class='header-link'><i></i></a>Order object</h3>
 <p>Orders correspond to an <code>order_id</code> for a merchant and to a temporary <code>public_id</code> for a customer.</p>
 
 <p><code>Order</code> object:</p>
@@ -1830,7 +1831,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>String</td>
 </tr>
 </tbody></table>
-<h4 id='backend-api-backend-api-order-object-create-payment-order'><a href='#backend-api-backend-api-order-object-create-payment-order' class='header-link'><i></i></a>Create payment order</h4><blockquote>
+<h4 id='api-api-order-object-create-payment-order'><a href='#api-api-order-object-create-payment-order' class='header-link'><i></i></a>Create payment order</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -1932,7 +1933,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
         </select>
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">Order</span><span class="w"> </span><span class="n">object</span><span class="w">
-</span></code></pre><h4 id='backend-api-backend-api-order-object-retrieve-order'><a href='#backend-api-backend-api-order-object-retrieve-order' class='header-link'><i></i></a>Retrieve order</h4><blockquote>
+</span></code></pre><h4 id='api-api-order-object-retrieve-order'><a href='#api-api-order-object-retrieve-order' class='header-link'><i></i></a>Retrieve order</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -1965,7 +1966,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
     </blockquote><pre class="highlight r"><code><span class="n">Order</span><span class="w"> </span><span class="n">object</span><span class="w">
 </span></code></pre>
 <p>If you would like to get information about the created order, please use the following request.</p>
-<h4 id='backend-api-backend-api-order-object-capture-order'><a href='#backend-api-backend-api-order-object-capture-order' class='header-link'><i></i></a>Capture order</h4><blockquote>
+<h4 id='api-api-order-object-capture-order'><a href='#api-api-order-object-capture-order' class='header-link'><i></i></a>Capture order</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2005,7 +2006,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <li>By choosing <strong>automatic</strong>, you don&#39;t have to perform any further steps after confirmation.</li>
 <li>By choosing <strong>manual</strong> you will need to go to the web interface and click &quot;Authorise&quot;, or do the authorization via the API.</li>
 </ul>
-<h4 id='backend-api-backend-api-order-object-cancel-order'><a href='#backend-api-backend-api-order-object-cancel-order' class='header-link'><i></i></a>Cancel order</h4><blockquote>
+<h4 id='api-api-order-object-cancel-order'><a href='#api-api-order-object-cancel-order' class='header-link'><i></i></a>Cancel order</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2038,7 +2039,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
     </blockquote><pre class="highlight plaintext"><code>Order object
 </code></pre>
 <p>In case the payment has not been captured yet and you decide to not proceed with the order, the order can be cancelled manually.</p>
-<h4 id='backend-api-backend-api-order-object-refund-order'><a href='#backend-api-backend-api-order-object-refund-order' class='header-link'><i></i></a>Refund order</h4>
+<h4 id='api-api-order-object-refund-order'><a href='#api-api-order-object-refund-order' class='header-link'><i></i></a>Refund order</h4>
 <p>In case a customer requires a refund for a payment that has been already captured, you can always issue a full or partial refund for a particular payment.</p>
 <blockquote>
       <div><p>Request</p>
@@ -2230,9 +2231,9 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tbody></table>
 
 <div class="feedback"></div>
-<h3 id='backend-api-webhooks'><a href='#backend-api-webhooks' class='header-link'><i></i></a>Webhooks</h3>
+<h3 id='api-webhooks'><a href='#api-webhooks' class='header-link'><i></i></a>Webhooks</h3>
 <p>Webhooks are used to notify a merchant about various events happening to his Revolut Merchant accounts. Please note that at the moment webhooks are created only to order completion events.</p>
-<h4 id='backend-api-backend-api-webhooks-set-or-revoke-webhook-url'><a href='#backend-api-backend-api-webhooks-set-or-revoke-webhook-url' class='header-link'><i></i></a>Set or revoke webhook url</h4><blockquote>
+<h4 id='api-api-webhooks-set-or-revoke-webhook-url'><a href='#api-api-webhooks-set-or-revoke-webhook-url' class='header-link'><i></i></a>Set or revoke webhook url</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2288,7 +2289,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>URL</td>
 </tr>
 </tbody></table>
-<h4 id='backend-api-backend-api-webhooks-retrieve-webhooks'><a href='#backend-api-backend-api-webhooks-retrieve-webhooks' class='header-link'><i></i></a>Retrieve webhooks</h4><blockquote>
+<h4 id='api-api-webhooks-retrieve-webhooks'><a href='#api-api-webhooks-retrieve-webhooks' class='header-link'><i></i></a>Retrieve webhooks</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2328,7 +2329,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>URL</td>
 </tr>
 </tbody></table>
-<h4 id='backend-api-backend-api-webhooks-webhook-request'><a href='#backend-api-backend-api-webhooks-webhook-request' class='header-link'><i></i></a>Webhook request</h4><blockquote>
+<h4 id='api-api-webhooks-webhook-request'><a href='#api-api-webhooks-webhook-request' class='header-link'><i></i></a>Webhook request</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
