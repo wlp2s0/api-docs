@@ -321,6 +321,9 @@
                     <li>
                       <a href="#integration-examples-payment-pop-up-integration-react-js-next-js" class="toc-h3 toc-link" data-title="Payment pop-up integration: React.js + Next.js">Payment pop-up integration: React.js + Next.js</a>
                     </li>
+                    <li>
+                      <a href="#integration-examples-card-field-integration-and-customisation" class="toc-h3 toc-link" data-title="Card field integration and customisation">Card field integration and customisation</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -592,6 +595,8 @@ Authorization: Bearer &lt;your_API_token&gt;
 <span class="nt">&lt;/script&gt;</span>
 </code></pre>
 <p>The snippet shows how we can create a form with a <code>div</code> element in it which will render a <a href="#revolutcheckout-js-reference-instance-createcardfield">card field</a> and then submit a payment.</p>
+
+<p>See <a href="#integration-examples-card-field-integration-and-customisation">card field integration and customisation</a> example.</p>
 
 <p><img src="https://user-images.githubusercontent.com/442932/73471842-ed578700-4381-11ea-907f-5d55fd4b7d00.png" /></p>
 
@@ -1377,6 +1382,10 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   <span class="p">});</span>
 <span class="p">});</span>
 </code></pre>
+<div></div>
+
+<p>See <a href="#integration-examples-card-field-integration-and-customisation">card field integration and customisation</a> example.</p>
+
 <div class="feedback"></div>
 <h2 id='api'><a href='#api' class='header-link'><i></i></a>API</h2><h3 id='api-introduction'><a href='#api-introduction' class='header-link'><i></i></a>Introduction</h3>
 <p>Merchant API allows Revolut Business customers to accept online (Card Not Present) payments made with debit/credit cards, and, subsequently, to manage these transactions by means of capturing, canceling or refunding orders.</p>
@@ -2370,7 +2379,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 
 <div class="feedback"></div>
 <h2 id='integration-examples'><a href='#integration-examples' class='header-link'><i></i></a>Integration examples</h2><h3 id='integration-examples-payment-pop-up-integration-react-js-next-js'><a href='#integration-examples-payment-pop-up-integration-react-js-next-js' class='header-link'><i></i></a>Payment pop-up integration: React.js + Next.js</h3>
-<p>This sample shows how to use <a href="#revolutcheckout-js-reference">Revolut Checkout widget</a> with a <a href="#revolut-widget-revolut-widget-integration-guide-pop-up">payment pop-up</a> and <a href="#api">Merchant API</a>. The hosted version is running on sandbox environment — use one of our <a href="#revolut-widget-test-with-dummy-cards">test cards</a> to ensure that the Checkout widget works properly.</p>
+<p>This sample shows how to use <a href="#revolutcheckout-js-reference">RevolutCheckout.js</a> with a <a href="#revolut-widget-revolut-widget-integration-guide-pop-up">payment pop-up</a> and <a href="#api">API</a>. The hosted version is running on sandbox environment — use one of our <a href="#revolut-widget-test-with-dummy-cards">test cards</a> to ensure that the widget works properly.</p>
 
 <div>
   <iframe
@@ -2381,11 +2390,25 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
 </div>
 
-<p>You can also fork this example to your GitHub repository and start playing with it yourself:</p>
+<p>Please note that if you fork the example - you will need to create a new <a href="https://sandbox-business.revolut.com/">Revolut Business Sandbox</a> account and set the <a href="https://sandbox-business.revolut.com/merchant/api">API key</a> as <code>REVOLUT_API_KEY</code> inside <a href="https://codesandbox.io/docs/secrets#adding-secrets">CodeSandbox secrets</a>.</p>
 
 <p><a class="github-button" href="https://github.com/revolut-engineering/revolut-merchant-api-example-next-js/fork" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Fork revolut-engineering/revolut-merchant-api-example-next-js on GitHub">Fork</a>
 <script async defer src="https://buttons.github.io/buttons.js"></script></p>
-<h4 id='integration-examples-integration-examples-payment-pop-up-integration-react-js-next-js-more-examples-are-coming-soon'><a href='#integration-examples-integration-examples-payment-pop-up-integration-react-js-next-js-more-examples-are-coming-soon' class='header-link'><i></i></a>More examples are coming soon.</h4>
+<h3 id='integration-examples-card-field-integration-and-customisation'><a href='#integration-examples-card-field-integration-and-customisation' class='header-link'><i></i></a>Card field integration and customisation</h3>
+<p>This sample shows how to use <a href="#revolutcheckout-js-reference">RevolutCheckout.js</a> with the integrated <a href="#revolut-widget-revolut-widget-integration-guide-card-field">card field</a>. The hosted version is running on Sandbox environment — use one of our <a href="#revolut-widget-test-with-dummy-cards">test cards</a> to ensure that the widget works properly.</p>
+
+<div>
+  <iframe
+     src="https://codesandbox.io/embed/revolut-merchant-api-card-field-example-next-js-wyi77?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="revolut-merchant-api-card-field-example-next-js"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+</div>
+
+<p>Please note that if you fork the example - you will need to create a new <a href="https://sandbox-business.revolut.com/">Revolut Business Sandbox</a> account and set the <a href="https://sandbox-business.revolut.com/merchant/api">API key</a> as <code>REVOLUT_API_KEY</code> inside <a href="https://codesandbox.io/docs/secrets#adding-secrets">CodeSandbox secrets</a>.</p>
+<h4 id='integration-examples-integration-examples-card-field-integration-and-customisation-more-examples-are-coming-soon'><a href='#integration-examples-integration-examples-card-field-integration-and-customisation-more-examples-are-coming-soon' class='header-link'><i></i></a>More examples are coming soon.</h4>
 <div class="feedback"></div>
 <h2 id='plugins'><a href='#plugins' class='header-link'><i></i></a>Plugins</h2>
 <p>Using various e-commerce platform plugins is a simple way for you to start accepting payments straight into Revolut Merchant Accounts without having to integrate with <a href="#api">Revolut Backend API</a>.</p>
