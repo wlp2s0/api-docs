@@ -1412,7 +1412,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </code></pre>
 <div class="feedback"></div>
 <h3 id='api-order-object'><a href='#api-order-object' class='header-link'><i></i></a>Order object</h3>
-<p>Orders correspond to an <code>order_id</code> for a merchant and to a temporary <code>public_id</code> for a customer.</p>
+<p>A temporary <code>public_id</code> is generated for every new order a customer initiates on a merchant&#39;s website. Normally, a <code>public_id</code> is created at the moment when the amount is known for the order. A <code>public_id</code> is also the identifier which is passed from the back-end server to the client side in order to initiate th checkout process. Once the order is paid, a <code>public_id</code> expires. </p>
 
 <p><code>Order</code> object:</p>
 <blockquote>
@@ -1531,38 +1531,38 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </thead><tbody>
 <tr>
 <td><code>id</code></td>
-<td>Order ID for a merchant</td>
+<td>Permament order ID used to perform actions with the orders beyond authorisation: retrieve, capture, cancel, or refund</td>
 <td>UUID</td>
 </tr>
 <tr>
 <td><code>public_id</code></td>
-<td>Temporary ID for a customer</td>
-<td>UUID or <code>null</code> if expired</td>
+<td>Temporary ID for a customer&#39;s order - expires once the payment is authorised</td>
+<td>UUID</td>
 </tr>
 <tr>
 <td><code>type</code></td>
-<td>Order type</td>
-<td>One of the following options: <code>PAYMENT</code>, <code>REFUND</code>, <code>CHARGEBACK</code></td>
+<td>Order type: <code>PAYMENT</code>, <code>REFUND</code>  or <code>CHARGEBACK</code></td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>state</code></td>
-<td>Order state</td>
-<td>One of the following options: <code>PENDING</code>, <code>PROCESSING</code>, <code>AUTHORISED</code>, <code>COMPLETED</code>, <code>FAILED</code></td>
+<td>Order state: <code>PENDING</code>, <code>PROCESSING</code>, <code>AUTHORISED</code>, <code>COMPLETED</code> or <code>FAILED</code></td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>created_date</code></td>
-<td>Order creation date, measured in ms since the Unix epoch (UTC)</td>
+<td>Creation date for an order, measured in ms since the Unix epoch (UTC)</td>
 <td>Integer</td>
 </tr>
 <tr>
 <td><code>updated_date</code></td>
-<td>Last update date, measured in ms since the Unix epoch (UTC)</td>
+<td>Last update date for an order, measured in ms since the Unix epoch (UTC) (optional)</td>
 <td>Integer</td>
 </tr>
 <tr>
 <td><code>completed_date</code></td>
-<td>Order completion date, measured in ms since the Unix epoch (UTC)</td>
-<td>Integer or <code>null</code></td>
+<td>Completion date for an order, measured in ms since the Unix epoch (UTC) (optional)</td>
+<td>Integer</td>
 </tr>
 <tr>
 <td><code>order_amount.value</code></td>
@@ -1576,268 +1576,268 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>merchant_order_ext_ref</code></td>
-<td>Merchant order ID</td>
-<td>String or <code>null</code></td>
+<td>Merchant order ID (optional)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>merchant_customer_ext_ref</code></td>
-<td>Merchant customer ID</td>
-<td>String or <code>null</code></td>
+<td>Merchant customer ID (optional)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>email</code></td>
-<td>Customer email</td>
-<td>Email or <code>null</code></td>
+<td>Customer email (optional)</td>
+<td>Email</td>
 </tr>
 <tr>
 <td><code>settled_amount.value</code></td>
-<td>Settled amount</td>
-<td>Integer or <code>null</code></td>
+<td>Settled amount (optional - only for settled orders)</td>
+<td>Integer</td>
 </tr>
 <tr>
 <td><code>settled_amount.currency</code></td>
-<td>Settlement currency</td>
+<td>Optional settlement currency (optional - only for settled orders)</td>
 <td>ISO-4217</td>
 </tr>
 <tr>
 <td><code>refunded_amount.value</code></td>
-<td>Refunded minor amount</td>
+<td>Refunded minor amount (optional - only for refunded orders)</td>
 <td>Integer</td>
 </tr>
 <tr>
 <td><code>refunded_amount.currency</code></td>
-<td>Order currency</td>
+<td>Refunded order currency (optional - only for refunded orders)</td>
 <td>ISO-4217</td>
 </tr>
 <tr>
 <td><code>fees[n].value</code></td>
-<td>Fee amount</td>
+<td>Fee amount (optional)</td>
 <td>Integer</td>
 </tr>
 <tr>
 <td><code>fees[n].currency</code></td>
-<td>Fee currency</td>
+<td>Fee currency (optional)</td>
 <td>ISO-4217</td>
 </tr>
 <tr>
 <td><code>fees[n].type</code></td>
-<td>Fee type</td>
-<td>One of the following options: <code>FX</code>, <code>ACQUIRING</code></td>
+<td>Fee type: <code>FX</code> or <code>ACQUIRING</code> (optional)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.type</code></td>
-<td>Payment type</td>
-<td><code>Card</code></td>
+<td>Payment type: <code>Card</code> (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.amount.value</code></td>
-<td>Payment minor amount</td>
+<td>Payment minor amount (optional - only for orders with successful payments)</td>
 <td>Integer</td>
 </tr>
 <tr>
 <td><code>payments.amount.currency</code></td>
-<td>Payment currency</td>
+<td>Payment currency (optional - only for orders with successful payments)</td>
 <td>ISO-4217</td>
 </tr>
 <tr>
 <td><code>payments.created_date</code></td>
-<td>Payment created date, measured in ms since the Unix epoch (UTC)</td>
+<td>Payment created date, measured in ms since the Unix epoch (UTC) (optional - only for orders with successful payments)</td>
 <td>Integer</td>
 </tr>
 <tr>
 <td><code>payments.updated_date</code></td>
-<td>Last update date, measured in ms since the Unix epoch (UTC)</td>
+<td>Last update date, measured in ms since the Unix epoch (UTC) (optional - only for orders with successful payments)</td>
 <td>Integer</td>
 </tr>
 <tr>
 <td><code>payments.completed_date</code></td>
-<td>Payment completion date, measured in ms since the Unix epoch (UTC)</td>
-<td>Integer or <code>null</code></td>
+<td>Payment completion date, measured in ms since the Unix epoch (UTC) (optional - only for orders with successful payments)</td>
+<td>Integer</td>
 </tr>
 <tr>
 <td><code>payments.card.card_type</code></td>
-<td>Card type</td>
-<td>One of the following options: <code>VISA</code>, <code>MASTERCARD</code>, or <code>null</code></td>
+<td>Card type: <code>VISA</code> or <code>MASTERCARD</code> (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.funding</code></td>
-<td>Card funding</td>
-<td>One of the following options: <code>CREDIT</code>, <code>DEBIT</code>, <code>PREPAID</code></td>
+<td>Card funding: <code>CREDIT</code>, <code>DEBIT</code> or <code>PREPAID</code> (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.card_bin</code></td>
-<td>Card BIN</td>
-<td>String</td>
+<td>Card BIN (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.card_last_four</code></td>
-<td>Card last four digits</td>
-<td>String</td>
+<td>Card last four digits (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.card_expiry</code></td>
-<td>Card expiry date in the format of MM/YY</td>
-<td>String</td>
+<td>Card expiry date in the format of MM/YY (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.cardholder_name</code></td>
-<td>Cardholder name</td>
-<td>String or <code>null</code></td>
+<td>Cardholder name (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.proxy</code></td>
-<td>Confirms whether a proxy number is used or not</td>
-<td>Boolean or <code>null</code></td>
+<td>Confirms whether a proxy number is used or not (optional - only for orders with successful payments)</td>
+<td>Boolean</td>
 </tr>
 <tr>
 <td><code>payments.card.vpn</code></td>
-<td>Confirms whether a VPN connection is used or not</td>
-<td>Boolean or <code>null</code></td>
+<td>Confirms whether a VPN connection is used or not (optional - only for orders with successful payments)</td>
+<td>Boolean</td>
 </tr>
 <tr>
 <td><code>payments.card.country_by_ip</code></td>
-<td>Country name associated with the IP address of the card used</td>
-<td>String</td>
+<td>Country name associated with the IP address of the card used (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.checks.three_ds.state</code></td>
-<td>3DS check result</td>
-<td>One of <code>VERIFIED</code>, <code>FAILED</code>, <code>CHALLENGE</code></td>
+<td>3DS check result: <code>VERIFIED</code>, <code>FAILED</code> or <code>CHALLENGE</code> (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.checks.three_ds.version</code></td>
-<td>3DS version</td>
+<td>3DS version (optional - only for orders with successful payments)</td>
 <td>Integer</td>
 </tr>
 <tr>
 <td><code>payments.card.checks.authorization_code</code></td>
-<td>Authorization code returned by the processor</td>
-<td>String or <code>null</code></td>
+<td>Authorization code returned by the processor (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.checks.cvv_verification</code></td>
-<td>CVV verification</td>
-<td>One of the following options: <code>MATCH</code>, <code>NOT_MATCH</code>, <code>INCORRECT</code>, <code>NOT_PROCESSED</code> or <code>null</code></td>
+<td>CVV verification: <code>MATCH</code>, <code>NOT_MATCH</code>, <code>INCORRECT</code> or <code>NOT_PROCESSED</code> (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.checks.address</code></td>
-<td>Address verification</td>
-<td>One of the following options: <code>MATCH</code>, <code>NOT_MATCH</code>, <code>N_A</code>, <code>INVALID</code> or <code>null</code></td>
+<td>Address verification: <code>MATCH</code>, <code>NOT_MATCH</code>, <code>N_A</code> or <code>INVALID</code> (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.checks.postal_code</code></td>
-<td>Postal code verification</td>
-<td>One of the following options: <code>MATCH</code>, <code>NOT_MATCH</code>, <code>N_A</code>, <code>INVALID</code> or <code>null</code></td>
+<td>Postal code verification: <code>MATCH</code>, <code>NOT_MATCH</code>, <code>N_A</code> or<code>INVALID</code> (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.checks.cardholder</code></td>
-<td>Cardholder verification</td>
-<td>One of the following options: <code>MATCH</code>, <code>NOT_MATCH</code>, <code>N_A</code>, <code>INVALID</code> or <code>null</code></td>
+<td>Cardholder verification: <code>MATCH</code>, <code>NOT_MATCH</code>, <code>N_A</code> or<code>INVALID</code> (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.risk_level</code></td>
-<td>Card risk level</td>
-<td>One of the following options: <code>LOW</code>, <code>HIGH</code></td>
+<td>Card risk level: <code>LOW</code>, <code>HIGH</code> (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.billing_address.street_line_1</code></td>
-<td>Street line 1 information</td>
-<td>String or <code>null</code></td>
+<td>Street line 1 information (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.billing_address.street_line_2</code></td>
-<td>Street line 2 information</td>
-<td>String or <code>null</code></td>
+<td>Street line 2 information (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.billing_address.region</code></td>
-<td>Region name</td>
-<td>String or <code>null</code></td>
+<td>Region name (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.billing_address.city</code></td>
-<td>City name</td>
-<td>String or <code>null</code></td>
+<td>City name (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>payments.card.billing_address.country_code</code></td>
-<td>Country associated with the address</td>
+<td>Country associated with the address (optional - only for orders with successful payments)</td>
 <td>Alpha-2</td>
 </tr>
 <tr>
 <td><code>payments.card.billing_address.postcode</code></td>
-<td>Postcode associated with the address</td>
-<td>String</td>
+<td>Postcode associated with the address (optional - only for orders with successful payments)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>attempts[n].id</code></td>
-<td>ID of any attempted, but unsuccessful transactions</td>
+<td>ID of any attempted, but unsuccessful transactions (optional)</td>
 <td>UUID</td>
 </tr>
 <tr>
 <td><code>attempts[n].type</code></td>
-<td>Type of any attempted, but unsuccessful transactions</td>
-<td>One of the following options: <code>PAYMENT</code>, <code>REFUND</code>, <code>CHARGEBACK</code></td>
+<td>Type of any attempted, but unsuccessful transactions: <code>PAYMENT</code>, <code>REFUND</code> or <code>CHARGEBACK</code> (optional)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>attempts[n].amount.currency</code></td>
-<td>Minor currency of any attempted, but unsuccessful transactions</td>
+<td>Minor currency of any attempted, but unsuccessful transactions (optional)</td>
 <td>ISO-4217</td>
 </tr>
 <tr>
 <td><code>attempts[n].amount.value</code></td>
-<td>Value of any attempted, but unsuccessful transactions</td>
+<td>Value of any attempted, but unsuccessful transactions (optional)</td>
 <td>Integer</td>
 </tr>
 <tr>
 <td><code>related[n].id</code></td>
-<td>Related transaction ID</td>
+<td>Related transaction ID (optional)</td>
 <td>UUID</td>
 </tr>
 <tr>
 <td><code>related[n].type</code></td>
-<td>Related order type</td>
-<td>One of the following options: <code>PAYMENT</code>, <code>REFUND</code>, <code>CHARGEBACK</code></td>
+<td>Related order type: <code>PAYMENT</code>, <code>REFUND</code> or <code>CHARGEBACK</code> (optional)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>related[n].amount.currency</code></td>
-<td>Related transaction minor currency</td>
+<td>Related transaction minor currency (optional)</td>
 <td>ISO-4217</td>
 </tr>
 <tr>
 <td><code>related[n].amount.value</code></td>
-<td>Related transaction value</td>
+<td>Related transaction value (optional)</td>
 <td>Integer</td>
 </tr>
 <tr>
 <td><code>shipping_address.street_line_1</code></td>
-<td>Shipping address: Street line 1 information</td>
-<td>String or <code>null</code></td>
+<td>Shipping address: Street line 1 information (optional)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>shipping_address.street_line_2</code></td>
-<td>Shipping address: Street line 2 information</td>
-<td>String or <code>null</code></td>
+<td>Shipping address: Street line 2 information (optional)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>shipping_address.region</code></td>
-<td>Shipping address: Region name</td>
-<td>String or <code>null</code></td>
+<td>Shipping address: Region name (optional)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>shipping_address.city</code></td>
-<td>Shipping address: City name</td>
-<td>String or <code>null</code></td>
+<td>Shipping address: City name (optional)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>shipping_address.country_code</code></td>
-<td>Shipping address: Country associated with the address</td>
+<td>Shipping address: Country associated with the address (optional)</td>
 <td>Alpha-2</td>
 </tr>
 <tr>
 <td><code>shipping_address.postcode</code></td>
-<td>Shipping address: Postcode associated with the address</td>
-<td>String</td>
+<td>Shipping address: Postcode associated with the address (optional)</td>
+<td>Text</td>
 </tr>
 </tbody></table>
 <h4 id='api-api-order-object-create-payment-order'><a href='#api-api-order-object-create-payment-order' class='header-link'><i></i></a>Create payment order</h4><blockquote>
@@ -1898,23 +1898,23 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>capture_mode</code></td>
-<td>Capture mode. If it is equal to <code>null</code> then <code>AUTOMATIC</code> is used</td>
-<td>One of the following options: <code>AUTOMATIC</code>, <code>MANUAL</code> or <code>null</code></td>
+<td>Capture mode: <code>AUTOMATIC</code> or <code>MANUAL</code> (optional - if it is not specified, then <code>AUTOMATIC</code> is used)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>merchant_order_id</code></td>
-<td>Merchant order ID</td>
-<td>String or <code>null</code></td>
+<td>Merchant order ID (optional)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>customer_email</code></td>
-<td>Customer email</td>
-<td>Email or <code>null</code></td>
+<td>Customer email (optional)</td>
+<td>Email</td>
 </tr>
 <tr>
 <td><code>description</code></td>
-<td>Order description</td>
-<td>String or <code>null</code></td>
+<td>Order description (optional)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>currency</code></td>
@@ -1923,13 +1923,13 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>settlement_currency</code></td>
-<td>Settlement currency. If it is equal to <code>null</code> then the payment is settled in transaction currency.</td>
-<td>ISO-4217 or <code>null</code></td>
+<td>Settlement currency (optional - if it is not specified, then the payment is settled in transaction currency)</td>
+<td>ISO-4217</td>
 </tr>
 <tr>
 <td><code>merchant_customer_id</code></td>
-<td>Merchant customer ID</td>
-<td>String or <code>null</code></td>
+<td>Merchant customer ID (optional)</td>
+<td>Text</td>
 </tr>
 </tbody></table>
 <blockquote>
@@ -2106,13 +2106,13 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>merchant_order_id</code></td>
-<td>Merchant order ID</td>
-<td>String or <code>null</code></td>
+<td>Merchant order ID (optional)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>description</code></td>
-<td>Refund description</td>
-<td>String or <code>null</code></td>
+<td>Refund description (optional)</td>
+<td>Text</td>
 </tr>
 </tbody></table>
 <blockquote>
@@ -2174,13 +2174,13 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>type</code></td>
-<td>Order type</td>
-<td><code>REFUND</code></td>
+<td>Order type: <code>REFUND</code></td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>state</code></td>
-<td>Order state</td>
-<td>One of the following options: <code>PENDING</code>, <code>PROCESSING</code>, <code>AUTHORISED</code>, <code>COMPLETED</code>, <code>FAILED</code></td>
+<td>Order state: <code>PENDING</code>, <code>PROCESSING</code>, <code>AUTHORISED</code>, <code>COMPLETED</code>, <code>FAILED</code></td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>created_date</code></td>
@@ -2189,13 +2189,13 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>updated_date</code></td>
-<td>Last update date, measured in ms since the Unix epoch (UTC)</td>
+<td>Last update date, measured in ms since the Unix epoch (UTC) (optional)</td>
 <td>Integer</td>
 </tr>
 <tr>
 <td><code>completed_date</code></td>
-<td>Order completion date, measured in ms since the Unix epoch (UTC)</td>
-<td>Integer or <code>null</code></td>
+<td>Order completion date, measured in ms since the Unix epoch (UTC) (optional)</td>
+<td>Integer</td>
 </tr>
 <tr>
 <td><code>order_amount.value</code></td>
@@ -2209,32 +2209,32 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>merchant_customer_ext_ref</code></td>
-<td>Merchant customer ID</td>
-<td>String or <code>null</code></td>
+<td>Merchant customer ID (optional)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>email</code></td>
-<td>Customer email</td>
-<td>Email or <code>null</code></td>
+<td>Customer email (optional)</td>
+<td>Email</td>
 </tr>
 <tr>
 <td><code>related[n].id</code></td>
-<td>Related transaction ID</td>
+<td>Related transaction ID (optional)</td>
 <td>UUID</td>
 </tr>
 <tr>
 <td><code>related[n].type</code></td>
-<td>Related order type</td>
-<td>One of the following options: <code>PAYMENT</code>, <code>REFUND</code>, <code>CHARGEBACK</code></td>
+<td>Related order type: <code>PAYMENT</code>, <code>REFUND</code>, <code>CHARGEBACK</code> (optional)</td>
+<td>Text</td>
 </tr>
 <tr>
 <td><code>related[n].currency</code></td>
-<td>Related transaction minor currency</td>
+<td>Related transaction minor currency (optional)</td>
 <td>Integer</td>
 </tr>
 <tr>
 <td><code>related[n].value</code></td>
-<td>Related transaction currency</td>
+<td>Related transaction currency (optional)</td>
 <td>ISO-4217</td>
 </tr>
 </tbody></table>
