@@ -543,7 +543,7 @@ Authorization: Bearer &lt;your_API_token&gt;
         <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s1">'Oh no :('</span><span class="p">)</span>
       <span class="p">},</span>
       <span class="c1">// callback in validation status change</span>
-      <span class="nx">onValidation</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">messages</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">onValidation</span><span class="p">(</span><span class="nx">messages</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">messages</span><span class="p">)</span> <span class="c1">// -&gt; [ 'Your card has expired' ]</span>
       <span class="p">}</span>
       <span class="c1">// (optional) Callback in case user cancelled a transaction</span>
@@ -1017,6 +1017,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   <span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span>
 <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="na">submit</span><span class="p">:</span> <span class="p">(</span><span class="na">meta</span><span class="p">:</span> <span class="nx">Meta</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nl">validate</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
   <span class="nl">destory</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
 <span class="p">};</span>
 
@@ -1024,7 +1025,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   <span class="na">target</span><span class="p">:</span> <span class="nx">HTMLElement</span><span class="p">;</span>
   <span class="nx">onSuccess</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
   <span class="nx">onError</span><span class="p">?:</span> <span class="p">(</span><span class="na">message</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
-  <span class="nx">onValidation</span><span class="p">?:</span> <span class="p">(</span><span class="na">hasError</span><span class="p">:</span> <span class="kr">boolean</span><span class="p">,</span> <span class="na">messages</span><span class="p">:</span> <span class="kr">string</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nx">onValidation</span><span class="p">?:</span> <span class="p">(</span><span class="na">messages</span><span class="p">:</span> <span class="kr">string</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
   <span class="nx">onCancel</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
   <span class="nx">styles</span><span class="p">?:</span> <span class="p">{</span>
     <span class="k">default</span><span class="p">?:</span> <span class="nb">Object</span><span class="p">;</span>
@@ -1087,13 +1088,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>options.onValidation</code></td>
-<td>Callback called on validation of the status change. <br> Function will contain two parameters: <code>hasError</code> and <code>messages</code> (see below)</td>
+<td>Callback called on validation of the status change. <br> Function will contain <code>messages</code> as first parameter (see below)</td>
 <td>Function</td>
-</tr>
-<tr>
-<td><code>options.onValidation.hasError</code></td>
-<td><code>true</code> if there are any validation errors occurred and <code>false</code> otherwise</td>
-<td>Boolean</td>
 </tr>
 <tr>
 <td><code>options.onValidation.messages</code></td>
@@ -1199,6 +1195,11 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <tr>
 <td><code>methods.submit</code></td>
 <td>Submit the card details entered and complete the payment with additional customer meta data. Accepts a single <code>meta</code> parameter (see below)</td>
+<td>Function</td>
+</tr>
+<tr>
+<td><code>methods.validate</code></td>
+<td>Manually trigger validation, by default it will be only triggered after user will start entering card details and on submit</td>
 <td>Function</td>
 </tr>
 </tbody></table>
