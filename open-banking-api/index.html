@@ -473,19 +473,17 @@ If you require a new QTSP, please <a href="mailto:api-requests@revolut.com">cont
 <div class="feedback"></div>
 <h3 id='getting-started-open-banking-developer-portal'><a href='#getting-started-open-banking-developer-portal' class='header-link'><i></i></a>Open Banking Developer Portal</h3><h4 id='getting-started-getting-started-open-banking-developer-portal-what-is-open-banking-developer-portal'><a href='#getting-started-getting-started-open-banking-developer-portal-what-is-open-banking-developer-portal' class='header-link'><i></i></a>What is Open Banking Developer Portal?</h4>
 <p>If you are building a great app and would like to integrate it with Revolut, then Open Banking Developer Portal is for you.
-Open Banking Developer Portal allows you to easily manage the applications which are developed for our <a href="https://www.openbanking.org.uk/">Open Banking API</a>.</p>
+Open Banking Developer Portal allows you to easily obtain your test user account for our Sandbox and manage your Open Banking applications via the Developer Portal user interface.</p>
 <h4 id='getting-started-getting-started-open-banking-developer-portal-1-sign-up-to-open-banking-developer-portal'><a href='#getting-started-getting-started-open-banking-developer-portal-1-sign-up-to-open-banking-developer-portal' class='header-link'><i></i></a>1. Sign up to Open Banking Developer Portal</h4>
-<p>To get access to the Open Banking Developer Portal you need to sign up to <a href="https://developers.revolut.com/portal/signup">developers.revolut.com/portal/signup</a>. After you sign up, please set your Open Banking organisation ID in the <code>Profile</code> section. This will help us to link your applications with your developer account during the <code>dynamic application registration</code> process of Open Banking API. If you don’t have the Open Banking organisation ID, please set your email in that field.</p>
+<p>To get access to the Open Banking Developer Portal you need to sign up to <a href="https://developers.revolut.com/portal/signup">developers.revolut.com/portal/signup</a>. If you are registering with Open Banking Directory, you can link your applications with your developer account. For that purpose please set your Open Banking organisation ID in the <code>Profile</code> section.</p>
 <h4 id='getting-started-getting-started-open-banking-developer-portal-2-get-a-sandbox-user-account'><a href='#getting-started-getting-started-open-banking-developer-portal-2-get-a-sandbox-user-account' class='header-link'><i></i></a>2. Get a sandbox user account</h4>
-<p>Once you created your account and set your organization id, you can generate your sandbox account credentials using the button on your <a href="https://developers.revolut.com/portal/profile">profile page</a> in <code>Sandbox access</code> section.</p>
+<p>Once you created your account, you can generate your sandbox account credentials using the button on your <a href="https://developers.revolut.com/portal/profile">profile page</a> in <code>Sandbox access</code> section.</p>
 
 <p>In order to create Revolut Business demo account, please refer to the instructions on previously mentioned <a href="https://developers.revolut.com/portal/profile">profile page</a> or follow directly to the <a href="https://sandbox-business.revolut.com/">sandbox-business.revolut.com</a></p>
 <h4 id='getting-started-getting-started-open-banking-developer-portal-3-create-review-manage-and-delete-your-apps'><a href='#getting-started-getting-started-open-banking-developer-portal-3-create-review-manage-and-delete-your-apps' class='header-link'><i></i></a>3. Create, review, manage and delete your apps</h4>
-<p>First, double check if you are registered on <a href="https://developers.revolut.com/portal/signup">developers.revolut.com/portal/signup</a> and have set your <code>Open Banking Organisation ID</code> in your profile. Use your email address in this field if you’re not using the Open Banking Directory.</p>
-
 <p>Then you can create Open Banking Applications using the <a href="#dynamic-client-registration">dynamic client registration</a> endpoint.</p>
 
-<p>Subsequently you can review and delete your Open Banking Applications in the <a href="https://developers.revolut.com/portal">Open Banking Developer Portal</a>. If something has not been set up properly we recommend deleting your app in the Open Banking Developer Portal and recreating it through dynamic registration.</p>
+<p>If you provided your Organisation ID before the Dynamic Client registration, you should be able to review and delete your Open Banking Applications in the <a href="https://developers.revolut.com/portal">Open Banking Developer Portal</a>. If something has not been set up properly we recommend deleting your app and recreating it through dynamic registration.</p>
 
 <div class="feedback"></div>
 <h3 id='getting-started-open-id-configuration-urls'><a href='#getting-started-open-id-configuration-urls' class='header-link'><i></i></a>Open Id Configuration URLs</h3>
@@ -516,6 +514,21 @@ Open Banking Developer Portal allows you to easily manage the applications which
       </div>
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/register
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/register
+</code></pre>
+<p>In order to delete an Application you may use the DELETE registration endpoint.</p>
+
+<p>The DELETE endpoint is implemented as it is described in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937066600/Dynamic+Client+Registration+-+v3.1#DynamicClientRegistration-v3.1-DELETE/register/{ClientId}">documentation</a>.</p>
+<blockquote>
+      <div><p>Delete client</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X DELETE https://sandbox-oba.revolut.com/register/17b2738f-26b1-46f9-a979-debbf1f39365
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X DELETE https://oba.revolut.com/register/17b2738f-26b1-46f9-a979-debbf1f39365
 </code></pre>
 <aside class="warning">
 Before using this endpoint, first register to the <a href="https://developers.revolut.com/portal">Open Banking Developer Portal</a> and set your `Open Banking Organisation ID` when registered on the Open Banking Directory in your profile. Set your email address in this field if you’re not registering on the Open Banking Directory.
@@ -570,7 +583,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
 <tr>
 <td>org_id</td>
 <td>String</td>
-<td>an organisation ID from the Open Banking Developer Portal</td>
+<td>an optional organisation ID from the Open Banking Developer Portal</td>
 </tr>
 <tr>
 <td>software_client_name</td>
