@@ -279,13 +279,7 @@
               <a href="#revolutcheckout-js-reference" class="toc-h2 toc-link" data-title="RevolutCheckout.js reference">RevolutCheckout.js reference</a>
                 <ul class="toc-list-h3">
                     <li>
-                      <a href="#revolutcheckout-js-reference-initialize-widget" class="toc-h3 toc-link" data-title="Initialize widget">Initialize widget</a>
-                    </li>
-                    <li>
-                      <a href="#revolutcheckout-js-reference-embed-script" class="toc-h3 toc-link" data-title="Embed script">Embed script</a>
-                    </li>
-                    <li>
-                      <a href="#revolutcheckout-js-reference-npm-package" class="toc-h3 toc-link" data-title="NPM package">NPM package</a>
+                      <a href="#revolutcheckout-js-reference-initialize-the-widget" class="toc-h3 toc-link" data-title="Initialize the widget">Initialize the widget</a>
                     </li>
                     <li>
                       <a href="#revolutcheckout-js-reference-revolutcheckout" class="toc-h3 toc-link" data-title="RevolutCheckout">RevolutCheckout</a>
@@ -309,6 +303,21 @@
                     </li>
                     <li>
                       <a href="#api-order-object" class="toc-h3 toc-link" data-title="Order object">Order object</a>
+                    </li>
+                    <li>
+                      <a href="#api-create-an-order" class="toc-h3 toc-link" data-title="Create an Order">Create an Order</a>
+                    </li>
+                    <li>
+                      <a href="#api-retrieve-an-order" class="toc-h3 toc-link" data-title="Retrieve an Order">Retrieve an Order</a>
+                    </li>
+                    <li>
+                      <a href="#api-capture-an-order" class="toc-h3 toc-link" data-title="Capture an Order">Capture an Order</a>
+                    </li>
+                    <li>
+                      <a href="#api-cancel-an-order" class="toc-h3 toc-link" data-title="Cancel an Order">Cancel an Order</a>
+                    </li>
+                    <li>
+                      <a href="#api-refund-an-order" class="toc-h3 toc-link" data-title="Refund an Order">Refund an Order</a>
                     </li>
                     <li>
                       <a href="#api-webhooks" class="toc-h3 toc-link" data-title="Webhooks">Webhooks</a>
@@ -380,7 +389,7 @@
 <h3 id='revolut-widget-integration-guide'><a href='#revolut-widget-integration-guide' class='header-link'><i></i></a>Integration guide</h3>
 <p><strong>Step 1.</strong> In your <a href="https://business.revolut.com/merchant">Revolut Business</a> account, apply for a Merchant Account. Once your application gets approved, <a href="#api-introduction">get an API token</a>.</p>
 
-<p><strong>Step 2.</strong> <a href="#api-api-order-object-create-payment-order">Create a new order</a> on your server back-end with the <code>amount</code> and <code>currency</code>.</p>
+<p><strong>Step 2.</strong> <a href="#api-create-an-order">Create a new order</a> on your server back-end with the <code>amount</code> and <code>currency</code>.</p>
 <blockquote>
       <div><p>Create a new order</p>
 </div>
@@ -419,7 +428,7 @@ Authorization: Bearer &lt;your_API_token&gt;
   </span><span class="s2">"order_amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>From the response save <code>public_id</code>, as it will be used to initialize the widget later.</p>
+<p>From the response save the <code>public_id</code> - it is a temporary token generated for every new order a customer initiates on a merchant&#39;s website. Normally, a <code>public_id</code> is created at the moment when the amount is known for the order. A <code>public_id</code> is also the identifier which is passed from the back-end server to the client side in order to initiate th checkout widget. Once the order is paid, a <code>public_id</code> expires.</p>
 
 <p>You will need to create a new order for each purchase.</p>
 
@@ -602,12 +611,12 @@ Authorization: Bearer &lt;your_API_token&gt;
 
 <p>Once the card details are collected and the payment is authorised, the respective transaction will appear in the <a href="https://business.revolut.com/merchant/transactions">transaction list</a> of your Merchant Account section.</p>
 
-<p>For any payment in the <a href="https://business.revolut.com/merchant/transactions">transaction list</a>, you can perform the following actions right in the Merchant section of your Revolut Business account, or you can also trigger these actions via API requests:</p>
+<p>For any paid order in the <a href="https://business.revolut.com/merchant/transactions">transaction list</a>, you can perform the following actions right in the Merchant section of your Revolut Business account, or you can also trigger these actions via API requests:</p>
 
 <ul>
-<li><p><a href="#api-api-order-object-capture-order">Capture a payment</a></p></li>
-<li><p><a href="#api-api-order-object-cancel-order">Cancel a payment</a></p></li>
-<li><p><a href="#api-api-order-object-refund-order">Refund a payment</a></p></li>
+<li><p><a href="#api-capture-an-order">Capture an order</a></p></li>
+<li><p><a href="#api-cancel-an-order">Cancel an order</a></p></li>
+<li><p><a href="#api-refund-an-order">Refund an order</a></p></li>
 </ul>
 
 <div class="feedback"></div>
@@ -701,19 +710,19 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <p><a href="#integration-examples">Browse Integration examples</a></p>
 
 <div class="feedback"></div>
-<h2 id='revolutcheckout-js-reference'><a href='#revolutcheckout-js-reference' class='header-link'><i></i></a>RevolutCheckout.js reference</h2><h3 id='revolutcheckout-js-reference-initialize-widget'><a href='#revolutcheckout-js-reference-initialize-widget' class='header-link'><i></i></a>Initialize widget</h3>
+<h2 id='revolutcheckout-js-reference'><a href='#revolutcheckout-js-reference' class='header-link'><i></i></a>RevolutCheckout.js reference</h2><h3 id='revolutcheckout-js-reference-initialize-the-widget'><a href='#revolutcheckout-js-reference-initialize-the-widget' class='header-link'><i></i></a>Initialize the widget</h3>
 <p>You have 2 options to add RevolutCheckout.js to your website as:</p>
 
 <ul>
 <li><a href="#revolutcheckout-js-reference-embed-script">Embed script</a></li>
 <li><a href="#revolutcheckout-js-reference-npm-package">NPM package</a></li>
 </ul>
-<h3 id='revolutcheckout-js-reference-embed-script'><a href='#revolutcheckout-js-reference-embed-script' class='header-link'><i></i></a>Embed script</h3><pre class="highlight html tab-html"><code><span class="nt">&lt;script&gt;</span><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="nx">o</span><span class="p">,</span><span class="nx">t</span><span class="p">){</span><span class="nx">e</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="nx">r</span><span class="p">){</span><span class="kd">var</span> <span class="nx">c</span><span class="o">=</span><span class="p">{</span><span class="na">sandbox</span><span class="p">:</span><span class="s2">"https://sandbox-merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="na">prod</span><span class="p">:</span><span class="s2">"https://merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="na">dev</span><span class="p">:</span><span class="s2">"https://merchant.revolut.codes/embed.js"</span><span class="p">},</span><span class="nx">d</span><span class="o">=</span><span class="nx">o</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span><span class="nx">d</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"revolut-checkout"</span><span class="p">,</span><span class="nx">d</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="nx">c</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="o">||</span><span class="nx">c</span><span class="p">.</span><span class="nx">prod</span><span class="p">,</span><span class="nx">d</span><span class="p">.</span><span class="nx">async</span><span class="o">=!</span><span class="mi">0</span><span class="p">,</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span><span class="kd">var</span> <span class="nx">s</span><span class="o">=</span><span class="p">{</span><span class="na">then</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">){</span><span class="nx">d</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">r</span><span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">t</span><span class="p">](</span><span class="nx">n</span><span class="p">))},</span><span class="nx">d</span><span class="p">.</span><span class="nx">onerror</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">d</span><span class="p">),</span><span class="nx">c</span><span class="o">&amp;&amp;</span><span class="nx">c</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">t</span><span class="o">+</span><span class="s2">" is failed to load"</span><span class="p">))}}};</span><span class="k">return</span><span class="s2">"function"</span><span class="o">==</span><span class="k">typeof</span> <span class="nx">Promise</span><span class="p">?</span><span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span><span class="nx">s</span><span class="p">}}(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">,</span><span class="s2">"RevolutCheckout"</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
+<h4 id='revolutcheckout-js-reference-revolutcheckout-js-reference-initialize-the-widget-embed-script'><a href='#revolutcheckout-js-reference-revolutcheckout-js-reference-initialize-the-widget-embed-script' class='header-link'><i></i></a>Embed script</h4><pre class="highlight html tab-html"><code><span class="nt">&lt;script&gt;</span><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="nx">o</span><span class="p">,</span><span class="nx">t</span><span class="p">){</span><span class="nx">e</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="nx">r</span><span class="p">){</span><span class="kd">var</span> <span class="nx">c</span><span class="o">=</span><span class="p">{</span><span class="na">sandbox</span><span class="p">:</span><span class="s2">"https://sandbox-merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="na">prod</span><span class="p">:</span><span class="s2">"https://merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="na">dev</span><span class="p">:</span><span class="s2">"https://merchant.revolut.codes/embed.js"</span><span class="p">},</span><span class="nx">d</span><span class="o">=</span><span class="nx">o</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span><span class="nx">d</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"revolut-checkout"</span><span class="p">,</span><span class="nx">d</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="nx">c</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="o">||</span><span class="nx">c</span><span class="p">.</span><span class="nx">prod</span><span class="p">,</span><span class="nx">d</span><span class="p">.</span><span class="nx">async</span><span class="o">=!</span><span class="mi">0</span><span class="p">,</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span><span class="kd">var</span> <span class="nx">s</span><span class="o">=</span><span class="p">{</span><span class="na">then</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">){</span><span class="nx">d</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">r</span><span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">t</span><span class="p">](</span><span class="nx">n</span><span class="p">))},</span><span class="nx">d</span><span class="p">.</span><span class="nx">onerror</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">d</span><span class="p">),</span><span class="nx">c</span><span class="o">&amp;&amp;</span><span class="nx">c</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">t</span><span class="o">+</span><span class="s2">" is failed to load"</span><span class="p">))}}};</span><span class="k">return</span><span class="s2">"function"</span><span class="o">==</span><span class="k">typeof</span> <span class="nx">Promise</span><span class="p">?</span><span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span><span class="nx">s</span><span class="p">}}(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">,</span><span class="s2">"RevolutCheckout"</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
 </code></pre>
 <p>Embed the following script on all pages that you intend to use <a href="#revolutcheckout-js-reference-revolutcheckout"><code>RevolutCheckout</code></a> on. Please note it should be inserted <strong>before</strong> the code that actually calls <code>RevolutCheckout</code>.</p>
 
 <div class="feedback"></div>
-<h3 id='revolutcheckout-js-reference-npm-package'><a href='#revolutcheckout-js-reference-npm-package' class='header-link'><i></i></a>NPM package</h3>
+<h4 id='revolutcheckout-js-reference-revolutcheckout-js-reference-initialize-the-widget-npm-package'><a href='#revolutcheckout-js-reference-revolutcheckout-js-reference-initialize-the-widget-npm-package' class='header-link'><i></i></a>NPM package</h4>
 <p>Install <a href="https://npmjs.com/@revolut/checkout"><code>npm</code></a> package and import ES module later in your code.</p>
 <pre class="highlight sh tab-shell"><code>npm install @revolut/checkout
 </code></pre><pre class="highlight javascript"><code><span class="kr">import</span> <span class="nx">RevolutCheckout</span> <span class="nx">from</span> <span class="s2">"@revolut/checkout"</span>
@@ -747,7 +756,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <span class="p">});</span>
 </code></pre>
 <ul>
-<li><code>token</code> - <code>public_id</code> returned from the <a href="#api-api-order-object-create-payment-order">API request</a></li>
+<li><code>token</code> - <code>public_id</code> returned from the <a href="#api-create-an-order">API request</a></li>
 <li><code>mode</code> - (optional) <a href="#api">API</a> environment either <code>&#39;prod&#39;</code> or <code>&#39;sandbox&#39;</code>, default to <code>&#39;prod&#39;</code></li>
 </ul>
 
@@ -1413,7 +1422,9 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </code></pre>
 <div class="feedback"></div>
 <h3 id='api-order-object'><a href='#api-order-object' class='header-link'><i></i></a>Order object</h3>
-<p>A temporary <code>public_id</code> is generated for every new order a customer initiates on a merchant&#39;s website. Normally, a <code>public_id</code> is created at the moment when the amount is known for the order. A <code>public_id</code> is also the identifier which is passed from the back-end server to the client side in order to initiate th checkout process. Once the order is paid, a <code>public_id</code> expires. </p>
+<p>An <code>Order</code> object helps you through the process of accepting payments from your customers.</p>
+
+<p>You are advised to create an <code>Order</code> for every customer session or order being created in your own system. An <code>Order</code> will then go through multiple status as it interfaces with the <a href="#revolutcheckout-js-reference">Revolut Checkout Widget</a> to collect payments from your customers. An <code>Order</code> can have at most one successful payment.</p>
 
 <p><code>Order</code> object:</p>
 <blockquote>
@@ -1430,9 +1441,9 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   </span><span class="s2">"public_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b9dd41ee-c6ef-4f3f-983d-18b6136219a0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1574092317868</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"updated_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1574092335832</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"completed_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1574092335832</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">2020-05-12</span><span class="err">T</span><span class="mi">14</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">0</span><span class="mf">1.046526</span><span class="err">Z</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">2020-05-12</span><span class="err">T</span><span class="mi">14</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mf">11.046526</span><span class="err">Z</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">2020-05-12</span><span class="err">T</span><span class="mi">14</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mf">11.046526</span><span class="err">Z</span><span class="p">,</span><span class="w">
   </span><span class="s2">"order_amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
     </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
@@ -1462,9 +1473,9 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
         </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
         </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1574092317868</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"updated_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1574092335832</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"completed_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">2020-05-12</span><span class="err">T</span><span class="mi">14</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">0</span><span class="mf">1.046526</span><span class="err">Z</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">2020-05-12</span><span class="err">T</span><span class="mi">14</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mf">11.046526</span><span class="err">Z</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">2020-05-12</span><span class="err">T</span><span class="mi">14</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mf">11.046526</span><span class="err">Z</span><span class="p">,</span><span class="w">
       </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"card_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VISA"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"funding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CREDIT"</span><span class="p">,</span><span class="w">
@@ -1551,19 +1562,19 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>Text</td>
 </tr>
 <tr>
-<td><code>created_date</code></td>
-<td>Creation date for an order, measured in ms since the Unix epoch (UTC)</td>
-<td>Integer</td>
+<td><code>created_at</code></td>
+<td>Creation date for an order</td>
+<td>ISO-8601</td>
 </tr>
 <tr>
-<td><code>updated_date</code></td>
-<td>Last update date for an order, measured in ms since the Unix epoch (UTC) (optional)</td>
-<td>Integer</td>
+<td><code>updated_at</code></td>
+<td>Last update date for an order (optional)</td>
+<td>ISO-8601</td>
 </tr>
 <tr>
-<td><code>completed_date</code></td>
-<td>Completion date for an order, measured in ms since the Unix epoch (UTC) (optional)</td>
-<td>Integer</td>
+<td><code>completed_at</code></td>
+<td>Completion date for an order (optional)</td>
+<td>ISO-8601</td>
 </tr>
 <tr>
 <td><code>order_amount.value</code></td>
@@ -1641,19 +1652,19 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>ISO-4217</td>
 </tr>
 <tr>
-<td><code>payments.created_date</code></td>
-<td>Payment created date, measured in ms since the Unix epoch (UTC) (optional - only for orders with successful payments)</td>
-<td>Integer</td>
+<td><code>payments.created_at</code></td>
+<td>Payment created date (optional - only for orders with successful payments)</td>
+<td>ISO-8601</td>
 </tr>
 <tr>
-<td><code>payments.updated_date</code></td>
-<td>Last update date, measured in ms since the Unix epoch (UTC) (optional - only for orders with successful payments)</td>
-<td>Integer</td>
+<td><code>payments.updated_at</code></td>
+<td>Last update date (optional - only for orders with successful payments)</td>
+<td>ISO-8601</td>
 </tr>
 <tr>
-<td><code>payments.completed_date</code></td>
-<td>Payment completion date, measured in ms since the Unix epoch (UTC) (optional - only for orders with successful payments)</td>
-<td>Integer</td>
+<td><code>payments.completed_at</code></td>
+<td>Payment completion date (optional - only for orders with successful payments)</td>
+<td>ISO-8601</td>
 </tr>
 <tr>
 <td><code>payments.card.card_type</code></td>
@@ -1726,8 +1737,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>Text</td>
 </tr>
 <tr>
-<td><code>payments.card.checks.postal_code</code></td>
-<td>Postal code verification: <code>MATCH</code>, <code>NOT_MATCH</code>, <code>N_A</code> or<code>INVALID</code> (optional - only for orders with successful payments)</td>
+<td><code>payments.card.checks.postcode</code></td>
+<td>Postcode verification: <code>MATCH</code>, <code>NOT_MATCH</code>, <code>N_A</code> or<code>INVALID</code> (optional - only for orders with successful payments)</td>
 <td>Text</td>
 </tr>
 <tr>
@@ -1841,7 +1852,9 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>Text</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-order-object-create-payment-order'><a href='#api-api-order-object-create-payment-order' class='header-link'><i></i></a>Create payment order</h4><blockquote>
+<h3 id='api-create-an-order'><a href='#api-create-an-order' class='header-link'><i></i></a>Create an Order</h3>
+<p>The following request creates an <code>Order</code> object.</p>
+<blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -1855,12 +1868,12 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </span><span class="p">{</span><span class="w">
   </span><span class="s2">"amount"</span><span class="o">:</span><span class="w"> </span><span class="m">200</span><span class="p">,</span><span class="w">
   </span><span class="s2">"capture_mode"</span><span class="o">:</span><span class="w"> </span><span class="s2">"MANUAL"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"merchant_order_id"</span><span class="o">:</span><span class="w"> </span><span class="s2">"00122"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"merchant_order_ext_ref"</span><span class="o">:</span><span class="w"> </span><span class="s2">"00122"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"customer_email"</span><span class="o">:</span><span class="w"> </span><span class="s2">"sally.gibson@gmail.com"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"description"</span><span class="o">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"currency"</span><span class="o">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"settlement_currency"</span><span class="o">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"merchant_customer_id"</span><span class="o">:</span><span class="w"> </span><span class="s2">"sally01"</span><span class="w">
+  </span><span class="s2">"merchant_customer_ext_ref"</span><span class="o">:</span><span class="w"> </span><span class="s2">"sally01"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><blockquote>
       <div><p>Request in cURL</p>
@@ -1877,12 +1890,12 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
      </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">$</span><span class="s1">'{
   "amount": 200,
   "capture_mode": "MANUAL",
-  "merchant_order_id": "00122",
+  "merchant_order_ext_ref": "00122",
   "customer_email": "sally.gibson@gmail.com",
   "description": "description",
   "currency": "GBP",
   "settlement_currency": "USD",
-  "merchant_customer_id": "sally01"
+  "merchant_customer_ext_ref": "sally01"
 }'</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -1903,7 +1916,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>Text</td>
 </tr>
 <tr>
-<td><code>merchant_order_id</code></td>
+<td><code>merchant_order_ext_ref</code></td>
 <td>Merchant order ID (optional)</td>
 <td>Text</td>
 </tr>
@@ -1928,7 +1941,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>ISO-4217</td>
 </tr>
 <tr>
-<td><code>merchant_customer_id</code></td>
+<td><code>merchant_customer_ext_ref</code></td>
 <td>Merchant customer ID (optional)</td>
 <td>Text</td>
 </tr>
@@ -1943,7 +1956,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
         </select>
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">Order</span><span class="w"> </span><span class="n">object</span><span class="w">
-</span></code></pre><h4 id='api-api-order-object-retrieve-order'><a href='#api-api-order-object-retrieve-order' class='header-link'><i></i></a>Retrieve order</h4><blockquote>
+</span></code></pre><h3 id='api-retrieve-an-order'><a href='#api-retrieve-an-order' class='header-link'><i></i></a>Retrieve an Order</h3><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -1975,8 +1988,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">Order</span><span class="w"> </span><span class="n">object</span><span class="w">
 </span></code></pre>
-<p>If you would like to get information about the created order, please use the following request.</p>
-<h4 id='api-api-order-object-capture-order'><a href='#api-api-order-object-capture-order' class='header-link'><i></i></a>Capture order</h4><blockquote>
+<p>The following request retrieves the details of an <code>Order</code> that has been created.</p>
+<h3 id='api-capture-an-order'><a href='#api-capture-an-order' class='header-link'><i></i></a>Capture an Order</h3><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2008,15 +2021,17 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">Order</span><span class="w"> </span><span class="n">object</span><span class="w">
 </span></code></pre>
-<p>Once the payment is authorised, you need to capture it in order for it to be sent into the processing stage.</p>
+<p>The following request captures the funds of an existing uncaptured <code>Order</code>.</p>
 
-<p>As a merchant you can choose between <strong>automatic</strong> or <strong>manual</strong> capturing.</p>
+<p>When the payment for a particular <code>Order</code> is authorised, it needs to  be captured in order for it to be sent into the processing stage.</p>
+
+<p>As a merchant, you can choose between <strong>automatic</strong> or <strong>manual</strong> capturing.</p>
 
 <ul>
-<li>By choosing <strong>automatic</strong>, you don&#39;t have to perform any further steps after confirmation.</li>
-<li>By choosing <strong>manual</strong> you will need to go to the web interface and click &quot;Authorise&quot;, or do the authorization via the API.</li>
+<li>By choosing <strong>automatic</strong>, you don&#39;t have to perform any further steps after payment authorization.</li>
+<li>By choosing <strong>manual</strong>, you will need to go to the web interface and click &quot;Authorise&quot;, or perform the Capture request via the API.</li>
 </ul>
-<h4 id='api-api-order-object-cancel-order'><a href='#api-api-order-object-cancel-order' class='header-link'><i></i></a>Cancel order</h4><blockquote>
+<h3 id='api-cancel-an-order'><a href='#api-cancel-an-order' class='header-link'><i></i></a>Cancel an Order</h3><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2048,9 +2063,9 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
       </div>
     </blockquote><pre class="highlight plaintext"><code>Order object
 </code></pre>
-<p>In case the payment has not been captured yet and you decide to not proceed with the order, the order can be cancelled manually.</p>
-<h4 id='api-api-order-object-refund-order'><a href='#api-api-order-object-refund-order' class='header-link'><i></i></a>Refund order</h4>
-<p>In case a customer requires a refund for a payment that has been already captured, you can always issue a full or partial refund for a particular payment.</p>
+<p>The following request cancels an existing uncaptured <code>Order</code>.</p>
+<h3 id='api-refund-an-order'><a href='#api-refund-an-order' class='header-link'><i></i></a>Refund an Order</h3>
+<p>This request issues a refund for a completed <code>Order</code>. A refund can be either full or partial. Funds are always refunded to customer&#39;s original payment method.</p>
 <blockquote>
       <div><p>Request</p>
 </div>
@@ -2065,7 +2080,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </span><span class="p">{</span><span class="w">
   </span><span class="s2">"amount"</span><span class="o">:</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w">
   </span><span class="s2">"currency"</span><span class="o">:</span><span class="w"> </span><span class="s2">"GPB"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"merchant_order_id"</span><span class="o">:</span><span class="w"> </span><span class="s2">"00122"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"merchant_order_ext_ref"</span><span class="o">:</span><span class="w"> </span><span class="s2">"00122"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"description"</span><span class="o">:</span><span class="w"> </span><span class="s2">"description"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><blockquote>
@@ -2083,7 +2098,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
      </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">$</span><span class="s1">'{
   "amount": 100,
   "currency": "GBP",
-  "merchant_order_id": "00122",
+  "merchant_order_ext_ref": "00122",
   "description": "descr"
 }'</span><span class="w">
 
@@ -2106,7 +2121,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>ISO-4217</td>
 </tr>
 <tr>
-<td><code>merchant_order_id</code></td>
+<td><code>merchant_order_ext_ref</code></td>
 <td>Merchant order ID (optional)</td>
 <td>Text</td>
 </tr>
@@ -2116,19 +2131,10 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>Text</td>
 </tr>
 </tbody></table>
+
+<p>If the refund is successful, a <code>Refund Order</code> object is returned, otherwise an error is returned.</p>
 <blockquote>
       <div><p>Response</p>
-</div>
-      <div class='env-selector'>
-        <select>
-          <option value="sandbox">Sandbox</option>
-          <option value="production">Production</option>
-        </select>
-      </div>
-    </blockquote><pre class="highlight r"><code><span class="w"> </span><span class="c1"># If the refund is successful, a `Refund Order` object is returned,
-</span><span class="w"> </span><span class="c1"># otherwise an error is returned.
-</span></code></pre><blockquote>
-      <div><p>Refund Order object</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -2140,9 +2146,9 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6a1353a8-3054-40ee-ab39-97a11e4c5f2a"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REFUND"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMPLETED"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1574092317868</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"updated_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1574092335832</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"completed_date"</span><span class="p">:</span><span class="w"> </span><span class="mi">1574092335832</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">2020-05-12</span><span class="err">T</span><span class="mi">14</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mf">11.046526</span><span class="err">Z</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">2020-05-12</span><span class="err">T</span><span class="mi">14</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mf">11.046526</span><span class="err">Z</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">2020-05-12</span><span class="err">T</span><span class="mi">14</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mf">11.046526</span><span class="err">Z</span><span class="p">,</span><span class="w">
   </span><span class="s2">"order_amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
     </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
@@ -2184,19 +2190,19 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>Text</td>
 </tr>
 <tr>
-<td><code>created_date</code></td>
-<td>Order creation date, measured in ms since the Unix epoch (UTC)</td>
-<td>Integer</td>
+<td><code>created_at</code></td>
+<td>Сreation date for a refund order</td>
+<td>ISO-8601</td>
 </tr>
 <tr>
-<td><code>updated_date</code></td>
-<td>Last update date, measured in ms since the Unix epoch (UTC) (optional)</td>
-<td>Integer</td>
+<td><code>updated_at</code></td>
+<td>Last update date for a refund order (optional)</td>
+<td>ISO-8601</td>
 </tr>
 <tr>
-<td><code>completed_date</code></td>
-<td>Order completion date, measured in ms since the Unix epoch (UTC) (optional)</td>
-<td>Integer</td>
+<td><code>completed_at</code></td>
+<td>Order completion date for a refund order (optional)</td>
+<td>ISO-8601</td>
 </tr>
 <tr>
 <td><code>order_amount.value</code></td>
@@ -2242,8 +2248,12 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 
 <div class="feedback"></div>
 <h3 id='api-webhooks'><a href='#api-webhooks' class='header-link'><i></i></a>Webhooks</h3>
-<p>Webhooks are used to notify a merchant about various events happening to his Revolut Merchant accounts. Please note that at the moment webhooks are created only to order completion events.</p>
-<h4 id='api-api-webhooks-set-or-revoke-webhook-url'><a href='#api-api-webhooks-set-or-revoke-webhook-url' class='header-link'><i></i></a>Set or revoke webhook url</h4><blockquote>
+<p>There are multiple events happening to Merchant Accounts. The majority of these occur synchronously - this means they arrive instantly and an immediate result is available. For example, an <code>Order</code> creation request is a synchronous request.</p>
+
+<p>However, there are some events that run asynchronously and, therefore, require webhooks. Merchant API supports webhooks for order completion events.</p>
+<h4 id='api-api-webhooks-set-webhook-url'><a href='#api-api-webhooks-set-webhook-url' class='header-link'><i></i></a>Set webhook url</h4>
+<p>This request can be used by a merchant to subscribe for webhooks from Revolut Merchant API. </p>
+<blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2299,7 +2309,9 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>URL</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-webhooks-retrieve-webhooks'><a href='#api-api-webhooks-retrieve-webhooks' class='header-link'><i></i></a>Retrieve webhooks</h4><blockquote>
+<h4 id='api-api-webhooks-retrieve-webhooks'><a href='#api-api-webhooks-retrieve-webhooks' class='header-link'><i></i></a>Retrieve webhooks</h4>
+<p>This request is used to get the list of webhooks you are currently subscribed to.</p>
+<blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2339,7 +2351,9 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>URL</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-webhooks-webhook-request'><a href='#api-api-webhooks-webhook-request' class='header-link'><i></i></a>Webhook request</h4><blockquote>
+<h4 id='api-api-webhooks-webhook-request'><a href='#api-api-webhooks-webhook-request' class='header-link'><i></i></a>Webhook request</h4>
+<p>Revolut will POST webhook messages to the URLs you have set webhooks for. Here is an example of an order completion event. </p>
+<blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2352,7 +2366,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </span></code></pre>
 <div></div>
 <blockquote>
-      <div><p>Response</p>
+      <div><p>Message</p>
 </div>
       <div class='env-selector'>
         <select>
