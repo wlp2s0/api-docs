@@ -410,6 +410,27 @@
                     <li>
                       <a href="#payment-initiation-api-specification-get-international-scheduled-payment" class="toc-h3 toc-link" data-title="Get International Scheduled Payment">Get International Scheduled Payment</a>
                     </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-create-file-payment-consent" class="toc-h3 toc-link" data-title="Create File Payment Consent">Create File Payment Consent</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-file-payment-consent" class="toc-h3 toc-link" data-title="Get File Payment Consent">Get File Payment Consent</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-upload-file-for-file-payment-consent" class="toc-h3 toc-link" data-title="Upload File for File Payment Consent">Upload File for File Payment Consent</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-file-for-file-payment-consent" class="toc-h3 toc-link" data-title="Get File for File Payment Consent">Get File for File Payment Consent</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-create-file-payment" class="toc-h3 toc-link" data-title="Create File Payment">Create File Payment</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-file-payment" class="toc-h3 toc-link" data-title="Get File Payment">Get File Payment</a>
+                    </li>
+                    <li>
+                      <a href="#payment-initiation-api-specification-get-file-payment-report-file" class="toc-h3 toc-link" data-title="Get File Payment Report File">Get File Payment Report File</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -1225,7 +1246,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/domestic-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre><blockquote>
       <div><p>Response</p>
@@ -1291,7 +1312,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>/funds-confirmation
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/funds-confirmation
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/domestic-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/funds-confirmation
 </code></pre>
 <p>This endpoint allows for the checking of funds with the given consent. This endpoint returns successful only if the user has authorized the related consent.</p>
@@ -1525,7 +1546,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-standing-order-consents/<span class="o">{</span>conset_id<span class="o">}</span>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-standing-order-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/domestic-standing-order-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre><blockquote>
       <div><p>Response</p>
@@ -1744,7 +1765,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-scheduled-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/domestic-scheduled-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/domestic-scheduled-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre><blockquote>
       <div><p>Response</p>
@@ -1975,7 +1996,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/international-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre><blockquote>
       <div><p>Response</p>
@@ -2059,7 +2080,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>/funds-confirmation
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/funds-confirmation
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/international-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/funds-confirmation
 </code></pre><blockquote>
       <div><p>Response</p>
@@ -2328,7 +2349,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-standing-order-consents/<span class="o">{</span>conset_id<span class="o">}</span>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-standing-order-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/international-standing-order-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre><blockquote>
       <div><p>Response</p>
@@ -2589,7 +2610,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
 <p>As part of the API requirement, you must pass the <code>x-jws-signature</code> header in your request. The signature must be generated from a request body with the TPP signing key that is specified in the JWS header. As specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format.</p>
 
 <aside class="warning">
-    Scheduled paymentss API is currently in Beta stage - some elements of the UI might not fully visualise the consent data.
+    Scheduled payments API is currently in Beta stage - some elements of the UI might not fully visualise the consent data.
 </aside>
 
 <div class="feedback"></div>
@@ -2602,7 +2623,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-scheduled-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-scheduled-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/international-scheduled-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
 </code></pre><blockquote>
       <div><p>Response</p>
@@ -2669,7 +2690,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-scheduled-payment-consents/<span class="o">{</span>conset_id<span class="o">}</span>/funds-confirmation
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/international-scheduled-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/funds-confirmation
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/international-scheduled-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/funds-confirmation
 </code></pre><blockquote>
       <div><p>Response</p>
@@ -2831,6 +2852,392 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns state of a scheduled payment.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-create-file-payment-consent'><a href='#payment-initiation-api-specification-create-file-payment-consent' class='header-link'><i></i></a>Create File Payment Consent</h3><blockquote>
+      <div><p>Create File Payment Consent</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/file-payment-consents
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/file-payment-consents
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"FileType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text/csv"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"FileHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05IAiRfAhurUnWtxvqJffXo00LnkZQpfrHVLNn8m7f4="</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11280001234567"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Andrea Frost"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint is for creating file payment consent as described in Open Banking API documentation. </p>
+
+<p>File Payments is available only for Revolut Business users. </p>
+
+<p>Currently only <code>text/csv</code> file type is supported for File Payments.</p>
+
+<p>As part of the API requirement, you must pass the <code>x-jws-signature</code> header in your request. The signature must be generated from a request body with the TPP signing key that is specified in the JWS header. As specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format.</p>
+
+<aside class="warning">
+    File payments API is currently in Beta stage - some elements of the UI might not fully visualise the consent data.
+</aside>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-file-payment-consent'><a href='#payment-initiation-api-specification-get-file-payment-consent' class='header-link'><i></i></a>Get File Payment Consent</h3><blockquote>
+      <div><p>Get File Payment Consent details</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/file-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/file-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AwaitingUpload"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"StatusUpdateDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"FileType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text/csv"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"FileHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05IAiRfAhurUnWtxvqJffXo00LnkZQpfrHVLNn8m7f4="</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11280001234567"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Andrea Frost"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/file-payment-consents/14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns consent details as it is described in the official documentation.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-upload-file-for-file-payment-consent'><a href='#payment-initiation-api-specification-upload-file-for-file-payment-consent' class='header-link'><i></i></a>Upload File for File Payment Consent</h3><blockquote>
+      <div><p>Upload File for File Payment Consent</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/file-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/file
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/file-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/file
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight plaintext"><code>Name        ,Recipient type,Account number ,Sort code or Routing number,IBAN,BIC,Recipient bank country,Currency,Amount,Payment reference,Recipient country,State or province,Address line 1            ,Address line 2     ,City  ,Postal code
+Andrea Frost,INDIVIDUAL    ,40513598       ,207409                     ,    ,   ,GB                    ,GBP     ,10    ,User comment     ,GB               ,                 ,"Revolutest LTD, Level 39",Somewhere in London,London,E14 5AB
+</code></pre>
+<p>This endpoint allows to upload a file for given file payment consent as described in Open Banking API documentation.</p>
+
+<p>Only CSV files with structure as in the example are supported (whitespaces are only for display purposes).</p>
+<h4 id='payment-initiation-api-specification-payment-initiation-api-specification-upload-file-for-file-payment-consent-request-fields'><a href='#payment-initiation-api-specification-payment-initiation-api-specification-upload-file-for-file-payment-consent-request-fields' class='header-link'><i></i></a>Request fields</h4>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Name</td>
+<td>Yes</td>
+<td>Can contain up to 80 characters. If INDIVIDUAL recipient type is provided this field must contain first and last name separated by white space</td>
+</tr>
+<tr>
+<td>Recipient type</td>
+<td>Yes</td>
+<td>Can be either INDIVIDUAL or COMPANY</td>
+</tr>
+<tr>
+<td>Account number</td>
+<td>For UK transfers</td>
+<td>Must contain valid account number if provided</td>
+</tr>
+<tr>
+<td>Sort code or Routing number</td>
+<td>For UK transfers</td>
+<td>Must contain valid sort code or routing number if provided</td>
+</tr>
+<tr>
+<td>IBAN</td>
+<td>For SEPA transfers</td>
+<td>Must contain valid IBAN if provided</td>
+</tr>
+<tr>
+<td>BIC</td>
+<td>For SEPA transfers</td>
+<td>Must contain valid BIC if provided</td>
+</tr>
+<tr>
+<td>Recipient bank country</td>
+<td>Yes</td>
+<td>Must contain valid ISO 3166-1 country code</td>
+</tr>
+<tr>
+<td>Currency</td>
+<td>Yes</td>
+<td>Must contain valid ISO 4217 currency code</td>
+</tr>
+<tr>
+<td>Amount</td>
+<td>Yes</td>
+<td>Must match following pattern <code>[0-9]*(\\.[0-9]*)?</code></td>
+</tr>
+<tr>
+<td>Payment reference</td>
+<td>Yes</td>
+<td>Can contain up to 100 characters</td>
+</tr>
+<tr>
+<td>Recipient country</td>
+<td>No</td>
+<td>Must contain valid ISO 3166-1 country code if provided</td>
+</tr>
+<tr>
+<td>State or province</td>
+<td>No</td>
+<td>Can contain up to 50 characters</td>
+</tr>
+<tr>
+<td>Address line 1</td>
+<td>No</td>
+<td>Can contain up to 50 characters</td>
+</tr>
+<tr>
+<td>Address line 2</td>
+<td>No</td>
+<td>Can contain up to 50 characters</td>
+</tr>
+<tr>
+<td>City</td>
+<td>No</td>
+<td>Can contain up to 50 characters</td>
+</tr>
+<tr>
+<td>Postal code</td>
+<td>No</td>
+<td>Can contain up to 50 characters</td>
+</tr>
+</tbody></table>
+
+<p>Columns with optional values can be omitted in the uploaded file. </p>
+
+<p>Maximum accepted file size is 10 MB.</p>
+<blockquote>
+      <div><p>Example UK transfer (whitespaces are only for display purposes)</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight plaintext"><code>Name        ,Recipient type,Account number,Sort code,Recipient bank country,Currency,Amount,Payment reference
+Andrea Frost,INDIVIDUAL    ,40513598      ,207409   ,GB                    ,GBP     ,10    ,User comment     
+</code></pre>
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-file-for-file-payment-consent'><a href='#payment-initiation-api-specification-get-file-for-file-payment-consent' class='header-link'><i></i></a>Get File for File Payment Consent</h3><blockquote>
+      <div><p>Get File for File Payment Consent</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/file-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/file
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/file-payment-consents/<span class="o">{</span>consent_id<span class="o">}</span>/file
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight plaintext"><code> Name,Recipient type,Account number,Sort code,Recipient bank country,Currency,Amount,Payment reference
+ Andrea Frost,INDIVIDUAL,40513598,207409,GB,GBP,10,User comment
+</code></pre>
+<p>This endpoint returns file uploaded for given consent as it is described in the official documentation.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-create-file-payment'><a href='#payment-initiation-api-specification-create-file-payment' class='header-link'><i></i></a>Create File Payment</h3><blockquote>
+      <div><p>Create File Payment</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba.revolut.com/file-payments
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/file-payments
+</code></pre><blockquote>
+      <div><p>Request:</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"FileType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text/csv"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"FileHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05IAiRfAhurUnWtxvqJffXo00LnkZQpfrHVLNn8m7f4="</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11280001234567"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Andrea Frost"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>As it is defined in the Open Banking Specifications, <code>/Data/Initiation</code> section of the request must be an exact match for the related consent passed in <code>ConsentId</code>.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-file-payment'><a href='#payment-initiation-api-specification-get-file-payment' class='header-link'><i></i></a>Get File Payment</h3><blockquote>
+      <div><p>Get File Payment</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/file-payments/<span class="o">{</span>file_payment_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/file-payments/<span class="o">{</span>file_payment_id<span class="o">}</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"FilePaymentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a0f338f1-1827-49a3-82f7-eaa3783cadb6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ConsentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InitiationCompleted"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"StatusUpdateDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-05T15:15:13+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Initiation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"FileType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text/csv"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"FileHash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05IAiRfAhurUnWtxvqJffXo00LnkZQpfrHVLNn8m7f4="</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"DebtorAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"SchemeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UK.OBIE.SortCodeAccountNumber"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Identification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11280001234567"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Andrea Frost"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/file-payments/a0f338f1-1827-49a3-82f7-eaa3783cadb6"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns state of a file payment.</p>
+
+<div class="feedback"></div>
+<h3 id='payment-initiation-api-specification-get-file-payment-report-file'><a href='#payment-initiation-api-specification-get-file-payment-report-file' class='header-link'><i></i></a>Get File Payment Report File</h3><blockquote>
+      <div><p>Get File Payment Report File</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/file-payments/<span class="o">{</span>file_payment_id<span class="o">}</span>/report-file
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/file-payments/<span class="o">{</span>file_payment_id<span class="o">}</span>/report-file
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Payments"</span><span class="p">:[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="s2">"20.10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"Reference"</span><span class="p">:</span><span class="s2">"Ref 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Status"</span><span class="p">:</span><span class="s2">"Created"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="s2">"250.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="s2">"EUR"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"Reference"</span><span class="p">:</span><span class="s2">"Ref 2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Status"</span><span class="p">:</span><span class="s2">"Completed"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="s2">"1.10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"Reference"</span><span class="p">:</span><span class="s2">"Ref 3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Status"</span><span class="p">:</span><span class="s2">"Failed"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint returns state of all payments for given file payment. Currently only JSON format is supported.</p>
 
 <div class="feedback"></div>
 <h2 id='confirmation-of-funds'><a href='#confirmation-of-funds' class='header-link'><i></i></a>Confirmation of funds</h2>
