@@ -282,7 +282,7 @@
                       <a href="#dynamic-client-registration-software-statement-format" class="toc-h3 toc-link" data-title="Software statement format">Software statement format</a>
                     </li>
                     <li>
-                      <a href="#dynamic-client-registration-certificate-dn" class="toc-h3 toc-link" data-title="Certificate DN">Certificate DN</a>
+                      <a href="#dynamic-client-registration-certificate-dn-for-using-in-registration-request" class="toc-h3 toc-link" data-title="Certificate DN for using in registration request">Certificate DN for using in registration request</a>
                     </li>
                 </ul>
             </li>
@@ -290,10 +290,10 @@
               <a href="#open-banking-security-profile" class="toc-h2 toc-link" data-title="Open Banking Security Profile">Open Banking Security Profile</a>
                 <ul class="toc-list-h3">
                     <li>
-                      <a href="#open-banking-security-profile-dynamic-client-registration-certificate-dn-authorization-endpoint" class="toc-h3 toc-link" data-title="Authorization Endpoint">Authorization Endpoint</a>
+                      <a href="#open-banking-security-profile-dynamic-client-registration-certificate-dn-for-using-in-registration-request-authorization-endpoint" class="toc-h3 toc-link" data-title="Authorization Endpoint">Authorization Endpoint</a>
                     </li>
                     <li>
-                      <a href="#open-banking-security-profile-dynamic-client-registration-certificate-dn-token-endpoint" class="toc-h3 toc-link" data-title="Token Endpoint">Token Endpoint</a>
+                      <a href="#open-banking-security-profile-dynamic-client-registration-certificate-dn-for-using-in-registration-request-token-endpoint" class="toc-h3 toc-link" data-title="Token Endpoint">Token Endpoint</a>
                     </li>
                 </ul>
             </li>
@@ -621,14 +621,23 @@ In order to change your configuration: go to the <a href="https://developers.rev
 <p>The signature should be an empty string.</p>
 
 <div class="feedback"></div>
-<h3 id='dynamic-client-registration-certificate-dn'><a href='#dynamic-client-registration-certificate-dn' class='header-link'><i></i></a>Certificate DN</h3>
-<p>Please note that Dynamic Registration requires using the RFC2253 DN format in your request. To obtain the DN of your certificate in this format, you may use the following command:
-<code>openssl x509 -in /path/to/your/cert.cer -noout -subject -nameopt RFC2253</code></p>
+<h3 id='dynamic-client-registration-certificate-dn-for-using-in-registration-request'><a href='#dynamic-client-registration-certificate-dn-for-using-in-registration-request' class='header-link'><i></i></a>Certificate DN for using in registration request</h3>
+<aside class="warning">
+    Please note that Dynamic Registration requires using the RFC2253 DN format in <b>tls_client_auth_dn</b> field of your request.
+</aside>
+
+<p>To obtain the DN of your certificate in this format, you may use the following command for DER certificates:</p>
+
+<p><code>openssl x509 -in /path/to/your/cert.der -inform der -noout -subject -nameopt RFC2253</code></p>
+
+<p>or, for certificates in PEM format:</p>
+
+<p><code>openssl x509 -in /path/to/your/cert.pem -inform pem -noout -subject -nameopt RFC2253</code></p>
 
 <div class="feedback"></div>
 <h2 id='open-banking-security-profile'><a href='#open-banking-security-profile' class='header-link'><i></i></a>Open Banking Security Profile</h2>
 <p>Open Banking security profile is implemented as it is described in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/83919096/Open+Banking+Security+Profile+-+Implementer+s+Draft+v1.1.2">documentation</a>.</p>
-<h4 id='open-banking-security-profile-dynamic-client-registration-certificate-dn-authorization-endpoint'><a href='#open-banking-security-profile-dynamic-client-registration-certificate-dn-authorization-endpoint' class='header-link'><i></i></a>Authorization Endpoint</h4><blockquote>
+<h4 id='open-banking-security-profile-dynamic-client-registration-certificate-dn-for-using-in-registration-request-authorization-endpoint'><a href='#open-banking-security-profile-dynamic-client-registration-certificate-dn-for-using-in-registration-request-authorization-endpoint' class='header-link'><i></i></a>Authorization Endpoint</h4><blockquote>
       <div><p>Authorize consent</p>
 </div>
       <div class='env-selector'>
@@ -641,7 +650,7 @@ In order to change your configuration: go to the <a href="https://developers.rev
 </code></pre><pre class="highlight shell tab-shell--production"><code>https://oba.revolut.com/ui/index.html
 </code></pre>
 <p><code>/ui/index.html</code> endpoint is for your application to redirect Revolut customer to authorize consent</p>
-<h4 id='open-banking-security-profile-dynamic-client-registration-certificate-dn-token-endpoint'><a href='#open-banking-security-profile-dynamic-client-registration-certificate-dn-token-endpoint' class='header-link'><i></i></a>Token Endpoint</h4>
+<h4 id='open-banking-security-profile-dynamic-client-registration-certificate-dn-for-using-in-registration-request-token-endpoint'><a href='#open-banking-security-profile-dynamic-client-registration-certificate-dn-for-using-in-registration-request-token-endpoint' class='header-link'><i></i></a>Token Endpoint</h4>
 <p>Allows you to get an access token, please refer to <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/83919096/Open+Banking+Security+Profile+-+Implementer+s+Draft+v1.1.2">Open Banking specification</a> for more information about the semantics of this API.</p>
 <blockquote>
       <div><p>Get access token</p>
