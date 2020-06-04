@@ -1286,7 +1286,8 @@ Download OpenSSL for Windows</p>
 <h2 id='counterparties'><a href='#counterparties' class='header-link'><i></i></a>Counterparties</h2>
 <p><a href="https://raw.githubusercontent.com/revolutdev/business-api-spec/master/counterparties.yaml">OpenAPI Specification</a></p>
 
-<p>Before a transfer or payment can be made, you need to add the counterparties with which you intend to transact.</p>
+<p>Before a transfer or payment can be made, you need to add the counterparties with which you intend to transact.
+Please note that <code>revolut</code> accounts are shown only for for <code>business</code> counterparties.</p>
 
 <aside class="notice">
     In the sandbox environment, it is not possible to add "real" people and businesses as Revolut counterparties. Therefore, to help you simulate "Add Revolut Counterparty" requests, we have created some test accounts:
@@ -1347,19 +1348,7 @@ EOF
   </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"created"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-19T15:58:34.485Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-19T15:58:34.485Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"accounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7a39e16d-41a6-460f-a7d7-341575037c9d"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"revolut"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50de976a-6704-4424-8998-9efc4ef0abf5"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"revolut"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-19T15:58:34.485Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><blockquote>
       <div><p>Add a business Revolut user as counterparty</p>
@@ -2475,7 +2464,8 @@ EOF
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-01T10:10:10.0Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint creates a new payment. If the payment is for another Revolut account, business or personal, the transaction may be processed synchronously.</p>
+<p>This endpoint creates a new payment. If the payment is for another Revolut account, business or personal, the transaction may be processed synchronously.
+Please note that receiver <code>account_id</code> is required only for payments to <code>business</code> counterparties.</p>
 
 <aside class="notice">To avoid duplicate payment submission because of an error in your code, <code>request_id</code> must be unique for each submitted payment. The <code>request_id</code> must be previously persisted on your side.</aside>
 <h4 id='payments-payments-create-payment-request'><a href='#payments-payments-create-payment-request' class='header-link'><i></i></a>Request</h4>
@@ -2505,7 +2495,7 @@ EOF
 </tr>
 <tr>
 <td>receiver.account_id</td>
-<td>the ID of the receiving counterparty&#39;s account, provide only for payments to <code>business</code> counterparties, can be own account (only for internal counterparties)</td>
+<td>the ID of the receiving counterparty&#39;s account, required only for payments to <code>business</code> counterparties, can be own account (only for internal counterparties)</td>
 <td>UUID</td>
 </tr>
 <tr>
