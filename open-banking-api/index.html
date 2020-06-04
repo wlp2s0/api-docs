@@ -493,18 +493,29 @@ If you have any issues onboarding with eIDAS, please <a href="mailto:api-request
 
 <div class="feedback"></div>
 <h3 id='getting-started-open-banking-developer-portal'><a href='#getting-started-open-banking-developer-portal' class='header-link'><i></i></a>Open Banking Developer Portal</h3><h4 id='getting-started-getting-started-open-banking-developer-portal-what-is-open-banking-developer-portal'><a href='#getting-started-getting-started-open-banking-developer-portal-what-is-open-banking-developer-portal' class='header-link'><i></i></a>What is Open Banking Developer Portal?</h4>
-<p>If you are building a great app and would like to integrate it with Revolut, then Open Banking Developer Portal is for you.
-Open Banking Developer Portal allows you to easily obtain your test user account for our Sandbox and manage your Open Banking applications via the Developer Portal user interface.</p>
+<p>If you are building a great app and would like to test it&#39;s integration with Revolut, then Open Banking Developer Portal is for you.
+Open Banking Developer Portal allows you to easily obtain your test user account and certificates for our Sandbox via the user interface.</p>
 <h4 id='getting-started-getting-started-open-banking-developer-portal-1-sign-up-to-open-banking-developer-portal'><a href='#getting-started-getting-started-open-banking-developer-portal-1-sign-up-to-open-banking-developer-portal' class='header-link'><i></i></a>1. Sign up to Open Banking Developer Portal</h4>
-<p>To get access to the Open Banking Developer Portal you need to sign up to <a href="https://developers.revolut.com/portal/signup">developers.revolut.com/portal/signup</a>. If you are registering with Open Banking Directory, you can link your applications with your developer account. For that purpose please set your Open Banking organisation ID in the <code>Profile</code> section.</p>
-<h4 id='getting-started-getting-started-open-banking-developer-portal-2-get-a-sandbox-user-account'><a href='#getting-started-getting-started-open-banking-developer-portal-2-get-a-sandbox-user-account' class='header-link'><i></i></a>2. Get a sandbox user account</h4>
-<p>Once you created your account, you can generate your sandbox account credentials using the button on your <a href="https://developers.revolut.com/portal/profile">profile page</a> in <code>Sandbox access</code> section.</p>
+<p>To get access to the Open Banking Developer Portal you need to sign up to <a href="https://developers.revolut.com/portal/signup">developers.revolut.com/portal/signup</a>.</p>
+<h4 id='getting-started-getting-started-open-banking-developer-portal-2-get-sandbox-certificates'><a href='#getting-started-getting-started-open-banking-developer-portal-2-get-sandbox-certificates' class='header-link'><i></i></a>2. Get sandbox certificates</h4>
+<p>If you don&#39;t have your own certificates, you can easily obtain new pair using the Certificate Signing Request on <a href="https://developers.revolut.com/portal/openbanking/upload-certificates">this page</a>.
+1. Just generate RSA key using this command:
+    <code>shell--sandbox
+    openssl genrsa -out server.key 2048
+</code>
+1. Then Generate X.509 Certificate Signing Request (CSR):
+    <code>shell--sandbox
+    openssl req -sha256 -new -key server.key -out server.csr -outform der
+</code>
+1. Upload the generated request and after finishing the process you will be able to download new certificates from <a href="https://developers.revolut.com/portal/openbanking/sandbox">open banking page</a></p>
 
-<p>In order to create Revolut Business demo account, please refer to the instructions on previously mentioned <a href="https://developers.revolut.com/portal/profile">profile page</a> or follow directly to the <a href="https://sandbox-business.revolut.com/">sandbox-business.revolut.com</a></p>
-<h4 id='getting-started-getting-started-open-banking-developer-portal-3-create-review-manage-and-delete-your-apps'><a href='#getting-started-getting-started-open-banking-developer-portal-3-create-review-manage-and-delete-your-apps' class='header-link'><i></i></a>3. Create, review, manage and delete your apps</h4>
+<p>You will also be able to generate new pair of certificates if you think that something was wrong </p>
+<h4 id='getting-started-getting-started-open-banking-developer-portal-3-get-a-sandbox-user-account'><a href='#getting-started-getting-started-open-banking-developer-portal-3-get-a-sandbox-user-account' class='header-link'><i></i></a>3. Get a sandbox user account</h4>
+<p>Once you created your account, you can generate your sandbox account credentials using the button on your <a href="https://developers.revolut.com/portal/openbanking/sandbox">open banking page</a> in <code>Test account</code> section.</p>
+
+<p>In order to create Revolut Business demo account, please refer to the instructions on previously mentioned <a href="https://developers.revolut.com/portal/openbanking/sandbox">open banking page</a> or follow directly to the <a href="https://sandbox-business.revolut.com/">sandbox-business.revolut.com</a></p>
+<h4 id='getting-started-getting-started-open-banking-developer-portal-4-create-your-apps'><a href='#getting-started-getting-started-open-banking-developer-portal-4-create-your-apps' class='header-link'><i></i></a>4. Create your apps</h4>
 <p>Then you can create Open Banking Applications using the <a href="#dynamic-client-registration">dynamic client registration</a> endpoint.</p>
-
-<p>If you provided your Organisation ID before the Dynamic Client registration, you should be able to review and delete your Open Banking Applications in the <a href="https://developers.revolut.com/portal">Open Banking Developer Portal</a>. If something has not been set up properly we recommend deleting your app and recreating it through dynamic registration.</p>
 
 <div class="feedback"></div>
 <h3 id='getting-started-open-id-configuration-urls'><a href='#getting-started-open-id-configuration-urls' class='header-link'><i></i></a>Open Id Configuration URLs</h3>
@@ -521,7 +532,7 @@ Open Banking Developer Portal allows you to easily obtain your test user account
 
 <p>Please make sure to stay under this limit. Should you estimate this limit to be a problem for your use case of our API, please <a href="mailto:api-requests@revolut.com">reach out to us</a> directly.</p>
 <h2 id='dynamic-client-registration'><a href='#dynamic-client-registration' class='header-link'><i></i></a>Dynamic Client Registration</h2>
-<p>In order to create an Application in the Open Banking Developer Portal you will need to use Dynamic Registration.</p>
+<p>In order to create an Application you will need to use Dynamic Registration.</p>
 
 <p>The register endpoint is implemented as it is described in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937066600/Dynamic+Client+Registration+-+v3.1#DynamicClientRegistration-v3.1-POST/register">documentation</a>.</p>
 <blockquote>
@@ -550,16 +561,7 @@ Open Banking Developer Portal allows you to easily obtain your test user account
       </div>
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X DELETE https://sandbox-oba.revolut.com/register/17b2738f-26b1-46f9-a979-debbf1f39365
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X DELETE https://oba.revolut.com/register/17b2738f-26b1-46f9-a979-debbf1f39365
-</code></pre>
-<aside class="warning">
-Before using this endpoint, first register to the <a href="https://developers.revolut.com/portal">Open Banking Developer Portal</a> and set your `Open Banking Organisation ID` when registered on the Open Banking Directory in your profile. Set your email address in this field if you’re not registering on the Open Banking Directory.
-
-</aside>
-
-<aside class="warning">
-In order to change your configuration: go to the <a href="https://developers.revolut.com/portal">developers.revolut.com</a>, delete your application and re-register.
-</aside>
-<h3 id='dynamic-client-registration-software-statement-format'><a href='#dynamic-client-registration-software-statement-format' class='header-link'><i></i></a>Software statement format</h3>
+</code></pre><h3 id='dynamic-client-registration-software-statement-format'><a href='#dynamic-client-registration-software-statement-format' class='header-link'><i></i></a>Software statement format</h3>
 <p>If a TPP prefers to register directly without using Open Banking Directory, it’s possible to use a self-signed software statement. In such case the SSA should satisfy the following format:</p>
 <h4 id='dynamic-client-registration-dynamic-client-registration-software-statement-format-header'><a href='#dynamic-client-registration-dynamic-client-registration-software-statement-format-header' class='header-link'><i></i></a>Header</h4>
 <table><thead>
@@ -584,7 +586,6 @@ In order to change your configuration: go to the <a href="https://developers.rev
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"org_jwks_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://tpp.com/keys.jwks"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"org_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organisation-id from dev-portal"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"software_client_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app name"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"software_redirect_uris"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"http://redirect_url"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -600,11 +601,6 @@ In order to change your configuration: go to the <a href="https://developers.rev
 <td>org_jwks_endpoint</td>
 <td>URL</td>
 <td>a JWKS location</td>
-</tr>
-<tr>
-<td>org_id</td>
-<td>String</td>
-<td>an optional organisation ID from the Open Banking Developer Portal</td>
 </tr>
 <tr>
 <td>software_client_name</td>
