@@ -279,7 +279,7 @@
               <a href="#dynamic-client-registration" class="toc-h2 toc-link" data-title="Dynamic Client Registration">Dynamic Client Registration</a>
                 <ul class="toc-list-h3">
                     <li>
-                      <a href="#dynamic-client-registration-software-statement-format" class="toc-h3 toc-link" data-title="Software statement format">Software statement format</a>
+                      <a href="#dynamic-client-registration-registration-request" class="toc-h3 toc-link" data-title="Registration request">Registration request</a>
                     </li>
                     <li>
                       <a href="#dynamic-client-registration-certificate-dn-for-using-in-registration-request" class="toc-h3 toc-link" data-title="Certificate DN for using in registration request">Certificate DN for using in registration request</a>
@@ -561,22 +561,10 @@ Open Banking Developer Portal allows you to easily obtain your test user account
       </div>
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X DELETE https://sandbox-oba.revolut.com/register/17b2738f-26b1-46f9-a979-debbf1f39365
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X DELETE https://oba.revolut.com/register/17b2738f-26b1-46f9-a979-debbf1f39365
-</code></pre><h3 id='dynamic-client-registration-software-statement-format'><a href='#dynamic-client-registration-software-statement-format' class='header-link'><i></i></a>Software statement format</h3>
-<p>If a TPP prefers to register directly without using Open Banking Directory, it’s possible to use a self-signed software statement. In such case the SSA should satisfy the following format:</p>
-<h4 id='dynamic-client-registration-dynamic-client-registration-software-statement-format-header'><a href='#dynamic-client-registration-dynamic-client-registration-software-statement-format-header' class='header-link'><i></i></a>Header</h4>
-<table><thead>
-<tr>
-<th>Header Parameter</th>
-<th>Value</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>alg</td>
-<td>none</td>
-</tr>
-</tbody></table>
-<h4 id='dynamic-client-registration-dynamic-client-registration-software-statement-format-body'><a href='#dynamic-client-registration-dynamic-client-registration-software-statement-format-body' class='header-link'><i></i></a>Body</h4><blockquote>
-      <div><p>Software statement payload</p>
+</code></pre><h3 id='dynamic-client-registration-registration-request'><a href='#dynamic-client-registration-registration-request' class='header-link'><i></i></a>Registration request</h3>
+<p>Registration request should satisfy the following format: </p>
+<blockquote>
+      <div><p>Example JWT header</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -585,14 +573,182 @@ Open Banking Developer Portal allows you to easily obtain your test user account
         </select>
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"org_jwks_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://tpp.com/keys.jwks"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"software_client_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app name"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"software_redirect_uris"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"http://redirect_url"</span><span class="p">]</span><span class="w">
+  </span><span class="s2">"kid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-kid"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PS256"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
 <tr>
-<th>Claim</th>
+<th>JWT header claim</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>kid</td>
+<td>String</td>
+<td>key ID of a public key from JWKS file</td>
+</tr>
+<tr>
+<td>alg</td>
+<td>String</td>
+<td>signing algorithm, currently only <code>PS256</code> is supported</td>
+</tr>
+</tbody></table>
+<blockquote>
+      <div><p>Example JWT payload</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"iss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-iss"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"iat"</span><span class="p">:</span><span class="w"> </span><span class="mi">1591352490</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"exp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1591356090</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"aud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://revolut.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"scope"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"openid"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payments"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accounts"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fundsconfirmations"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"redirect_uris"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"http://url/one"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"token_endpoint_auth_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tls_client_auth"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"application_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"web"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id_token_signed_response_alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PS256"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"request_object_signing_alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PS256"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tls_client_auth_dn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-dn"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"software_statement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ewogICJhbGciOiAibm9uZSIKfQ.ewogICJvcmdfaWQiOiAiNzc3NTgwMDAwMTAzVUF2QUFNIiwKICAib3JnX25hbWUiOiAiUmV2b2x1dCBUUFAiLAogICJzb2Z0d2FyZV9jbGllbnRfbmFtZSI6ICJSZXZvbHV0IFRQUCIsCiAgIm9yZ19qd2tzX2VuZHBvaW50IjogImh0dHA6Ly9vcGVuYmFua2luZy5vcmcudWsvZW5kcG9pbnQiLAogICJzb2Z0d2FyZV9yZWRpcmVjdF91cmlzIjogWwogICAgImh0dHA6Ly91cmwvb25lIgogIF0KfQ."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>JWT payload claim</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>iss</td>
+<td>String</td>
+<td>identifies the principal that issued the JWT</td>
+</tr>
+<tr>
+<td>iat</td>
+<td>Numeric</td>
+<td>identifies the time at which the JWT was issued</td>
+</tr>
+<tr>
+<td>exp</td>
+<td>Numeric</td>
+<td>JWT expiration time</td>
+</tr>
+<tr>
+<td>aud</td>
+<td>String</td>
+<td>identifies the recipients that the JWT is intended for</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>String[]</td>
+<td>list of scopes, supported scopes are <code>openid</code> (required), <code>accounts</code>, <code>payments</code>, <code>fundsconfirmations</code></td>
+</tr>
+<tr>
+<td>redirect_uris</td>
+<td>String[]</td>
+<td>list of allowed redirect URLs</td>
+</tr>
+<tr>
+<td>token_endpoint_auth_method</td>
+<td>String</td>
+<td>currently only <code>tls_client_auth</code> is supported</td>
+</tr>
+<tr>
+<td>application_type</td>
+<td>String</td>
+<td>application type</td>
+</tr>
+<tr>
+<td>id_token_signed_response_alg</td>
+<td>String</td>
+<td>signing algorithm, currently only <code>PS256</code> is supported</td>
+</tr>
+<tr>
+<td>request_object_signing_alg</td>
+<td>String</td>
+<td>signing algorithm, currently only <code>PS256</code> is supported</td>
+</tr>
+<tr>
+<td>tls_client_auth_dn</td>
+<td>String</td>
+<td>claim <em>MUST</em> contain the DN of the certificate that the TPP will use, how to obtain the DN of your certificate is described in next paragraph</td>
+</tr>
+<tr>
+<td>software_statement</td>
+<td>String</td>
+<td>software statement assertion issued by the issuer in JWT format</td>
+</tr>
+</tbody></table>
+
+<p>JWT signature is constructed by encrypting concatenated (using period &#39;.&#39; character) base64url encoded header and payload. </p>
+
+<p>Concatenating (using period &#39;.&#39; characters) base64url encoded header, payload and signature yields complete JWT.</p>
+<h4 id='dynamic-client-registration-dynamic-client-registration-registration-request-open-banking-software-statement'><a href='#dynamic-client-registration-dynamic-client-registration-registration-request-open-banking-software-statement' class='header-link'><i></i></a>Open Banking software statement</h4>
+<p>If you are registering with Open Banking certificate, you should use the software statement signed by Open Banking which you can obtain from Directory</p>
+<h4 id='dynamic-client-registration-dynamic-client-registration-registration-request-self-signed-software-statement'><a href='#dynamic-client-registration-dynamic-client-registration-registration-request-self-signed-software-statement' class='header-link'><i></i></a>Self-signed software statement</h4>
+<p>In order to directly register with eIDAS certificate, it’s possible to use a self-signed software statement. In such case software statement should satisfy the following format: </p>
+<blockquote>
+      <div><p>Example self-signed software statement header</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"none"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>SSA header claim</th>
+<th>Format</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>alg</td>
+<td>String</td>
+<td><code>none</code> value has to be used to indicate self-signed software statement</td>
+</tr>
+</tbody></table>
+<blockquote>
+      <div><p>Example self-signed software statement payload</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"org_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut TPP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"software_client_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut TPP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"org_jwks_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://openbanking.org.uk/endpoint"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"software_redirect_uris"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"http://url/one"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>SSA payload claim</th>
 <th>Format</th>
 <th>Description</th>
 </tr>
@@ -600,7 +756,12 @@ Open Banking Developer Portal allows you to easily obtain your test user account
 <tr>
 <td>org_jwks_endpoint</td>
 <td>URL</td>
-<td>a JWKS location</td>
+<td>a JWKS endpoint, this endpoint has to contain a signing key (QSealC) matching with a <code>kid</code> provided in JWT header of the registration request</td>
+</tr>
+<tr>
+<td>org_name</td>
+<td>String</td>
+<td>a name of a software (shown in the UI), alternatively <code>software_client_name</code> can be used</td>
 </tr>
 <tr>
 <td>software_client_name</td>
@@ -610,11 +771,11 @@ Open Banking Developer Portal allows you to easily obtain your test user account
 <tr>
 <td>software_redirect_uris</td>
 <td>URL[]</td>
-<td>a list of allowed redirect URLs</td>
+<td>a list of allowed redirect URLs, has to contain all redirect URLs from JWT <code>redirect_uris</code> claim</td>
 </tr>
 </tbody></table>
-<h4 id='dynamic-client-registration-dynamic-client-registration-software-statement-format-signature'><a href='#dynamic-client-registration-dynamic-client-registration-software-statement-format-signature' class='header-link'><i></i></a>Signature</h4>
-<p>The signature should be an empty string.</p>
+
+<p>Signature of self-signed software statement should be an empty string.</p>
 
 <div class="feedback"></div>
 <h3 id='dynamic-client-registration-certificate-dn-for-using-in-registration-request'><a href='#dynamic-client-registration-certificate-dn-for-using-in-registration-request' class='header-link'><i></i></a>Certificate DN for using in registration request</h3>
