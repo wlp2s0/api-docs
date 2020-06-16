@@ -1117,9 +1117,9 @@ Download OpenSSL for Windows</p>
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl <span class="s2">"https://sandbox-b2b.revolut.com/api/1.0/accounts/df8d6b20-0725-482e-a29e-fb09631480cf/address"</span> <span class="se">\</span>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl <span class="s2">"https://sandbox-b2b.revolut.com/api/1.0/accounts/df8d6b20-0725-482e-a29e-fb09631480cf/bank-details"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer &lt;your access token&gt;"</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl <span class="s2">"https://b2b.revolut.com/api/1.0/accounts/df8d6b20-0725-482e-a29e-fb09631480cf/address"</span> <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl <span class="s2">"https://b2b.revolut.com/api/1.0/accounts/df8d6b20-0725-482e-a29e-fb09631480cf/bank-details"</span> <span class="se">\</span>
   -H <span class="s2">"Authorization: Bearer &lt;your access token&gt;"</span>
 </code></pre><blockquote>
       <div><p>Response</p>
@@ -1143,7 +1143,7 @@ Download OpenSSL for Windows</p>
       </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E14 5AB"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"bank_country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"schemas"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"chaps"</span><span class="p">,</span><span class="w"> </span><span class="s2">"bacs"</span><span class="p">,</span><span class="w"> </span><span class="s2">"faster_payments"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"schemes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"chaps"</span><span class="p">,</span><span class="w"> </span><span class="s2">"bacs"</span><span class="p">,</span><span class="w"> </span><span class="s2">"faster_payments"</span><span class="p">],</span><span class="w">
     </span><span class="s2">"pooled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"estimated_time"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hours"</span><span class="p">,</span><span class="w">
