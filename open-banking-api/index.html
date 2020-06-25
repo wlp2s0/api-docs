@@ -498,16 +498,15 @@ Open Banking Developer Portal allows you to easily obtain your test user account
 <h4 id='getting-started-getting-started-open-banking-developer-portal-1-sign-up-to-open-banking-developer-portal'><a href='#getting-started-getting-started-open-banking-developer-portal-1-sign-up-to-open-banking-developer-portal' class='header-link'><i></i></a>1. Sign up to Open Banking Developer Portal</h4>
 <p>To get access to the Open Banking Developer Portal you need to sign up to <a href="https://developers.revolut.com/portal/signup">developers.revolut.com/portal/signup</a>.</p>
 <h4 id='getting-started-getting-started-open-banking-developer-portal-2-get-sandbox-certificates'><a href='#getting-started-getting-started-open-banking-developer-portal-2-get-sandbox-certificates' class='header-link'><i></i></a>2. Get sandbox certificates</h4>
-<p>If you don&#39;t have your own certificates, you can easily obtain new pair using the Certificate Signing Request on <a href="https://developers.revolut.com/portal/openbanking/upload-certificates">this page</a>.
-1. Just generate RSA key using this command:
-    <code>shell--sandbox
-    openssl genrsa -out server.key 2048
-</code>
-1. Then Generate X.509 Certificate Signing Request (CSR):
-    <code>shell--sandbox
-    openssl req -sha256 -new -key server.key -out server.csr -outform der
-</code>
-1. Upload the generated request and after finishing the process you will be able to download new certificates from <a href="https://developers.revolut.com/portal/openbanking/sandbox">open banking page</a></p>
+<p>If you don&#39;t have your own certificates, you can easily obtain new pair using the Certificate Signing Request on <a href="https://developers.revolut.com/portal/openbanking/upload-certificates">this page</a>.</p>
+
+<ol>
+<li>Just generate RSA key using this command:
+<code>openssl genrsa -out server.key 2048</code></li>
+<li>Then Generate X.509 Certificate Signing Request (CSR):
+<code>openssl req -sha256 -new -key server.key -out server.csr -outform der</code></li>
+<li>Upload the generated request and after finishing the process you will be able to download new certificates from <a href="https://developers.revolut.com/portal/openbanking/sandbox">open banking page</a></li>
+</ol>
 
 <p>You will also be able to generate new pair of certificates if you think that something was wrong </p>
 <h4 id='getting-started-getting-started-open-banking-developer-portal-3-get-a-sandbox-user-account'><a href='#getting-started-getting-started-open-banking-developer-portal-3-get-a-sandbox-user-account' class='header-link'><i></i></a>3. Get a sandbox user account</h4>
@@ -828,6 +827,10 @@ Open Banking Developer Portal allows you to easily obtain your test user account
 <p>Open Banking <code>Account and Transaction API</code> is implemented as specified in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/999622968/Account+and+Transaction+API+Specification+-+v3.1.1">documentation</a></p>
 
 <p>The Interfaces already implemented are below. We continue implementing other endpoints (mandatory endpoints first). We will be updating this documentation as we progress.</p>
+
+<aside class="warning">
+    Vault consents are still in beta - on some devices they might not yet be visible.
+</aside>
 <h3 id='account-and-transaction-api-account-access-consent'><a href='#account-and-transaction-api-account-access-consent' class='header-link'><i></i></a>Account Access Consent</h3><h4 id='account-and-transaction-api-account-and-transaction-api-account-access-consent-cancel-revoke-consent'><a href='#account-and-transaction-api-account-and-transaction-api-account-access-consent-cancel-revoke-consent' class='header-link'><i></i></a>Cancel/Revoke Consent</h4><blockquote>
       <div><p>Reject or revoke Consent</p>
 </div>
