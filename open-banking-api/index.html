@@ -437,7 +437,13 @@
               <a href="#confirmation-of-funds" class="toc-h2 toc-link" data-title="Confirmation of funds">Confirmation of funds</a>
                 <ul class="toc-list-h3">
                     <li>
-                      <a href="#confirmation-of-funds-funds-confirmation-consent" class="toc-h3 toc-link" data-title="Funds Confirmation Consent">Funds Confirmation Consent</a>
+                      <a href="#confirmation-of-funds-create-funds-confirmation-consent" class="toc-h3 toc-link" data-title="Create Funds Confirmation Consent">Create Funds Confirmation Consent</a>
+                    </li>
+                    <li>
+                      <a href="#confirmation-of-funds-get-funds-confirmation-consent" class="toc-h3 toc-link" data-title="Get Funds Confirmation Consent">Get Funds Confirmation Consent</a>
+                    </li>
+                    <li>
+                      <a href="#confirmation-of-funds-delete-funds-confirmation-consent" class="toc-h3 toc-link" data-title="Delete Funds Confirmation Consent">Delete Funds Confirmation Consent</a>
                     </li>
                     <li>
                       <a href="#confirmation-of-funds-create-funds-confirmations" class="toc-h3 toc-link" data-title="Create Funds Confirmations">Create Funds Confirmations</a>
@@ -3410,7 +3416,7 @@ Andrea Frost,INDIVIDUAL    ,40513598      ,207409   ,GB                    ,GBP 
 <div class="feedback"></div>
 <h2 id='confirmation-of-funds'><a href='#confirmation-of-funds' class='header-link'><i></i></a>Confirmation of funds</h2>
 <p>The Open Banking <code>Funds Confirmation API</code> is implemented as specified in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/1000015607/Confirmation+of+Funds+API+Specification+-+v3.1.1">documentation</a>.</p>
-<h3 id='confirmation-of-funds-funds-confirmation-consent'><a href='#confirmation-of-funds-funds-confirmation-consent' class='header-link'><i></i></a>Funds Confirmation Consent</h3><blockquote>
+<h3 id='confirmation-of-funds-create-funds-confirmation-consent'><a href='#confirmation-of-funds-create-funds-confirmation-consent' class='header-link'><i></i></a>Create Funds Confirmation Consent</h3><blockquote>
       <div><p>Create Funds Confirmation Consent</p>
 </div>
       <div class='env-selector'>
@@ -3440,6 +3446,41 @@ Andrea Frost,INDIVIDUAL    ,40513598      ,207409   ,GB                    ,GBP 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This API allows the CBPII to create a new funds-confirmation-consent resource, implemented as described in the Open Banking API documentation.</p>
+
+<div class="feedback"></div>
+<h3 id='confirmation-of-funds-get-funds-confirmation-consent'><a href='#confirmation-of-funds-get-funds-confirmation-consent' class='header-link'><i></i></a>Get Funds Confirmation Consent</h3><blockquote>
+      <div><p>Get Funds Confirmation Consent</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/funds-confirmation-consents/<span class="o">{</span>consent_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/funds-confirmation-consents/<span class="o">{</span>consent_id<span class="o">}</span>
+</code></pre>
+<p>This endpoint returns consent details as it is described in the official documentation.</p>
+
+<div class="feedback"></div>
+<h3 id='confirmation-of-funds-delete-funds-confirmation-consent'><a href='#confirmation-of-funds-delete-funds-confirmation-consent' class='header-link'><i></i></a>Delete Funds Confirmation Consent</h3><blockquote>
+      <div><p>Delete Funds Confirmation Consent</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X DELETE https://sandbox-oba.revolut.com/funds-confirmation-consents/<span class="o">{</span>consent_id<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X DELETE https://oba.revolut.com/funds-confirmation-consents/<span class="o">{</span>consent_id<span class="o">}</span>
+</code></pre>
+<p>This endpoint:</p>
+
+<ul>
+<li><p>Rejects consent if a consent in <code>AwaitingAuthorisation</code> state</p></li>
+<li><p>Revokes consent if consent in <code>Authorised</code> state</p></li>
+</ul>
 
 <div class="feedback"></div>
 <h3 id='confirmation-of-funds-create-funds-confirmations'><a href='#confirmation-of-funds-create-funds-confirmations' class='header-link'><i></i></a>Create Funds Confirmations</h3><blockquote>
