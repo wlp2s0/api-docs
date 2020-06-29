@@ -259,19 +259,22 @@
               <a href="#introduction-to-merchant-accounts" class="toc-h2 toc-link" data-title="Introduction to Merchant accounts">Introduction to Merchant accounts</a>
             </li>
             <li>
-              <a href="#revolut-widget" class="toc-h2 toc-link" data-title="Revolut Widget">Revolut Widget</a>
+              <a href="#integration-guide" class="toc-h2 toc-link" data-title="Integration guide">Integration guide</a>
                 <ul class="toc-list-h3">
                     <li>
-                      <a href="#revolut-widget-integration-guide" class="toc-h3 toc-link" data-title="Integration guide">Integration guide</a>
+                      <a href="#integration-guide-first-steps" class="toc-h3 toc-link" data-title="First Steps">First Steps</a>
                     </li>
                     <li>
-                      <a href="#revolut-widget-sandbox-environment" class="toc-h3 toc-link" data-title="Sandbox environment">Sandbox environment</a>
+                      <a href="#integration-guide-sandbox-environment" class="toc-h3 toc-link" data-title="Sandbox environment">Sandbox environment</a>
                     </li>
                     <li>
-                      <a href="#revolut-widget-test-with-dummy-cards" class="toc-h3 toc-link" data-title="Test with dummy cards">Test with dummy cards</a>
+                      <a href="#integration-guide-test-with-dummy-cards" class="toc-h3 toc-link" data-title="Test with dummy cards">Test with dummy cards</a>
                     </li>
                     <li>
-                      <a href="#revolut-widget-wrap-up" class="toc-h3 toc-link" data-title="Wrap-up">Wrap-up</a>
+                      <a href="#integration-guide-wrap-up" class="toc-h3 toc-link" data-title="Wrap-up">Wrap-up</a>
+                    </li>
+                    <li>
+                      <a href="#integration-guide-integration-examples" class="toc-h3 toc-link" data-title="Integration examples">Integration examples</a>
                     </li>
                 </ul>
             </li>
@@ -302,36 +305,21 @@
                       <a href="#api-introduction" class="toc-h3 toc-link" data-title="Introduction">Introduction</a>
                     </li>
                     <li>
-                      <a href="#api-order-object" class="toc-h3 toc-link" data-title="Order object">Order object</a>
-                    </li>
-                    <li>
-                      <a href="#api-create-an-order" class="toc-h3 toc-link" data-title="Create an Order">Create an Order</a>
-                    </li>
-                    <li>
-                      <a href="#api-retrieve-an-order" class="toc-h3 toc-link" data-title="Retrieve an Order">Retrieve an Order</a>
-                    </li>
-                    <li>
-                      <a href="#api-capture-an-order" class="toc-h3 toc-link" data-title="Capture an Order">Capture an Order</a>
-                    </li>
-                    <li>
-                      <a href="#api-cancel-an-order" class="toc-h3 toc-link" data-title="Cancel an Order">Cancel an Order</a>
-                    </li>
-                    <li>
-                      <a href="#api-refund-an-order" class="toc-h3 toc-link" data-title="Refund an Order">Refund an Order</a>
-                    </li>
-                    <li>
-                      <a href="#api-webhooks" class="toc-h3 toc-link" data-title="Webhooks">Webhooks</a>
+                      <a href="#api-orders" class="toc-h3 toc-link" data-title="Orders">Orders</a>
                     </li>
                 </ul>
             </li>
             <li>
-              <a href="#integration-examples" class="toc-h2 toc-link" data-title="Integration examples">Integration examples</a>
+              <a href="#customers-api" class="toc-h2 toc-link" data-title="Customers API">Customers API</a>
                 <ul class="toc-list-h3">
                     <li>
-                      <a href="#integration-examples-payment-pop-up-integration-react-js-next-js" class="toc-h3 toc-link" data-title="Payment pop-up integration: React.js + Next.js">Payment pop-up integration: React.js + Next.js</a>
+                      <a href="#customers-api-customers" class="toc-h3 toc-link" data-title="Customers">Customers</a>
                     </li>
                     <li>
-                      <a href="#integration-examples-card-field-integration-and-customisation" class="toc-h3 toc-link" data-title="Card field integration and customisation">Card field integration and customisation</a>
+                      <a href="#customers-api-webhooks" class="toc-h3 toc-link" data-title="Webhooks">Webhooks</a>
+                    </li>
+                    <li>
+                      <a href="#customers-api-retrieve-webhooks" class="toc-h3 toc-link" data-title="Retrieve webhooks">Retrieve webhooks</a>
                     </li>
                 </ul>
             </li>
@@ -370,14 +358,14 @@
 <p>There are two ways to accept card payments:</p>
 
 <ul>
-<li><p><a href="#revolut-widget"><strong>Checkout with Revolut Widget</strong></a>: if you have your own e-commerce website, you can use either a <a href="#revolut-widget-revolut-widget-integration-guide-pop-up">payment pop-up</a> or a <a href="#revolut-widget-revolut-widget-integration-guide-card-field">card element</a> to add into your checkout page. This will require integration with <a href="#api">Revolut Backend API</a>.</p></li>
+<li><p><a href="#integration-guide"><strong>Checkout with Revolut Widget</strong></a>: if you have your own e-commerce website, you can use either a <a href="#integration-guide-revolut-widget-integration-guide-pop-up">payment pop-up</a> or a <a href="#revolut-widget-integration-guide-integration-guide-card-field">card element</a> to add into your checkout page. This will require integration with <a href="#api">Revolut Backend API</a>.</p></li>
 <li><p><a href="#plugins"><strong>Checkout with official plugins</strong></a>: if you already have a website running on one of e-commerce platforms, you can install a respective plugin which Revolut has created. At the moment we support WooCommerce. Stay tuned for more plugins becoming available soon.</p></li>
 </ul>
 
 <p>You can decide which one of those checkout methods suits your website and proceed to the respective guide to start the integration!</p>
 
 <div class="feedback"></div>
-<h2 id='revolut-widget'><a href='#revolut-widget' class='header-link'><i></i></a>Revolut Widget</h2>
+<h2 id='integration-guide'><a href='#integration-guide' class='header-link'><i></i></a>Integration guide</h2>
 <p>This guide will help you to set up a Revolut Checkout Widget and configure your back-end infrastructure to start accepting online debit &amp; credit card payments on your website.</p>
 
 <p>The Checkout Widget can be integrated in two different ways:</p>
@@ -392,7 +380,7 @@
 <p><a href="#revolutcheckout-js-reference">Reference to RevolutCheckout.js</a></p>
 
 <p><a href="#api">Reference to Back-end API</a></p>
-<h3 id='revolut-widget-integration-guide'><a href='#revolut-widget-integration-guide' class='header-link'><i></i></a>Integration guide</h3>
+<h3 id='integration-guide-first-steps'><a href='#integration-guide-first-steps' class='header-link'><i></i></a>First Steps</h3>
 <p><strong>Step 1.</strong> In your <a href="https://business.revolut.com/merchant">Revolut Business</a> account, apply for a Merchant Account. Once your application gets approved, <a href="#api-introduction">get an API token</a>.</p>
 
 <p><strong>Step 2.</strong> <a href="#api-create-an-order">Create a new order</a> on your server back-end with the <code>amount</code> and <code>currency</code>.</p>
@@ -472,12 +460,12 @@ Authorization: Bearer &lt;your_API_token&gt;
 <p>After inserting a code snippet into the document head, you have two options to collect a card number and make a payment:</p>
 
 <ul>
-<li><a href="#revolut-widget-revolut-widget-integration-guide-pop-up">Pop-up</a> - the easiest and fastest method to get started;</li>
-<li><a href="#revolut-widget-revolut-widget-integration-guide-card-field">Card field</a> - fits right in you custom designed checkout flow</li>
+<li><a href="#integration-guide-revolut-widget-integration-guide-pop-up">Pop-up</a> - the easiest and fastest method to get started;</li>
+<li><a href="#integration-guide-revolut-widget-integration-guide-card-field">Card field</a> - fits right in you custom designed checkout flow</li>
 </ul>
 
 <p>Below you will find detailed instructions on how to set up either of those methods.</p>
-<h4 id='revolut-widget-revolut-widget-integration-guide-pop-up'><a href='#revolut-widget-revolut-widget-integration-guide-pop-up' class='header-link'><i></i></a>Pop-up</h4>
+<h4 id='integration-guide-integration-guide-first-steps-pop-up'><a href='#integration-guide-integration-guide-first-steps-pop-up' class='header-link'><i></i></a>Pop-up</h4>
 <p>A pop-up window is the easiest method to accept payments with Revolut. Here is how it looks like:</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"pay-button"</span><span class="nt">&gt;</span>
   Pay
@@ -534,7 +522,7 @@ Authorization: Bearer &lt;your_API_token&gt;
 <p><img src="https://user-images.githubusercontent.com/442932/73471824-e761a600-4381-11ea-8b84-8b2d1103823c.png" /></p>
 
 <p>The shown snippet will open a payment pop-up window when a user decides to click on the payment button. Therefore, we need to create a button and attach a click event listener to it that will trigger <a href="#revolutcheckout-js-reference-instance-paywithpopup"><code>RC.payWithPopup(options)</code></a>.</p>
-<h4 id='revolut-widget-revolut-widget-integration-guide-card-field'><a href='#revolut-widget-revolut-widget-integration-guide-card-field' class='header-link'><i></i></a>Card Field</h4>
+<h4 id='integration-guide-integration-guide-first-steps-card-field'><a href='#integration-guide-integration-guide-first-steps-card-field' class='header-link'><i></i></a>Card Field</h4>
 <p>Inserting a card field into the check-out page allows you to create a separate field securely accepting card details from the users and to submit payments with the rest of your payment form.</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">"form"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"card-input"</span><span class="nt">&gt;&lt;/div&gt;</span>
@@ -611,7 +599,7 @@ Authorization: Bearer &lt;your_API_token&gt;
 </code></pre>
 <p>The snippet shows how we can create a form with a <code>div</code> element in it which will render a <a href="#revolutcheckout-js-reference-instance-createcardfield">card field</a> and then submit a payment.</p>
 
-<p>See <a href="#integration-examples-card-field-integration-and-customisation">card field integration and customisation</a> example.</p>
+<p>See <a href="#integration-guide-integration-examples-card-field-integration-and-customisation">card field integration and customisation</a> example.</p>
 
 <p><img src="https://user-images.githubusercontent.com/442932/73471842-ed578700-4381-11ea-907f-5d55fd4b7d00.png" /></p>
 
@@ -626,7 +614,7 @@ Authorization: Bearer &lt;your_API_token&gt;
 </ul>
 
 <div class="feedback"></div>
-<h3 id='revolut-widget-sandbox-environment'><a href='#revolut-widget-sandbox-environment' class='header-link'><i></i></a>Sandbox environment</h3>
+<h3 id='integration-guide-sandbox-environment'><a href='#integration-guide-sandbox-environment' class='header-link'><i></i></a>Sandbox environment</h3>
 <p>If you would like to test your Merchant Accounts integration before going into production, we have provided <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a> so that you can do this.</p>
 
 <p>Please create a dummy account on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>. Once you have it, please do the following 2 steps:</p>
@@ -663,7 +651,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
     </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">,</span> <span class="s2">"sandbox"</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">instance</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// work with instance</span>
 <span class="p">})</span>
-</code></pre><h3 id='revolut-widget-test-with-dummy-cards'><a href='#revolut-widget-test-with-dummy-cards' class='header-link'><i></i></a>Test with dummy cards</h3>
+</code></pre><h3 id='integration-guide-test-with-dummy-cards'><a href='#integration-guide-test-with-dummy-cards' class='header-link'><i></i></a>Test with dummy cards</h3>
 <p>In order for you to be able to test various payment flows, we provide the following dummy card numbers for a variety of scenarios. These cards only work in our Sandbox environment:</p>
 
 <table><thead>
@@ -705,7 +693,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <p>Once you make sure that everything works as expected on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>, simply revert back to using <code>https://merchant.revolut.com/</code> in both back-end requests and the embed script snippet, and replace the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> with <a href="https://business.revolut.com/merchant/api">Production API key</a> in the back-end requests. Now you are ready to accept real card payments!</p>
 
 <div class="feedback"></div>
-<h3 id='revolut-widget-wrap-up'><a href='#revolut-widget-wrap-up' class='header-link'><i></i></a>Wrap-up</h3>
+<h3 id='integration-guide-wrap-up'><a href='#integration-guide-wrap-up' class='header-link'><i></i></a>Wrap-up</h3>
 <p>To sum up, one can follow the following high-level flow in order to integrate FE and BE:
 <img width="555" src="https://user-images.githubusercontent.com/60622352/74252610-d4d25f80-4ce5-11ea-897f-5d814375f12b.png" /></p>
 
@@ -713,8 +701,40 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 
 <p><a href="#api">Read detailed reference to Back-end API</a></p>
 
-<p><a href="#integration-examples">Browse Integration examples</a></p>
+<p><a href="#integration-guide-integration-examples">Browse Integration examples</a></p>
 
+<div class="feedback"></div>
+<h3 id='integration-guide-integration-examples'><a href='#integration-guide-integration-examples' class='header-link'><i></i></a>Integration examples</h3><h4 id='integration-guide-integration-guide-integration-examples-payment-pop-up-integration-react-js-next-js'><a href='#integration-guide-integration-guide-integration-examples-payment-pop-up-integration-react-js-next-js' class='header-link'><i></i></a>Payment pop-up integration: React.js + Next.js</h4>
+<p>This sample shows how to use <a href="#revolutcheckout-js-reference">RevolutCheckout.js</a> with a <a href="#integration-guide-revolut-widget-integration-guide-pop-up">payment pop-up</a> and <a href="#api">API</a>. The hosted version is running on sandbox environment — use one of our <a href="#integration-guide-test-with-dummy-cards">test cards</a> to ensure that the widget works properly.</p>
+
+<div>
+  <iframe
+    src="https://codesandbox.io/embed/github/revolut-engineering/revolut-merchant-api-example-next-js/tree/master/?fontsize=14&hidenavigation=1&module=%2Fpages%2Fcheckout.js&theme=dark"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="revolut-checkout-widget-next-example"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
+</div>
+
+<p>Please note that if you fork the example - you will need to create a new <a href="https://sandbox-business.revolut.com/">Revolut Business Sandbox</a> account and set the <a href="https://sandbox-business.revolut.com/merchant/api">API key</a> as <code>REVOLUT_API_KEY</code> inside <a href="https://codesandbox.io/docs/secrets#adding-secrets">CodeSandbox secrets</a>.</p>
+
+<p><a class="github-button" href="https://github.com/revolut-engineering/revolut-merchant-api-example-next-js/fork" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Fork revolut-engineering/revolut-merchant-api-example-next-js on GitHub">Fork</a>
+<script async defer src="https://buttons.github.io/buttons.js"></script></p>
+<h4 id='integration-guide-integration-guide-integration-examples-card-field-integration-and-customisation'><a href='#integration-guide-integration-guide-integration-examples-card-field-integration-and-customisation' class='header-link'><i></i></a>Card field integration and customisation</h4>
+<p>This sample shows how to use <a href="#revolutcheckout-js-reference">RevolutCheckout.js</a> with the integrated <a href="#integration-guide-integration-guide-integration-guide-card-field">card field</a>. The hosted version is running on Sandbox environment — use one of our <a href="#integration-guide-test-with-dummy-cards">test cards</a> to ensure that the widget works properly.</p>
+
+<div>
+  <iframe
+     src="https://codesandbox.io/embed/revolut-merchant-api-card-field-example-next-js-wyi77?fontsize=14&hidenavigation=1&theme=dark"
+     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="revolut-merchant-api-card-field-example-next-js"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
+</div>
+
+<p>Please note that if you fork the example - you will need to create a new <a href="https://sandbox-business.revolut.com/">Revolut Business Sandbox</a> account and set the <a href="https://sandbox-business.revolut.com/merchant/api">API key</a> as <code>REVOLUT_API_KEY</code> inside <a href="https://codesandbox.io/docs/secrets#adding-secrets">CodeSandbox secrets</a>.</p>
+<h4 id='integration-guide-integration-guide-integration-examples-more-examples-are-coming-soon'><a href='#integration-guide-integration-guide-integration-examples-more-examples-are-coming-soon' class='header-link'><i></i></a>More examples are coming soon.</h4>
 <div class="feedback"></div>
 <h2 id='revolutcheckout-js-reference'><a href='#revolutcheckout-js-reference' class='header-link'><i></i></a>RevolutCheckout.js reference</h2><h3 id='revolutcheckout-js-reference-initialize-the-widget'><a href='#revolutcheckout-js-reference-initialize-the-widget' class='header-link'><i></i></a>Initialize the widget</h3>
 <p>You have 2 options to add RevolutCheckout.js to your website as:</p>
@@ -798,7 +818,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </code></pre>
 <div class="feedback"></div>
 <h3 id='revolutcheckout-js-reference-instance-paywithpopup'><a href='#revolutcheckout-js-reference-instance-paywithpopup' class='header-link'><i></i></a><code>Instance.payWithPopup</code></h3>
-<p>Open a <a href="#revolut-widget-revolut-widget-integration-guide-pop-up">payment pop-up</a> which is available on the <a href="#revolutcheckout-js-reference-instance"><code>Instance</code></a>.</p>
+<p>Open a <a href="#integration-guide-revolut-widget-integration-guide-pop-up">payment pop-up</a> which is available on the <a href="#revolutcheckout-js-reference-instance"><code>Instance</code></a>.</p>
 <pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">InstancePayWithPopup</span> <span class="o">=</span> <span class="p">(</span>
   <span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span>
 <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -868,6 +888,11 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td><code>options.phone</code></td>
 <td>Customer&#39;s phone number if available</td>
 <td>String</td>
+</tr>
+<tr>
+<td><code>options.savePaymentMethodFor</code></td>
+<td>Indicates that the payment method will be saved for future use against the customer’s profile. <br><br>Possible values:<br>- <code>customer</code>: method will be saved for being used in the future when customer is at checkout<br>- <code>merchant</code>: method will be saved for being used in the future without needing the customer to be at checkout (e.g. take payments for recurring transactions). Method will be saved as the new default payment method for merchant initiated transactions, regardless of the number of saved payment methods stored against the customer</td>
+<td>Enum</td>
 </tr>
 <tr>
 <td><code>options.billingAddress</code></td>
@@ -1027,7 +1052,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </code></pre>
 <div class="feedback"></div>
 <h3 id='revolutcheckout-js-reference-instance-createcardfield'><a href='#revolutcheckout-js-reference-instance-createcardfield' class='header-link'><i></i></a><code>Instance.createCardField</code></h3>
-<p>Create a <a href="#revolut-widget-revolut-widget-integration-guide-card-field">card field</a> which is available on the <a href="#revolutcheckout-js-reference-instance"><code>Instance</code></a>:</p>
+<p>Create a <a href="#integration-guide-revolut-widget-integration-guide-card-field">card field</a> which is available on the <a href="#revolutcheckout-js-reference-instance"><code>Instance</code></a>:</p>
 <pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">InstanceCreateCardField</span> <span class="o">=</span> <span class="p">(</span>
   <span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span>
 <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -1115,6 +1140,11 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td><code>options.onCancel</code></td>
 <td>Callback if a user did not complete the transaction and canceled the authorisation or closed the checkout window</td>
 <td>Function</td>
+</tr>
+<tr>
+<td><code>options.savePaymentMethodFor</code></td>
+<td>Indicates that the payment method will be saved for future use against the customer’s profile. <br><br>Possible values:<br>- <code>customer</code>: method will be saved for being used in the future when customer is at checkout<br>- <code>merchant</code>: method will be saved for being used in the future without needing the customer to be at checkout (e.g. take payments for recurring transactions). Method will be saved as the new default payment method for merchant initiated transactions, regardless of the number of saved payment methods stored against the customer</td>
+<td>Enum</td>
 </tr>
 <tr>
 <td><code>target</code></td>
@@ -1400,11 +1430,11 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </code></pre>
 <div></div>
 
-<p>See <a href="#integration-examples-card-field-integration-and-customisation">card field integration and customisation</a> example.</p>
+<p>See <a href="#integration-guide-integration-examples-card-field-integration-and-customisation">card field integration and customisation</a> example.</p>
 
 <div class="feedback"></div>
 <h2 id='api'><a href='#api' class='header-link'><i></i></a>API</h2><h3 id='api-introduction'><a href='#api-introduction' class='header-link'><i></i></a>Introduction</h3>
-<p>Merchant API allows Revolut Business customers to accept online (Card Not Present) payments made with debit/credit cards, and, subsequently, to manage these transactions by means of capturing, canceling or refunding orders.</p>
+<p>The Orders API allows Revolut Business customers to accept online (Card Not Present) payments made with debit/credit cards, and, subsequently, to manage these transactions by means of capturing, canceling or refunding orders.</p>
 
 <p>All merchant requests should contain an authorisation header which includes the name of the merchant account Bearer and the <code>MERCHANT_API_KEY</code>.</p>
 
@@ -1427,7 +1457,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 --header 'content-type: application/json'
 </code></pre>
 <div class="feedback"></div>
-<h3 id='api-order-object'><a href='#api-order-object' class='header-link'><i></i></a>Order object</h3>
+<h3 id='api-orders'><a href='#api-orders' class='header-link'><i></i></a>Orders</h3><h4 id='api-api-orders-order-object'><a href='#api-api-orders-order-object' class='header-link'><i></i></a>Order object</h4>
 <p>An <code>Order</code> object helps you through the process of accepting payments from your customers.</p>
 
 <p>You are advised to create an <code>Order</code> for every customer session or order being created in your own system. An <code>Order</code> will then go through multiple status as it interfaces with the <a href="#revolutcheckout-js-reference">Revolut Checkout Widget</a> to collect payments from your customers. An <code>Order</code> can have at most one successful payment.</p>
@@ -1595,11 +1625,6 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <tr>
 <td><code>merchant_order_ext_ref</code></td>
 <td>Merchant order ID (optional)</td>
-<td>Text</td>
-</tr>
-<tr>
-<td><code>merchant_customer_ext_ref</code></td>
-<td>Merchant customer ID (optional)</td>
 <td>Text</td>
 </tr>
 <tr>
@@ -1858,7 +1883,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>Text</td>
 </tr>
 </tbody></table>
-<h3 id='api-create-an-order'><a href='#api-create-an-order' class='header-link'><i></i></a>Create an Order</h3>
+<h4 id='api-api-orders-create-an-order'><a href='#api-api-orders-create-an-order' class='header-link'><i></i></a>Create an Order</h4>
 <p>The following request creates an <code>Order</code> object.</p>
 <blockquote>
       <div><p>Request</p>
@@ -1878,8 +1903,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   </span><span class="s2">"customer_email"</span><span class="o">:</span><span class="w"> </span><span class="s2">"sally.gibson@gmail.com"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"description"</span><span class="o">:</span><span class="w"> </span><span class="s2">"description"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"currency"</span><span class="o">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"settlement_currency"</span><span class="o">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"merchant_customer_ext_ref"</span><span class="o">:</span><span class="w"> </span><span class="s2">"sally01"</span><span class="w">
+  </span><span class="s2">"settlement_currency"</span><span class="o">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><blockquote>
       <div><p>Request in cURL</p>
@@ -1890,8 +1914,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"POST"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.codes/api/1.0/orders"</span><span class="w"> </span><span class="err">\</span><span class="w">
-     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer fh-WBDEX_b02ISLvL_iEfd-YpKVVYNzNCFmmBoWWvEvH_Ch7xFa9txqHP0w06tHw'</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"POST"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.com/api/1.0/orders"</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer &lt;your_API_token&gt;'</span><span class="w"> </span><span class="err">\</span><span class="w">
      </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Content-Type: application/json; charset=utf-8'</span><span class="w"> </span><span class="err">\</span><span class="w">
      </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">$</span><span class="s1">'{
   "amount": 200,
@@ -1900,8 +1924,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   "customer_email": "sally.gibson@gmail.com",
   "description": "description",
   "currency": "GBP",
-  "settlement_currency": "USD",
-  "merchant_customer_ext_ref": "sally01"
+  "settlement_currency": "USD"
 }'</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -1946,11 +1969,6 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>Settlement currency (optional - if it is not specified, then the payment is settled in transaction currency)</td>
 <td>ISO-4217</td>
 </tr>
-<tr>
-<td><code>merchant_customer_ext_ref</code></td>
-<td>Merchant customer ID (optional)</td>
-<td>Text</td>
-</tr>
 </tbody></table>
 <blockquote>
       <div><p>Response</p>
@@ -1962,7 +1980,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
         </select>
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">Order</span><span class="w"> </span><span class="n">object</span><span class="w">
-</span></code></pre><h3 id='api-retrieve-an-order'><a href='#api-retrieve-an-order' class='header-link'><i></i></a>Retrieve an Order</h3><blockquote>
+</span></code></pre><h4 id='api-api-orders-retrieve-an-order'><a href='#api-api-orders-retrieve-an-order' class='header-link'><i></i></a>Retrieve an Order</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -1981,8 +1999,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="s2">"https://merchant.revolut.codes/api/1.0/orders/6e1c0aa4-cb88-4be8-ab8d-4b9f21c64a68"</span><span class="w"> </span><span class="err">\</span><span class="w">
-     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer fh-WBDEX_b02ISLvL_iEfd-YpKVVYNzNCFmmBoWWvEvH_Ch7xFa9txqHP0w06tHw'</span><span class="w">
+    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="s2">"https://merchant.revolut.com/api/1.0/orders/:orderId"</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer &lt;your_API_token&gt;'</span><span class="w">
 </span></code></pre><blockquote>
       <div><p>Response</p>
 </div>
@@ -1995,7 +2013,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
     </blockquote><pre class="highlight r"><code><span class="n">Order</span><span class="w"> </span><span class="n">object</span><span class="w">
 </span></code></pre>
 <p>The following request retrieves the details of an <code>Order</code> that has been created.</p>
-<h3 id='api-capture-an-order'><a href='#api-capture-an-order' class='header-link'><i></i></a>Capture an Order</h3><blockquote>
+<h4 id='api-api-orders-capture-an-order'><a href='#api-api-orders-capture-an-order' class='header-link'><i></i></a>Capture an Order</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2014,8 +2032,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"POST"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.codes/api/1.0/orders/6e1c0aa4-cb88-4be8-ab8d-4b9f21c64a68/capture"</span><span class="w"> </span><span class="err">\</span><span class="w">
-     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer fh-WBDEX_b02ISLvL_iEfd-YpKVVYNzNCFmmBoWWvEvH_Ch7xFa9txqHP0w06tHw'</span><span class="w">
+    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"POST"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.com/api/1.0/orders/:orderId/capture"</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer &lt;your_API_token&gt;'</span><span class="w">
 </span></code></pre><blockquote>
       <div><p>Response</p>
 </div>
@@ -2037,7 +2055,64 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <li>By choosing <strong>automatic</strong>, you don&#39;t have to perform any further steps after payment authorization.</li>
 <li>By choosing <strong>manual</strong>, you will need to go to the web interface and click &quot;Authorise&quot;, or perform the Capture request via the API.</li>
 </ul>
-<h3 id='api-cancel-an-order'><a href='#api-cancel-an-order' class='header-link'><i></i></a>Cancel an Order</h3><blockquote>
+<h4 id='api-api-orders-confirm-an-order'><a href='#api-api-orders-confirm-an-order' class='header-link'><i></i></a>Confirm an order</h4>
+<p>When an order contains a <code>customer_id</code> associated to it and that <code>customer</code> has one or more valid payment methods to be used, you can use this request to attempt to authorise and authenticate a payment. The payment can be made using the default payment method saved in the customer’s profile or using a specific payment method as specified below.</p>
+
+<p><strong>Note</strong>: You can <strong><em>only</em></strong> use this if there is a <code>customer_id</code> associated to the order and if the <code>customer</code> has one or more payment methods that have been saved for merchant initiated payments. Check the <a href="#integration-guide">Integration guide</a> to learn more about how to save cards for this purpose when your customer is checking out.</p>
+<blockquote>
+      <div><p>Request
+<code>s
+POST /api/1.0/orders/:orderId/confirm
+</code></p>
+
+<p>Request in cURL
+<code>s
+curl -X &quot;POST&quot; &quot;https://merchant.revolut.com/api/1.0/orders/:orderId/confirm&quot; \
+     -H &#39;Authorization: Bearer &lt;your_API_token&gt;&#39;
+</code></p>
+
+<p>Response
+<code>s
+The order object with the appropriate status
+</code></p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>payment_method_id</code></td>
+<td>ID of a payment method associated to the customer.<br><br> If specified, this will be used to make the payment against the order.<br><br>If not specified, payment will be taken from the customer’s default payment method (last payment method saved with <code>saved_For</code> = <code>merchant</code></td>
+<td>optional</td>
+</tr>
+</tbody></table>
+
+<p><strong>Error codes</strong></p>
+
+<p>Additional error code sent back in the response to help troubleshooting in case this API call fails:</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Explanation</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1019</td>
+<td>The payment method that you are trying to use is saved for customer initiated payments only</td>
+</tr>
+</tbody></table>
+<h4 id='api-api-orders-cancel-an-order'><a href='#api-api-orders-cancel-an-order' class='header-link'><i></i></a>Cancel an Order</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2056,8 +2131,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"POST"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.codes/api/1.0/orders/6e1c0aa4-cb88-4be8-ab8d-4b9f21c64a68/cancel"</span><span class="w"> </span><span class="err">\</span><span class="w">
-     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer fh-WBDEX_b02ISLvL_iEfd-YpKVVYNzNCFmmBoWWvEvH_Ch7xFa9txqHP0w06tHw'</span><span class="w">
+    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"POST"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.com/api/1.0/orders/:orderId/cancel"</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer &lt;your_API_token&gt;'</span><span class="w">
 </span></code></pre><blockquote>
       <div><p>Response</p>
 </div>
@@ -2070,7 +2145,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
     </blockquote><pre class="highlight plaintext"><code>Order object
 </code></pre>
 <p>The following request cancels an existing uncaptured <code>Order</code>.</p>
-<h3 id='api-refund-an-order'><a href='#api-refund-an-order' class='header-link'><i></i></a>Refund an Order</h3>
+<h4 id='api-api-orders-refund-an-order'><a href='#api-api-orders-refund-an-order' class='header-link'><i></i></a>Refund an Order</h4>
 <p>This request issues a refund for a completed <code>Order</code>. A refund can be either full or partial. Funds are always refunded to customer&#39;s original payment method.</p>
 <blockquote>
       <div><p>Request</p>
@@ -2098,8 +2173,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"POST"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.codes/api/1.0/orders/6e1c0aa4-cb88-4be8-ab8d-4b9f21c64a68/refund"</span><span class="w"> </span><span class="err">\</span><span class="w">
-     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer fh-WBDEX_b02ISLvL_iEfd-YpKVVYNzNCFmmBoWWvEvH_Ch7xFa9txqHP0w06tHw'</span><span class="w"> </span><span class="err">\</span><span class="w">
+    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"POST"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.com/api/1.0/orders/:orderId/refund"</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer &lt;your_API_token&gt;'</span><span class="w"> </span><span class="err">\</span><span class="w">
      </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Content-Type: application/json; charset=utf-8'</span><span class="w"> </span><span class="err">\</span><span class="w">
      </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">$</span><span class="s1">'{
   "amount": 100,
@@ -2253,11 +2328,592 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tbody></table>
 
 <div class="feedback"></div>
-<h3 id='api-webhooks'><a href='#api-webhooks' class='header-link'><i></i></a>Webhooks</h3>
+<h2 id='customers-api'><a href='#customers-api' class='header-link'><i></i></a>Customers API</h2>
+<p><code>Customer</code> objects allow you to track multiple charges associated with the same customer. </p>
+
+<p>Customers will be created automatically upon creating an order if there is enough information and no Customer ID is passed. Aditionally, the API allows you to create, delete, and update your customers. You can retrieve individual customers as well as a list of all your customers.</p>
+
+<p><code>Payment methods</code> reference a method of payment that can be used to make transactions. It allows the merchant to store the details for payment securely and to group transactions that come from the same payment method. These payment methods are unique per customer and per merchant. So if, for example, the same card is used for a transaction for two different customers, two payment methods objects will be created.</p>
+
+<p>PaymentMethod’s can’t be created explicitly, they are generated as part of a payment. To modify a customerPaymentMethod, change its parameters using a customer id and sending the appropriate parameters</p>
+<h3 id='customers-api-customers'><a href='#customers-api-customers' class='header-link'><i></i></a>Customers</h3><h4 id='customers-api-customers-api-customers-customer-object'><a href='#customers-api-customers-api-customers-customer-object' class='header-link'><i></i></a>Customer object</h4>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>Unique identifier for the object</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td><code>full_name</code></td>
+<td>Customer’s full name. If <code>customer</code> is not created with this parameter, <code>full_name</code> will be taken from the cardholder name the first time a payment is made</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>business_name</code></td>
+<td>Customer’s business name</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>Customer’s email address. This email needs to be unique for every customer for this merchant</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>phone</code></td>
+<td>Customer’s phone number (e.g. “+44 7666 888 999”)</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>the instant when the customer was created</td>
+<td>ISO date/time</td>
+</tr>
+<tr>
+<td><code>updated_at</code></td>
+<td>the instant when the customer was last updated</td>
+<td>ISO date/time</td>
+</tr>
+</tbody></table>
+
+<div class="feedback"></div>
+<h5 id='customers-api-customers-api-customers-customers-api-customers-api-customers-customer-object-the-paymentmethod-object'><a href='#customers-api-customers-api-customers-customers-api-customers-api-customers-customer-object-the-paymentmethod-object' class='header-link'><i></i></a>The paymentMethod Object</h5>
+<p>Intrinsically linked to the <code>customer</code> object. Payment Methods are unique per <code>customer</code> and per merchant. Meaning that if the same card is used across two of your customers, two <code>paymentMethod</code> will exist with two separate IDs.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>identifier to reference this payment method and to use later in payments or to retrieve its details.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>Type of payment method (e.g. card or aliPay). <br> <br>This attribute is immutable.</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>method_details</code></td>
+<td>Object that references the payment method and the details of which vary depending on the payment method type.<br><br> These attributes are immutable.</td>
+<td>object</td>
+</tr>
+<tr>
+<td><code>saved_for</code></td>
+<td>Indication of whether the customer has indicated that the payment method can be saved for future use.<br> <br> Even if customer didn’t indicate that the payment method could be saved for future use, Revolut saves the payment method details upon checkout to comply with SCA regulations and to avoid fraudulent behaviours.</td>
+<td>enum<br><br>Possible values:<br>  · <code>customer</code> - method will be saved for being used in the future when customer is at checkout<br> · <code>merchant</code> - method will be saved for being used in the future without needing the customer to be at checkout (e.g. take payments for recurring transactions)</td>
+</tr>
+</tbody></table>
+
+<div class="feedback"></div>
+<h5 id='customers-api-customers-api-customers-customers-api-customers-api-customers-customer-object-the-card-object'><a href='#customers-api-customers-api-customers-customers-api-customers-api-customers-customer-object-the-card-object' class='header-link'><i></i></a>The card Object</h5>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>last4</code></td>
+<td>Last 4 digits of the card</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>bin</code></td>
+<td>First 6 digits of the card that identify the bank</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>cardholder_name</code></td>
+<td>Cardholder’s name that customer provided</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>expiry_month</code></td>
+<td>Month of expiration</td>
+<td>integer (MM)</td>
+</tr>
+<tr>
+<td><code>expiry_year</code></td>
+<td>Year of expiration</td>
+<td>integer (YY)</td>
+</tr>
+<tr>
+<td><code>billing_address</code></td>
+<td>Customer’s full address</td>
+<td>object</td>
+</tr>
+</tbody></table>
+
+<div class="feedback"></div>
+<h4 id='customers-api-customers-api-customers-create-customer'><a href='#customers-api-customers-api-customers-create-customer' class='header-link'><i></i></a>Create customer</h4>
+<p>The following request creates a <code>customer</code>:</p>
+<blockquote>
+      <div><p>Request</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">POST</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">customers</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"full_name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"First Last"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"business_name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"Revolut"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="o">:</span><span class="w"> </span><span class="s2">"customer@gmail.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"phone"</span><span class="o">:</span><span class="w"> </span><span class="s2">"+447123456789"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Request in cURL</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"POST"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.com/api/1.0/customers"</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer &lt;your_API_token&gt;'</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Content-Type: application/json; charset=utf-8'</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">$</span><span class="s1">'{
+  "full_name": "First Last",
+  "business_name": "Revolut",
+  "email": "customer@gmail.com",
+  "phone": "+447123456789"
+}'</span><span class="w">
+
+</span></code></pre><blockquote>
+      <div><p>Response
+<code>json
+{
+  &quot;id&quot;: &quot;6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae&quot;,
+  &quot;full_name&quot;: &quot;First Last&quot;,
+  &quot;business_name&quot;: &quot;Revolut&quot;,
+  &quot;email&quot;: &quot;customer@gmail.com&quot;,
+  &quot;phone&quot;: &quot;+447123456789&quot;,
+  &quot;created_at&quot;: &quot;2020-06-24T12:03:39.979397Z&quot;,
+  &quot;updated_at&quot;: &quot;2020-06-24T12:03:39.979397Z&quot;
+},
+</code></p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>full_name</code></td>
+<td>Customer’s full name. <br><br>If customer is not created with this parameter, full_name will be taken from the cardholder name the first time a payment is made</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>business_name</code></td>
+<td>Customer’s business name</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>Customer’s email address. This email needs to be unique for every customer for this merchant. If the email matches an existing customer, an error will be returned.</td>
+<td>required</td>
+</tr>
+<tr>
+<td><code>phone</code></td>
+<td>Customer’s phone number (e.g. “+44 7666 888 999”)</td>
+<td>optional</td>
+</tr>
+</tbody></table>
+<h4 id='customers-api-customers-api-customers-update-a-customer'><a href='#customers-api-customers-api-customers-update-a-customer' class='header-link'><i></i></a>Update a Customer</h4><blockquote>
+      <div><p>Request</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">PATCH</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">customers</span><span class="o">/:</span><span class="n">customer_id</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"full_name"</span><span class="o">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Request in cURL</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"POST"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.com/api/1.0/customers"</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer &lt;your_API_token&gt;'</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Content-Type: application/json; charset=utf-8'</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">$</span><span class="s1">'{
+  "full_name": "John Doe",
+}'</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Response
+<code>json
+{
+  &quot;id&quot;: &quot;6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae&quot;,
+  &quot;full_name&quot;: &quot;John Doe&quot;,
+  &quot;business_name&quot;: &quot;Revolut&quot;,
+  &quot;email&quot;: &quot;customer@gmail.com&quot;,
+  &quot;phone&quot;: &quot;+447123456789&quot;,
+  &quot;created_at&quot;: &quot;2020-06-24T12:03:39.979397Z&quot;,
+  &quot;updated_at&quot;: &quot;2020-06-25T10:03:39.134417Z&quot;
+}
+</code></p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>full_name</code></td>
+<td>Customer’s full name. <br><br>If customer is not created with this parameter, full_name will be taken from the cardholder name the first time a payment is made</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>business_name</code></td>
+<td>Customer’s business name</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>Customer’s email address. This email needs to be <strong>unique</strong> for every customer for this merchant. <br><br>If the email matches an existing customer, an error will be returned and no updates will be made</td>
+<td>optional</td>
+</tr>
+<tr>
+<td><code>phone</code></td>
+<td>Customer’s phone number (e.g. “+44 7666 888 999”)</td>
+<td>optional</td>
+</tr>
+</tbody></table>
+<h4 id='customers-api-customers-api-customers-retrieve-all-customers'><a href='#customers-api-customers-api-customers-retrieve-all-customers' class='header-link'><i></i></a>Retrieve all customers</h4>
+<p>Get a list of all your customers:</p>
+<blockquote>
+      <div><p>Request
+<code>s
+GET /api/1.0/customers/
+</code></p>
+
+<p>Request in cURL</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"GET"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.com/api/1.0/customers"</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer &lt;your_API_token&gt;'</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Content-Type: application/json; charset=utf-8'</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="p">}</span><span class="err">'</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Response
+<code>json
+[
+  {
+    &quot;id&quot;: &quot;9dfb8491-bfb0-4420-ad63-0fa7bdd3dffb&quot;,
+    &quot;full_name&quot;: &quot;First Customer&quot;,
+    &quot;email&quot;: &quot;firstcustomer@gmail.com&quot;,
+    &quot;created_at&quot;: &quot;2020-06-24T12:12:56.596703Z&quot;,
+    &quot;updated_at&quot;: &quot;2020-06-24T12:12:56.737082Z&quot;
+  },
+  {
+    &quot;id&quot;: &quot;6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae&quot;,
+    &quot;full_name&quot;: &quot;John Doe&quot;,
+    &quot;business_name&quot;: &quot;Revolut&quot;,
+    &quot;email&quot;: &quot;customer@gmail.com&quot;,
+    &quot;phone&quot;: &quot;+447123456789&quot;,
+    &quot;created_at&quot;: &quot;2020-06-24T12:03:39.979397Z&quot;,
+    &quot;updated_at&quot;: &quot;2020-06-25T10:03:39.134417Z&quot;
+  },
+  {
+    &quot;id&quot;: &quot;014f0ad6-c45b-4d7d-83c6-80eea94fceac&quot;,
+    &quot;full_name&quot;: &quot;Second Customer&quot;,
+    &quot;email&quot;: &quot;secondcustomer@gmail.com&quot;,
+    &quot;phone&quot;: &quot;+447179509911&quot;,
+    &quot;created_at&quot;: &quot;2020-06-23T14:13:08.262336Z&quot;,
+    &quot;updated_at&quot;: &quot;2020-06-24T10:47:11.173027Z&quot;
+  }
+]
+</code></p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><h4 id='customers-api-customers-api-customers-retrieve-specific-customer'><a href='#customers-api-customers-api-customers-retrieve-specific-customer' class='header-link'><i></i></a>Retrieve specific customer</h4>
+<p>Get the information about a specific customer</p>
+<blockquote>
+      <div><p>Request
+<code>s
+GET /api/1.0/customers/:customerId
+</code></p>
+
+<p>Request in cURL</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"GET"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.com/api/1.0/customers/:customerId"</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer &lt;your_API_token&gt;'</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Content-Type: application/json; charset=utf-8'</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Response
+<code>json
+[
+  {
+    &quot;id&quot;: &quot;6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae&quot;,
+    &quot;full_name&quot;: &quot;John Doe&quot;,
+    &quot;business_name&quot;: &quot;Revolut&quot;,
+    &quot;email&quot;: &quot;customer@gmail.com&quot;,
+    &quot;phone&quot;: &quot;+447123456789&quot;,
+    &quot;created_at&quot;: &quot;2020-06-24T12:03:39.979397Z&quot;,
+    &quot;updated_at&quot;: &quot;2020-06-25T10:03:39.134417Z&quot;
+  }
+]
+</code></p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><h4 id='customers-api-customers-api-customers-delete-specific-customer'><a href='#customers-api-customers-api-customers-delete-specific-customer' class='header-link'><i></i></a>Delete specific customer</h4>
+<p>Delete the profile of a specific customer</p>
+<blockquote>
+      <div><p>Request
+<code>s
+DELETE /api/1.0/customers/:customerId
+</code></p>
+
+<p>Request in cURL</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.com/api/1.0/customers/:customerId"</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer &lt;your_API_token&gt;'</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Content-Type: application/json; charset=utf-8'</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Response
+<code>s
+Success HTTP response with no body
+</code></p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote>
+<div class="feedback"></div>
+<h4 id='customers-api-customers-api-customers-retrieve-all-customer-39-s-payment-methods'><a href='#customers-api-customers-api-customers-retrieve-all-customer-39-s-payment-methods' class='header-link'><i></i></a>Retrieve all customer&#39;s payment methods</h4>
+<p>You can use this request to retrieve all <code>payment_methods</code> for a given customer. This could be useful for example to show the customer what information is stored for them, or to try a different payment method in case the first payment method fails when charging a recurring transaction.</p>
+<blockquote>
+      <div><p>Request</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">GET</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">customers</span><span class="o">/:</span><span class="n">CUSTOMER_ID</span><span class="o">/</span><span class="n">payment</span><span class="o">-</span><span class="n">methods</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Request in cURL
+<code>s
+curl -X &quot;GET&quot; &quot;https://merchant.revolut.com/api/1.0/customers/:CUSTOMER_ID/payment-methods&quot; \
+     -H &#39;Authorization: Bearer &lt;your_API_token&gt;&#39; \
+     -H &#39;Content-Type: application/json; charset=utf-8&#39; \
+}
+</code></p>
+
+<p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">List</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">payment</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">objects</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>only_merchant</code></td>
+<td>Can be used to retrieve only the <code>payment_methods</code> that have been saved by a customer to be used for merchant initiated transactions</td>
+<td>optional (defaults to <code>FALSE</code>)</td>
+</tr>
+</tbody></table>
+<h4 id='customers-api-customers-api-customers-retrieve-specific-customer-39-s-payment-method'><a href='#customers-api-customers-api-customers-retrieve-specific-customer-39-s-payment-method' class='header-link'><i></i></a>Retrieve specific customer&#39;s payment method</h4><blockquote>
+      <div><p>Request</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">GET</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">customers</span><span class="o">/:</span><span class="n">CUSTOMER_ID</span><span class="o">/</span><span class="n">payment</span><span class="o">-</span><span class="n">methods</span><span class="o">/:</span><span class="n">paymentMethodId</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Request in cURL
+<code>s
+curl -X &quot;GET&quot; &quot;https://merchant.revolut.com/api/1.0/customers/:CUSTOMER_ID/payment-methods/:paymentMethodId&quot; \
+     -H &#39;Authorization: Bearer &lt;your_API_token&gt;&#39; \
+     -H &#39;Content-Type: application/json; charset=utf-8&#39; \
+}
+</code></p>
+
+<p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">Payment</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">object</span><span class="w">
+</span></code></pre><h4 id='customers-api-customers-api-customers-update-what-a-specific-payment-method-is-saved-for'><a href='#customers-api-customers-api-customers-update-what-a-specific-payment-method-is-saved-for' class='header-link'><i></i></a>Update what a specific payment method is saved for</h4>
+<p>Use this request to indicate that a payment method can&#39;t be used for merchant initiated payments anymore and can only be used for customer initiated payments</p>
+<blockquote>
+      <div><p>Request</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">PATCH</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">customers</span><span class="o">/:</span><span class="n">CUSTOMER_ID</span><span class="o">/</span><span class="n">payment</span><span class="o">-</span><span class="n">methods</span><span class="o">/:</span><span class="n">paymentMethodId</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="n">saved_for</span><span class="o">:</span><span class="w"> </span><span class="s1">'customer'</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><blockquote>
+      <div><p>Request in cURL
+<code>s
+curl -X &quot;PATCH&quot; &quot;https://merchant.revolut.com/api/1.0/customers/:CUSTOMER_ID/payment-methods/:paymentMethodId&quot; \
+     -H &#39;Authorization: Bearer &lt;your_API_token&gt;&#39; \
+     -H &#39;Content-Type: application/json; charset=utf-8&#39; \
+     -d $&#39;{
+        &quot;saved_for&quot;: &quot;customer&quot;,
+        }&#39;
+</code></p>
+
+<p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">Updated</span><span class="w"> </span><span class="n">payment</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">object</span><span class="w">
+</span></code></pre>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required?</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>saved_for</code></td>
+<td>Indicate that a customer doesn’t want a payment method to be used for merchant initiated transactions anymore but yes for future use (<code>merchant</code> → <code>customer</code>)</td>
+<td>enum</td>
+<td>required</td>
+</tr>
+</tbody></table>
+<h4 id='customers-api-customers-api-customers-delete-specific-customer-39-s-payment-method'><a href='#customers-api-customers-api-customers-delete-specific-customer-39-s-payment-method' class='header-link'><i></i></a>Delete specific customer&#39;s payment method</h4><blockquote>
+      <div><p>Request</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">DELETE</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">customers</span><span class="o">/:</span><span class="n">CUSTOMER_ID</span><span class="o">/</span><span class="n">payment</span><span class="o">-</span><span class="n">methods</span><span class="o">/:</span><span class="n">paymentMethodId</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Request in cURL
+<code>s
+curl -X &quot;DELETE&quot; &quot;https://merchant.revolut.com/api/1.0/customers/:CUSTOMER_ID/payment-methods/:paymentMethodId&quot; \
+     -H &#39;Authorization: Bearer &lt;your_API_token&gt;&#39; \
+     -H &#39;Content-Type: application/json; charset=utf-8&#39; \
+}
+</code></p>
+
+<p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">Success</span><span class="w"> </span><span class="n">HTTP</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">body</span><span class="w">
+</span></code></pre>
+<div class="feedback"></div>
+<h3 id='customers-api-webhooks'><a href='#customers-api-webhooks' class='header-link'><i></i></a>Webhooks</h3>
 <p>There are multiple events happening to Merchant Accounts. The majority of these occur synchronously - this means they arrive instantly and an immediate result is available. For example, an <code>Order</code> creation request is a synchronous request.</p>
 
 <p>However, there are some events that run asynchronously and, therefore, require webhooks. Merchant API supports webhooks for order completion events.</p>
-<h4 id='api-api-webhooks-set-webhook-url'><a href='#api-api-webhooks-set-webhook-url' class='header-link'><i></i></a>Set webhook url</h4>
+<h4 id='customers-api-customers-api-webhooks-set-webhook-url'><a href='#customers-api-customers-api-webhooks-set-webhook-url' class='header-link'><i></i></a>Set webhook url</h4>
 <p>This request can be used by a merchant to subscribe for webhooks from Revolut Merchant API. </p>
 <blockquote>
       <div><p>Request</p>
@@ -2315,7 +2971,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>URL</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-webhooks-retrieve-webhooks'><a href='#api-api-webhooks-retrieve-webhooks' class='header-link'><i></i></a>Retrieve webhooks</h4>
+<h3 id='customers-api-retrieve-webhooks'><a href='#customers-api-retrieve-webhooks' class='header-link'><i></i></a>Retrieve webhooks</h3>
 <p>This request is used to get the list of webhooks you are currently subscribed to.</p>
 <blockquote>
       <div><p>Request</p>
@@ -2357,7 +3013,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>URL</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-webhooks-webhook-request'><a href='#api-api-webhooks-webhook-request' class='header-link'><i></i></a>Webhook request</h4>
+<h4 id='customers-api-customers-api-retrieve-webhooks-webhook-request'><a href='#customers-api-customers-api-retrieve-webhooks-webhook-request' class='header-link'><i></i></a>Webhook request</h4>
 <p>Revolut will POST webhook messages to the URLs you have set webhooks for. Here is an example of an order completion event. </p>
 <blockquote>
       <div><p>Request</p>
@@ -2398,38 +3054,6 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 </tbody></table>
 
-<div class="feedback"></div>
-<h2 id='integration-examples'><a href='#integration-examples' class='header-link'><i></i></a>Integration examples</h2><h3 id='integration-examples-payment-pop-up-integration-react-js-next-js'><a href='#integration-examples-payment-pop-up-integration-react-js-next-js' class='header-link'><i></i></a>Payment pop-up integration: React.js + Next.js</h3>
-<p>This sample shows how to use <a href="#revolutcheckout-js-reference">RevolutCheckout.js</a> with a <a href="#revolut-widget-revolut-widget-integration-guide-pop-up">payment pop-up</a> and <a href="#api">API</a>. The hosted version is running on sandbox environment — use one of our <a href="#revolut-widget-test-with-dummy-cards">test cards</a> to ensure that the widget works properly.</p>
-
-<div>
-  <iframe
-    src="https://codesandbox.io/embed/github/revolut-engineering/revolut-merchant-api-example-next-js/tree/master/?fontsize=14&hidenavigation=1&module=%2Fpages%2Fcheckout.js&theme=dark"
-    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-    title="revolut-checkout-widget-next-example"
-    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
-    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
-</div>
-
-<p>Please note that if you fork the example - you will need to create a new <a href="https://sandbox-business.revolut.com/">Revolut Business Sandbox</a> account and set the <a href="https://sandbox-business.revolut.com/merchant/api">API key</a> as <code>REVOLUT_API_KEY</code> inside <a href="https://codesandbox.io/docs/secrets#adding-secrets">CodeSandbox secrets</a>.</p>
-
-<p><a class="github-button" href="https://github.com/revolut-engineering/revolut-merchant-api-example-next-js/fork" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Fork revolut-engineering/revolut-merchant-api-example-next-js on GitHub">Fork</a>
-<script async defer src="https://buttons.github.io/buttons.js"></script></p>
-<h3 id='integration-examples-card-field-integration-and-customisation'><a href='#integration-examples-card-field-integration-and-customisation' class='header-link'><i></i></a>Card field integration and customisation</h3>
-<p>This sample shows how to use <a href="#revolutcheckout-js-reference">RevolutCheckout.js</a> with the integrated <a href="#revolut-widget-revolut-widget-integration-guide-card-field">card field</a>. The hosted version is running on Sandbox environment — use one of our <a href="#revolut-widget-test-with-dummy-cards">test cards</a> to ensure that the widget works properly.</p>
-
-<div>
-  <iframe
-     src="https://codesandbox.io/embed/revolut-merchant-api-card-field-example-next-js-wyi77?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="revolut-merchant-api-card-field-example-next-js"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-</div>
-
-<p>Please note that if you fork the example - you will need to create a new <a href="https://sandbox-business.revolut.com/">Revolut Business Sandbox</a> account and set the <a href="https://sandbox-business.revolut.com/merchant/api">API key</a> as <code>REVOLUT_API_KEY</code> inside <a href="https://codesandbox.io/docs/secrets#adding-secrets">CodeSandbox secrets</a>.</p>
-<h4 id='integration-examples-integration-examples-card-field-integration-and-customisation-more-examples-are-coming-soon'><a href='#integration-examples-integration-examples-card-field-integration-and-customisation-more-examples-are-coming-soon' class='header-link'><i></i></a>More examples are coming soon.</h4>
 <div class="feedback"></div>
 <h2 id='plugins'><a href='#plugins' class='header-link'><i></i></a>Plugins</h2>
 <p>Using various e-commerce platform plugins is a simple way for you to start accepting payments straight into Revolut Merchant Accounts without having to integrate with <a href="#api">Revolut Backend API</a>.</p>
