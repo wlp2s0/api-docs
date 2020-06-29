@@ -313,9 +313,6 @@
                     <li>
                       <a href="#api-webhooks" class="toc-h3 toc-link" data-title="Webhooks">Webhooks</a>
                     </li>
-                    <li>
-                      <a href="#api-retrieve-webhooks" class="toc-h3 toc-link" data-title="Retrieve webhooks">Retrieve webhooks</a>
-                    </li>
                 </ul>
             </li>
             <li>
@@ -1922,6 +1919,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   "settlement_currency": "USD"
 }'</span><span class="w">
 </span></code></pre>
+<p><strong>Body Parameters</strong></p>
+
 <table><thead>
 <tr>
 <th>Field</th>
@@ -2008,6 +2007,10 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
     </blockquote><pre class="highlight r"><code><span class="n">Order</span><span class="w"> </span><span class="n">object</span><span class="w">
 </span></code></pre>
 <p>The following request retrieves the details of an <code>Order</code> that has been created.</p>
+
+<p><strong>Body Parameters</strong></p>
+
+<p><em>This request does not accept any body parameters</em></p>
 <h4 id='api-api-orders-capture-an-order'><a href='#api-api-orders-capture-an-order' class='header-link'><i></i></a>Capture an Order</h4><blockquote>
       <div><p>Request</p>
 </div>
@@ -2050,6 +2053,10 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <li>By choosing <strong>automatic</strong>, you don&#39;t have to perform any further steps after payment authorization.</li>
 <li>By choosing <strong>manual</strong>, you will need to go to the web interface and click &quot;Authorise&quot;, or perform the Capture request via the API.</li>
 </ul>
+
+<p><strong>Body Parameters</strong></p>
+
+<p><em>This request does not accept any body parameters</em></p>
 <h4 id='api-api-orders-confirm-an-order'><a href='#api-api-orders-confirm-an-order' class='header-link'><i></i></a>Confirm an order</h4>
 <p>When an order contains a <code>customer_id</code> associated to it and that <code>customer</code> has one or more valid payment methods to be used, you can use this request to attempt to authorise and authenticate a payment. The payment can be made using the default payment method saved in the customer’s profile or using a specific payment method as specified below.</p>
 
@@ -2086,6 +2093,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">The</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">appropriate</span><span class="w"> </span><span class="n">status</span><span class="w">
 </span></code></pre>
+<p><strong>Body Parameters</strong></p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2148,6 +2157,10 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
     </blockquote><pre class="highlight plaintext"><code>Order object
 </code></pre>
 <p>The following request cancels an existing uncaptured <code>Order</code>.</p>
+
+<p><strong>Body Parameters</strong></p>
+
+<p><em>This request does not accept any body parameters</em></p>
 <h4 id='api-api-orders-refund-an-order'><a href='#api-api-orders-refund-an-order' class='header-link'><i></i></a>Refund an Order</h4>
 <p>This request issues a refund for a completed <code>Order</code>. A refund can be either full or partial. Funds are always refunded to customer&#39;s original payment method.</p>
 <blockquote>
@@ -2187,6 +2200,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 }'</span><span class="w">
 
 </span></code></pre>
+<p><strong>Body Parameters</strong></p>
+
 <table><thead>
 <tr>
 <th>Field</th>
@@ -2460,7 +2475,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 
 <div class="feedback"></div>
 <h4 id='api-api-customers-create-customer'><a href='#api-api-customers-create-customer' class='header-link'><i></i></a>Create customer</h4>
-<p>The following request creates a <code>customer</code>:</p>
+<p>The following request creates a <code>customer</code> with the information sent in the body of the request.</p>
 <blockquote>
       <div><p>Request</p>
 </div>
@@ -2516,6 +2531,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-24T12:03:39.979397Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p><strong>Body Parameters</strong></p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2592,6 +2609,10 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-25T10:03:39.134417Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>This request updates the specified attributes of a specific <code>customer</code></p>
+
+<p><strong>Body Parameters</strong></p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2621,7 +2642,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 </tbody></table>
 <h4 id='api-api-customers-retrieve-all-customers'><a href='#api-api-customers-retrieve-all-customers' class='header-link'><i></i></a>Retrieve all customers</h4>
-<p>Get a list of all your customers:</p>
+<p>Get a list of all your <code>customers</code>.</p>
 <blockquote>
       <div><p>Request</p>
 </div>
@@ -2680,8 +2701,12 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-24T10:47:11.173027Z"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre><h4 id='api-api-customers-retrieve-specific-customer'><a href='#api-api-customers-retrieve-specific-customer' class='header-link'><i></i></a>Retrieve specific customer</h4>
-<p>Get the information about a specific customer</p>
+</span></code></pre>
+<p><strong>Body Parameters</strong></p>
+
+<p><em>This request does not accept any body parameters</em></p>
+<h4 id='api-api-customers-retrieve-specific-customer'><a href='#api-api-customers-retrieve-specific-customer' class='header-link'><i></i></a>Retrieve specific customer</h4>
+<p>Get the information about a specific <code>customer</code>.</p>
 <blockquote>
       <div><p>Request</p>
 </div>
@@ -2725,8 +2750,12 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
     </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-25T10:03:39.134417Z"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre><h4 id='api-api-customers-delete-specific-customer'><a href='#api-api-customers-delete-specific-customer' class='header-link'><i></i></a>Delete specific customer</h4>
-<p>Delete the profile of a specific customer</p>
+</span></code></pre>
+<p><strong>Body Parameters</strong></p>
+
+<p><em>This request does not accept any body parameters</em></p>
+<h4 id='api-api-customers-delete-specific-customer'><a href='#api-api-customers-delete-specific-customer' class='header-link'><i></i></a>Delete specific customer</h4>
+<p>Delete the profile of a specific <code>customer</code>.</p>
 <blockquote>
       <div><p>Request</p>
 </div>
@@ -2761,6 +2790,10 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">Success</span><span class="w"> </span><span class="n">HTTP</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">body</span><span class="w">
 </span></code></pre>
+<p><strong>Body Parameters</strong></p>
+
+<p><em>This request does not accept any body parameters</em></p>
+
 <div class="feedback"></div>
 <h4 id='api-api-customers-retrieve-all-customer-39-s-payment-methods'><a href='#api-api-customers-retrieve-all-customer-39-s-payment-methods' class='header-link'><i></i></a>Retrieve all customer&#39;s payment methods</h4>
 <p>You can use this request to retrieve all <code>payment_methods</code> for a given customer. This could be useful for example to show the customer what information is stored for them, or to try a different payment method in case the first payment method fails when charging a recurring transaction.</p>
@@ -2798,6 +2831,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">List</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">payment</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">objects</span><span class="w">
 </span></code></pre>
+<p><strong>Body Parameters</strong></p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2844,7 +2879,13 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
         </select>
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">Payment</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">object</span><span class="w">
-</span></code></pre><h4 id='api-api-customers-update-what-a-specific-payment-method-is-saved-for'><a href='#api-api-customers-update-what-a-specific-payment-method-is-saved-for' class='header-link'><i></i></a>Update what a specific payment method is saved for</h4>
+</span></code></pre>
+<p>This request can be used to retrieve the information of a specific payment method that has been saved.</p>
+
+<p><strong>Body Parameters</strong></p>
+
+<p><em>This request does not accept any body parameters</em></p>
+<h4 id='api-api-customers-update-what-a-specific-payment-method-is-saved-for'><a href='#api-api-customers-update-what-a-specific-payment-method-is-saved-for' class='header-link'><i></i></a>Update what a specific payment method is saved for</h4>
 <p>Use this request to indicate that a payment method can&#39;t be used for merchant initiated payments anymore and can only be used for customer initiated payments</p>
 <blockquote>
       <div><p>Request</p>
@@ -2887,6 +2928,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">Updated</span><span class="w"> </span><span class="n">payment</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">object</span><span class="w">
 </span></code></pre>
+<p><strong>Body Parameters</strong></p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2936,6 +2979,12 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">Success</span><span class="w"> </span><span class="n">HTTP</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">body</span><span class="w">
 </span></code></pre>
+<p>This request can be used to delete a saved payment method. It will be completely deleted from the customer payment methods. If you would like to use it again, direct your customer to the checkout and save the card details again.</p>
+
+<p><strong>Body Parameters</strong></p>
+
+<p><em>This request does not accept any body parameters</em></p>
+
 <div class="feedback"></div>
 <h3 id='api-webhooks'><a href='#api-webhooks' class='header-link'><i></i></a>Webhooks</h3>
 <p>There are multiple events happening to Merchant Accounts. The majority of these occur synchronously - this means they arrive instantly and an immediate result is available. For example, an <code>Order</code> creation request is a synchronous request.</p>
@@ -2999,7 +3048,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>URL</td>
 </tr>
 </tbody></table>
-<h3 id='api-retrieve-webhooks'><a href='#api-retrieve-webhooks' class='header-link'><i></i></a>Retrieve webhooks</h3>
+<h4 id='api-api-webhooks-retrieve-webhooks'><a href='#api-api-webhooks-retrieve-webhooks' class='header-link'><i></i></a>Retrieve webhooks</h4>
 <p>This request is used to get the list of webhooks you are currently subscribed to.</p>
 <blockquote>
       <div><p>Request</p>
@@ -3041,7 +3090,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>URL</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-retrieve-webhooks-webhook-request'><a href='#api-api-retrieve-webhooks-webhook-request' class='header-link'><i></i></a>Webhook request</h4>
+<h4 id='api-api-webhooks-webhook-request'><a href='#api-api-webhooks-webhook-request' class='header-link'><i></i></a>Webhook request</h4>
 <p>Revolut will POST webhook messages to the URLs you have set webhooks for. Here is an example of an order completion event. </p>
 <blockquote>
       <div><p>Request</p>
