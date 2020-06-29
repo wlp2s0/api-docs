@@ -307,19 +307,14 @@
                     <li>
                       <a href="#api-orders" class="toc-h3 toc-link" data-title="Orders">Orders</a>
                     </li>
-                </ul>
-            </li>
-            <li>
-              <a href="#customers-api" class="toc-h2 toc-link" data-title="Customers API">Customers API</a>
-                <ul class="toc-list-h3">
                     <li>
-                      <a href="#customers-api-customers" class="toc-h3 toc-link" data-title="Customers">Customers</a>
+                      <a href="#api-customers" class="toc-h3 toc-link" data-title="Customers">Customers</a>
                     </li>
                     <li>
-                      <a href="#customers-api-webhooks" class="toc-h3 toc-link" data-title="Webhooks">Webhooks</a>
+                      <a href="#api-webhooks" class="toc-h3 toc-link" data-title="Webhooks">Webhooks</a>
                     </li>
                     <li>
-                      <a href="#customers-api-retrieve-webhooks" class="toc-h3 toc-link" data-title="Retrieve webhooks">Retrieve webhooks</a>
+                      <a href="#api-retrieve-webhooks" class="toc-h3 toc-link" data-title="Retrieve webhooks">Retrieve webhooks</a>
                     </li>
                 </ul>
             </li>
@@ -2060,21 +2055,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 
 <p><strong>Note</strong>: You can <strong><em>only</em></strong> use this if there is a <code>customer_id</code> associated to the order and if the <code>customer</code> has one or more payment methods that have been saved for merchant initiated payments. Check the <a href="#integration-guide">Integration guide</a> to learn more about how to save cards for this purpose when your customer is checking out.</p>
 <blockquote>
-      <div><p>Request
-<code>s
-POST /api/1.0/orders/:orderId/confirm
-</code></p>
-
-<p>Request in cURL
-<code>s
-curl -X &quot;POST&quot; &quot;https://merchant.revolut.com/api/1.0/orders/:orderId/confirm&quot; \
-     -H &#39;Authorization: Bearer &lt;your_API_token&gt;&#39;
-</code></p>
-
-<p>Response
-<code>s
-The order object with the appropriate status
-</code></p>
+      <div><p>Request</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -2082,7 +2063,29 @@ The order object with the appropriate status
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote>
+    </blockquote><pre class="highlight r"><code><span class="n">POST</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">orders</span><span class="o">/:</span><span class="n">orderId</span><span class="o">/</span><span class="n">confirm</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Request in cURL</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"POST"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.com/api/1.0/orders/:orderId/confirm"</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer &lt;your_API_token&gt;'</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">The</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">appropriate</span><span class="w"> </span><span class="n">status</span><span class="w">
+</span></code></pre>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2328,7 +2331,7 @@ The order object with the appropriate status
 </tbody></table>
 
 <div class="feedback"></div>
-<h2 id='customers-api'><a href='#customers-api' class='header-link'><i></i></a>Customers API</h2>
+<h3 id='api-customers'><a href='#api-customers' class='header-link'><i></i></a>Customers</h3>
 <p><code>Customer</code> objects allow you to track multiple charges associated with the same customer. </p>
 
 <p>Customers will be created automatically upon creating an order if there is enough information and no Customer ID is passed. Aditionally, the API allows you to create, delete, and update your customers. You can retrieve individual customers as well as a list of all your customers.</p>
@@ -2336,7 +2339,7 @@ The order object with the appropriate status
 <p><code>Payment methods</code> reference a method of payment that can be used to make transactions. It allows the merchant to store the details for payment securely and to group transactions that come from the same payment method. These payment methods are unique per customer and per merchant. So if, for example, the same card is used for a transaction for two different customers, two payment methods objects will be created.</p>
 
 <p>PaymentMethod’s can’t be created explicitly, they are generated as part of a payment. To modify a customerPaymentMethod, change its parameters using a customer id and sending the appropriate parameters</p>
-<h3 id='customers-api-customers'><a href='#customers-api-customers' class='header-link'><i></i></a>Customers</h3><h4 id='customers-api-customers-api-customers-customer-object'><a href='#customers-api-customers-api-customers-customer-object' class='header-link'><i></i></a>Customer object</h4>
+<h4 id='api-api-customers-customer-object'><a href='#api-api-customers-customer-object' class='header-link'><i></i></a>Customer object</h4>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -2382,7 +2385,7 @@ The order object with the appropriate status
 </tbody></table>
 
 <div class="feedback"></div>
-<h5 id='customers-api-customers-api-customers-customers-api-customers-api-customers-customer-object-the-paymentmethod-object'><a href='#customers-api-customers-api-customers-customers-api-customers-api-customers-customer-object-the-paymentmethod-object' class='header-link'><i></i></a>The paymentMethod Object</h5>
+<h5 id='api-api-customers-api-api-customers-customer-object-the-paymentmethod-object'><a href='#api-api-customers-api-api-customers-customer-object-the-paymentmethod-object' class='header-link'><i></i></a>The paymentMethod Object</h5>
 <p>Intrinsically linked to the <code>customer</code> object. Payment Methods are unique per <code>customer</code> and per merchant. Meaning that if the same card is used across two of your customers, two <code>paymentMethod</code> will exist with two separate IDs.</p>
 
 <table><thead>
@@ -2415,7 +2418,7 @@ The order object with the appropriate status
 </tbody></table>
 
 <div class="feedback"></div>
-<h5 id='customers-api-customers-api-customers-customers-api-customers-api-customers-customer-object-the-card-object'><a href='#customers-api-customers-api-customers-customers-api-customers-api-customers-customer-object-the-card-object' class='header-link'><i></i></a>The card Object</h5>
+<h5 id='api-api-customers-api-api-customers-customer-object-the-card-object'><a href='#api-api-customers-api-api-customers-customer-object-the-card-object' class='header-link'><i></i></a>The card Object</h5>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -2456,7 +2459,7 @@ The order object with the appropriate status
 </tbody></table>
 
 <div class="feedback"></div>
-<h4 id='customers-api-customers-api-customers-create-customer'><a href='#customers-api-customers-api-customers-create-customer' class='header-link'><i></i></a>Create customer</h4>
+<h4 id='api-api-customers-create-customer'><a href='#api-api-customers-create-customer' class='header-link'><i></i></a>Create customer</h4>
 <p>The following request creates a <code>customer</code>:</p>
 <blockquote>
       <div><p>Request</p>
@@ -2495,18 +2498,7 @@ The order object with the appropriate status
 }'</span><span class="w">
 
 </span></code></pre><blockquote>
-      <div><p>Response
-<code>json
-{
-  &quot;id&quot;: &quot;6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae&quot;,
-  &quot;full_name&quot;: &quot;First Last&quot;,
-  &quot;business_name&quot;: &quot;Revolut&quot;,
-  &quot;email&quot;: &quot;customer@gmail.com&quot;,
-  &quot;phone&quot;: &quot;+447123456789&quot;,
-  &quot;created_at&quot;: &quot;2020-06-24T12:03:39.979397Z&quot;,
-  &quot;updated_at&quot;: &quot;2020-06-24T12:03:39.979397Z&quot;
-},
-</code></p>
+      <div><p>Response</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -2514,7 +2506,16 @@ The order object with the appropriate status
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First Last"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer@gmail.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+447123456789"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-24T12:03:39.979397Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-24T12:03:39.979397Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2543,7 +2544,7 @@ The order object with the appropriate status
 <td>optional</td>
 </tr>
 </tbody></table>
-<h4 id='customers-api-customers-api-customers-update-a-customer'><a href='#customers-api-customers-api-customers-update-a-customer' class='header-link'><i></i></a>Update a Customer</h4><blockquote>
+<h4 id='api-api-customers-update-a-customer'><a href='#api-api-customers-update-a-customer' class='header-link'><i></i></a>Update a Customer</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2573,18 +2574,7 @@ The order object with the appropriate status
   "full_name": "John Doe",
 }'</span><span class="w">
 </span></code></pre><blockquote>
-      <div><p>Response
-<code>json
-{
-  &quot;id&quot;: &quot;6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae&quot;,
-  &quot;full_name&quot;: &quot;John Doe&quot;,
-  &quot;business_name&quot;: &quot;Revolut&quot;,
-  &quot;email&quot;: &quot;customer@gmail.com&quot;,
-  &quot;phone&quot;: &quot;+447123456789&quot;,
-  &quot;created_at&quot;: &quot;2020-06-24T12:03:39.979397Z&quot;,
-  &quot;updated_at&quot;: &quot;2020-06-25T10:03:39.134417Z&quot;
-}
-</code></p>
+      <div><p>Response</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -2592,7 +2582,16 @@ The order object with the appropriate status
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer@gmail.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+447123456789"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-24T12:03:39.979397Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-25T10:03:39.134417Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2621,15 +2620,20 @@ The order object with the appropriate status
 <td>optional</td>
 </tr>
 </tbody></table>
-<h4 id='customers-api-customers-api-customers-retrieve-all-customers'><a href='#customers-api-customers-api-customers-retrieve-all-customers' class='header-link'><i></i></a>Retrieve all customers</h4>
+<h4 id='api-api-customers-retrieve-all-customers'><a href='#api-api-customers-retrieve-all-customers' class='header-link'><i></i></a>Retrieve all customers</h4>
 <p>Get a list of all your customers:</p>
 <blockquote>
-      <div><p>Request
-<code>s
-GET /api/1.0/customers/
-</code></p>
-
-<p>Request in cURL</p>
+      <div><p>Request</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">GET</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">customers</span><span class="o">/</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Request in cURL</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -2642,35 +2646,7 @@ GET /api/1.0/customers/
      </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Content-Type: application/json; charset=utf-8'</span><span class="w"> </span><span class="err">\</span><span class="w">
 </span><span class="p">}</span><span class="err">'</span><span class="w">
 </span></code></pre><blockquote>
-      <div><p>Response
-<code>json
-[
-  {
-    &quot;id&quot;: &quot;9dfb8491-bfb0-4420-ad63-0fa7bdd3dffb&quot;,
-    &quot;full_name&quot;: &quot;First Customer&quot;,
-    &quot;email&quot;: &quot;firstcustomer@gmail.com&quot;,
-    &quot;created_at&quot;: &quot;2020-06-24T12:12:56.596703Z&quot;,
-    &quot;updated_at&quot;: &quot;2020-06-24T12:12:56.737082Z&quot;
-  },
-  {
-    &quot;id&quot;: &quot;6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae&quot;,
-    &quot;full_name&quot;: &quot;John Doe&quot;,
-    &quot;business_name&quot;: &quot;Revolut&quot;,
-    &quot;email&quot;: &quot;customer@gmail.com&quot;,
-    &quot;phone&quot;: &quot;+447123456789&quot;,
-    &quot;created_at&quot;: &quot;2020-06-24T12:03:39.979397Z&quot;,
-    &quot;updated_at&quot;: &quot;2020-06-25T10:03:39.134417Z&quot;
-  },
-  {
-    &quot;id&quot;: &quot;014f0ad6-c45b-4d7d-83c6-80eea94fceac&quot;,
-    &quot;full_name&quot;: &quot;Second Customer&quot;,
-    &quot;email&quot;: &quot;secondcustomer@gmail.com&quot;,
-    &quot;phone&quot;: &quot;+447179509911&quot;,
-    &quot;created_at&quot;: &quot;2020-06-23T14:13:08.262336Z&quot;,
-    &quot;updated_at&quot;: &quot;2020-06-24T10:47:11.173027Z&quot;
-  }
-]
-</code></p>
+      <div><p>Response</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -2678,15 +2654,46 @@ GET /api/1.0/customers/
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><h4 id='customers-api-customers-api-customers-retrieve-specific-customer'><a href='#customers-api-customers-api-customers-retrieve-specific-customer' class='header-link'><i></i></a>Retrieve specific customer</h4>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9dfb8491-bfb0-4420-ad63-0fa7bdd3dffb"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First Customer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"firstcustomer@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-24T12:12:56.596703Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-24T12:12:56.737082Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+447123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-24T12:03:39.979397Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-25T10:03:39.134417Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"014f0ad6-c45b-4d7d-83c6-80eea94fceac"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Second Customer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"secondcustomer@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+447179509911"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-23T14:13:08.262336Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-24T10:47:11.173027Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h4 id='api-api-customers-retrieve-specific-customer'><a href='#api-api-customers-retrieve-specific-customer' class='header-link'><i></i></a>Retrieve specific customer</h4>
 <p>Get the information about a specific customer</p>
 <blockquote>
-      <div><p>Request
-<code>s
-GET /api/1.0/customers/:customerId
-</code></p>
-
-<p>Request in cURL</p>
+      <div><p>Request</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">GET</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">customers</span><span class="o">/:</span><span class="n">customerId</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Request in cURL</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -2699,20 +2706,7 @@ GET /api/1.0/customers/:customerId
      </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Content-Type: application/json; charset=utf-8'</span><span class="w"> </span><span class="err">\</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><blockquote>
-      <div><p>Response
-<code>json
-[
-  {
-    &quot;id&quot;: &quot;6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae&quot;,
-    &quot;full_name&quot;: &quot;John Doe&quot;,
-    &quot;business_name&quot;: &quot;Revolut&quot;,
-    &quot;email&quot;: &quot;customer@gmail.com&quot;,
-    &quot;phone&quot;: &quot;+447123456789&quot;,
-    &quot;created_at&quot;: &quot;2020-06-24T12:03:39.979397Z&quot;,
-    &quot;updated_at&quot;: &quot;2020-06-25T10:03:39.134417Z&quot;
-  }
-]
-</code></p>
+      <div><p>Response</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -2720,15 +2714,31 @@ GET /api/1.0/customers/:customerId
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><h4 id='customers-api-customers-api-customers-delete-specific-customer'><a href='#customers-api-customers-api-customers-delete-specific-customer' class='header-link'><i></i></a>Delete specific customer</h4>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"full_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"business_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer@gmail.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+447123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-24T12:03:39.979397Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-25T10:03:39.134417Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h4 id='api-api-customers-delete-specific-customer'><a href='#api-api-customers-delete-specific-customer' class='header-link'><i></i></a>Delete specific customer</h4>
 <p>Delete the profile of a specific customer</p>
 <blockquote>
-      <div><p>Request
-<code>s
-DELETE /api/1.0/customers/:customerId
-</code></p>
-
-<p>Request in cURL</p>
+      <div><p>Request</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">DELETE</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">customers</span><span class="o">/:</span><span class="n">customerId</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Request in cURL</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -2741,10 +2751,7 @@ DELETE /api/1.0/customers/:customerId
      </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Content-Type: application/json; charset=utf-8'</span><span class="w"> </span><span class="err">\</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><blockquote>
-      <div><p>Response
-<code>s
-Success HTTP response with no body
-</code></p>
+      <div><p>Response</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -2752,9 +2759,10 @@ Success HTTP response with no body
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote>
+    </blockquote><pre class="highlight r"><code><span class="n">Success</span><span class="w"> </span><span class="n">HTTP</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">body</span><span class="w">
+</span></code></pre>
 <div class="feedback"></div>
-<h4 id='customers-api-customers-api-customers-retrieve-all-customer-39-s-payment-methods'><a href='#customers-api-customers-api-customers-retrieve-all-customer-39-s-payment-methods' class='header-link'><i></i></a>Retrieve all customer&#39;s payment methods</h4>
+<h4 id='api-api-customers-retrieve-all-customer-39-s-payment-methods'><a href='#api-api-customers-retrieve-all-customer-39-s-payment-methods' class='header-link'><i></i></a>Retrieve all customer&#39;s payment methods</h4>
 <p>You can use this request to retrieve all <code>payment_methods</code> for a given customer. This could be useful for example to show the customer what information is stored for them, or to try a different payment method in case the first payment method fails when charging a recurring transaction.</p>
 <blockquote>
       <div><p>Request</p>
@@ -2767,15 +2775,20 @@ Success HTTP response with no body
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">GET</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">customers</span><span class="o">/:</span><span class="n">CUSTOMER_ID</span><span class="o">/</span><span class="n">payment</span><span class="o">-</span><span class="n">methods</span><span class="w">
 </span></code></pre><blockquote>
-      <div><p>Request in cURL
-<code>s
-curl -X &quot;GET&quot; &quot;https://merchant.revolut.com/api/1.0/customers/:CUSTOMER_ID/payment-methods&quot; \
-     -H &#39;Authorization: Bearer &lt;your_API_token&gt;&#39; \
-     -H &#39;Content-Type: application/json; charset=utf-8&#39; \
-}
-</code></p>
-
-<p>Response</p>
+      <div><p>Request in cURL</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"GET"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.com/api/1.0/customers/:CUSTOMER_ID/payment-methods"</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer &lt;your_API_token&gt;'</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Content-Type: application/json; charset=utf-8'</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Response</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -2798,7 +2811,7 @@ curl -X &quot;GET&quot; &quot;https://merchant.revolut.com/api/1.0/customers/:CU
 <td>optional (defaults to <code>FALSE</code>)</td>
 </tr>
 </tbody></table>
-<h4 id='customers-api-customers-api-customers-retrieve-specific-customer-39-s-payment-method'><a href='#customers-api-customers-api-customers-retrieve-specific-customer-39-s-payment-method' class='header-link'><i></i></a>Retrieve specific customer&#39;s payment method</h4><blockquote>
+<h4 id='api-api-customers-retrieve-specific-customer-39-s-payment-method'><a href='#api-api-customers-retrieve-specific-customer-39-s-payment-method' class='header-link'><i></i></a>Retrieve specific customer&#39;s payment method</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2809,15 +2822,20 @@ curl -X &quot;GET&quot; &quot;https://merchant.revolut.com/api/1.0/customers/:CU
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">GET</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">customers</span><span class="o">/:</span><span class="n">CUSTOMER_ID</span><span class="o">/</span><span class="n">payment</span><span class="o">-</span><span class="n">methods</span><span class="o">/:</span><span class="n">paymentMethodId</span><span class="w">
 </span></code></pre><blockquote>
-      <div><p>Request in cURL
-<code>s
-curl -X &quot;GET&quot; &quot;https://merchant.revolut.com/api/1.0/customers/:CUSTOMER_ID/payment-methods/:paymentMethodId&quot; \
-     -H &#39;Authorization: Bearer &lt;your_API_token&gt;&#39; \
-     -H &#39;Content-Type: application/json; charset=utf-8&#39; \
-}
-</code></p>
-
-<p>Response</p>
+      <div><p>Request in cURL</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"GET"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.com/api/1.0/customers/:CUSTOMER_ID/payment-methods/:paymentMethodId"</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer &lt;your_API_token&gt;'</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Content-Type: application/json; charset=utf-8'</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Response</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -2826,7 +2844,7 @@ curl -X &quot;GET&quot; &quot;https://merchant.revolut.com/api/1.0/customers/:CU
         </select>
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">Payment</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">object</span><span class="w">
-</span></code></pre><h4 id='customers-api-customers-api-customers-update-what-a-specific-payment-method-is-saved-for'><a href='#customers-api-customers-api-customers-update-what-a-specific-payment-method-is-saved-for' class='header-link'><i></i></a>Update what a specific payment method is saved for</h4>
+</span></code></pre><h4 id='api-api-customers-update-what-a-specific-payment-method-is-saved-for'><a href='#api-api-customers-update-what-a-specific-payment-method-is-saved-for' class='header-link'><i></i></a>Update what a specific payment method is saved for</h4>
 <p>Use this request to indicate that a payment method can&#39;t be used for merchant initiated payments anymore and can only be used for customer initiated payments</p>
 <blockquote>
       <div><p>Request</p>
@@ -2844,17 +2862,22 @@ curl -X &quot;GET&quot; &quot;https://merchant.revolut.com/api/1.0/customers/:CU
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre><blockquote>
-      <div><p>Request in cURL
-<code>s
-curl -X &quot;PATCH&quot; &quot;https://merchant.revolut.com/api/1.0/customers/:CUSTOMER_ID/payment-methods/:paymentMethodId&quot; \
-     -H &#39;Authorization: Bearer &lt;your_API_token&gt;&#39; \
-     -H &#39;Content-Type: application/json; charset=utf-8&#39; \
-     -d $&#39;{
-        &quot;saved_for&quot;: &quot;customer&quot;,
-        }&#39;
-</code></p>
-
-<p>Response</p>
+      <div><p>Request in cURL</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"PATCH"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.com/api/1.0/customers/:CUSTOMER_ID/payment-methods/:paymentMethodId"</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer &lt;your_API_token&gt;'</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Content-Type: application/json; charset=utf-8'</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="o">$</span><span class="s1">'{
+        "saved_for": "customer",
+        }'</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Response</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -2879,7 +2902,7 @@ curl -X &quot;PATCH&quot; &quot;https://merchant.revolut.com/api/1.0/customers/:
 <td>required</td>
 </tr>
 </tbody></table>
-<h4 id='customers-api-customers-api-customers-delete-specific-customer-39-s-payment-method'><a href='#customers-api-customers-api-customers-delete-specific-customer-39-s-payment-method' class='header-link'><i></i></a>Delete specific customer&#39;s payment method</h4><blockquote>
+<h4 id='api-api-customers-delete-specific-customer-39-s-payment-method'><a href='#api-api-customers-delete-specific-customer-39-s-payment-method' class='header-link'><i></i></a>Delete specific customer&#39;s payment method</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2890,15 +2913,20 @@ curl -X &quot;PATCH&quot; &quot;https://merchant.revolut.com/api/1.0/customers/:
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">DELETE</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">customers</span><span class="o">/:</span><span class="n">CUSTOMER_ID</span><span class="o">/</span><span class="n">payment</span><span class="o">-</span><span class="n">methods</span><span class="o">/:</span><span class="n">paymentMethodId</span><span class="w">
 </span></code></pre><blockquote>
-      <div><p>Request in cURL
-<code>s
-curl -X &quot;DELETE&quot; &quot;https://merchant.revolut.com/api/1.0/customers/:CUSTOMER_ID/payment-methods/:paymentMethodId&quot; \
-     -H &#39;Authorization: Bearer &lt;your_API_token&gt;&#39; \
-     -H &#39;Content-Type: application/json; charset=utf-8&#39; \
-}
-</code></p>
-
-<p>Response</p>
+      <div><p>Request in cURL</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">curl</span><span class="w"> </span><span class="o">-</span><span class="n">X</span><span class="w"> </span><span class="s2">"DELETE"</span><span class="w"> </span><span class="s2">"https://merchant.revolut.com/api/1.0/customers/:CUSTOMER_ID/payment-methods/:paymentMethodId"</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Authorization: Bearer &lt;your_API_token&gt;'</span><span class="w"> </span><span class="err">\</span><span class="w">
+     </span><span class="o">-</span><span class="n">H</span><span class="w"> </span><span class="s1">'Content-Type: application/json; charset=utf-8'</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Response</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -2909,11 +2937,11 @@ curl -X &quot;DELETE&quot; &quot;https://merchant.revolut.com/api/1.0/customers/
     </blockquote><pre class="highlight r"><code><span class="n">Success</span><span class="w"> </span><span class="n">HTTP</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">body</span><span class="w">
 </span></code></pre>
 <div class="feedback"></div>
-<h3 id='customers-api-webhooks'><a href='#customers-api-webhooks' class='header-link'><i></i></a>Webhooks</h3>
+<h3 id='api-webhooks'><a href='#api-webhooks' class='header-link'><i></i></a>Webhooks</h3>
 <p>There are multiple events happening to Merchant Accounts. The majority of these occur synchronously - this means they arrive instantly and an immediate result is available. For example, an <code>Order</code> creation request is a synchronous request.</p>
 
 <p>However, there are some events that run asynchronously and, therefore, require webhooks. Merchant API supports webhooks for order completion events.</p>
-<h4 id='customers-api-customers-api-webhooks-set-webhook-url'><a href='#customers-api-customers-api-webhooks-set-webhook-url' class='header-link'><i></i></a>Set webhook url</h4>
+<h4 id='api-api-webhooks-set-webhook-url'><a href='#api-api-webhooks-set-webhook-url' class='header-link'><i></i></a>Set webhook url</h4>
 <p>This request can be used by a merchant to subscribe for webhooks from Revolut Merchant API. </p>
 <blockquote>
       <div><p>Request</p>
@@ -2971,7 +2999,7 @@ curl -X &quot;DELETE&quot; &quot;https://merchant.revolut.com/api/1.0/customers/
 <td>URL</td>
 </tr>
 </tbody></table>
-<h3 id='customers-api-retrieve-webhooks'><a href='#customers-api-retrieve-webhooks' class='header-link'><i></i></a>Retrieve webhooks</h3>
+<h3 id='api-retrieve-webhooks'><a href='#api-retrieve-webhooks' class='header-link'><i></i></a>Retrieve webhooks</h3>
 <p>This request is used to get the list of webhooks you are currently subscribed to.</p>
 <blockquote>
       <div><p>Request</p>
@@ -3013,7 +3041,7 @@ curl -X &quot;DELETE&quot; &quot;https://merchant.revolut.com/api/1.0/customers/
 <td>URL</td>
 </tr>
 </tbody></table>
-<h4 id='customers-api-customers-api-retrieve-webhooks-webhook-request'><a href='#customers-api-customers-api-retrieve-webhooks-webhook-request' class='header-link'><i></i></a>Webhook request</h4>
+<h4 id='api-api-retrieve-webhooks-webhook-request'><a href='#api-api-retrieve-webhooks-webhook-request' class='header-link'><i></i></a>Webhook request</h4>
 <p>Revolut will POST webhook messages to the URLs you have set webhooks for. Here is an example of an order completion event. </p>
 <blockquote>
       <div><p>Request</p>
