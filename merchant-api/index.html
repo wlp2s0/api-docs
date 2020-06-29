@@ -341,6 +341,12 @@
                     <li>
                       <a href="#plugins-woocommerce" class="toc-h3 toc-link" data-title="WooCommerce">WooCommerce</a>
                     </li>
+                    <li>
+                      <a href="#plugins-prestashop-1-7" class="toc-h3 toc-link" data-title="Prestashop 1.7">Prestashop 1.7</a>
+                    </li>
+                    <li>
+                      <a href="#plugins-magento-2" class="toc-h3 toc-link" data-title="Magento 2">Magento 2</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -2428,9 +2434,9 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <h2 id='plugins'><a href='#plugins' class='header-link'><i></i></a>Plugins</h2>
 <p>Using various e-commerce platform plugins is a simple way for you to start accepting payments straight into Revolut Merchant Accounts without having to integrate with <a href="#api">Revolut Backend API</a>.</p>
 
-<p>Make sure that you apply for a <a href="https://business.revolut.com/merchant/accounts">Merchant Account</a> first and get your application approved by our team. Once it is approved, you can start installing and configuring any of Revolut Gateway plugins available.</p>
+<p>Make sure that you apply for a <a href="https://business.revolut.com/merchant/accounts">Merchant Account</a> first and get your application approved by our team. Once it is approved, you can start installing and configuring any of our Revolut Gateway plugins available.</p>
 <h3 id='plugins-woocommerce'><a href='#plugins-woocommerce' class='header-link'><i></i></a>WooCommerce</h3>
-<p>Revolut WooCommerce plugin lets you accept online card payments via your WooCommerce e-store - in an easy and hassle-free fashion. The following guide will help you install and configure Revolut WooCommerce plugin.</p>
+<p>Revolut WooCommerce plugin lets you accept online card payments via your WooCommerce e-store - in an easy and hassle-free fashion. The following guide will help you install and configure Revolut Gateway for WooCommerce plugin.</p>
 <h4 id='plugins-plugins-woocommerce-installation'><a href='#plugins-plugins-woocommerce-installation' class='header-link'><i></i></a>Installation</h4>
 <p><strong>Step 1.</strong> Log in to the admin section of your WooCommerce webstore.</p>
 
@@ -2473,14 +2479,12 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <li><p>Tick the <code>Revolut Sandbox</code> option</p></li>
 <li><p>Add your Sandbox API Key found in your Merchant account settings on the <a href="https://sandbox-business.revolut.com/merchant/api">Revolut Business Sandbox environment</a></p></li>
 <li><p>Click on the <code>Save changes</code> button to confirm the changes</p></li>
-<li><p>Start testing payments using our <a href="#revolut-widget-test-with-dummy-cards">test cards</a></p></li>
+<li><p>Start testing payments using our <a href="#integration-guide-test-with-dummy-cards">test cards</a></p></li>
 </ul>
 
 <p><strong>Step 2.</strong> Using WooCommerce Revolut Gateway plugin in production environment:</p>
 
 <p>Go back to the admin settings of your WooCommerce shop and under <code>WooCommerce Revolut Gateway</code> plugin click <code>Settings</code>.</p>
-
-<p><img width="969"  src="https://user-images.githubusercontent.com/60622352/77466068-9f02b980-6e01-11ea-9537-0507e73140e1.png"></p>
 
 <p>Make sure you perform the following actions to enable payments in production environment:</p>
 
@@ -2490,6 +2494,183 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <li><p>Add your API Key found in your Merchant account settings on <a href="https://business.revolut.com/merchant/api">Revolut Business portal</a></p></li>
 <li><p>Click on the <code>Save changes</code> button to confirm the changes</p></li>
 <li><p>Start accepting real card payments in your WooCommerce online shop</p></li>
+</ul>
+
+<div class="feedback"></div>
+
+<hr>
+<h3 id='plugins-prestashop-1-7'><a href='#plugins-prestashop-1-7' class='header-link'><i></i></a>Prestashop 1.7</h3>
+<p>Note: this plugin is only supported for <strong>Prestashop 1.7</strong></p>
+<h4 id='plugins-plugins-prestashop-1-7-installation'><a href='#plugins-plugins-prestashop-1-7-installation' class='header-link'><i></i></a>Installation</h4>
+<p><strong>Step 1.</strong> Log in to the admin section of your Prestashop webstore.</p>
+
+<p><strong>Step 2.</strong> Go to the IMPROVE section, click on Modules and then Module Catalog. </p>
+
+<p><strong>Step 3.</strong> Once you&#39;re in the Modules Catalog page, click the <code>Upload a module</code> button on the top right of the page</p>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-upload-admin.png"></p>
+
+<p><strong>Step 4.</strong> Download the <code>Revolut Gateway for Prestashop</code> plugin file by clicking <a href="https://assets.revolut.com/api-docs/merchant-api/files/revolutgatewayforprestashop17.zip">here</a></p>
+
+<p><strong>Step 5.</strong> Drop the plugin zip file that you just downloaded or select it using the file browser</p>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-upload-select_file.png"></p>
+
+<p><strong>Step 6.</strong> Wait for the installation to finish. It should not take long.</p>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-upload-in_progress.png">  </p>
+
+<p><strong>Step 7.</strong> Once finished, you&#39;re ready to go. Click the <code>Configure</code> button to set up the plugin</p>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-upload-finished.png"></p>
+
+<div class="feedback"></div>
+<h4 id='plugins-plugins-prestashop-1-7-configuration'><a href='#plugins-plugins-prestashop-1-7-configuration' class='header-link'><i></i></a>Configuration</h4>
+<p>To configure the <code>Revolut Gateway for Prestashop</code> plugin log in to the admin section of your Prestashop webstore. On the left panel, locate the IMPROVE section, click on Modules and then <strong>Module Manager</strong>. </p>
+
+<p>Scroll down to the <code>Other</code> section and you should find the plugin</p>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-configure-modules.png"></p>
+<h5 id='plugins-plugins-prestashop-1-7-plugins-plugins-prestashop-1-7-configuration-settings-explained'><a href='#plugins-plugins-prestashop-1-7-plugins-plugins-prestashop-1-7-configuration-settings-explained' class='header-link'><i></i></a>Settings explained</h5>
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-configure-settings.png"></p>
+
+<ul>
+<li>Enable plugin: Switch to Yes to enable the Revolut Payment Gateways on your Prestashop site</li>
+<li>Title: Enter the gateway title which will be displayed at the customer’s checkout page</li>
+<li>Description:  Enter the description which will be displayed at the customer’s checkout page</li>
+<li>Mode: Switch the payment gateway mode to Sandbox or Live.
+API Key (sandbox mode) or API Key (live mode): API Key from your Merchant settings on Revolut.</li>
+<li>Enable &quot;Authorize Only&quot; mode: Tick on this field if you want to enable the Authorize Only mode. If this field is left unchecked, the module will stay in Authorize and Capture mode
+
+<ul>
+<li>Authorize Only : check the card for validity but not charge the account yet until the order is approved and invoiced.</li>
+<li>Authorize And Capture :  charge the debit/credit card at the time of the order is placed
+Advanced Mode </li>
+</ul></li>
+</ul>
+
+<p><strong>Advanced mode</strong>
+* Customize your order status: You can customize your orders&#39; status for each possible action in the Revolut payment module. If set to <strong>Yes</strong>, the following two options will appear:
+  * Order Status for triggering the refund on Revolut: Default status : Refunded
+  * Order Status for triggering the capture on Revolut: Default status : Payment accepted</p>
+<h5 id='plugins-plugins-prestashop-1-7-plugins-plugins-prestashop-1-7-configuration-use-the-plugin-in-sandbox-mode'><a href='#plugins-plugins-prestashop-1-7-plugins-plugins-prestashop-1-7-configuration-use-the-plugin-in-sandbox-mode' class='header-link'><i></i></a>Use the plugin in Sandbox mode</h5>
+<p>To make sure that everything is working fine with the plugin and your store, you can use our Sandbox environment to make some test payments using the plugin:</p>
+
+<ul>
+<li><p>Have <code>Enable plugin?</code> option set to <code>YES</code></p></li>
+<li><p>Have the <code>Mode</code> option set to <code>SANDBOX</code></p></li>
+<li><p>Add your Sandbox API Key found in your Merchant account settings on the <a href="https://sandbox-business.revolut.com/merchant/api">Revolut Business Sandbox environment</a></p></li>
+<li><p>Click the <code>Save</code> button to confirm on the bottom left of this section to apply the changes</p></li>
+</ul>
+
+<p>For more details about testing the integration, check the section about <a href="#integration-guide-sandbox-environment">testing with the Sandbox environment</a></p>
+<h5 id='plugins-plugins-prestashop-1-7-plugins-plugins-prestashop-1-7-configuration-use-the-plugin-in-live-mode'><a href='#plugins-plugins-prestashop-1-7-plugins-plugins-prestashop-1-7-configuration-use-the-plugin-in-live-mode' class='header-link'><i></i></a>Use the plugin in Live mode</h5>
+<p>Once you are ready to start accepting payments in your store using the <code>Revolut Gateway for Prestashop</code> plugin, you can follow these steps:</p>
+
+<ul>
+<li><p>Have <code>Enable plugin?</code> option set to <code>YES</code></p></li>
+<li><p>Have the <code>Mode</code> option set to <code>LIVE</code></p></li>
+<li><p>Add your API Key found in your Merchant account settings on <a href="https://business.revolut.com/merchant/api">Revolut Business portal</a></p></li>
+<li><p>Click the <code>Save</code> button to confirm on the bottom left of this section to apply the changes</p></li>
+</ul>
+
+<div class="feedback"></div>
+
+<hr>
+<h3 id='plugins-magento-2'><a href='#plugins-magento-2' class='header-link'><i></i></a>Magento 2</h3><h4 id='plugins-plugins-magento-2-installation'><a href='#plugins-plugins-magento-2-installation' class='header-link'><i></i></a>Installation</h4>
+<p>Follow these steps to install the plugin manually:</p>
+
+<p><strong>Step 1.</strong> Download the <code>Revolut Gateway for Magento 2</code> plugin file by clicking [here](https://assets.revolut.com/api-docs/merchant-api/files/revolutgatewayformagento2.zip</p>
+
+<p><strong>Step 2.</strong> Browse your Magento files and locate the directory <code>/app/code</code> inside the <code>magento2</code> main folder. If your website is hosted in a cloud server, you can do this by using any FTP client or file browser. (You may not have the <code>/code</code> folder inside <code>/app</code>. If that is the case, simply create the folder)</p>
+
+<p><strong>Step 3.</strong> Unzip the zip file you downloaded in Step 1 and upload (or move) the folder that you get into the <code>/app/code</code> directory that you located (or created) in the previous step. The folder should be named <code>Revolut</code></p>
+
+<p><strong>Step 4.</strong> Open a terminal and make sure you are located in the <code>magento2</code> root folder. Once you have it, run the following commands:</p>
+<pre class="highlight r"><code><span class="w">   </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">setup</span><span class="o">:</span><span class="n">upgrade</span><span class="w">
+   </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">setup</span><span class="o">:</span><span class="n">di</span><span class="o">:</span><span class="n">compile</span><span class="w">
+   </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">setup</span><span class="o">:</span><span class="n">static</span><span class="o">-</span><span class="n">content</span><span class="o">:</span><span class="n">deploy</span><span class="w">
+</span></code></pre>
+<p>These should install the plugin for you and take care of everything.</p>
+
+<p><strong>Step 5.</strong> Once the 3 processes are finished, flush the Magento 2 cache by running:</p>
+<pre class="highlight r"><code><span class="w">   </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">cache</span><span class="o">:</span><span class="n">flush</span><span class="w">
+</span></code></pre>
+<p><strong>Step 6.</strong> Finally, go back to your store&#39;s admin panel and navigate to <strong>Stores &gt; Configuration &gt; Sales &gt; Payment Methods &gt; Revolut</strong>. If all steps have gone right you should be good to go!</p>
+<h5 id='plugins-plugins-magento-2-plugins-plugins-magento-2-installation-troubleshooting'><a href='#plugins-plugins-magento-2-plugins-plugins-magento-2-installation-troubleshooting' class='header-link'><i></i></a>Troubleshooting</h5>
+<ul>
+<li>If you have troubles running the commands in Step 4: 
+
+<ul>
+<li>Make sure that the PHP version your terminal is using is the same version that your Magento 2 store is using.</li>
+<li>Make sure that PHP can use enough memory by setting the <code>memory_limit</code> variable in the <code>/conf/php.ini</code> to more than 756MB</li>
+</ul></li>
+<li>The plugin is only compatible with Magento versions 2.1.x, 2.2.x or 2.3.x</li>
+</ul>
+
+<p>Note: For now, the only way to install the <code>Revolut Gateway for Magento 2</code> plugin is manually as described above. We will soon have available the ability to install directly from the marketplace.</p>
+<h4 id='plugins-plugins-magento-2-configuration'><a href='#plugins-plugins-magento-2-configuration' class='header-link'><i></i></a>Configuration</h4>
+<p>In this section you can find how to configure the plugin.</p>
+<h5 id='plugins-plugins-magento-2-plugins-plugins-magento-2-configuration-description'><a href='#plugins-plugins-magento-2-plugins-plugins-magento-2-configuration-description' class='header-link'><i></i></a>Description</h5>
+<p><strong>Required settings</strong></p>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-magento-configure-required.png"></p>
+
+<ul>
+<li>Select Mode: Switch the payment gateway mode to Sandbox or Live.</li>
+<li>API Key (sandbox mode) or API Key (live mode): API Key from your Merchant settings on Revolut.</li>
+</ul>
+
+<p><strong>Additional Settings</strong></p>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-magento-configure-additional.png"></p>
+
+<ul>
+<li>Enable : Choose Yes to enable Revolut Gateway</li>
+<li>Title : Enter the title of the payment method displayed on the checkout page</li>
+<li>Payment Action : Admin can select between Authorize Only and Authorize And Capture
+
+<ul>
+<li>Authorize Only : check the card for validity but not charge the account yet until the order is approved and invoiced.</li>
+<li>Authorize And Capture :  charge the debit/credit card at the time of the order is placed.</li>
+</ul></li>
+<li>Always hide postcode: Select No if you want to allow customers to fill in their postcode at card details field and vice versa. This field is set as No by default.
+Card Form when disable Show Postcode</li>
+<li>Payment from Applicable Countries: Admin can select All Allowed Countries or Specific Countries
+
+<ul>
+<li>All Allowed Countries: Enable all allowed countries to make payment.</li>
+<li>Specific Countries: Restrict some countries by unselecting them from the Payment from Specific Countries.</li>
+</ul></li>
+<li>New Order Status :  Set order status for new orders as Processing or Suspected Fraud
+
+<ul>
+<li>Processing: The payment is made successfully and an order invoice is issued.</li>
+<li>Suspected Fraud: No invoice is issued. </li>
+</ul></li>
+<li>Sort Order : The order of the payment method that will be displayed on the checkout page.</li>
+<li>Minimum Order Total : If the order value is less than this figure, the payment method will not be displayed on the checkout page.</li>
+<li>Maximum Order in Total: If the order value is bigger than this figure, the payment method will not be displayed on the checkout page.</li>
+</ul>
+<h5 id='plugins-plugins-magento-2-plugins-plugins-magento-2-configuration-use-the-plugin-in-sandbox-mode'><a href='#plugins-plugins-magento-2-plugins-plugins-magento-2-configuration-use-the-plugin-in-sandbox-mode' class='header-link'><i></i></a>Use the plugin in Sandbox mode</h5>
+<p>To make sure that everything is working fine with the plugin and your store, you can use our Sandbox environment to make some test payments using the plugin:</p>
+
+<ul>
+<li><p>Have <code>Enable</code> option set to <code>YES</code></p></li>
+<li><p>Have the <code>Select Mode</code> option set to <code>Sandbox</code></p></li>
+<li><p>Add your Sandbox API Key found in your Merchant account settings on the <a href="https://sandbox-business.revolut.com/merchant/api">Revolut Business Sandbox environment</a></p></li>
+<li><p>Click the <code>Save Config</code> button to confirm on the top right of the page to apply the changes</p></li>
+</ul>
+
+<p>For more details about testing the integration, check the section about <a href="#integration-guide-sandbox-environment">testing with the Sandbox environment</a></p>
+<h5 id='plugins-plugins-magento-2-plugins-plugins-magento-2-configuration-use-the-plugin-in-live-mode'><a href='#plugins-plugins-magento-2-plugins-plugins-magento-2-configuration-use-the-plugin-in-live-mode' class='header-link'><i></i></a>Use the plugin in Live mode</h5>
+<p>Once you are ready to start accepting payments in your store using the <code>Revolut Gateway for Prestashop</code> plugin, you can follow these steps:</p>
+
+<ul>
+<li><p>Have <code>Enable</code> option set to <code>YES</code></p></li>
+<li><p>Have the <code>Select Mode</code> option set to <code>Live</code></p></li>
+<li><p>Add your API Key found in your Merchant account settings on <a href="https://business.revolut.com/merchant/api">Revolut Business portal</a></p></li>
+<li><p>Click the <code>Save Config</code> button to confirm on the top right of the page to apply the changes</p></li>
 </ul>
 
 <div class="feedback"></div>
