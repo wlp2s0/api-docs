@@ -3297,24 +3297,49 @@ Default status : Payment accepted</li>
 
 <p><strong>Step 2.</strong> Locate the <code>/app/code</code> directory inside the root directory (you might need to create it)</p>
 
-<p><strong>Step 3.</strong> Extract the zipped file from Step 1 in the <code>/app/code</code> directory from Step 2</p>
-
-<p><code>unzip revolutgatewayformagento2.zip</code></p>
-
-<p><strong>Step 4.</strong> Open a terminal in the <code>magento2</code> root folder and run:</p>
-
-<p><code>php bin/magento setup:upgrade</code></p>
-
-<p><code>php bin/magento setup:di:compile</code></p>
-
-<p><code>php bin/magento setup:static-content:deploy</code></p>
-
+<p><strong>Step 3.</strong> Extract the zipped file (Step 1) in the <code>/app/code</code> directory (Step 2)</p>
+<blockquote>
+      <div><p>Terminal (Step 3)</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="w">   </span><span class="o">$</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="n">revolutgatewayformagento2.zip</span><span class="w">
+</span></code></pre>
+<p><strong>Step 4.</strong> Open a terminal in the <code>magento2</code> root folder and run the commands on the right</p>
+<blockquote>
+      <div><p>Terminal (Step 4)</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="w">   </span><span class="o">$</span><span class="w"> </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">setup</span><span class="o">:</span><span class="n">upgrade</span><span class="w">
+   </span><span class="o">&gt;</span><span class="w"> </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">setup</span><span class="o">:</span><span class="n">di</span><span class="o">:</span><span class="n">compile</span><span class="w">
+   </span><span class="o">&gt;</span><span class="w"> </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">setup</span><span class="o">:</span><span class="n">static</span><span class="o">-</span><span class="n">content</span><span class="o">:</span><span class="n">deploy</span><span class="w">
+</span></code></pre>
 <p>These should install the plugin for you and take care of everything.</p>
 
-<p><strong>Step 5.</strong> Once the 3 processes are finished, flush the Magento 2 cache by running:</p>
+<p><br>
+<br></p>
 
-<p><code>php bin/magento cache:flush</code></p>
-
+<p><strong>Step 5.</strong> Once the 3 processes are finished, flush the Magento 2 cache using the admin panel or the terminal command on the right</p>
+<blockquote>
+      <div><p>Terminal (Step 5)</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="w">  </span><span class="o">$</span><span class="w"> </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">cache</span><span class="o">:</span><span class="n">flush</span><span class="w">
+</span></code></pre>
 <p><strong>Step 6.</strong> Finally, go back to your store&#39;s admin panel and navigate to <strong>Stores &gt; Configuration &gt; Sales &gt; Payment Methods &gt; Revolut</strong>. If all steps went well, you should be good to go!</p>
 <h5 id='plugins-plugins-magento-2-plugins-plugins-magento-2-installation-troubleshooting'><a href='#plugins-plugins-magento-2-plugins-plugins-magento-2-installation-troubleshooting' class='header-link'><i></i></a>Troubleshooting</h5>
 <ul>
