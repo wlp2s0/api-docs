@@ -299,19 +299,19 @@
                 </ul>
             </li>
             <li>
-              <a href="#api" class="toc-h2 toc-link" data-title="API">API</a>
+              <a href="#api-reference" class="toc-h2 toc-link" data-title="API Reference">API Reference</a>
                 <ul class="toc-list-h3">
                     <li>
-                      <a href="#api-introduction" class="toc-h3 toc-link" data-title="Introduction">Introduction</a>
+                      <a href="#api-reference-introduction" class="toc-h3 toc-link" data-title="Introduction">Introduction</a>
                     </li>
                     <li>
-                      <a href="#api-orders" class="toc-h3 toc-link" data-title="Orders">Orders</a>
+                      <a href="#api-reference-orders" class="toc-h3 toc-link" data-title="Orders">Orders</a>
                     </li>
                     <li>
-                      <a href="#api-customers" class="toc-h3 toc-link" data-title="Customers">Customers</a>
+                      <a href="#api-reference-customers" class="toc-h3 toc-link" data-title="Customers">Customers</a>
                     </li>
                     <li>
-                      <a href="#api-webhooks" class="toc-h3 toc-link" data-title="Webhooks">Webhooks</a>
+                      <a href="#api-reference-webhooks" class="toc-h3 toc-link" data-title="Webhooks">Webhooks</a>
                     </li>
                 </ul>
             </li>
@@ -1425,7 +1425,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <p>See <a href="#integration-guide-integration-examples-card-field-integration-and-customisation">card field integration and customisation</a> example.</p>
 
 <div class="feedback"></div>
-<h2 id='api'><a href='#api' class='header-link'><i></i></a>API</h2><h3 id='api-introduction'><a href='#api-introduction' class='header-link'><i></i></a>Introduction</h3>
+<h2 id='api-reference'><a href='#api-reference' class='header-link'><i></i></a>API Reference</h2><h3 id='api-reference-introduction'><a href='#api-reference-introduction' class='header-link'><i></i></a>Introduction</h3>
 <p>The Orders API allows Revolut Business customers to accept online (Card Not Present) payments made with debit/credit cards, and, subsequently, to manage these transactions by means of capturing, canceling or refunding orders.</p>
 
 <p>All merchant requests should contain an authorisation header which includes the name of the merchant account Bearer and the <code>MERCHANT_API_KEY</code>.</p>
@@ -1449,7 +1449,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 --header 'content-type: application/json'
 </code></pre>
 <div class="feedback"></div>
-<h3 id='api-orders'><a href='#api-orders' class='header-link'><i></i></a>Orders</h3><h4 id='api-api-orders-order-object'><a href='#api-api-orders-order-object' class='header-link'><i></i></a>Order object</h4>
+<h3 id='api-reference-orders'><a href='#api-reference-orders' class='header-link'><i></i></a>Orders</h3><h4 id='api-reference-api-reference-orders-order-object'><a href='#api-reference-api-reference-orders-order-object' class='header-link'><i></i></a>Order object</h4>
 <p>An <code>Order</code> object helps you through the process of accepting payments from your customers.</p>
 
 <p>You are advised to create an <code>Order</code> for every customer session or order being created in your own system. An <code>Order</code> will then go through multiple status as it interfaces with the <a href="#revolutcheckout-js-reference">Revolut Checkout Widget</a> to collect payments from your customers. An <code>Order</code> can have at most one successful payment.</p>
@@ -1875,7 +1875,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>Text</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-orders-create-an-order'><a href='#api-api-orders-create-an-order' class='header-link'><i></i></a>Create an Order</h4>
+<h4 id='api-reference-api-reference-orders-create-an-order'><a href='#api-reference-api-reference-orders-create-an-order' class='header-link'><i></i></a>Create an Order</h4>
 <p>The following request creates an <code>Order</code> object.</p>
 <blockquote>
       <div><p>Request</p>
@@ -1974,7 +1974,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
         </select>
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">Order</span><span class="w"> </span><span class="n">object</span><span class="w">
-</span></code></pre><h4 id='api-api-orders-retrieve-an-order'><a href='#api-api-orders-retrieve-an-order' class='header-link'><i></i></a>Retrieve an Order</h4><blockquote>
+</span></code></pre><h4 id='api-reference-api-reference-orders-retrieve-an-order'><a href='#api-reference-api-reference-orders-retrieve-an-order' class='header-link'><i></i></a>Retrieve an Order</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2011,7 +2011,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <p><strong>Body Parameters</strong></p>
 
 <p><em>This request does not accept any body parameters</em></p>
-<h4 id='api-api-orders-capture-an-order'><a href='#api-api-orders-capture-an-order' class='header-link'><i></i></a>Capture an Order</h4><blockquote>
+<h4 id='api-reference-api-reference-orders-capture-an-order'><a href='#api-reference-api-reference-orders-capture-an-order' class='header-link'><i></i></a>Capture an Order</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2057,7 +2057,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <p><strong>Body Parameters</strong></p>
 
 <p><em>This request does not accept any body parameters</em></p>
-<h4 id='api-api-orders-confirm-an-order'><a href='#api-api-orders-confirm-an-order' class='header-link'><i></i></a>Confirm an order</h4>
+<h4 id='api-reference-api-reference-orders-confirm-an-order'><a href='#api-reference-api-reference-orders-confirm-an-order' class='header-link'><i></i></a>Confirm an order</h4>
 <p>When an order contains a <code>customer_id</code> associated to it and that <code>customer</code> has one or more valid payment methods to be used, you can use this request to attempt to authorise and authenticate a payment. The payment can be made using the default payment method saved in the customer’s profile or using a specific payment method as specified below.</p>
 
 <p><strong>Note</strong>: You can <strong><em>only</em></strong> use this if there is a <code>customer_id</code> associated to the order and if the <code>customer</code> has one or more payment methods that have been saved for merchant initiated payments. Check the <a href="#integration-guide">Integration guide</a> to learn more about how to save cards for this purpose when your customer is checking out.</p>
@@ -2124,7 +2124,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>The payment method that you are trying to use is saved for customer initiated payments only</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-orders-cancel-an-order'><a href='#api-api-orders-cancel-an-order' class='header-link'><i></i></a>Cancel an Order</h4><blockquote>
+<h4 id='api-reference-api-reference-orders-cancel-an-order'><a href='#api-reference-api-reference-orders-cancel-an-order' class='header-link'><i></i></a>Cancel an Order</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2161,7 +2161,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <p><strong>Body Parameters</strong></p>
 
 <p><em>This request does not accept any body parameters</em></p>
-<h4 id='api-api-orders-refund-an-order'><a href='#api-api-orders-refund-an-order' class='header-link'><i></i></a>Refund an Order</h4>
+<h4 id='api-reference-api-reference-orders-refund-an-order'><a href='#api-reference-api-reference-orders-refund-an-order' class='header-link'><i></i></a>Refund an Order</h4>
 <p>This request issues a refund for a completed <code>Order</code>. A refund can be either full or partial. Funds are always refunded to customer&#39;s original payment method.</p>
 <blockquote>
       <div><p>Request</p>
@@ -2346,7 +2346,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tbody></table>
 
 <div class="feedback"></div>
-<h3 id='api-customers'><a href='#api-customers' class='header-link'><i></i></a>Customers</h3>
+<h3 id='api-reference-customers'><a href='#api-reference-customers' class='header-link'><i></i></a>Customers</h3>
 <p><code>Customer</code> objects allow you to track multiple charges associated with the same customer. </p>
 
 <p>Customers will be created automatically upon creating an order if there is enough information and no Customer ID is passed. Aditionally, the API allows you to create, delete, and update your customers. You can retrieve individual customers as well as a list of all your customers.</p>
@@ -2354,7 +2354,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <p><code>Payment methods</code> reference a method of payment that can be used to make transactions. It allows the merchant to store the details for payment securely and to group transactions that come from the same payment method. These payment methods are unique per customer and per merchant. So if, for example, the same card is used for a transaction for two different customers, two payment methods objects will be created.</p>
 
 <p>PaymentMethod’s can’t be created explicitly, they are generated as part of a payment. To modify a customerPaymentMethod, change its parameters using a customer id and sending the appropriate parameters</p>
-<h4 id='api-api-customers-customer-object'><a href='#api-api-customers-customer-object' class='header-link'><i></i></a>Customer object</h4>
+<h4 id='api-reference-api-reference-customers-customer-object'><a href='#api-reference-api-reference-customers-customer-object' class='header-link'><i></i></a>Customer object</h4>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -2400,7 +2400,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tbody></table>
 
 <div class="feedback"></div>
-<h5 id='api-api-customers-api-api-customers-customer-object-the-paymentmethod-object'><a href='#api-api-customers-api-api-customers-customer-object-the-paymentmethod-object' class='header-link'><i></i></a>The paymentMethod Object</h5>
+<h5 id='api-reference-api-reference-customers-api-reference-api-reference-customers-customer-object-the-paymentmethod-object'><a href='#api-reference-api-reference-customers-api-reference-api-reference-customers-customer-object-the-paymentmethod-object' class='header-link'><i></i></a>The paymentMethod Object</h5>
 <p>Intrinsically linked to the <code>customer</code> object. Payment Methods are unique per <code>customer</code> and per merchant. Meaning that if the same card is used across two of your customers, two <code>paymentMethod</code> will exist with two separate IDs.</p>
 
 <table><thead>
@@ -2433,7 +2433,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tbody></table>
 
 <div class="feedback"></div>
-<h5 id='api-api-customers-api-api-customers-customer-object-the-card-object'><a href='#api-api-customers-api-api-customers-customer-object-the-card-object' class='header-link'><i></i></a>The card Object</h5>
+<h5 id='api-reference-api-reference-customers-api-reference-api-reference-customers-customer-object-the-card-object'><a href='#api-reference-api-reference-customers-api-reference-api-reference-customers-customer-object-the-card-object' class='header-link'><i></i></a>The card Object</h5>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -2474,9 +2474,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tbody></table>
 
 <div class="feedback"></div>
-<h4 id='api-api-customers-create-customer'><a href='#api-api-customers-create-customer' class='header-link'><i></i></a>Create customer</h4>
-<p>The following request creates a <code>customer</code> with the information sent in the body of the request.</p>
-<blockquote>
+<h4 id='api-reference-api-reference-customers-create-customer'><a href='#api-reference-api-reference-customers-create-customer' class='header-link'><i></i></a>Create customer</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2531,6 +2529,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-24T12:03:39.979397Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>The following request creates a <code>customer</code> with the information sent in the body of the request.</p>
+
 <p><strong>Body Parameters</strong></p>
 
 <table><thead>
@@ -2561,7 +2561,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>optional</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-customers-update-a-customer'><a href='#api-api-customers-update-a-customer' class='header-link'><i></i></a>Update a Customer</h4><blockquote>
+<h4 id='api-reference-api-reference-customers-update-a-customer'><a href='#api-reference-api-reference-customers-update-a-customer' class='header-link'><i></i></a>Update a Customer</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2641,9 +2641,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>optional</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-customers-retrieve-all-customers'><a href='#api-api-customers-retrieve-all-customers' class='header-link'><i></i></a>Retrieve all customers</h4>
-<p>Get a list of all your <code>customers</code>.</p>
-<blockquote>
+<h4 id='api-reference-api-reference-customers-retrieve-all-customers'><a href='#api-reference-api-reference-customers-retrieve-all-customers' class='header-link'><i></i></a>Retrieve all customers</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2702,12 +2700,12 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+<p>Get a list of all your <code>customers</code>.</p>
+
 <p><strong>Body Parameters</strong></p>
 
 <p><em>This request does not accept any body parameters</em></p>
-<h4 id='api-api-customers-retrieve-specific-customer'><a href='#api-api-customers-retrieve-specific-customer' class='header-link'><i></i></a>Retrieve specific customer</h4>
-<p>Get the information about a specific <code>customer</code>.</p>
-<blockquote>
+<h4 id='api-reference-api-reference-customers-retrieve-specific-customer'><a href='#api-reference-api-reference-customers-retrieve-specific-customer' class='header-link'><i></i></a>Retrieve specific customer</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2751,12 +2749,12 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
+<p>Get the information about a specific <code>customer</code>.</p>
+
 <p><strong>Body Parameters</strong></p>
 
 <p><em>This request does not accept any body parameters</em></p>
-<h4 id='api-api-customers-delete-specific-customer'><a href='#api-api-customers-delete-specific-customer' class='header-link'><i></i></a>Delete specific customer</h4>
-<p>Delete the profile of a specific <code>customer</code>.</p>
-<blockquote>
+<h4 id='api-reference-api-reference-customers-delete-specific-customer'><a href='#api-reference-api-reference-customers-delete-specific-customer' class='header-link'><i></i></a>Delete specific customer</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2790,14 +2788,14 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">Success</span><span class="w"> </span><span class="n">HTTP</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">body</span><span class="w">
 </span></code></pre>
+<p>Delete the profile of a specific <code>customer</code>.</p>
+
 <p><strong>Body Parameters</strong></p>
 
 <p><em>This request does not accept any body parameters</em></p>
 
 <div class="feedback"></div>
-<h4 id='api-api-customers-retrieve-all-customer-39-s-payment-methods'><a href='#api-api-customers-retrieve-all-customer-39-s-payment-methods' class='header-link'><i></i></a>Retrieve all customer&#39;s payment methods</h4>
-<p>You can use this request to retrieve all <code>payment_methods</code> for a given customer. This could be useful for example to show the customer what information is stored for them, or to try a different payment method in case the first payment method fails when charging a recurring transaction.</p>
-<blockquote>
+<h4 id='api-reference-api-reference-customers-retrieve-all-customer-39-s-payment-methods'><a href='#api-reference-api-reference-customers-retrieve-all-customer-39-s-payment-methods' class='header-link'><i></i></a>Retrieve all customer&#39;s payment methods</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2831,6 +2829,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">List</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">payment</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">objects</span><span class="w">
 </span></code></pre>
+<p>You can use this request to retrieve all <code>payment_methods</code> for a given customer. This could be useful for example to show the customer what information is stored for them, or to try a different payment method in case the first payment method fails when charging a recurring transaction.</p>
+
 <p><strong>Body Parameters</strong></p>
 
 <table><thead>
@@ -2846,7 +2846,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>optional (defaults to <code>FALSE</code>)</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-customers-retrieve-specific-customer-39-s-payment-method'><a href='#api-api-customers-retrieve-specific-customer-39-s-payment-method' class='header-link'><i></i></a>Retrieve specific customer&#39;s payment method</h4><blockquote>
+<h4 id='api-reference-api-reference-customers-retrieve-specific-customer-39-s-payment-method'><a href='#api-reference-api-reference-customers-retrieve-specific-customer-39-s-payment-method' class='header-link'><i></i></a>Retrieve specific customer&#39;s payment method</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2885,9 +2885,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <p><strong>Body Parameters</strong></p>
 
 <p><em>This request does not accept any body parameters</em></p>
-<h4 id='api-api-customers-update-what-a-specific-payment-method-is-saved-for'><a href='#api-api-customers-update-what-a-specific-payment-method-is-saved-for' class='header-link'><i></i></a>Update what a specific payment method is saved for</h4>
-<p>Use this request to indicate that a payment method can&#39;t be used for merchant initiated payments anymore and can only be used for customer initiated payments</p>
-<blockquote>
+<h4 id='api-reference-api-reference-customers-update-what-a-specific-payment-method-is-saved-for'><a href='#api-reference-api-reference-customers-update-what-a-specific-payment-method-is-saved-for' class='header-link'><i></i></a>Update what a specific payment method is saved for</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2928,6 +2926,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
       </div>
     </blockquote><pre class="highlight r"><code><span class="n">Updated</span><span class="w"> </span><span class="n">payment</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">object</span><span class="w">
 </span></code></pre>
+<p>Use this request to indicate that a payment method can&#39;t be used for merchant initiated payments anymore and can only be used for customer initiated payments</p>
+
 <p><strong>Body Parameters</strong></p>
 
 <table><thead>
@@ -2945,7 +2945,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>required</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-customers-delete-specific-customer-39-s-payment-method'><a href='#api-api-customers-delete-specific-customer-39-s-payment-method' class='header-link'><i></i></a>Delete specific customer&#39;s payment method</h4><blockquote>
+<h4 id='api-reference-api-reference-customers-delete-specific-customer-39-s-payment-method'><a href='#api-reference-api-reference-customers-delete-specific-customer-39-s-payment-method' class='header-link'><i></i></a>Delete specific customer&#39;s payment method</h4><blockquote>
       <div><p>Request</p>
 </div>
       <div class='env-selector'>
@@ -2986,11 +2986,11 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <p><em>This request does not accept any body parameters</em></p>
 
 <div class="feedback"></div>
-<h3 id='api-webhooks'><a href='#api-webhooks' class='header-link'><i></i></a>Webhooks</h3>
+<h3 id='api-reference-webhooks'><a href='#api-reference-webhooks' class='header-link'><i></i></a>Webhooks</h3>
 <p>There are multiple events happening to Merchant Accounts. The majority of these occur synchronously - this means they arrive instantly and an immediate result is available. For example, an <code>Order</code> creation request is a synchronous request.</p>
 
 <p>However, there are some events that run asynchronously and, therefore, require webhooks. Merchant API supports webhooks for order completion events.</p>
-<h4 id='api-api-webhooks-set-webhook-url'><a href='#api-api-webhooks-set-webhook-url' class='header-link'><i></i></a>Set webhook url</h4>
+<h4 id='api-reference-api-reference-webhooks-set-webhook-url'><a href='#api-reference-api-reference-webhooks-set-webhook-url' class='header-link'><i></i></a>Set webhook url</h4>
 <p>This request can be used by a merchant to subscribe for webhooks from Revolut Merchant API. </p>
 <blockquote>
       <div><p>Request</p>
@@ -3048,7 +3048,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>URL</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-webhooks-retrieve-webhooks'><a href='#api-api-webhooks-retrieve-webhooks' class='header-link'><i></i></a>Retrieve webhooks</h4>
+<h4 id='api-reference-api-reference-webhooks-retrieve-webhooks'><a href='#api-reference-api-reference-webhooks-retrieve-webhooks' class='header-link'><i></i></a>Retrieve webhooks</h4>
 <p>This request is used to get the list of webhooks you are currently subscribed to.</p>
 <blockquote>
       <div><p>Request</p>
@@ -3090,7 +3090,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>URL</td>
 </tr>
 </tbody></table>
-<h4 id='api-api-webhooks-webhook-request'><a href='#api-api-webhooks-webhook-request' class='header-link'><i></i></a>Webhook request</h4>
+<h4 id='api-reference-api-reference-webhooks-webhook-request'><a href='#api-reference-api-reference-webhooks-webhook-request' class='header-link'><i></i></a>Webhook request</h4>
 <p>Revolut will POST webhook messages to the URLs you have set webhooks for. Here is an example of an order completion event. </p>
 <blockquote>
       <div><p>Request</p>
