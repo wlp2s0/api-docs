@@ -3138,7 +3138,21 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <p>Make sure that you apply for a <a href="https://business.revolut.com/merchant/accounts">Merchant Account</a> first and get your application approved by our team. Once it is approved, you can start installing and configuring any of our Revolut Gateway plugins available.</p>
 <h3 id='plugins-woocommerce'><a href='#plugins-woocommerce' class='header-link'><i></i></a>WooCommerce</h3>
 <p><code>Revolut Gateway for WooCommerce</code> plugin lets you accept online card payments via your WooCommerce e-store - in an easy and hassle-free fashion. The following guide will help you install and configure it.</p>
-<h4 id='plugins-plugins-woocommerce-installation'><a href='#plugins-plugins-woocommerce-installation' class='header-link'><i></i></a>Installation</h4>
+<h4 id='plugins-plugins-woocommerce-quick-installation'><a href='#plugins-plugins-woocommerce-quick-installation' class='header-link'><i></i></a>Quick installation</h4>
+<p>Follow these steps to install the plugin directly from your admin section:</p>
+
+<p><strong>Step 1.</strong> Log in to the admin section of your WooCommerce webstore</p>
+
+<p><strong>Step 2.</strong> On the menu, on the left hand side of the page, go to the <code>Plugins</code> section</p>
+
+<p><strong>Step 3.</strong> At the very top of the page, click the <code>Add New</code> button, next to the plugins page title</p>
+
+<p><strong>Step 4.</strong> Locate the <code>Search plugins...</code> field at the top-right of this page and search for <strong>Revolut Gateway for WooCommerce</strong>. You should see the plugin appear as the top result. (Make sure it says <em>By Revolut</em>)</p>
+
+<p><strong>Step 5.</strong> Click the <code>Install Now</code> button and then click the <code>Activate</code> button once the installation is done</p>
+
+<p><strong>Step 6.</strong> Congrats! You have just activated the Revolut Gateway for WooCommerce plugin. You&#39;ll be automatically redirected to the page with all the plugins you have installed</p>
+<h4 id='plugins-plugins-woocommerce-manual-installation'><a href='#plugins-plugins-woocommerce-manual-installation' class='header-link'><i></i></a>Manual installation</h4>
 <p><strong>Step 1.</strong> Log in to the admin section of your WooCommerce webstore.</p>
 
 <p><strong>Step 2.</strong> On the menu on the left hand side of the page, go the the <code>Plugins</code> section.</p>
@@ -3155,7 +3169,9 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 
 <p>Click on <code>Upload Plugin</code> button next to the <code>Add Plugins</code> page title.</p>
 
-<p><strong>Step 5.</strong> Download the following <a href="https://assets.revolut.com/api-docs/merchant-api/files/revolutgatewayforwoocommerce.zip">Revolut Gateway for WooCommerce .zip file</a> and upload it on this page:</p>
+<p><strong>Step 5.</strong> Download the latest version of the plugin from the <a href="https://wordpress.org/plugins/revolut-gateway-for-woocommerce/">Wordpress Official marketplace</a></p>
+
+<p><strong>Step 6.</strong> Upload the .zip file on this page:</p>
 
 <p><img width="1396" src="https://user-images.githubusercontent.com/60622352/77462365-f3a33600-6dfb-11ea-98dc-27adc85fc28e.png"></p>
 
@@ -3167,7 +3183,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 
 <p><img width="1394" src="https://user-images.githubusercontent.com/60622352/77464397-00755900-6dff-11ea-8138-e4d9c3eb5032.png"></p>
 <h4 id='plugins-plugins-woocommerce-configuration'><a href='#plugins-plugins-woocommerce-configuration' class='header-link'><i></i></a>Configuration</h4>
-<p><strong>Step 1.</strong> Testing the WooCommerce Revolut Gateway plugin:</p>
+<p><strong>Testing the WooCommerce Revolut Gateway plugin:</strong></p>
 
 <p>In the admin settings of your WooCommerce shop, under <code>WooCommerce Revolut Gateway</code> plugin, click <code>Settings</code>. You will land on the following page:</p>
 
@@ -3183,7 +3199,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <li><p>Start testing payments using our <a href="#integration-guide-test-with-dummy-cards">test cards</a></p></li>
 </ul>
 
-<p><strong>Step 2.</strong> Using WooCommerce Revolut Gateway plugin in production environment:</p>
+<p><strong>Using WooCommerce Revolut Gateway plugin in production environment:</strong></p>
 
 <p>Go back to the admin settings of your WooCommerce shop and under <code>WooCommerce Revolut Gateway</code> plugin click <code>Settings</code>.</p>
 
@@ -3257,7 +3273,27 @@ Default status : Refunded</li>
 Default status : Payment accepted</li>
 </ul></li>
 </ul>
-<h5 id='plugins-plugins-prestashop-1-7-plugins-plugins-prestashop-1-7-configuration-use-the-plugin-in-sandbox-mode'><a href='#plugins-plugins-prestashop-1-7-plugins-plugins-prestashop-1-7-configuration-use-the-plugin-in-sandbox-mode' class='header-link'><i></i></a>Use the plugin in Sandbox mode</h5>
+<h4 id='plugins-plugins-prestashop-1-7-operations'><a href='#plugins-plugins-prestashop-1-7-operations' class='header-link'><i></i></a>Operations</h4>
+<p><strong>Capture an order from Prestashop&#39;s admin panel</strong></p>
+
+<p>The integration of this plugin allows you to handle the capture of the orders from Prestashop&#39;s admin panel. To do so, just follow these simple steps:</p>
+
+<ol>
+<li>Ensure you have the plugin set in &quot;Authorize Only&quot; mode</li>
+<li>When a customer places an order, the status of the order in Prestashop will be &quot;Awaiting check payment&quot; by default</li>
+<li>To capture the funds for a specific order, change the status to &quot;Payment accepted&quot;</li>
+</ol>
+
+<p>You can change which status captures the funds by modifying the settings as explained above in the <code>Advanced mode</code> section of the settings.</p>
+
+<p><strong>Refund an order from Prestashop&#39;s admin panel</strong></p>
+
+<p>After the funds of an order have been capture (either with the process detailed above or because the plugin was not in &quot;Authorize Only&quot; mode), you can refund the amount of an order using Prestashop&#39;s admin panel. To do so, change the status of the order to &quot;Refunded&quot;.</p>
+
+<p>You can change which status refunds the order by modifying the settings as explained above in the <code>Advanced mode</code> section of the settings.</p>
+
+<p><strong>Use the plugin in Sandbox mode</strong></p>
+
 <p>To make sure that everything is working fine with the plugin and your store, you can use our Sandbox environment to make some test payments using the plugin:</p>
 
 <ul>
@@ -3268,7 +3304,9 @@ Default status : Payment accepted</li>
 </ul>
 
 <p>For more details about testing the integration, check the section about <a href="#integration-guide-sandbox-environment">testing with the Sandbox environment</a></p>
-<h5 id='plugins-plugins-prestashop-1-7-plugins-plugins-prestashop-1-7-configuration-use-the-plugin-in-live-mode'><a href='#plugins-plugins-prestashop-1-7-plugins-plugins-prestashop-1-7-configuration-use-the-plugin-in-live-mode' class='header-link'><i></i></a>Use the plugin in Live mode</h5>
+
+<p><strong>Use the plugin in Live mode</strong></p>
+
 <p>Once you are ready to start accepting payments in your store using the <code>Revolut Gateway for Prestashop</code> plugin, you can follow these steps:</p>
 
 <ul>
@@ -3380,7 +3418,32 @@ Card Form when disable Show Postcode</li>
 <li><strong>Minimum Order Total</strong> : If the order value is less than this figure, the payment method will not be displayed on the checkout page.</li>
 <li><strong>Maximum Order in Total</strong>: If the order value is bigger than this figure, the payment method will not be displayed on the checkout page.</li>
 </ul>
-<h5 id='plugins-plugins-magento-2-plugins-plugins-magento-2-configuration-use-the-plugin-in-sandbox-mode'><a href='#plugins-plugins-magento-2-plugins-plugins-magento-2-configuration-use-the-plugin-in-sandbox-mode' class='header-link'><i></i></a>Use the plugin in Sandbox mode</h5>
+<h4 id='plugins-plugins-magento-2-operations'><a href='#plugins-plugins-magento-2-operations' class='header-link'><i></i></a>Operations</h4>
+<p><strong>Capture an order from Magento&#39;s admin panel</strong></p>
+
+<p>The integration of this plugin allows you to handle the capture of the orders from Magento&#39;s admin panel. To do so, just follow these simple steps:</p>
+
+<ol>
+<li>Ensure you have the plugin set the <code>Payment Action</code> setting to &quot;Authorize Only&quot;.</li>
+<li>When a customer places an order, the status of the order in Magento will be &quot;Processing&quot; by default</li>
+<li>Select the order that has been placed and click on <code>Invoice</code> on the top right of the order details view</li>
+<li>Scroll to the bottom and, under the <strong>Invoice totals</strong> section, make sure you have selected the <strong>Capture online</strong> option</li>
+<li>Click the <code>Submit Invoice</code> button to capture the funds for this order</li>
+</ol>
+
+<p><strong>Refund an order from Magento&#39;s admin panel</strong></p>
+
+<p>You can refund the amount of an order totally or partially using Magento&#39;s admin panel following these steps:</p>
+
+<ol>
+<li>Once the amount of an order has been captured and an invoice has been generated, select the invoice of the order you would like to refund</li>
+<li>In the top right corner, select <code>Credit Memo</code></li>
+<li>Scroll down to the <strong>Items to Refund</strong> section and select what items you would like to refund</li>
+<li>Scroll further down and click the <code>Refund</code> button when you&#39;re ready to process the refund</li>
+</ol>
+
+<p><strong>Use the plugin in Sandbox mode</strong></p>
+
 <p>To make sure that everything is working fine with the plugin and your store, you can use our Sandbox environment to make some test payments using the plugin:</p>
 
 <ul>
@@ -3391,7 +3454,9 @@ Card Form when disable Show Postcode</li>
 </ul>
 
 <p>For more details about testing the integration, check the section about <a href="#integration-guide-sandbox-environment">testing with the Sandbox environment</a></p>
-<h5 id='plugins-plugins-magento-2-plugins-plugins-magento-2-configuration-use-the-plugin-in-live-mode'><a href='#plugins-plugins-magento-2-plugins-plugins-magento-2-configuration-use-the-plugin-in-live-mode' class='header-link'><i></i></a>Use the plugin in Live mode</h5>
+
+<p><strong>Use the plugin in Live mode</strong></p>
+
 <p>Once you are ready to start accepting payments in your store using the <code>Revolut Gateway for Prestashop</code> plugin, you can follow these steps:</p>
 
 <ul>
