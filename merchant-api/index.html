@@ -276,6 +276,12 @@
                     <li>
                       <a href="#integration-guide-integration-examples" class="toc-h3 toc-link" data-title="Integration examples">Integration examples</a>
                     </li>
+                    <li>
+                      <a href="#integration-guide-saving-card-details-and-creating-customers" class="toc-h3 toc-link" data-title="Saving card details and creating customers">Saving card details and creating customers</a>
+                    </li>
+                    <li>
+                      <a href="#integration-guide-charging-a-customer-39-s-saved-payment-method" class="toc-h3 toc-link" data-title="Charging a customer's saved payment method">Charging a customer's saved payment method</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -609,7 +615,7 @@ Authorization: Bearer &lt;your_API_token&gt;
 <h3 id='integration-guide-sandbox-environment'><a href='#integration-guide-sandbox-environment' class='header-link'><i></i></a>Sandbox environment</h3>
 <p>If you would like to test your Merchant Accounts integration before going into production, we have provided <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a> so that you can do this.</p>
 
-<p>Please create a dummy account on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>. Once you have it, please do the following 2 steps:</p>
+<p>Please <strong>create a dummy account</strong> on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>. Once you have it, please do the following 2 steps:</p>
 
 <p><strong>1.</strong> Adjust the endpoints addresses by replacing <code>https://merchant.revolut.com/</code> with <code>https://sandbox-merchant.revolut.com/</code> and by using the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> in the headers of requests from your back-end. For example:</p>
 <blockquote>
@@ -726,7 +732,36 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </div>
 
 <p>Please note that if you fork the example - you will need to create a new <a href="https://sandbox-business.revolut.com/">Revolut Business Sandbox</a> account and set the <a href="https://sandbox-business.revolut.com/merchant/api">API key</a> as <code>REVOLUT_API_KEY</code> inside <a href="https://codesandbox.io/docs/secrets#adding-secrets">CodeSandbox secrets</a>.</p>
-<h4 id='integration-guide-integration-guide-integration-examples-more-examples-are-coming-soon'><a href='#integration-guide-integration-guide-integration-examples-more-examples-are-coming-soon' class='header-link'><i></i></a>More examples are coming soon.</h4>
+<h3 id='integration-guide-saving-card-details-and-creating-customers'><a href='#integration-guide-saving-card-details-and-creating-customers' class='header-link'><i></i></a>Saving card details and creating customers</h3>
+<p>You can save the card details of your customers to be able to charge them later.</p>
+<h4 id='integration-guide-integration-guide-saving-card-details-and-creating-customers-method-1-customer-is-created-first-and-then-attached-to-order'><a href='#integration-guide-integration-guide-saving-card-details-and-creating-customers-method-1-customer-is-created-first-and-then-attached-to-order' class='header-link'><i></i></a>Method 1: Customer is created first and then attached to order</h4>
+<ol>
+<li><a href="#api-reference-api-reference-customers-create-customer">Create a customer</a></li>
+<li><a href="#api-reference-api-reference-orders-create-an-order">Create an order</a> with the amount, currency and customer_id parameter in the body of the request </li>
+<li>Make payment via the <a href="#revolutcheckout-js-reference">widget</a> with <code>options.savePaymentMethodFor</code> = <code>customer</code> or <code>merchant</code> </li>
+<li>Payment method will be created and attached to customer</li>
+</ol>
+<h4 id='integration-guide-integration-guide-saving-card-details-and-creating-customers-method-2-customer-is-created-as-part-of-order-completion'><a href='#integration-guide-integration-guide-saving-card-details-and-creating-customers-method-2-customer-is-created-as-part-of-order-completion' class='header-link'><i></i></a>Method 2: Customer is created as part of order completion</h4>
+<ol>
+<li><a href="#api-reference-api-reference-orders-create-an-order">Create an order</a> with amount and currency</li>
+<li>Make payment via the <a href="#revolutcheckout-js-reference">widget</a> with <code>options.savePaymentMethodFor</code> = <code>customer</code> or <code>merchant</code> </li>
+<li>Either order or widget should have <code>customer_email</code> (otherwise there will be an error returned) </li>
+<li>If payment is successful, <a href="#api-reference-api-reference-customers-customer-object">Customer</a> is created with email and other details </li>
+<li><a href="#api-reference-api-reference-customers-customer-object">Payment method</a> is associated to this customer</li>
+<li><code>customer_id</code> will be attached to order automatically</li>
+</ol>
+<h3 id='integration-guide-charging-a-customer-39-s-saved-payment-method'><a href='#integration-guide-charging-a-customer-39-s-saved-payment-method' class='header-link'><i></i></a>Charging a customer&#39;s saved payment method</h3>
+<p>Once you&#39;ve created a customer and successfully saved a payment method, you can follow these steps to charge them without being present in the checkout page (for example, for subscription services) or with them being present on the checkout page (for example, for 1-click buy flows)</p>
+
+<p><strong>Steps</strong></p>
+
+<ol>
+<li><a href="#api-reference-api-reference-orders-create-an-order">Create an order</a> with the amount, currency and customer_id parameter in the body of the request </li>
+<li><a href="#api-reference-api-reference-orders-confirm-an-order">Confirm the order</a> to take the order amount from this customer</li>
+</ol>
+
+<p><strong>Note</strong>: <em>If <code>payment_method_id</code> is not specified in the body of the order confirmation request, payment will be taken from the payment method that was last saved for this customer.</em></p>
+<h4 id='integration-guide-integration-guide-charging-a-customer-39-s-saved-payment-method-more-examples-are-coming-soon'><a href='#integration-guide-integration-guide-charging-a-customer-39-s-saved-payment-method-more-examples-are-coming-soon' class='header-link'><i></i></a>More examples are coming soon.</h4>
 <div class="feedback"></div>
 <h2 id='revolutcheckout-js-reference'><a href='#revolutcheckout-js-reference' class='header-link'><i></i></a>RevolutCheckout.js reference</h2><h3 id='revolutcheckout-js-reference-initialize-the-widget'><a href='#revolutcheckout-js-reference-initialize-the-widget' class='header-link'><i></i></a>Initialize the widget</h3>
 <p>You have 2 options to add RevolutCheckout.js to your website as:</p>
@@ -2991,7 +3026,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 
 <p>However, there are some events that run asynchronously and, therefore, require webhooks. Merchant API supports webhooks for order completion events.</p>
 <h4 id='api-reference-api-reference-webhooks-set-webhook-url'><a href='#api-reference-api-reference-webhooks-set-webhook-url' class='header-link'><i></i></a>Set webhook url</h4>
-<p>This request can be used by a merchant to subscribe for webhooks from Revolut Merchant API. </p>
+<p>This request can be used by a merchant to subscribe for webhooks from Revolut Merchant API. Webhooks will push information to the specified URL</p>
 <blockquote>
       <div><p>Request</p>
 </div>
@@ -3001,28 +3036,16 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight r"><code><span class="n">POST</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">webhooks</span><span class="w">
+    </blockquote><pre class="highlight plaintext"><code>POST /api/1.0/webhooks
 
-</span><span class="p">{</span><span class="w">
-  </span><span class="s2">"url"</span><span class="o">:</span><span class="w"> </span><span class="s2">"http://your-company.com/webhook"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-<th>Format</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>url</code></td>
-<td>valid URL to set, <code>null</code> to revoke</td>
-<td>URL</td>
-</tr>
-</tbody></table>
-
-<div></div>
-<blockquote>
+{
+  "url": "http://your-company.com/webhook",
+  "events": [
+    "ORDER_COMPLETED",
+    "ORDER_AUTHORISED"
+  ]
+}
+</code></pre><blockquote>
       <div><p>Response</p>
 </div>
       <div class='env-selector'>
@@ -3031,10 +3054,19 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://your-company.com/webhook"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d3e22dd1-ad0c-49aa-b99b-1f047abf8b82"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://your-company.com/webhook"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"ORDER_COMPLETED"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ORDER_AUTHORISED"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre>
+<p><strong>Request</strong></p>
+
 <table><thead>
 <tr>
 <th>Field</th>
@@ -3047,7 +3079,40 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>valid URL if set, else <code>null</code></td>
 <td>URL</td>
 </tr>
+<tr>
+<td><code>events</code></td>
+<td>list of events that the webhook is configured for <br><br> Possible values are <code>ORDER_COMPLETED</code> and/or <code>ORDER_AUTHORISED</code></td>
+<td>list</td>
+</tr>
 </tbody></table>
+
+<p><strong>Response</strong></p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>id of the webhook</td>
+<td>string</td>
+</tr>
+<tr>
+<td><code>url</code></td>
+<td>valid URL if set, else <code>null</code></td>
+<td>URL</td>
+</tr>
+<tr>
+<td><code>events</code></td>
+<td>list of events that the webhook is configured for <br><br> Possible values are <code>ORDER_COMPLETED</code> and/or <code>ORDER_AUTHORISED</code></td>
+<td>list</td>
+</tr>
+</tbody></table>
+
+<div></div>
 <h4 id='api-reference-api-reference-webhooks-retrieve-webhooks'><a href='#api-reference-api-reference-webhooks-retrieve-webhooks' class='header-link'><i></i></a>Retrieve webhooks</h4>
 <p>This request is used to get the list of webhooks you are currently subscribed to.</p>
 <blockquote>
@@ -3073,7 +3138,12 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://your-company.com/webhook"</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d3e22dd1-ad0c-49aa-b99b-1f047abf8b82"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://your-company.com/webhook"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"ORDER_COMPLETED"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ORDER_AUTHORISED"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -3085,9 +3155,19 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 </thead><tbody>
 <tr>
+<td><code>id</code></td>
+<td>id of the webhook</td>
+<td>string</td>
+</tr>
+<tr>
 <td><code>url</code></td>
 <td>valid URL if set, else <code>null</code></td>
 <td>URL</td>
+</tr>
+<tr>
+<td><code>events</code></td>
+<td>list of events that the webhook is configured for <br><br> Possible values are <code>ORDER_COMPLETED</code> and/or <code>ORDER_AUTHORISED</code></td>
+<td>list</td>
 </tr>
 </tbody></table>
 <h4 id='api-reference-api-reference-webhooks-webhook-request'><a href='#api-reference-api-reference-webhooks-webhook-request' class='header-link'><i></i></a>Webhook request</h4>
@@ -3126,7 +3206,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </thead><tbody>
 <tr>
 <td><code>order_id</code></td>
-<td>Order ID of a completed order</td>
+<td>Order ID of the order that has changed status</td>
 <td>UUID</td>
 </tr>
 </tbody></table>
@@ -3194,6 +3274,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <ul>
 <li><p>Tick the <code>Enable Revolut</code> option</p></li>
 <li><p>Tick the <code>Revolut Sandbox</code> option</p></li>
+<li><p>If you don&#39;t have a <a href="https://sandbox-business.revolut.com">Sandbox account</a>, create one</p></li>
 <li><p>Add your Sandbox API Key found in your Merchant account settings on the <a href="https://sandbox-business.revolut.com/merchant/api">Revolut Business Sandbox environment</a></p></li>
 <li><p>Click on the <code>Save changes</code> button to confirm the changes</p></li>
 <li><p>Start testing payments using our <a href="#integration-guide-test-with-dummy-cards">test cards</a></p></li>
@@ -3299,6 +3380,7 @@ Default status : Payment accepted</li>
 <ul>
 <li><p>Have <code>Enable plugin?</code> option set to <code>YES</code></p></li>
 <li><p>Have the <code>Mode</code> option set to <code>SANDBOX</code></p></li>
+<li><p>If you don&#39;t have a <a href="https://sandbox-business.revolut.com">Sandbox account</a>, create one</p></li>
 <li><p>Add your Sandbox API Key found in your Merchant account settings on the <a href="https://sandbox-business.revolut.com/merchant/api">Revolut Business Sandbox environment</a></p></li>
 <li><p>Click the <code>Save</code> button to confirm on the bottom left of this section to apply the changes</p></li>
 </ul>
@@ -3449,6 +3531,7 @@ Card Form when disable Show Postcode</li>
 <ul>
 <li><p>Have <code>Enable</code> option set to <code>YES</code></p></li>
 <li><p>Have the <code>Select Mode</code> option set to <code>Sandbox</code></p></li>
+<li><p>If you don&#39;t have a <a href="https://sandbox-business.revolut.com">Sandbox account</a>, create one</p></li>
 <li><p>Add your Sandbox API Key found in your Merchant account settings on the <a href="https://sandbox-business.revolut.com/merchant/api">Revolut Business Sandbox environment</a></p></li>
 <li><p>Click the <code>Save Config</code> button to confirm on the top right of the page to apply the changes</p></li>
 </ul>
