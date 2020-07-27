@@ -733,15 +733,15 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 
 <p>Please note that if you fork the example - you will need to create a new <a href="https://sandbox-business.revolut.com/">Revolut Business Sandbox</a> account and set the <a href="https://sandbox-business.revolut.com/merchant/api">API key</a> as <code>REVOLUT_API_KEY</code> inside <a href="https://codesandbox.io/docs/secrets#adding-secrets">CodeSandbox secrets</a>.</p>
 <h3 id='integration-guide-saving-card-details-and-creating-customers'><a href='#integration-guide-saving-card-details-and-creating-customers' class='header-link'><i></i></a>Saving card details and creating customers</h3>
-<p>You can save the card details of your customers to be able to charge them later.</p>
-<h4 id='integration-guide-integration-guide-saving-card-details-and-creating-customers-method-1-customer-is-created-first-and-then-attached-to-order'><a href='#integration-guide-integration-guide-saving-card-details-and-creating-customers-method-1-customer-is-created-first-and-then-attached-to-order' class='header-link'><i></i></a>Method 1: Customer is created first and then attached to order</h4>
+<p>You can save the card details of your customers to be able to charge them later. There are two different processes that will allow you to do this:</p>
+<h4 id='integration-guide-integration-guide-saving-card-details-and-creating-customers-customer-is-created-first-and-then-attached-to-order'><a href='#integration-guide-integration-guide-saving-card-details-and-creating-customers-customer-is-created-first-and-then-attached-to-order' class='header-link'><i></i></a>Customer is created first and then attached to order</h4>
 <ol>
 <li><a href="#api-reference-api-reference-customers-create-customer">Create a customer</a></li>
 <li><a href="#api-reference-api-reference-orders-create-an-order">Create an order</a> with the amount, currency and customer_id parameter in the body of the request </li>
 <li>Make payment via the <a href="#revolutcheckout-js-reference">widget</a> with <code>options.savePaymentMethodFor</code> = <code>customer</code> or <code>merchant</code> </li>
 <li>Payment method will be created and attached to customer</li>
 </ol>
-<h4 id='integration-guide-integration-guide-saving-card-details-and-creating-customers-method-2-customer-is-created-as-part-of-order-completion'><a href='#integration-guide-integration-guide-saving-card-details-and-creating-customers-method-2-customer-is-created-as-part-of-order-completion' class='header-link'><i></i></a>Method 2: Customer is created as part of order completion</h4>
+<h4 id='integration-guide-integration-guide-saving-card-details-and-creating-customers-customer-is-created-as-part-of-order-completion'><a href='#integration-guide-integration-guide-saving-card-details-and-creating-customers-customer-is-created-as-part-of-order-completion' class='header-link'><i></i></a>Customer is created as part of order completion</h4>
 <ol>
 <li><a href="#api-reference-api-reference-orders-create-an-order">Create an order</a> with amount and currency</li>
 <li>Make payment via the <a href="#revolutcheckout-js-reference">widget</a> with <code>options.savePaymentMethodFor</code> = <code>customer</code> or <code>merchant</code> </li>
@@ -751,9 +751,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <li><code>customer_id</code> will be attached to order automatically</li>
 </ol>
 <h3 id='integration-guide-charging-a-customer-39-s-saved-payment-method'><a href='#integration-guide-charging-a-customer-39-s-saved-payment-method' class='header-link'><i></i></a>Charging a customer&#39;s saved payment method</h3>
-<p>Once you&#39;ve created a customer and successfully saved a payment method, you can follow these steps to charge them without being present in the checkout page (for example, for subscription services) or with them being present on the checkout page (for example, for 1-click buy flows)</p>
-
-<p><strong>Steps</strong></p>
+<p>Once you&#39;ve created a customer and successfully saved a payment method, you can follow these steps to charge them without being present in the checkout page (for example, for subscription services) or with them being present on the checkout page (for example, for 1-click buy flows). To do so, just follow these two simple steps:</p>
 
 <ol>
 <li><a href="#api-reference-api-reference-orders-create-an-order">Create an order</a> with the amount, currency and customer_id parameter in the body of the request </li>
@@ -761,7 +759,9 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </ol>
 
 <p><strong>Note</strong>: <em>If <code>payment_method_id</code> is not specified in the body of the order confirmation request, payment will be taken from the payment method that was last saved for this customer.</em></p>
-<h4 id='integration-guide-integration-guide-charging-a-customer-39-s-saved-payment-method-more-examples-are-coming-soon'><a href='#integration-guide-integration-guide-charging-a-customer-39-s-saved-payment-method-more-examples-are-coming-soon' class='header-link'><i></i></a>More examples are coming soon.</h4>
+
+<p><strong><em>More examples are coming soon.</em></strong></p>
+
 <div class="feedback"></div>
 <h2 id='revolutcheckout-js-reference'><a href='#revolutcheckout-js-reference' class='header-link'><i></i></a>RevolutCheckout.js reference</h2><h3 id='revolutcheckout-js-reference-initialize-the-widget'><a href='#revolutcheckout-js-reference-initialize-the-widget' class='header-link'><i></i></a>Initialize the widget</h3>
 <p>You have 2 options to add RevolutCheckout.js to your website as:</p>
