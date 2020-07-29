@@ -751,16 +751,42 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <li><code>customer_id</code> will be attached to order automatically</li>
 </ol>
 <h3 id='integration-guide-charging-a-customer-39-s-saved-payment-method'><a href='#integration-guide-charging-a-customer-39-s-saved-payment-method' class='header-link'><i></i></a>Charging a customer&#39;s saved payment method</h3>
-<p>Once you&#39;ve created a customer and successfully saved a payment method, you can follow these steps to charge them without being present in the checkout page (for example, for subscription services) or with them being present on the checkout page (for example, for 1-click buy flows). To do so, just follow these two simple steps:</p>
+<p>Once you&#39;ve created a customer and successfully saved a payment method, you can charge this payment method without the customer being present in the checkout page (for example, for subscription services). You can also use this to speed up the checkout process when the customer is present on the checkout page (for example, for 1-click buy flows). </p>
 
+<p>To do so, just follow these two steps:</p>
+<blockquote>
+      <div><p>Create Order</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="err">POST</span><span class="w"> </span><span class="err">/api/</span><span class="mf">1.0</span><span class="err">/orders</span><span class="w">
+
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"customer_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Confirm Order</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="err">POST</span><span class="w"> </span><span class="err">/api/</span><span class="mf">1.0</span><span class="err">/orders/</span><span class="mi">6</span><span class="err">a</span><span class="mi">1353</span><span class="err">a</span><span class="mi">8-3054-40</span><span class="err">ee-ab</span><span class="mi">39-97</span><span class="err">a</span><span class="mi">11</span><span class="err">e</span><span class="mi">4</span><span class="err">c</span><span class="mi">5</span><span class="err">f</span><span class="mi">2</span><span class="err">a/confirm</span><span class="w">
+</span></code></pre>
 <ol>
 <li><a href="#api-reference-api-reference-orders-create-an-order">Create an order</a> with the amount, currency and customer_id parameter in the body of the request </li>
 <li><a href="#api-reference-api-reference-orders-confirm-an-order">Confirm the order</a> to take the order amount from this customer</li>
 </ol>
 
 <p><strong>Note</strong>: <em>If <code>payment_method_id</code> is not specified in the body of the order confirmation request, payment will be taken from the payment method that was last saved for this customer.</em></p>
-
-<p><strong><em>More examples are coming soon.</em></strong></p>
 
 <div class="feedback"></div>
 <h2 id='revolutcheckout-js-reference'><a href='#revolutcheckout-js-reference' class='header-link'><i></i></a>RevolutCheckout.js reference</h2><h3 id='revolutcheckout-js-reference-initialize-the-widget'><a href='#revolutcheckout-js-reference-initialize-the-widget' class='header-link'><i></i></a>Initialize the widget</h3>
