@@ -763,12 +763,12 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight json tab-json"><code><span class="err">POST</span><span class="w"> </span><span class="err">/api/</span><span class="mf">1.0</span><span class="err">/orders</span><span class="w">
+    </blockquote><pre class="highlight r"><code><span class="n">POST</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">orders</span><span class="w">
 
 </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"amount"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"currency"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"customer_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae"</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="m">100</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"customer_id"</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s2">"6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><blockquote>
       <div><p>Confirm Order</p>
@@ -779,7 +779,9 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight json tab-json"><code><span class="err">POST</span><span class="w"> </span><span class="err">/api/</span><span class="mf">1.0</span><span class="err">/orders/</span><span class="mi">6</span><span class="err">a</span><span class="mi">1353</span><span class="err">a</span><span class="mi">8-3054-40</span><span class="err">ee-ab</span><span class="mi">39-97</span><span class="err">a</span><span class="mi">11</span><span class="err">e</span><span class="mi">4</span><span class="err">c</span><span class="mi">5</span><span class="err">f</span><span class="mi">2</span><span class="err">a/confirm</span><span class="w">
+    </blockquote><pre class="highlight r"><code><span class="w">
+</span><span class="n">POST</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">orders</span><span class="o">/</span><span class="m">6</span><span class="n">a</span><span class="m">1353</span><span class="n">a</span><span class="m">8-3054-40</span><span class="n">ee</span><span class="o">-</span><span class="n">ab39</span><span class="m">-97</span><span class="n">a</span><span class="m">11e4</span><span class="n">c</span><span class="m">5</span><span class="n">f</span><span class="m">2</span><span class="n">a</span><span class="o">/</span><span class="n">confirm</span><span class="w">
+
 </span></code></pre>
 <ol>
 <li><a href="#api-reference-api-reference-orders-create-an-order">Create an order</a> with the amount, currency and customer_id parameter in the body of the request </li>
