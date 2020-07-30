@@ -3222,6 +3222,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
         </select>
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ORDER_COMPLETED"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4ee2a044-4965-4617-96e7-9debea935dfc"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3232,6 +3233,11 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <th>Format</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code>event</code></td>
+<td>Name of the event that is being sent. <br><br> Possible values are <code>ORDER_COMPLETED</code> or <code>ORDER_AUTHORISED</code></td>
+<td>string</td>
+</tr>
 <tr>
 <td><code>order_id</code></td>
 <td>Order ID of the order that has changed status</td>
