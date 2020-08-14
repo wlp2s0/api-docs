@@ -327,6 +327,17 @@
                 </ul>
             </li>
             <li>
+              <a href="#expenses-api-beta" class="toc-h2 toc-link" data-title="Expenses API - Beta">Expenses API - Beta</a>
+                <ul class="toc-list-h3">
+                    <li>
+                      <a href="#expenses-api-beta-get-expenses" class="toc-h3 toc-link" data-title="Get Expenses">Get Expenses</a>
+                    </li>
+                    <li>
+                      <a href="#expenses-api-beta-get-receipt-information" class="toc-h3 toc-link" data-title="Get Receipt Information">Get Receipt Information</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
               <a href="#payment-initiation-api-specification" class="toc-h2 toc-link" data-title="Payment Initiation API Specification">Payment Initiation API Specification</a>
                 <ul class="toc-list-h3">
                     <li>
@@ -514,7 +525,7 @@ Open Banking Developer Portal allows you to easily obtain your test user account
 <li>Upload the generated request and after finishing the process you will be able to download new certificates from <a href="https://developers.revolut.com/portal/openbanking/sandbox">open banking page</a></li>
 </ol>
 
-<p>You will also be able to generate new pair of certificates if you think that something was wrong </p>
+<p>You will also be able to generate new pair of certificates if you think that something was wrong</p>
 <h4 id='getting-started-getting-started-open-banking-developer-portal-3-get-a-sandbox-user-account'><a href='#getting-started-getting-started-open-banking-developer-portal-3-get-a-sandbox-user-account' class='header-link'><i></i></a>3. Get a sandbox user account</h4>
 <p>Once you created your account, you can generate your sandbox account credentials using the button on your <a href="https://developers.revolut.com/portal/openbanking/sandbox">open banking page</a> in <code>Test account</code> section.</p>
 
@@ -567,7 +578,7 @@ Open Banking Developer Portal allows you to easily obtain your test user account
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X DELETE https://sandbox-oba.revolut.com/register/17b2738f-26b1-46f9-a979-debbf1f39365
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X DELETE https://oba.revolut.com/register/17b2738f-26b1-46f9-a979-debbf1f39365
 </code></pre><h3 id='dynamic-client-registration-registration-request'><a href='#dynamic-client-registration-registration-request' class='header-link'><i></i></a>Registration request</h3>
-<p>Registration request should satisfy the following format: </p>
+<p>Registration request should satisfy the following format:</p>
 <blockquote>
       <div><p>Example JWT header</p>
 </div>
@@ -614,15 +625,8 @@ Open Banking Developer Portal allows you to easily obtain your test user account
   </span><span class="s2">"iat"</span><span class="p">:</span><span class="w"> </span><span class="mi">1591352490</span><span class="p">,</span><span class="w">
   </span><span class="s2">"exp"</span><span class="p">:</span><span class="w"> </span><span class="mi">1591356090</span><span class="p">,</span><span class="w">
   </span><span class="s2">"aud"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://revolut.com"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"scope"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"openid"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"payments"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"accounts"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fundsconfirmations"</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"redirect_uris"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"http://url/one"</span><span class="w">
-  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"scope"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"openid"</span><span class="p">,</span><span class="w"> </span><span class="s2">"payments"</span><span class="p">,</span><span class="w"> </span><span class="s2">"accounts"</span><span class="p">,</span><span class="w"> </span><span class="s2">"fundsconfirmations"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"redirect_uris"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"http://url/one"</span><span class="p">],</span><span class="w">
   </span><span class="s2">"token_endpoint_auth_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tls_client_auth"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"application_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"web"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id_token_signed_response_alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PS256"</span><span class="p">,</span><span class="w">
@@ -700,13 +704,13 @@ Open Banking Developer Portal allows you to easily obtain your test user account
 </tr>
 </tbody></table>
 
-<p>JWT signature is constructed by encrypting concatenated (using period &#39;.&#39; character) base64url encoded header and payload. </p>
+<p>JWT signature is constructed by encrypting concatenated (using period &#39;.&#39; character) base64url encoded header and payload.</p>
 
 <p>Concatenating (using period &#39;.&#39; characters) base64url encoded header, payload and signature yields complete JWT.</p>
 <h4 id='dynamic-client-registration-dynamic-client-registration-registration-request-open-banking-software-statement'><a href='#dynamic-client-registration-dynamic-client-registration-registration-request-open-banking-software-statement' class='header-link'><i></i></a>Open Banking software statement</h4>
 <p>If you are registering with Open Banking certificate, you should use the software statement signed by Open Banking which you can obtain from Directory</p>
 <h4 id='dynamic-client-registration-dynamic-client-registration-registration-request-self-signed-software-statement'><a href='#dynamic-client-registration-dynamic-client-registration-registration-request-self-signed-software-statement' class='header-link'><i></i></a>Self-signed software statement</h4>
-<p>In order to directly register with eIDAS certificate, it’s possible to use a self-signed software statement. In such case software statement should satisfy the following format: </p>
+<p>In order to directly register with eIDAS certificate, it’s possible to use a self-signed software statement. In such case software statement should satisfy the following format:</p>
 <blockquote>
       <div><p>Example self-signed software statement header</p>
 </div>
@@ -746,9 +750,7 @@ Open Banking Developer Portal allows you to easily obtain your test user account
   </span><span class="s2">"org_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut TPP"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"software_client_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Revolut TPP"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"org_jwks_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://openbanking.org.uk/endpoint"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"software_redirect_uris"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"http://url/one"</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"software_redirect_uris"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"http://url/one"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -782,7 +784,7 @@ Open Banking Developer Portal allows you to easily obtain your test user account
 
 <p>Signature of self-signed software statement should be an empty string.</p>
 <h4 id='dynamic-client-registration-dynamic-client-registration-registration-request-jwks-file-format'><a href='#dynamic-client-registration-dynamic-client-registration-registration-request-jwks-file-format' class='header-link'><i></i></a>JWKS file format</h4>
-<p>JWKS (JWK Set) is a JSON data structure that represents a set of JWKs. A JSON Web Key (JWK) is a (JSON) data structure that represents a cryptographic key. Mandatory JWK parameters are described below. </p>
+<p>JWKS (JWK Set) is a JSON data structure that represents a set of JWKs. A JSON Web Key (JWK) is a (JSON) data structure that represents a cryptographic key. Mandatory JWK parameters are described below.</p>
 
 <table><thead>
 <tr>
@@ -1373,6 +1375,227 @@ Open Banking Developer Portal allows you to easily obtain your test user account
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns the list of standing orders for a specific user account.</p>
+
+<div class="feedback"></div>
+<h2 id='expenses-api-beta'><a href='#expenses-api-beta' class='header-link'><i></i></a>Expenses API - Beta</h2>
+<aside class="warning">
+    The expenses API documentation / endpoint is currently in beta and is not widely available.
+    please reach out to us <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpEGdxdMWYlak2FUF-kWSOSTJSJ8QTPLLtXaOKH-kjmW1hQQ/viewform">here</a> to get further details
+</aside>
+<h3 id='expenses-api-beta-get-expenses'><a href='#expenses-api-beta-get-expenses' class='header-link'><i></i></a>Get Expenses</h3><blockquote>
+      <div><p>Get a list of all expenses</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/expenses
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/expenses
+</code></pre>
+<p>List all expenses related to the account with the option to specify a beginning and ending date using a dateTime format</p>
+<h5 id='expenses-api-beta-expenses-api-beta-get-expenses-account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent-parameters'><a href='#expenses-api-beta-expenses-api-beta-get-expenses-account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent-parameters' class='header-link'><i></i></a>Parameters</h5>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>from</td>
+<td>query</td>
+<td>All expenses created after this point in time will be returned (by default creation date of first expense)</td>
+<td>No</td>
+<td>dateTime</td>
+</tr>
+<tr>
+<td>to</td>
+<td>query</td>
+<td>All expenses created up untill this point in time will be returned (default is now)</td>
+<td>No</td>
+<td>dateTime</td>
+</tr>
+</tbody></table>
+<blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Expenses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"ExpenseId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"69606e15-cd93-4bd1-a7aa-c22fc5bb421e"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"453b244b-adba-4716-8a9f-09d8189b7724"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-14T13:16:15.425157Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment description"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Receipts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address453b244b-adba-4716-8a9f-09d8189b7724"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ContentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"png"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2address453b244b-adba-4716-8a9f-09d8189b7724"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ContentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jpeg"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"Category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cada8c04-1ff6-47b2-b67b-593ee9d8bb2a"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"categoryName"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"TaxRate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taxRateName"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taxRateType"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"ExpenseId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"38ed34ed-af82-48b7-9622-beab1d49b266"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"TransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6d74b119-6d56-4fb7-a844-3d1a10742ed0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"CreationDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-08-14T13:16:15.34771Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Txn description"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Merchant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Merchant"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Receipts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address6d74b119-6d56-4fb7-a844-3d1a10742ed0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ContentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"png"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2address6d74b119-6d56-4fb7-a844-3d1a10742ed0"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"ContentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jpeg"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"Category"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c112db3f-ddfd-451c-875b-5e06b78b55bf"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"categoryName"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"TaxRate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taxRateName"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"taxRateType"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Percentage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:33453/expenses"</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h5 id='expenses-api-beta-expenses-api-beta-get-expenses-account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent-responses'><a href='#expenses-api-beta-expenses-api-beta-get-expenses-account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent-responses' class='header-link'><i></i></a>Responses</h5>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>List of business expenses</td>
+</tr>
+<tr>
+<td>default</td>
+<td>Unexpected error</td>
+</tr>
+</tbody></table>
+<h5 id='expenses-api-beta-expenses-api-beta-get-expenses-account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent-security'><a href='#expenses-api-beta-expenses-api-beta-get-expenses-account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent-security' class='header-link'><i></i></a>Security</h5>
+<table><thead>
+<tr>
+<th>Security Schema</th>
+<th>Scopes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccessToken</td>
+<td>read</td>
+</tr>
+</tbody></table>
+<h3 id='expenses-api-beta-get-receipt-information'><a href='#expenses-api-beta-get-receipt-information' class='header-link'><i></i></a>Get Receipt Information</h3><blockquote>
+      <div><p>Get a list of all expenses</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/transactions/<span class="o">{</span> TransactionId<span class="o">}</span>/receipt/<span class="o">{</span> ReceiptId <span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/transactions/<span class="o">{</span> TransactionId<span class="o">}</span>/receipt/<span class="o">{</span> ReceiptId <span class="o">}</span>
+</code></pre>
+<p>The <code>/transactions/{ TransactionId }/receipt/{ ReceiptId }</code> endpoint allows you to fetch the actual reciept tied to a transaction and receipt ID</p>
+<h5 id='expenses-api-beta-expenses-api-beta-get-receipt-information-account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent-parameters'><a href='#expenses-api-beta-expenses-api-beta-get-receipt-information-account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent-parameters' class='header-link'><i></i></a>Parameters</h5>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>TransactionId</td>
+<td>path</td>
+<td>The id of the transaction for which {ReceiptId} should be retrieved</td>
+<td>Yes</td>
+<td>string (UUID)</td>
+</tr>
+<tr>
+<td>ReceiptId</td>
+<td>path</td>
+<td>Id of a receipt</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="err">This</span><span class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">stream</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">bytes.</span><span class="w">
+</span></code></pre><h5 id='expenses-api-beta-expenses-api-beta-get-receipt-information-account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent-responses'><a href='#expenses-api-beta-expenses-api-beta-get-receipt-information-account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent-responses' class='header-link'><i></i></a>Responses</h5>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Receipt</td>
+</tr>
+<tr>
+<td>default</td>
+<td>Unexpected error</td>
+</tr>
+</tbody></table>
+<h5 id='expenses-api-beta-expenses-api-beta-get-receipt-information-account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent-security'><a href='#expenses-api-beta-expenses-api-beta-get-receipt-information-account-and-transaction-api-account-and-transaction-api-account-access-consent-create-consent-security' class='header-link'><i></i></a>Security</h5>
+<table><thead>
+<tr>
+<th>Security Schema</th>
+<th>Scopes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>AccessToken</td>
+<td>read</td>
+</tr>
+</tbody></table>
 
 <div class="feedback"></div>
 <h2 id='payment-initiation-api-specification'><a href='#payment-initiation-api-specification' class='header-link'><i></i></a>Payment Initiation API Specification</h2><h3 id='payment-initiation-api-specification-create-domestic-payment-consent'><a href='#payment-initiation-api-specification-create-domestic-payment-consent' class='header-link'><i></i></a>Create Domestic Payment Consent</h3><blockquote>
@@ -3092,9 +3315,9 @@ Open Banking Developer Portal allows you to easily obtain your test user account
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint is for creating file payment consent as described in Open Banking API documentation. </p>
+<p>This endpoint is for creating file payment consent as described in Open Banking API documentation.</p>
 
-<p>File Payments is available only for Revolut Business users. </p>
+<p>File Payments is available only for Revolut Business users.</p>
 
 <p>Currently only <code>text/csv</code> file type is supported for File Payments.</p>
 
@@ -3144,7 +3367,7 @@ Open Banking Developer Portal allows you to easily obtain your test user account
   </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/file-payment-consents/14083aa6-3f22-495d-a9e7-75abd118d8e9"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns consent details as it is described in the official documentation.</p>
@@ -3266,7 +3489,7 @@ Andrea Frost,INDIVIDUAL    ,40513598       ,207409                     ,    ,   
 </tr>
 </tbody></table>
 
-<p>Columns with optional values can be omitted in the uploaded file. </p>
+<p>Columns with optional values can be omitted in the uploaded file.</p>
 
 <p>Maximum accepted file size is 10 MB.</p>
 <blockquote>
@@ -3279,7 +3502,7 @@ Andrea Frost,INDIVIDUAL    ,40513598       ,207409                     ,    ,   
         </select>
       </div>
     </blockquote><pre class="highlight plaintext"><code>Name        ,Recipient type,Account number,Sort code,Recipient bank country,Currency,Amount,Payment reference
-Andrea Frost,INDIVIDUAL    ,40513598      ,207409   ,GB                    ,GBP     ,10    ,User comment     
+Andrea Frost,INDIVIDUAL    ,40513598      ,207409   ,GB                    ,GBP     ,10    ,User comment
 </code></pre>
 <div class="feedback"></div>
 <h3 id='payment-initiation-api-specification-get-file-for-file-payment-consent'><a href='#payment-initiation-api-specification-get-file-for-file-payment-consent' class='header-link'><i></i></a>Get File for File Payment Consent</h3><blockquote>
@@ -3386,7 +3609,7 @@ Andrea Frost,INDIVIDUAL    ,40513598      ,207409   ,GB                    ,GBP 
   </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/file-payments/a0f338f1-1827-49a3-82f7-eaa3783cadb6"</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
+  </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint returns state of a file payment.</p>
@@ -3413,30 +3636,30 @@ Andrea Frost,INDIVIDUAL    ,40513598      ,207409   ,GB                    ,GBP 
         </select>
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"Payments"</span><span class="p">:[</span><span class="w">
+  </span><span class="s2">"Payments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Amount"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="s2">"20.10"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20.10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"Reference"</span><span class="p">:</span><span class="s2">"Ref 1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Status"</span><span class="p">:</span><span class="s2">"Created"</span><span class="w">
+      </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ref 1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Created"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Amount"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="s2">"250.00"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="s2">"EUR"</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"250.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"Reference"</span><span class="p">:</span><span class="s2">"Ref 2"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Status"</span><span class="p">:</span><span class="s2">"Completed"</span><span class="w">
+      </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ref 2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Amount"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="s2">"1.10"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="s2">"GBP"</span><span class="w">
+      </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"Reference"</span><span class="p">:</span><span class="s2">"Ref 3"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Status"</span><span class="p">:</span><span class="s2">"Failed"</span><span class="w">
+      </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ref 3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Failed"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
