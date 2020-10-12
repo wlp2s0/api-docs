@@ -501,7 +501,7 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='merchant-api'><a href='#merchant-api' class='header-link'><i></i></a>Merchant API</h1><h2 id='introduction-to-merchant-accounts'><a href='#introduction-to-merchant-accounts' class='header-link'><i></i></a>Introduction to Merchant accounts</h2>
-<p><em>Please note that Merchant Accounts feature is available only to businesses that have been invited to participate in our private launch. In the meantime, our team is working hard to make it available to every eligible business. Stay tuned!</em></p>
+<p><em>Please note that integrating the Merchant API requires a Merchant Account which is available only to businesses that have been invited to participate in our private launch. In the meantime, our team is working hard to make it available to every eligible business. Stay tuned!</em></p>
 
 <p>Revolut has created Merchant Accounts to provide customers with an opportunity to accept online debit &amp; credit card payments straight into their Revolut Business Merchant accounts.</p>
 
@@ -509,7 +509,7 @@
 
 <ul>
 <li><p><a href="#integration-guide"><strong>Checkout with Revolut Widget</strong></a>: if you have your own e-commerce website, you can use either a <a href="#integration-guide-integration-guide-first-steps-pop-up">payment pop-up</a> or a <a href="#integration-guide-integration-guide-first-steps-card-field">card field</a> to add into your checkout page. This will require integration with <a href="#api-reference">Revolut Backend API</a>.</p></li>
-<li><p><a href="#plugins"><strong>Checkout with official plugins</strong></a>: if you already have a website running on one of e-commerce platforms, you can install a respective plugin which Revolut has created. At the moment we support WooCommerce. Stay tuned for more plugins becoming available soon.</p></li>
+<li><p><a href="#plugins"><strong>Checkout with official plugins</strong></a>: if you already have a website running on one of our supported e-commerce platforms, you can install a respective plugin which Revolut has created. At the moment we support WooCommerce, Prestashop and Magento. Stay tuned for more plugins becoming available soon.</p></li>
 </ul>
 
 <p>You can decide which one of those checkout methods suits your website and proceed to the respective guide to start the integration!</p>
@@ -572,7 +572,7 @@ Authorization: Bearer &lt;your_API_token&gt;
   </span><span class="s2">"order_amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>From the response save the <code>public_id</code> - it is a temporary token generated for every new order a customer initiates on a merchant&#39;s website. Normally, a <code>public_id</code> is created at the moment when the amount is known for the order. A <code>public_id</code> is also the identifier which is passed from the back-end server to the client side in order to initiate th checkout widget. Once the order is paid, a <code>public_id</code> expires.</p>
+<p>From the response, save the <code>public_id</code>: it is a temporary token generated for every new order a customer initiates on a merchant&#39;s website. Normally, a <code>public_id</code> is created at the moment when the amount is known for the order. A <code>public_id</code> is also the identifier which is passed from the back-end server to the client side in order to initiate the checkout widget. Once the order is paid, a <code>public_id</code> expires.</p>
 
 <p>You will need to create a new order for each purchase.</p>
 
@@ -611,12 +611,12 @@ Authorization: Bearer &lt;your_API_token&gt;
 
 <ul>
 <li><a href="#integration-guide-integration-guide-first-steps-pop-up">Pop-up</a> - the easiest and fastest method to get started;</li>
-<li><a href="#integration-guide-integration-guide-first-steps-card-field">Card field</a> - fits right in you custom designed checkout flow</li>
+<li><a href="#integration-guide-integration-guide-first-steps-card-field">Card field</a> - fits right in your custom designed checkout flow</li>
 </ul>
 
 <p>Below you will find detailed instructions on how to set up either of those methods.</p>
 <h4 id='integration-guide-integration-guide-first-steps-pop-up'><a href='#integration-guide-integration-guide-first-steps-pop-up' class='header-link'><i></i></a>Pop-up</h4>
-<p>A pop-up window is the easiest method to accept payments with Revolut. Here is how it looks like:</p>
+<p>A pop-up window is the easiest method to accept payments with Revolut. See example below:</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"pay-button"</span><span class="nt">&gt;</span>
   Pay
 <span class="nt">&lt;/button&gt;</span>
@@ -671,9 +671,9 @@ Authorization: Bearer &lt;your_API_token&gt;
 </code></pre>
 <p><img src="https://user-images.githubusercontent.com/442932/73471824-e761a600-4381-11ea-8b84-8b2d1103823c.png" /></p>
 
-<p>The shown snippet will open a payment pop-up window when a user decides to click on the payment button. Therefore, we need to create a button and attach a click event listener to it that will trigger <a href="#revolutcheckout-js-reference-instance-paywithpopup"><code>RC.payWithPopup(options)</code></a>.</p>
+<p>The shown snippet will open a payment pop-up window when a user clicks on the payment button. So, you need to create a button and attach a click event listener to it that will trigger <a href="#revolutcheckout-js-reference-instance-paywithpopup"><code>RC.payWithPopup(options)</code></a>.</p>
 <h4 id='integration-guide-integration-guide-first-steps-card-field'><a href='#integration-guide-integration-guide-first-steps-card-field' class='header-link'><i></i></a>Card Field</h4>
-<p>Inserting a card field into the check-out page allows you to create a separate field securely accepting card details from the users and to submit payments with the rest of your payment form.</p>
+<p>Inserting a card field into your checkout page allows you to create a separate field securely accepting card details from the users and to submit payments with the rest of your payment form.</p>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">"form"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"card-input"</span><span class="nt">&gt;&lt;/div&gt;</span>
   <span class="nt">&lt;button&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
@@ -747,7 +747,7 @@ Authorization: Bearer &lt;your_API_token&gt;
   <span class="p">});</span>
 <span class="nt">&lt;/script&gt;</span>
 </code></pre>
-<p>The snippet shows how we can create a form with a <code>div</code> element in it which will render a <a href="#revolutcheckout-js-reference-instance-createcardfield">card field</a> and then submit a payment.</p>
+<p>The snippet shows how you can create a form with a <code>div</code> element in it which will render a <a href="#revolutcheckout-js-reference-instance-createcardfield">card field</a> and then submit a payment.</p>
 
 <p>See <a href="#integration-guide-integration-guide-integration-examples-card-field-integration-and-customisation">card field integration and customisation</a> example.</p>
 
@@ -769,7 +769,7 @@ Authorization: Bearer &lt;your_API_token&gt;
 
 <p>Please <strong>create a dummy account</strong> on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>. Once you have it, please do the following 2 steps:</p>
 
-<p><strong>1.</strong> Adjust the endpoints addresses by replacing <code>https://merchant.revolut.com/</code> with <code>https://sandbox-merchant.revolut.com/</code> and by using the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> in the headers of requests from your back-end. For example:</p>
+<p><strong>1.</strong> Adjust the endpoints addresses by replacing <code>https://merchant.revolut.com/</code> with <code>https://sandbox-merchant.revolut.com/</code> and by using the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> in the headers of requests from your backend.</p>
 <blockquote>
       <div><p>Create a new order</p>
 </div>
@@ -788,7 +788,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   <span class="s2">"currency"</span>: <span class="s2">"GBP"</span>
 <span class="o">}</span>
 </code></pre>
-<p><strong>2.</strong> Specify the <code>sandbox</code> environment in the second prameter of the <a href="#revolutcheckout-js-reference">RevolutCheckout</a>.</p>
+<p><strong>2.</strong> Specify the <code>sandbox</code> environment in the second parameter of <a href="#revolutcheckout-js-reference">RevolutCheckout</a>.</p>
 <blockquote>
       <div><p>Sandbox</p>
 </div>
@@ -802,7 +802,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   <span class="c1">// work with instance</span>
 <span class="p">})</span>
 </code></pre><h3 id='integration-guide-test-with-dummy-cards'><a href='#integration-guide-test-with-dummy-cards' class='header-link'><i></i></a>Test with dummy cards</h3>
-<p>In order for you to be able to test various payment flows, we provide the following dummy card numbers for a variety of scenarios. These cards only work in our Sandbox environment:</p>
+<p>In order for you to test various payment flows, we provide the following dummy card numbers for a variety of scenarios. These cards only work in our Sandbox environment:</p>
 
 <table><thead>
 <tr>
@@ -840,11 +840,11 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 </tbody></table>
 
-<p>Once you make sure that everything works as expected on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>, simply revert back to using <code>https://merchant.revolut.com/</code> in both back-end requests and the embed script snippet, and replace the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> with <a href="https://business.revolut.com/merchant/api">Production API key</a> in the back-end requests. Now you are ready to accept real card payments!</p>
+<p>Once you make sure that everything works as expected on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>, simply revert back to using <code>https://merchant.revolut.com/</code> in both the backend requests and embedded script snippet, and replace the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> with <a href="https://business.revolut.com/merchant/api">Production API key</a> in the back-end requests. Now you are ready to accept real card payments!</p>
 
 <div class="feedback"></div>
 <h3 id='integration-guide-wrap-up'><a href='#integration-guide-wrap-up' class='header-link'><i></i></a>Wrap-up</h3>
-<p>To sum up, one can follow the following high-level flow in order to integrate FE and BE:
+<p>To sum up, you can follow the following high-level flow to integrate your frontend and backend:
 <img width="555" src="https://user-images.githubusercontent.com/60622352/74252610-d4d25f80-4ce5-11ea-897f-5d814375f12b.png" /></p>
 
 <p><a href="#revolutcheckout-js-reference">Read detailed reference to RevolutCheckout.js</a></p>
@@ -891,19 +891,19 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <li><a href="#api-reference-api-reference-customers-create-customer">Create a customer</a></li>
 <li><a href="#api-reference-api-reference-orders-create-an-order">Create an order</a> with the amount, currency and customer_id parameter in the body of the request</li>
 <li>Make payment via the <a href="#revolutcheckout-js-reference">widget</a> with <code>options.savePaymentMethodFor</code> = <code>customer</code> or <code>merchant</code></li>
-<li>Payment method will be created and attached to customer</li>
+<li>Payment method will be created and attached to the customer</li>
 </ol>
 <h4 id='integration-guide-integration-guide-saving-card-details-and-creating-customers-customer-is-created-as-part-of-order-completion'><a href='#integration-guide-integration-guide-saving-card-details-and-creating-customers-customer-is-created-as-part-of-order-completion' class='header-link'><i></i></a>Customer is created as part of order completion</h4>
 <ol>
 <li><a href="#api-reference-api-reference-orders-create-an-order">Create an order</a> with amount and currency</li>
 <li>Make payment via the <a href="#revolutcheckout-js-reference">widget</a> with <code>options.savePaymentMethodFor</code> = <code>customer</code> or <code>merchant</code></li>
-<li>Either order or widget should have <code>customer_email</code> (otherwise there will be an error returned)</li>
+<li>Either the order or widget should have <code>customer_email</code> (otherwise there will be an error returned)</li>
 <li>If payment is successful, <a href="#api-reference-api-reference-customers-customer-object">Customer</a> is created with email and other details</li>
 <li><a href="#api-reference-api-reference-customers-customer-object">Payment method</a> is associated to this customer</li>
-<li><code>customer_id</code> will be attached to order automatically</li>
+<li><code>customer_id</code> will be attached to the order automatically</li>
 </ol>
 <h3 id='integration-guide-charging-a-customer-39-s-saved-payment-method'><a href='#integration-guide-charging-a-customer-39-s-saved-payment-method' class='header-link'><i></i></a>Charging a customer&#39;s saved payment method</h3>
-<p>Once you&#39;ve created a customer and successfully saved a payment method, you can charge this payment method without the customer being present in the checkout page (for example, for subscription services). You can also use this to speed up the checkout process when the customer is present on the checkout page (for example, for 1-click buy flows).</p>
+<p>Once you&#39;ve created a customer and successfully saved a payment method, you can charge this payment method without the customer being present in the checkout page (e.g., for subscription services). You can also use this to speed up the checkout process when the customer is present on the checkout page (e.g., for 1-click buy flows).</p>
 
 <p>To do so, just follow these two steps:</p>
 <blockquote>
@@ -944,7 +944,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 
 <div class="feedback"></div>
 <h2 id='revolutcheckout-js-reference'><a href='#revolutcheckout-js-reference' class='header-link'><i></i></a>RevolutCheckout.js reference</h2><h3 id='revolutcheckout-js-reference-initialize-the-widget'><a href='#revolutcheckout-js-reference-initialize-the-widget' class='header-link'><i></i></a>Initialize the widget</h3>
-<p>You have 2 options to add RevolutCheckout.js to your website as:</p>
+<p>You have the following two options to add RevolutCheckout.js to your website:</p>
 
 <ul>
 <li><a href="#revolutcheckout-js-reference-revolutcheckout-js-reference-initialize-the-widget-embed-script">Embed script</a></li>
@@ -980,9 +980,8 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">,</span> <span class="s2">"prod"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">,</span> <span class="s2">"prod"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Work with instance:</span>
-
   <span class="c1">// instance.payWithPopup()</span>
   <span class="c1">// instance.createCardField()</span>
   <span class="c1">// ...</span>
@@ -990,7 +989,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </code></pre>
 <ul>
 <li><code>token</code> - <code>public_id</code> returned from the <a href="#api-reference-api-reference-orders-create-an-order">API request</a></li>
-<li><code>mode</code> - (optional) <a href="#api-reference">API</a> environment either <code>&#39;prod&#39;</code> or <code>&#39;sandbox&#39;</code>, default to <code>&#39;prod&#39;</code></li>
+<li><code>mode</code> - (optional) <a href="#api-reference">API</a> environment either <code>&#39;prod&#39;</code> or <code>&#39;sandbox&#39;</code>, defaults to <code>&#39;prod&#39;</code></li>
 </ul>
 
 <p>Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> with order <a href="#revolutcheckout-js-reference-instance"><code>Instance</code></a>.</p>
@@ -1002,7 +1001,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
   <span class="nl">destroy</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre>
-<p><code>Instance</code> is passed as an argument to the function defined inside <code>RevolutCheckout</code>. It can be used to open a payment pop-up window or to create a card field.</p>
+<p><code>Instance</code> is passed as an argument to the consuming function of the <code>RevolutCheckout</code> promise e.g., registered using <code>.then</code>. It can be used to open a payment pop-up window or to create a card field.</p>
 <blockquote>
       <div><p>Instance usage example</p>
 </div>
@@ -1012,7 +1011,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
     <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
       <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
@@ -1073,12 +1072,12 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>options.onError</code></td>
-<td>Callback if transaction is failed to complete, reason should be available in <code>message</code> parameter</td>
+<td>Callback if the transaction fails to complete. The reason for the failure should be available in the <code>message</code> parameter</td>
 <td>Function</td>
 </tr>
 <tr>
 <td><code>options.onCancel</code></td>
-<td>Callback if a user did not complete the transaction and canceled the authorisation or closed the payment pop-up window</td>
+<td>Callback if a user did not complete the transaction and cancelled the authorisation or closed the payment pop-up window</td>
 <td>Function</td>
 </tr>
 <tr>
@@ -1098,7 +1097,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>options.savePaymentMethodFor</code></td>
-<td>Indicates that the payment method will be saved for future use against the customer’s profile. <br><br>Possible values:<br>- <code>customer</code>: method will be saved for being used in the future when customer is at checkout<br>- <code>merchant</code>: method will be saved for being used in the future without needing the customer to be at checkout (e.g. take payments for recurring transactions). Method will be saved as the new default payment method for merchant initiated transactions, regardless of the number of saved payment methods stored against the customer</td>
+<td>Indicates that the payment method will be saved for future use against the customer’s profile. <br><br>Possible values:<br>- <code>customer</code>: method will be saved for being used in the future when the customer is on your checkout page<br>- <code>merchant</code>: method will be saved for being used in the future without needing the customer to be on your checkout page (e.g., to take payments for recurring transactions). Method will be saved as the new default payment method for merchant initiated transactions, regardless of the number of saved payment methods stored against the customer</td>
 <td>Enum</td>
 </tr>
 <tr>
@@ -1108,7 +1107,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>options.billingAddress.countryCode</code></td>
-<td><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">Country code</a> (i.e. <code>GB</code>)</td>
+<td><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">Country code</a> (e.g. <code>GB</code>)</td>
 <td>String</td>
 </tr>
 <tr>
@@ -1118,17 +1117,17 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>options.billingAddress.city</code></td>
-<td>Name of the city (i.e. <code>London</code>)</td>
+<td>Name of the city (e.g. <code>London</code>)</td>
 <td>String</td>
 </tr>
 <tr>
 <td><code>options.billingAddress.postcode</code></td>
-<td>Postal code (i.e. <code>EC2V 6DN</code>)</td>
+<td>Postal code (e.g. <code>EC2V 6DN</code>)</td>
 <td>String</td>
 </tr>
 <tr>
 <td><code>options.billingAddress.streetLine1</code></td>
-<td>Address line 1 (i.e. <code>1 Canada Square</code>)</td>
+<td>Address line 1 (e.g. <code>1 Canada Square</code>)</td>
 <td>String</td>
 </tr>
 <tr>
@@ -1169,7 +1168,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
     <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
       <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
@@ -1192,7 +1191,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
     <span class="na">billingAddress</span><span class="p">:</span> <span class="p">{</span>
       <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
@@ -1223,7 +1222,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">popup</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
     <span class="na">name</span><span class="p">:</span> <span class="s2">"First Last"</span><span class="p">,</span>
     <span class="na">email</span><span class="p">:</span> <span class="s2">"customer@example.com"</span><span class="p">,</span>
@@ -1330,7 +1329,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>options.onError</code></td>
-<td>Callback if transaction is failed to complete, the reason should be available in the <code>message</code> parameter</td>
+<td>Callback if the transaction fails to complete. The reason for the failure should be available in the <code>message</code> parameter</td>
 <td>Function</td>
 </tr>
 <tr>
@@ -1340,17 +1339,17 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>options.onValidation.messages</code></td>
-<td>Array of strings containing validation errors (i.e. <code>Your card has expired</code>)</td>
+<td>Array of strings containing validation errors (e.g., <code>Your card has expired</code>)</td>
 <td>String</td>
 </tr>
 <tr>
 <td><code>options.onCancel</code></td>
-<td>Callback if a user did not complete the transaction and canceled the authorisation or closed the checkout window</td>
+<td>Callback if a user did not complete the transaction and cancelled the authorisation or closed the checkout window</td>
 <td>Function</td>
 </tr>
 <tr>
 <td><code>options.savePaymentMethodFor</code></td>
-<td>Indicates that the payment method will be saved for future use against the customer’s profile. <br><br>Possible values:<br>- <code>customer</code>: method will be saved for being used in the future when customer is at checkout<br>- <code>merchant</code>: method will be saved for being used in the future without needing the customer to be at checkout (e.g. take payments for recurring transactions). Method will be saved as the new default payment method for merchant initiated transactions, regardless of the number of saved payment methods stored against the customer</td>
+<td>Indicates that the payment method will be saved for future use against the customer’s profile. <br><br>Possible values:<br>- <code>customer</code>: method will be saved for being used in the future when the customer is on your checkout page<br>- <code>merchant</code>: method will be saved for being used in the future without needing the customer to be at checkout (e.g. take payments for recurring transactions). Method will be saved as the new default payment method for merchant initiated transactions, regardless of the number of saved payment methods stored against the customer</td>
 <td>Enum</td>
 </tr>
 <tr>
@@ -1487,7 +1486,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>meta.billingAddress.countryCode</code></td>
-<td><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">Country code</a> (i.e. <code>GB</code>)</td>
+<td><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">Country code</a> (e.g. <code>GB</code>)</td>
 <td>String</td>
 </tr>
 <tr>
@@ -1497,17 +1496,17 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 </tr>
 <tr>
 <td><code>meta.billingAddress.city</code></td>
-<td>Name of the city (i.e. <code>London</code>)</td>
+<td>Name of the city (e.g. <code>London</code>)</td>
 <td>String</td>
 </tr>
 <tr>
 <td><code>meta.billingAddress.postcode</code></td>
-<td>Postal code (i.e. <code>EC2V 6DN</code>)</td>
+<td>Postal code (e.g. <code>EC2V 6DN</code>)</td>
 <td>String</td>
 </tr>
 <tr>
 <td><code>meta.billingAddress.streetLine1</code></td>
-<td>Address line 1 (i.e. <code>1 Canada Square</code>)</td>
+<td>Address line 1 (e.g. <code>1 Canada Square</code>)</td>
 <td>String</td>
 </tr>
 <tr>
@@ -1516,7 +1515,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <td>String</td>
 </tr>
 <tr>
-<td><code>meta.shippingAddres</code></td>
+<td><code>meta.shippingAddress</code></td>
 <td>Same as <code>meta.billingAddress</code>, but only used to display in the order details on <a href="https://business.revolut.com/merchant">merchant dashboard</a></td>
 <td>Object</td>
 </tr>
@@ -1543,7 +1542,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">card</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">createCardField</span><span class="p">({</span>
     <span class="na">target</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"card-field"</span><span class="p">),</span>
     <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
@@ -1551,12 +1550,12 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
     <span class="p">},</span>
     <span class="nx">onError</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
       <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
-    <span class="p">}</span>
+    <span class="p">},</span>
   <span class="p">});</span>
 
   <span class="nb">document</span>
     <span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"button-submit"</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">card</span><span class="p">.</span><span class="nx">submit</span><span class="p">();</span>
     <span class="p">});</span>
 <span class="p">});</span>
@@ -1603,7 +1602,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">form</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"form"</span><span class="p">);</span>
   <span class="kd">var</span> <span class="nx">card</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">createCardField</span><span class="p">({</span>
     <span class="na">target</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"[name=card]"</span><span class="p">),</span>
@@ -1615,7 +1614,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
     <span class="p">}</span>
   <span class="p">});</span>
 
-  <span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"submit"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"submit"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Prevent browser form submittion. You need to submit card details first.</span>
     <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
 
@@ -2643,7 +2642,7 @@ Authorization: Bearer &lt;your_Sandbox_API_token&gt;
 <tr>
 <td><code>saved_for</code></td>
 <td>Indication of whether the customer has indicated that the payment method can be saved for future use.<br> <br> Even if customer didn’t indicate that the payment method could be saved for future use, Revolut saves the payment method details upon checkout to comply with SCA regulations and to avoid fraudulent behaviours.</td>
-<td>enum<br><br>Possible values:<br>  · <code>customer</code> - method will be saved for being used in the future when customer is at checkout<br> · <code>merchant</code> - method will be saved for being used in the future without needing the customer to be at checkout (e.g. take payments for recurring transactions)</td>
+<td>enum<br><br>Possible values:<br>  · <code>customer</code> - method will be saved to be used in the future when the customer is on your checkout page<br> · <code>merchant</code> - method will be saved to be used in the future without needing the customer to be on your checkout page (e.g., to take payments for recurring transactions)</td>
 </tr>
 </tbody></table>
 
@@ -3630,11 +3629,11 @@ Default status : Payment accepted</li>
 
 <p><strong>Step 3.</strong> Extract the zipped file in the <code>/app/code</code> directory.</p>
 
-<p><strong>Step 4.</strong> Open a terminal in the <code>magento2</code> root folder and run the commands on the right.</p>
+<p><strong>Step 4.</strong> Open a terminal in the <code>magento2</code> root folder and run the commands in the provided code block.</p>
 
 <p>These should install the plugin for you and take care of everything.</p>
 
-<p><strong>Step 5.</strong> Once the 3 processes are finished, flush the Magento 2 cache using the admin panel or the terminal command on the right.</p>
+<p><strong>Step 5.</strong> Once the steps above are finished, flush the Magento 2 cache using the admin panel or the terminal command on the right.</p>
 
 <p><strong>Step 6.</strong> Finally, go back to your store&#39;s admin panel and navigate to <strong>Stores &gt; Configuration &gt; Sales &gt; Payment Methods &gt; Revolut</strong>. If all steps went well, you should be good to go!</p>
 <h5 id='plugins-plugins-magento-2-plugins-plugins-magento-2-installation-troubleshooting'><a href='#plugins-plugins-magento-2-plugins-plugins-magento-2-installation-troubleshooting' class='header-link'><i></i></a>Troubleshooting</h5>
