@@ -528,6 +528,26 @@
                           </li>
                       </ul>
                       </li>
+                    <li>
+                      <a href="#api-references-draft-payments" class="toc-h3 toc-link" data-title="draft-payments">Draft Payments</a>
+                      <ul class="toc-list-h4">
+                          <li>
+                            <a href="#api-references-api-references-draft-payments-get-authorization-for-draft-payments-endpoint" class="toc-h4 toc-link" data-title="get-authorization-for-draft-payments-endpoint">Get authorization for draft payments endpoint</a>
+                          </li>
+                          <li>
+                            <a href="#api-references-api-references-draft-payments-exchanging-authorization-code-for-access-token" class="toc-h4 toc-link" data-title="exchanging-authorization-code-for-access-token">Exchanging authorization code for access token</a>
+                          </li>
+                          <li>
+                            <a href="#api-references-api-references-draft-payments-create-draft-payment" class="toc-h4 toc-link" data-title="create-draft-payment">Create draft payment</a>
+                          </li>
+                          <li>
+                            <a href="#api-references-api-references-draft-payments-get-draft-payment" class="toc-h4 toc-link" data-title="get-draft-payment">Get Draft Payment</a>
+                          </li>
+                          <li>
+                            <a href="#api-references-api-references-draft-payments-delete-an-existing-draft-payment" class="toc-h4 toc-link" data-title="delete-an-existing-draft-payment">Delete an existing Draft Payment</a>
+                          </li>
+                      </ul>
+                      </li>
                 </ul>
             </li>
             <li>
@@ -865,7 +885,7 @@ Open Banking API is <code>PS256</code>.</p>
 
 <div class="feedback-general"><a>Give feedback on our documentation</a></div>
 <h3 id='quickstart-glossary'><a href='#quickstart-glossary' class='header-link'><i></i></a>Glossary</h3>
-<p>For the complete list of Open Banking terms, we recommend view the <a href="https://www.openbanking.org.uk/about-us/glossary/">official glossary</a>.</p>
+<p>For the complete list of Open Banking terms, we recommend viewing the <a href="https://www.openbanking.org.uk/about-us/glossary/">official glossary</a>.</p>
 
 <table><thead>
 <tr>
@@ -4964,6 +4984,297 @@ Andrea Frost,INDIVIDUAL    ,40513598      ,207409   ,GB                    ,GBP 
 <p>This API fetches the already created funds confirmation resource which indicates the availability of the funds</p>
 
 <div class="feedback"></div>
+<h3 id='api-references-draft-payments'><a href='#api-references-draft-payments' class='header-link'><i></i></a>Draft Payments</h3>
+<aside class="notice">
+If you would like to use the draft payments endpoint, please <a href="https://docs.google.com/forms/d/1jTvhtnCvPvVviGxAqu03vVrnfcrhzkU6KhbAuQvUuQE/viewform?edit_requested=true">reach out.</a>
+</aside>
+<h4 id='api-references-api-references-draft-payments-get-authorization-for-draft-payments-endpoint'><a href='#api-references-api-references-draft-payments-get-authorization-for-draft-payments-endpoint' class='header-link'><i></i></a>Get authorization for draft payments endpoint</h4><blockquote>
+      <div><p>Draft payments authorization URL</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>https://sandbox-business.revolut.com/partner-confirm?response_type<span class="o">=</span>code&amp;state<span class="o">=</span>state&amp;scope<span class="o">=</span>draft_payments&amp;client_id<span class="o">=</span>your_client_id&amp;redirect_uri<span class="o">=</span>your_redirect_uri
+</code></pre><pre class="highlight shell tab-shell--production"><code>https://business.revolut.com/partner-confirm?response_type<span class="o">=</span>code&amp;state<span class="o">=</span>state&amp;scope<span class="o">=</span>draft_payments&amp;client_id<span class="o">=</span>your_client_id&amp;redirect_uri<span class="o">=</span>your_redirect_uri
+</code></pre>
+<p>Before you can start creating draft payments, you&#39;ll need to get authorization from the user to make draft payments on their behalf.
+By redirecting the user to the authorization URL. You will get that authorization in the form of an authorization code.</p>
+<h5 id='api-references-api-references-draft-payments-api-references-api-references-draft-payments-get-authorization-for-draft-payments-endpoint-authorization-url-parameters'><a href='#api-references-api-references-draft-payments-api-references-api-references-draft-payments-get-authorization-for-draft-payments-endpoint-authorization-url-parameters' class='header-link'><i></i></a>Authorization URL Parameters</h5>
+<table><thead>
+<tr>
+<th>Paramater</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>scope</td>
+<td>Scope for authorization that&#39;s required from the user</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>client_id</td>
+<td><code>client_id</code> for your application</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>redirect_uri</td>
+<td>One of the redirect URI&#39;s you defined during client creation</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>state</td>
+<td>A generated string to verify the response is initiated by the same user</td>
+<td>yes</td>
+</tr>
+</tbody></table>
+<h4 id='api-references-api-references-draft-payments-exchanging-authorization-code-for-access-token'><a href='#api-references-api-references-draft-payments-exchanging-authorization-code-for-access-token' class='header-link'><i></i></a>Exchanging authorization code for access token</h4><blockquote>
+      <div><p>Token request via MATLS</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -vvv --insecure --key your_private.key --cert your_transport.pem https://sandbox-mtls-auth.revolut.com/token -d <span class="s2">"grant_type=authorization_code&amp;code={code_from_authorization}&amp;redirect_uri=https://your_redirect.com/revolut_redirect"</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -vvv --key your_private.key --cert your_transport.pem https://mtls-auth.revolut.com/token -d <span class="s2">"grant_type=authorization_code&amp;code={code_from_authorization}&amp;redirect_uri=https://your_redirect.com/revolut_redirect"</span>
+</code></pre><blockquote>
+      <div><p>MATLS response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"access_token"</span><span class="p">:</span><span class="s2">"oa_sand_tG6kRPb2LAYJZx1c3w1NZ7ntuscssWqsC6WkaW9jbER-E"</span><span class="p">,</span><span class="s2">"token_type"</span><span class="p">:</span><span class="s2">"Bearer"</span><span class="p">,</span><span class="s2">"expires_in"</span><span class="p">:</span><span class="mi">7775999</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The last step before you can create a draft payment is getting an access token.
+An access token can be obtained from <code>https://mtls-auth.revolut.com/token</code> by making a request with your private key, transport certificate and the authorization code from the last section.</p>
+<h4 id='api-references-api-references-draft-payments-create-draft-payment'><a href='#api-references-api-references-draft-payments-create-draft-payment' class='header-link'><i></i></a>Create draft payment</h4><blockquote>
+      <div><p>Create Draft Payment</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl --location --request POST <span class="s1">'https://sandbox-apis.revolut.com/draft-payments'</span> --header <span class="s1">'Authorization: Bearer oa_sand_tG6kRPb2LAYJZx1c3w1NZ7ntuscWqsC6WkaW9jbER-E'</span> --header <span class="s1">'Content-Type: text/csv'</span> --data @draft_payments.csv
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request POST <span class="s1">'https://apis.revolut.com/draft-payments'</span> --header <span class="s1">'Authorization: Bearer oa_sand_tG6kRPb2LAYJZx1c3w1NZ7ntuscWqsC6WkaW9jbER-E'</span> --header <span class="s1">'Content-Type: text/csv'</span> --data @draft_payments.csv
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"DraftPaymentId"</span><span class="p">:</span><span class="s2">"4bc0a477-2c81-4f49-bf5b-c6705bb7a6d9"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Assuming you&#39;ve got your access token, you can use the <code>/draft_payments</code> endpoint to create a draft payment on behalf of the customer.
+A draft payment will appear on their account, where they can approve or reject the draft payment.</p>
+<h5 id='api-references-api-references-draft-payments-api-references-api-references-draft-payments-create-draft-payment-parameters'><a href='#api-references-api-references-draft-payments-api-references-api-references-draft-payments-create-draft-payment-parameters' class='header-link'><i></i></a>Parameters</h5>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>scheduledDate</td>
+<td>query</td>
+<td>All transfers in csv will be created as a scheduled payment with this date as the execution date</td>
+<td>No</td>
+<td>date in &quot;YYYY-MM-DD&quot; format</td>
+</tr>
+</tbody></table>
+<h5 id='api-references-api-references-draft-payments-api-references-api-references-draft-payments-create-draft-payment-csv-format'><a href='#api-references-api-references-draft-payments-api-references-api-references-draft-payments-create-draft-payment-csv-format' class='header-link'><i></i></a>CSV Format</h5>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Name</td>
+<td>Yes</td>
+<td>Can contain up to 80 characters. If INDIVIDUAL recipient type is provided this field must contain first and last name separated by white space</td>
+</tr>
+<tr>
+<td>Recipient type</td>
+<td>Yes</td>
+<td>Can be either INDIVIDUAL or COMPANY</td>
+</tr>
+<tr>
+<td>Account number</td>
+<td>For UK transfers</td>
+<td>Must contain valid account number if provided</td>
+</tr>
+<tr>
+<td>Sort code or Routing number</td>
+<td>For UK transfers</td>
+<td>Must contain valid sort code or routing number if provided</td>
+</tr>
+<tr>
+<td>IBAN</td>
+<td>For SEPA transfers</td>
+<td>Must contain valid IBAN if provided</td>
+</tr>
+<tr>
+<td>BIC</td>
+<td>For SEPA transfers</td>
+<td>Must contain valid BIC if provided</td>
+</tr>
+<tr>
+<td>Recipient bank country</td>
+<td>Yes</td>
+<td>Must contain valid ISO 3166-1 country code</td>
+</tr>
+<tr>
+<td>Currency</td>
+<td>Yes</td>
+<td>Must contain valid ISO 4217 currency code</td>
+</tr>
+<tr>
+<td>Amount</td>
+<td>Yes</td>
+<td>Must match following pattern <code>[0-9]*(\\.[0-9]*)?</code></td>
+</tr>
+<tr>
+<td>Payment reference</td>
+<td>Yes</td>
+<td>Can contain up to 100 characters</td>
+</tr>
+<tr>
+<td>Recipient country</td>
+<td>No</td>
+<td>Must contain valid ISO 3166-1 country code if provided</td>
+</tr>
+<tr>
+<td>State or province</td>
+<td>No</td>
+<td>Can contain up to 50 characters</td>
+</tr>
+<tr>
+<td>Address line 1</td>
+<td>No</td>
+<td>Can contain up to 50 characters</td>
+</tr>
+<tr>
+<td>Address line 2</td>
+<td>No</td>
+<td>Can contain up to 50 characters</td>
+</tr>
+<tr>
+<td>City</td>
+<td>No</td>
+<td>Can contain up to 50 characters</td>
+</tr>
+<tr>
+<td>Postal code</td>
+<td>No</td>
+<td>Can contain up to 50 characters</td>
+</tr>
+</tbody></table>
+
+<p>Columns with optional values can be omitted in the uploaded file.</p>
+
+<p>Maximum accepted file size is 10 MB.</p>
+<h4 id='api-references-api-references-draft-payments-get-draft-payment'><a href='#api-references-api-references-draft-payments-get-draft-payment' class='header-link'><i></i></a>Get Draft Payment</h4><blockquote>
+      <div><p>Get Draft Payment Details</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-apis.revolut.com/draft-payments/<span class="o">{</span>DraftPaymentId<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://apis.revolut.com/draft-payments/<span class="o">{</span>DraftPaymentId<span class="o">}</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Draft"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Transfers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"InstructedAmount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"Amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"Reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User comment"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Created"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>By supplying a <code>DraftPaymentID</code> you can request details related to a specific draft payment that has been created.</p>
+<h5 id='api-references-api-references-draft-payments-api-references-api-references-draft-payments-get-draft-payment-parameters'><a href='#api-references-api-references-draft-payments-api-references-api-references-draft-payments-get-draft-payment-parameters' class='header-link'><i></i></a>Parameters</h5>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DraftPaymentId</td>
+<td>path</td>
+<td>The id of the draft payment</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h4 id='api-references-api-references-draft-payments-delete-an-existing-draft-payment'><a href='#api-references-api-references-draft-payments-delete-an-existing-draft-payment' class='header-link'><i></i></a>Delete an existing Draft Payment</h4><blockquote>
+      <div><p>Delete Draft Payment</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X DELETE https://sandbox-apis.revolut.com/draft-payments/<span class="o">{</span>DraftPaymentId<span class="o">}</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X DELETE https://apis.revolut.com/draft-payments/<span class="o">{</span>DraftPaymentId<span class="o">}</span>
+</code></pre>
+<p>A <code>DELETE</code> request for a specific <code>DraftPaymentId</code> can be used to delete that draft payment.
+A draft payment can only be deleted if the user hasn&#39;t committed any actions with it (approved, executed, etc.).</p>
+<h5 id='api-references-api-references-draft-payments-api-references-api-references-draft-payments-delete-an-existing-draft-payment-parameters'><a href='#api-references-api-references-draft-payments-api-references-api-references-draft-payments-delete-an-existing-draft-payment-parameters' class='header-link'><i></i></a>Parameters</h5>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DraftPaymentId</td>
+<td>path</td>
+<td>The id of the draft payment</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
 <h2 id='api-metrics'><a href='#api-metrics' class='header-link'><i></i></a>API Metrics</h2>
 <p>You can view the latest API metrics for Mobile, Business and Open Banking APIs <a href="https://revolut-engineering.github.io/oba/reports/indexLine.html" target="_blank">here</a>.
 You can also review detailed Open Banking metrics <a href="https://revolut-engineering.github.io/oba/reports/index.html" target="_blank">here</a>.</p>
