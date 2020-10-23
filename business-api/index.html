@@ -256,6 +256,9 @@
       <div id="toc">
         <ul class="toc-list-h2">
             <li>
+              <a href="#introduction-to-the-business-api" class="toc-h2 toc-link" data-title="introduction-to-the-business-api">Introduction to the Business API</a>
+            </li>
+            <li>
               <a href="#quickstart" class="toc-h2 toc-link" data-title="quickstart">Quickstart 🚀</a>
                 <ul class="toc-list-h3">
                     <li>
@@ -445,21 +448,40 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='business-api'><a href='#business-api' class='header-link'><i></i></a>Business API</h1><h2 id='quickstart'><a href='#quickstart' class='header-link'><i></i></a>Quickstart 🚀</h2>
-<p>The quickest way to get your business banking automated with revolut.</p>
-<h3 id='quickstart-overview'><a href='#quickstart-overview' class='header-link'><i></i></a>Overview</h3>
-<p>Welcome to the Revolut Business API!
-Here you will find all the information to get started with our API. We’re building a financial superapp and we’re excited to have you on board.</p>
+        <h2 id='introduction-to-the-business-api'><a href='#introduction-to-the-business-api' class='header-link'><i></i></a>Introduction to the Business API</h2>
+<p>More than 500,000 businessess use Revolut to manage their business finances. Each business is different and Revolut is on a mission to become the financial super-app that meets their unique needs. This is where you come in.</p>
 
-<p>The Business API is for business that want to automate their own business accounts as much as possible.</p>
+<p>Join the 1000+ developers who have already built applications using the Revolut APIs. </p>
+
+<table><thead>
+<tr>
+<th>API</th>
+<th>For Who</th>
+<th>What can you do</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Business API</td>
+<td>Revolut Business account holders</td>
+<td>Automate different functions of your business</td>
+</tr>
+</tbody></table>
+
+<p><span class="subtext">You might be looking for the <a href="https://developer.revolut.com/docs/open-banking-api">Open Banking API</a> or the <a href="https://developer.revolut.com/docs/merchant-api">Merchant API</a></span></p>
+<h2 id='quickstart'><a href='#quickstart' class='header-link'><i></i></a>Quickstart 🚀</h2>
+<p>The quickest way to automate your business finances with Revolut.</p>
+<h3 id='quickstart-overview'><a href='#quickstart-overview' class='header-link'><i></i></a>Overview</h3>
+<p>Welcome to the Revolut Business API. Here you&#39;ll find the information you need to get started with our API. We’re building a financial super-app and we’re excited to have you on board.</p>
+
+<p>The Business API is for businesses that want to automate their internal finance systems.</p>
 
 <p>If, instead, you&#39;re planning to build an app or integration to publish for others to use, please check out our <a href="https://developer.revolut.com/docs/open-banking-api/">Open Banking API</a>.</p>
 
 <div class="feedback"></div>
 <h3 id='quickstart-sandbox-environment'><a href='#quickstart-sandbox-environment' class='header-link'><i></i></a>Sandbox environment</h3>
-<p>The <a href="https://sandbox-business.revolut.com">Sandbox environment</a> is a non-production environment setup to make it easier for you to start working with the API. When creating a sandbox account you will be able to use mock data and safely test your application in a simulated environment. Please let us know if you have any issues with setting up the sandbox environment.</p>
+<p>The <a href="https://sandbox-business.revolut.com">Sandbox environment</a> is a non-production environment setup to make it easier for you to start working with the API. When creating a sandbox account you will be able to use mock data and safely test your application in a simulated environment. Please let us know if you have any issues setting up the sandbox environment.</p>
 
-<p>You can sign up for a sandbox account following a similar process as for a regular business account. </p>
+<p>You can sign up for a sandbox account following a process similar to the one you used to apply for your business account.</p>
 
 <p><a href='https://sandbox-business.revolut.com/?utm_source=Business%20API&utm_medium=docs&utm_campaign=documentation' role="button" class="cta-button"> Create a Sandbox Business Account </a></p>
 
@@ -495,7 +517,7 @@ Here you will find all the information to get started with our API. We’re buil
 <p><strong>Mac</strong>:
 OpenSSL comes shipped with Mac OS X version 10.6.2 onwards. You can use Terminal to run OpenSSL commands.</p>
 
-<aside class="warning">You might need admin access to run OpenSSL commands. If so, please add <code>sudo</code> before each command line.</aside>
+<aside class="warning">You might need admin access to run OpenSSL commands. If so, please add <code>sudo</code> before each command.</aside>
 
 <p><strong>Windows</strong>:
 Download OpenSSL for Windows</p>
@@ -506,9 +528,9 @@ Download OpenSSL for Windows</p>
 <h4 id='quickstart-quickstart-authenticating-with-revolut-uploading-your-public-key'><a href='#quickstart-quickstart-authenticating-with-revolut-uploading-your-public-key' class='header-link'><i></i></a>Uploading your public key</h4>
 <p>Go to the directory in which you have generated the public keys and copy the text in the &quot;publickey.cer&quot; certificate file. Head over to your Revolut Business account <a href="https://business.revolut.com/settings/api">API settings</a>, click on &quot;Add certificate&quot;, then paste your public key in the &quot;X509 public key&quot; input.</p>
 
-<p>In order to complete the setup, you will also need to provide a OAuth redirect URI. The redirect URI is a url to which you will be redirected after the authorisation step. For sandbox you could use <a href="https://revolut-jwt-sandbox.glitch.me/">our JWT test application</a> as a redirect URI, as it will simplify the next steps for you.</p>
+<p>In order to complete the setup, you will also need to provide an OAuth redirect URI. The redirect URI is a url to which you will be redirected after the authorisation step. For sandbox you could use <a href="https://revolut-jwt-sandbox.glitch.me/">our JWT test application</a> as a redirect URI, as it will simplify the next steps for you.</p>
 <h4 id='quickstart-quickstart-authenticating-with-revolut-signing-a-jwt'><a href='#quickstart-quickstart-authenticating-with-revolut-signing-a-jwt' class='header-link'><i></i></a>Signing a JWT</h4>
-<p>In order to perform requests to the API, you will need to provide your client_id and a JSON Web Token. At the end of the previous step, you will be assigned a client_id.</p>
+<p>In order to perform requests to the API, you will need to provide your <code>client_id</code> and a JSON Web Token. At the end of the previous step, you will be assigned a <code>client_id</code>.</p>
 <blockquote>
       <div><p>Generating a JWT:</p>
 </div>
@@ -608,7 +630,7 @@ Download OpenSSL for Windows</p>
 
 <p>Once you have the JWT header and payload, you can start stitching them together to make the JWT signature.</p>
 
-<p>the JWT signature is created by encrypting the <code>Base64Url</code> encoded JWT header and payload and concatenating with a (.) period.</p>
+<p>The JWT signature is created by encrypting the <code>Base64Url</code> encoded JWT header and payload and concatenating with a (.) period.</p>
 
 <p>Then, Concatenating (using period &#39;.&#39; characters) base64url encoded header, payload and signature will get you the complete JWT.</p>
 
@@ -616,7 +638,7 @@ Download OpenSSL for Windows</p>
 
 <iframe src="https://jwt.io/#debugger-io" title="JWT Signature debugger" width="100%" height="1100px" style="border:none;" scrolling="no"> </iframe>
 <h4 id='quickstart-quickstart-authenticating-with-revolut-authorising-your-app'><a href='#quickstart-quickstart-authenticating-with-revolut-authorising-your-app' class='header-link'><i></i></a>Authorising your app</h4>
-<p>The next step is to authorise the API to access your account. In order to do so, in the web interface, click on the &quot;Authorise API access&quot; button. You will see an authorisation popup with a summary of the resources the API will be able to access.</p>
+<p>The next step is to authorise the API to access your account. In order to do so, in the web interface, click on the &quot;Authorise API access&quot; button. You will see an authorisation pop-up with a summary of the resources the API will be able to access.</p>
 
 <p>Once you click on authorise, you will be redirected to your specified OAuth redirect link. The redirect url will have attached an authorisation code.</p>
 <h4 id='quickstart-quickstart-authenticating-with-revolut-requesting-a-reusable-access-token'><a href='#quickstart-quickstart-authenticating-with-revolut-requesting-a-reusable-access-token' class='header-link'><i></i></a>Requesting a reusable access token</h4>
@@ -682,17 +704,18 @@ Download OpenSSL for Windows</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>Now that everything you have your access token, you&#39;re ready to make requests to the Business API! To verify that everything is running,make a request to the <code>accounts</code> endpoint and see the accounts the user has.</p>
+<p>Now that you have your access token, you&#39;re ready to make requests to the Business API! To verify that everything is running, make a request to the accounts endpoint and see the accounts the user has.</p>
 <h3 id='quickstart-next-steps'><a href='#quickstart-next-steps' class='header-link'><i></i></a>Next steps</h3>
-<p>This quickstart is just the tip of the iceberg and there&#39;s much more functionality you can unlock by exploring this documentation. We recommend you take some time to explore the various endpoints to see what&#39;s possible with the Business API.</p>
+<p>This quickstart is just the tip of the iceberg. There&#39;s more functionality you can unlock by exploring this documentation. We recommend you take some time to check out the various endpoints to see what&#39;s possible with the Business API.</p>
 
-<p>As we continue to grow our developer community and refine our developer experience, we encourage you to be involved. 
-<div class="feedback-general"><a>The first step you can take is leaving some feedback on this quickstart!</a></div></p>
+<p>As we continue to grow our developer community and refine our developer experience, we encourage you to get involved.</p>
+
+<div class="feedback-general"><a>The first step you can take is leaving some feedback on this quickstart!</a></div>
 <h3 id='quickstart-usage-and-limits'><a href='#quickstart-usage-and-limits' class='header-link'><i></i></a>Usage and limits</h3>
 <p>In order to ensure safe and fair resource sharing, we define the following usage limits:</p>
 
 <ul>
-<li>a maximum of 60 requests per minute for a given business</li>
+<li>A maximum of 60 requests per minute for a single business</li>
 </ul>
 
 <p>Please note that for businesses on a Freelancer plan we are also required to ask users for explicit authorisation to access their account via the API every 90 days. This means that access tokens will expire every 90 days and you (or your users) will need to authorise access to the app once more. This is due to the recent PSD2 SCA regulations.</p>

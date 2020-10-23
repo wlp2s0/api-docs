@@ -391,13 +391,13 @@
                       </ul>
                       </li>
                     <li>
-                      <a href="#api-references-expenses-beta" class="toc-h3 toc-link" data-title="expenses-beta">Expenses - Beta</a>
+                      <a href="#api-references-expenses" class="toc-h3 toc-link" data-title="expenses">Expenses</a>
                       <ul class="toc-list-h4">
                           <li>
-                            <a href="#api-references-api-references-expenses-beta-get-expenses" class="toc-h4 toc-link" data-title="get-expenses">Get Expenses</a>
+                            <a href="#api-references-api-references-expenses-get-expenses" class="toc-h4 toc-link" data-title="get-expenses">Get Expenses</a>
                           </li>
                           <li>
-                            <a href="#api-references-api-references-expenses-beta-get-receipt-information" class="toc-h4 toc-link" data-title="get-receipt-information">Get Receipt Information</a>
+                            <a href="#api-references-api-references-expenses-get-receipt-information" class="toc-h4 toc-link" data-title="get-receipt-information">Get Receipt Information</a>
                           </li>
                       </ul>
                       </li>
@@ -567,9 +567,9 @@
       <div class="dark-box"></div>
       <div class="content">
         <h2 id='introduction-to-the-open-banking-api'><a href='#introduction-to-the-open-banking-api' class='header-link'><i></i></a>Introduction to the Open Banking API</h2>
-<p>More than 14,000,000 customers use Revolut to manage their financial lives or business. Each customer is different and Revolut is on a mission to become the financial super app that solves all their unique needs. This is where you come in.</p>
+<p>More than 14,000,000 customers use Revolut to manage their personal or business finances. Each customer is different and Revolut is on a mission to become the financial super-app that meets their unique needs. This is where you come in.</p>
 
-<p>Join the 1000+ developers who have already built applications using the Revolut APIs. All that’s left is to get started! </p>
+<p>Join the 1000+ developers who have already built applications using the Revolut APIs. </p>
 
 <table><thead>
 <tr>
@@ -596,7 +596,7 @@ eIDAS certificates are issued by Qualified Trust Service Providers (QTSPs) that 
 <p>For businesses that are not regulated under PSDII and would like to get access to our APIs - you can <a href="https://docs.google.com/forms/d/1jTvhtnCvPvVviGxAqu03vVrnfcrhzkU6KhbAuQvUuQE/viewform?edit_requested=true">reach out</a> to see if you qualify for access to our endpoints.</p>
 
 <aside class="notice">
-It goes without saying that you should seek your own legal advice to understand if you need to be regulated, and if need be, talk to the financial regulatory bodies in the for you relevant jurisdictions.
+It goes without saying that you should seek your own legal advice to understand if you need regulation, and if need be, talk to the financial regulatory bodies in the for you relevant jurisdictions.
 </aside>
 <h2 id='quickstart'><a href='#quickstart' class='header-link'><i></i></a>Quickstart 🚀</h2>
 <p>The quickest way to get up and running with the Open Banking API.</p>
@@ -627,8 +627,7 @@ It goes without saying that you should seek your own legal advice to understand 
       </div>
     </blockquote><pre class="highlight shell tab-shell"><code>openssl req -sha256 -new -key server.key -out server.csr -outform der
 </code></pre>
-<p>For the sake of creating a sandbox account, you can create some dummy certificates on your local machine.
-First, you’ll need to generate an RSA using the openssl command.</p>
+<p>For the sake of creating a sandbox account, you can create some dummy certificates on your local machine. First, you’ll need to generate an RSA using the openssl command.</p>
 
 <p>Then, we can generate X.509 Certificate Signing Request (CSR) using the second command.</p>
 
@@ -640,7 +639,7 @@ First, you’ll need to generate an RSA using the openssl command.</p>
 
 <p>Each API reference describes the functionality the account type can provide. For example, the <a href="#api-references-api-references-payment-initiation-create-domestic-scheduled-payment-consent">Create Domestic Scheduled Payment Consent</a> endpoint describes how business accounts will see a different option in the consent flow because of their ability to have multiple accounts in the same currency.</p>
 <h5 id='quickstart-quickstart-working-with-the-sandbox-environment-quickstart-quickstart-working-with-the-sandbox-environment-creating-accounts-for-sandbox-personal-accounts'><a href='#quickstart-quickstart-working-with-the-sandbox-environment-quickstart-quickstart-working-with-the-sandbox-environment-creating-accounts-for-sandbox-personal-accounts' class='header-link'><i></i></a>Personal accounts</h5>
-<p>To create a personal account you&#39;ll have to generate one in the developer portal under the sandbox section.
+<p>To create a personal account, you&#39;ll have to generate one in the developer portal under the sandbox section.
 <a href='https://developer.revolut.com/portal/openbanking/upload-certificates?utm_source=Open%20Banking%20API&utm_medium=docs&utm_campaign=documentation' role="button" class="cta-button"> Create personal sandbox account in Developer Portal </a></p>
 <h5 id='quickstart-quickstart-working-with-the-sandbox-environment-quickstart-quickstart-working-with-the-sandbox-environment-creating-accounts-for-sandbox-business-accounts'><a href='#quickstart-quickstart-working-with-the-sandbox-environment-quickstart-quickstart-working-with-the-sandbox-environment-creating-accounts-for-sandbox-business-accounts' class='header-link'><i></i></a>Business accounts</h5>
 <p>Creating a business account in the sandbox environment is as easy as clicking the button below and following the steps shown on the site.</p>
@@ -697,9 +696,9 @@ First, you’ll need to generate an RSA using the openssl command.</p>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/register
 
 </code></pre>
-<p>Now that we have our sandbox developer account setup we can create an application using Dynamic Client Registration (DCR). The process involves creating a JWT with all the details related to your application. On the right side there is an example of what your JWT Header and Payload should look like.</p>
+<p>Now that we have our sandbox developer account setup, we can create an application using Dynamic Client Registration (DCR). The process involves creating a JWT with all the details related to your application. On the right side there is an example of what your JWT Header and Payload should look like.</p>
 
-<p>If you are unfamiliar with JWT&#39;s and how they work this may look daunting to you, but fear not because we&#39;ll break down exactly how it works.</p>
+<p>If you are unfamiliar with JWT&#39;s and how they work, this may look daunting to you – don’t worry we&#39;ll break down exactly how it works.</p>
 <h4 id='quickstart-quickstart-registering-an-application-open-id-configuration-urls'><a href='#quickstart-quickstart-registering-an-application-open-id-configuration-urls' class='header-link'><i></i></a>Open Id Configuration URLs</h4>
 <p>We use OpenID Connect so you&#39;ll have to make sure to include the <code>openid</code> scope in your JWT payload. For more information on our configuration, take a look at the respective OpenID configurations.</p>
 
@@ -708,15 +707,13 @@ First, you’ll need to generate an RSA using the openssl command.</p>
 <li>Sandbox: https://sandbox-oba.revolut.com/openid-configuration</li>
 </ul>
 <h5 id='quickstart-quickstart-registering-an-application-quickstart-quickstart-registering-an-application-open-id-configuration-urls-jwt-header'><a href='#quickstart-quickstart-registering-an-application-quickstart-quickstart-registering-an-application-open-id-configuration-urls-jwt-header' class='header-link'><i></i></a>JWT Header</h5>
-<p>The header plays the role of defining what will be used to sign the JWT.
-The <code>kid</code>, or Key ID, is meant to give context of which key was used for you JSON Web Key (JWK).</p>
+<p>The header plays the role of defining what will be used to sign the JWT. The <code>kid</code>, or Key ID, is meant to give context of which key was used for you JSON Web Key (JWK).</p>
 
-<p>The <code>alg</code> key in the header represents the algorithm used to sign the JWT. The only algorithm supported with the
-Open Banking API is <code>PS256</code>.</p>
+<p>The <code>alg</code> key in the header represents the algorithm used to sign the JWT. The only algorithm supported with the Open Banking API is PS256.</p>
 
 <p>Once the header is created, it is then <code>Base64Url</code> encoded to create the first part of the JWT.</p>
 <h5 id='quickstart-quickstart-registering-an-application-quickstart-quickstart-registering-an-application-open-id-configuration-urls-jwt-payload'><a href='#quickstart-quickstart-registering-an-application-quickstart-quickstart-registering-an-application-open-id-configuration-urls-jwt-payload' class='header-link'><i></i></a>JWT Payload</h5>
-<p>The JWT Payload is a set of claims that define what you need. A lot of the claims are pre-defined or dependent on what your application requires. For a full list of claims you can take a look at the <a href="#identification-and-authentication-dynamic-client-registration">Dynamic Client Registration</a> API reference.</p>
+<p>The JWT Payload is a set of claims that define what you need. A lot of the claims are pre-defined or dependent on what your application requires. For a full list of claims you can take a look at the  <a href="#identification-and-authentication-dynamic-client-registration">Dynamic Client Registration</a> API reference.</p>
 <blockquote>
       <div><p>certificates in DER format:</p>
 </div>
@@ -734,11 +731,11 @@ Open Banking API is <code>PS256</code>.</p>
 <h3 id='quickstart-creating-a-valid-jwt'><a href='#quickstart-creating-a-valid-jwt' class='header-link'><i></i></a>Creating a valid JWT</h3>
 <p>Now that we have the JWT header and payload, we can start stitching them together to make the JWT signature.</p>
 
-<p>the JWT signature is created by encrypting the <code>Base64Url</code> encoded JWT header and payload and concatenating with a (.) period.</p>
+<p>The JWT signature is created by encrypting the <code>Base64Url</code> encoded JWT header and payload and concatenating with a (.) period.</p>
 
-<p>Then, Concatenating (using period &#39;.&#39; characters) base64url encoded header, payload and signature will get you the complete JWT.</p>
+<p>Then, concatenating (using period &#39;.&#39; characters) base64url encoded header, payload and signature will get you the complete JWT.</p>
 
-<p>To confirm that you infact have a valid JWT, you can use this handy JWT tool by entering the JWT you just created and confirming the values match the JWT header and payload you created for the JWT. At the bottom right you should be able to add your key to verify the signature. If everything is correct, the debugger should tell you that the JWT is valid.</p>
+<p>To confirm that you in fact have a valid JWT, you can use this handy JWT tool by entering the JWT you just created and confirming the values match the JWT header and payload you created for the JWT. At the bottom right you should be able to add your key to verify the signature. If everything is correct, the debugger should tell you that the JWT is valid.</p>
 
 <iframe src="https://jwt.io/#debugger-io" title="JWT Signature debugger" width="100%" height="1100px" style="border:none;" scrolling="no"> </iframe>
 <h3 id='quickstart-authentication-and-authorization'><a href='#quickstart-authentication-and-authorization' class='header-link'><i></i></a>Authentication and Authorization</h3><blockquote>
@@ -810,9 +807,9 @@ Open Banking API is <code>PS256</code>.</p>
     "Risk": {}
 }'</span>
 </code></pre>
-<p>Now that you have an <code>authorization token</code> from the last step, you can intiate a consent for the user to complete. </p>
+<p>Now that you have an <code>authorization token</code> from the last step, you can initiate a consent for the user to complete.</p>
 
-<p>On succesful completion of the consent flow, you&#39;ll recieve a response that describes the <code>consent ID</code>, whether the consent was authorized by the user and the permissions granted -- among other details that are listed in the <a href="#api-references-account-and-transactions"> API reference.</a></p>
+<p>On successful completion of the consent flow, you&#39;ll receive a response that describes the consent ID, whether the consent was authorized by the user and the permissions granted -- among other details that are listed in the <a href="#api-references-account-and-transactions"> API reference.</a></p>
 <h4 id='quickstart-quickstart-authentication-and-authorization-your-first-api-request'><a href='#quickstart-quickstart-authentication-and-authorization-your-first-api-request' class='header-link'><i></i></a>Your first API request!</h4><blockquote>
       <div><p>Get list of accounts</p>
 </div>
@@ -861,17 +858,17 @@ Open Banking API is <code>PS256</code>.</p>
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Now that everything is in place, you&#39;ll be able to make requests to the API. To verify that everything is running, you can make a request to the <code>accounts</code> endpoint and see the accounts the user has.</p>
+<p>Now that everything is in place, you&#39;ll be able to make requests to the API. To verify that everything is running properly, you can make a request to the <code>accounts</code> endpoint and see the accounts the user has access to.</p>
 <h3 id='quickstart-next-steps'><a href='#quickstart-next-steps' class='header-link'><i></i></a>Next steps</h3>
-<p>This quickstart is just the tip of the iceberg and there&#39;s much more functionality you can unlock by exploring this documentation. We recommend you take some time to explore the various endpoints to see what&#39;s possible with the Open Banking API.</p>
+<p>This quickstart is just the tip of the iceberg. There&#39;s much functionality you can unlock by exploring this documentation. We recommend you take some time to check out the various endpoints to see what&#39;s possible with the Open Banking API.</p>
 
-<p>As we continue to grow our developer community and refine our developer experience, we encourage you to be involved. 
+<p>As we continue to grow our developer community and refine our developer experience, we encourage you to get involved.
 <div class="feedback-general"><a>The first step you can take is leaving some feedback on this quickstart!</a></div></p>
 <h3 id='quickstart-usage-and-limits'><a href='#quickstart-usage-and-limits' class='header-link'><i></i></a>Usage and limits</h3>
 <p>In order to ensure safe and fair resource sharing, we define the following usage limits:</p>
 
 <ul>
-<li>a maximum of 16 requests per second for one application</li>
+<li>A maximum of 16 requests per second for one application</li>
 </ul>
 
 <p>Please make sure to stay under this limit. Should you estimate this limit to be a problem for your use case of our API, please <a href="mailto:api-requests@revolut.com">reach out to us</a> directly.</p>
@@ -1314,10 +1311,6 @@ As you continue to explore the API, you will also see how users are redirected t
 <p>Open Banking <code>Account and Transaction API</code> is implemented as specified in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/999622968/Account+and+Transaction+API+Specification+-+v3.1.1">documentation</a></p>
 
 <p>The Interfaces already implemented are below. We continue implementing other endpoints (mandatory endpoints first). We will be updating this documentation as we progress.</p>
-
-<aside class="warning">
-    Vault consents are still in beta - on some devices they might not yet be visible.
-</aside>
 <h4 id='api-references-api-references-account-and-transactions-account-access-consent'><a href='#api-references-api-references-account-and-transactions-account-access-consent' class='header-link'><i></i></a>Account Access Consent</h4><h5 id='api-references-api-references-account-and-transactions-api-references-api-references-account-and-transactions-account-access-consent-cancel-revoke-consent'><a href='#api-references-api-references-account-and-transactions-api-references-api-references-account-and-transactions-account-access-consent-cancel-revoke-consent' class='header-link'><i></i></a>Cancel/Revoke Consent</h5><blockquote>
       <div><p>Reject or revoke Consent</p>
 </div>
@@ -2516,12 +2509,12 @@ follow the rules of the permissions table below:</p>
 </tbody></table>
 
 <div class="feedback"></div>
-<h3 id='api-references-expenses-beta'><a href='#api-references-expenses-beta' class='header-link'><i></i></a>Expenses - Beta</h3>
-<aside class="warning">
+<h3 id='api-references-expenses'><a href='#api-references-expenses' class='header-link'><i></i></a>Expenses</h3>
+<aside class="notice">
     The expenses API documentation / endpoint is currently in beta and is not widely available.
-    please reach out to us <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpEGdxdMWYlak2FUF-kWSOSTJSJ8QTPLLtXaOKH-kjmW1hQQ/viewform">here</a> to get further details
+    please <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpEGdxdMWYlak2FUF-kWSOSTJSJ8QTPLLtXaOKH-kjmW1hQQ/viewform">reach out</a> to get further details
 </aside>
-<h4 id='api-references-api-references-expenses-beta-get-expenses'><a href='#api-references-api-references-expenses-beta-get-expenses' class='header-link'><i></i></a>Get Expenses</h4><blockquote>
+<h4 id='api-references-api-references-expenses-get-expenses'><a href='#api-references-api-references-expenses-get-expenses' class='header-link'><i></i></a>Get Expenses</h4><blockquote>
       <div><p>Get a list of all expenses</p>
 </div>
       <div class='env-selector'>
@@ -2534,7 +2527,7 @@ follow the rules of the permissions table below:</p>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/expenses
 </code></pre>
 <p>List all expenses related to the account with the option to specify a beginning and ending date using a dateTime format</p>
-<h6 id='api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-expenses-api-references-api-references-account-and-transactions-api-references-api-references-account-and-transactions-get-account-standing-orders-request-header-parameters-parameters'><a href='#api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-expenses-api-references-api-references-account-and-transactions-api-references-api-references-account-and-transactions-get-account-standing-orders-request-header-parameters-parameters' class='header-link'><i></i></a>Parameters</h6>
+<h6 id='api-references-api-references-expenses-api-references-api-references-expenses-get-expenses-api-references-api-references-account-and-transactions-api-references-api-references-account-and-transactions-get-account-standing-orders-request-header-parameters-parameters'><a href='#api-references-api-references-expenses-api-references-api-references-expenses-get-expenses-api-references-api-references-account-and-transactions-api-references-api-references-account-and-transactions-get-account-standing-orders-request-header-parameters-parameters' class='header-link'><i></i></a>Parameters</h6>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -2559,7 +2552,7 @@ follow the rules of the permissions table below:</p>
 <td>dateTime</td>
 </tr>
 </tbody></table>
-<h5 id='api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-expenses-request-header-parameters'><a href='#api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-expenses-request-header-parameters' class='header-link'><i></i></a>Request Header Parameters</h5>
+<h5 id='api-references-api-references-expenses-api-references-api-references-expenses-get-expenses-request-header-parameters'><a href='#api-references-api-references-expenses-api-references-api-references-expenses-get-expenses-request-header-parameters' class='header-link'><i></i></a>Request Header Parameters</h5>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -2677,7 +2670,7 @@ follow the rules of the permissions table below:</p>
   </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"Self"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/expenses"</span><span class="w"> </span><span class="p">},</span><span class="w">
   </span><span class="s2">"Meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">"TotalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h6 id='api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-expenses-api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-expenses-request-header-parameters-responses'><a href='#api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-expenses-api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-expenses-request-header-parameters-responses' class='header-link'><i></i></a>Responses</h6>
+</span></code></pre><h6 id='api-references-api-references-expenses-api-references-api-references-expenses-get-expenses-api-references-api-references-expenses-api-references-api-references-expenses-get-expenses-request-header-parameters-responses'><a href='#api-references-api-references-expenses-api-references-api-references-expenses-get-expenses-api-references-api-references-expenses-api-references-api-references-expenses-get-expenses-request-header-parameters-responses' class='header-link'><i></i></a>Responses</h6>
 <table><thead>
 <tr>
 <th>Code</th>
@@ -2693,7 +2686,7 @@ follow the rules of the permissions table below:</p>
 <td>Unexpected error</td>
 </tr>
 </tbody></table>
-<h4 id='api-references-api-references-expenses-beta-get-receipt-information'><a href='#api-references-api-references-expenses-beta-get-receipt-information' class='header-link'><i></i></a>Get Receipt Information</h4><blockquote>
+<h4 id='api-references-api-references-expenses-get-receipt-information'><a href='#api-references-api-references-expenses-get-receipt-information' class='header-link'><i></i></a>Get Receipt Information</h4><blockquote>
       <div><p>Get a list of all expenses</p>
 </div>
       <div class='env-selector'>
@@ -2706,7 +2699,7 @@ follow the rules of the permissions table below:</p>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/transactions/<span class="o">{</span> TransactionId<span class="o">}</span>/receipt/<span class="o">{</span> ReceiptId <span class="o">}</span>
 </code></pre>
 <p>The <code>transactions</code> endpoint allows you to fetch the actual reciept tied to a transaction and receipt ID</p>
-<h6 id='api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-receipt-information-api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-expenses-request-header-parameters-parameters'><a href='#api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-receipt-information-api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-expenses-request-header-parameters-parameters' class='header-link'><i></i></a>Parameters</h6>
+<h6 id='api-references-api-references-expenses-api-references-api-references-expenses-get-receipt-information-api-references-api-references-expenses-api-references-api-references-expenses-get-expenses-request-header-parameters-parameters'><a href='#api-references-api-references-expenses-api-references-api-references-expenses-get-receipt-information-api-references-api-references-expenses-api-references-api-references-expenses-get-expenses-request-header-parameters-parameters' class='header-link'><i></i></a>Parameters</h6>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -2741,7 +2734,7 @@ follow the rules of the permissions table below:</p>
         </select>
       </div>
     </blockquote><pre class="highlight shell tab-shell"><code>This response is a stream of bytes.
-</code></pre><h6 id='api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-receipt-information-api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-expenses-request-header-parameters-responses'><a href='#api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-receipt-information-api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-expenses-request-header-parameters-responses' class='header-link'><i></i></a>Responses</h6>
+</code></pre><h6 id='api-references-api-references-expenses-api-references-api-references-expenses-get-receipt-information-api-references-api-references-expenses-api-references-api-references-expenses-get-expenses-request-header-parameters-responses'><a href='#api-references-api-references-expenses-api-references-api-references-expenses-get-receipt-information-api-references-api-references-expenses-api-references-api-references-expenses-get-expenses-request-header-parameters-responses' class='header-link'><i></i></a>Responses</h6>
 <table><thead>
 <tr>
 <th>Code</th>
@@ -2757,7 +2750,7 @@ follow the rules of the permissions table below:</p>
 <td>Unexpected error</td>
 </tr>
 </tbody></table>
-<h6 id='api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-receipt-information-api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-expenses-request-header-parameters-security'><a href='#api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-receipt-information-api-references-api-references-expenses-beta-api-references-api-references-expenses-beta-get-expenses-request-header-parameters-security' class='header-link'><i></i></a>Security</h6>
+<h6 id='api-references-api-references-expenses-api-references-api-references-expenses-get-receipt-information-api-references-api-references-expenses-api-references-api-references-expenses-get-expenses-request-header-parameters-security'><a href='#api-references-api-references-expenses-api-references-api-references-expenses-get-receipt-information-api-references-api-references-expenses-api-references-api-references-expenses-get-expenses-request-header-parameters-security' class='header-link'><i></i></a>Security</h6>
 <table><thead>
 <tr>
 <th>Security Schema</th>
@@ -4986,7 +4979,7 @@ Andrea Frost,INDIVIDUAL    ,40513598      ,207409   ,GB                    ,GBP 
 <div class="feedback"></div>
 <h3 id='api-references-draft-payments'><a href='#api-references-draft-payments' class='header-link'><i></i></a>Draft Payments</h3>
 <aside class="notice">
-If you would like to use the draft payments endpoint, please <a href="https://docs.google.com/forms/d/1jTvhtnCvPvVviGxAqu03vVrnfcrhzkU6KhbAuQvUuQE/viewform?edit_requested=true">reach out.</a>
+If you would like to use the draft payments endpoint, please <a href="https://docs.google.com/forms/d/1jTvhtnCvPvVviGxAqu03vVrnfcrhzkU6KhbAuQvUuQE/viewform?edit_requested=true">reach out</a> to us directly.
 </aside>
 <h4 id='api-references-api-references-draft-payments-get-authorization-for-draft-payments-endpoint'><a href='#api-references-api-references-draft-payments-get-authorization-for-draft-payments-endpoint' class='header-link'><i></i></a>Get authorization for draft payments endpoint</h4><blockquote>
       <div><p>Draft payments authorization URL</p>
@@ -5000,8 +4993,7 @@ If you would like to use the draft payments endpoint, please <a href="https://do
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>https://sandbox-business.revolut.com/partner-confirm?response_type<span class="o">=</span>code&amp;state<span class="o">=</span>state&amp;scope<span class="o">=</span>draft_payments&amp;client_id<span class="o">=</span>your_client_id&amp;redirect_uri<span class="o">=</span>your_redirect_uri
 </code></pre><pre class="highlight shell tab-shell--production"><code>https://business.revolut.com/partner-confirm?response_type<span class="o">=</span>code&amp;state<span class="o">=</span>state&amp;scope<span class="o">=</span>draft_payments&amp;client_id<span class="o">=</span>your_client_id&amp;redirect_uri<span class="o">=</span>your_redirect_uri
 </code></pre>
-<p>Before you can start creating draft payments, you&#39;ll need to get authorization from the user to make draft payments on their behalf.
-By redirecting the user to the authorization URL. You will get that authorization in the form of an authorization code.</p>
+<p>Before you can start creating draft payments, you&#39;ll need to get authorisation from the user to make draft payments on their behalf. By redirecting the user to the authorisation URL,you will get authorisation in the form of an authorisation code.</p>
 <h5 id='api-references-api-references-draft-payments-api-references-api-references-draft-payments-get-authorization-for-draft-payments-endpoint-authorization-url-parameters'><a href='#api-references-api-references-draft-payments-api-references-api-references-draft-payments-get-authorization-for-draft-payments-endpoint-authorization-url-parameters' class='header-link'><i></i></a>Authorization URL Parameters</h5>
 <table><thead>
 <tr>
@@ -5053,8 +5045,7 @@ By redirecting the user to the authorization URL. You will get that authorizatio
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"access_token"</span><span class="p">:</span><span class="s2">"oa_sand_tG6kRPb2LAYJZx1c3w1NZ7ntuscssWqsC6WkaW9jbER-E"</span><span class="p">,</span><span class="s2">"token_type"</span><span class="p">:</span><span class="s2">"Bearer"</span><span class="p">,</span><span class="s2">"expires_in"</span><span class="p">:</span><span class="mi">7775999</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>The last step before you can create a draft payment is getting an access token.
-An access token can be obtained from <code>https://mtls-auth.revolut.com/token</code> by making a request with your private key, transport certificate and the authorization code from the last section.</p>
+<p>The last step before you can create a draft payment is getting an access token. An access token can be obtained from <code>https://mtls-auth.revolut.com/token</code> by making a request with your private key, transport certificate and the authorisation code from the last section.</p>
 <h4 id='api-references-api-references-draft-payments-create-draft-payment'><a href='#api-references-api-references-draft-payments-create-draft-payment' class='header-link'><i></i></a>Create draft payment</h4><blockquote>
       <div><p>Create Draft Payment</p>
 </div>
@@ -5077,8 +5068,9 @@ An access token can be obtained from <code>https://mtls-auth.revolut.com/token</
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"DraftPaymentId"</span><span class="p">:</span><span class="s2">"4bc0a477-2c81-4f49-bf5b-c6705bb7a6d9"</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Assuming you&#39;ve got your access token, you can use the <code>/draft_payments</code> endpoint to create a draft payment on behalf of the customer.
-A draft payment will appear on their account, where they can approve or reject the draft payment.</p>
+<p>Once you&#39;ve got your access token, you can use the <code>/draft_payments</code> endpoint to create a draft payment on behalf of the customer. A draft payment will appear on their account, where they can approve or reject the draft payment.</p>
+
+<p>You can use the same <code>/draft_payments</code> endpoint to make multiple draft payments by using new rows for new draft payments. For every draft payment request you make, you will have to make sure that they are using the same currency. On a successful request with multiple draft payments, you will recieve one <code>DraftPaymentID</code> that will represent all the draft payments associated with your request.</p>
 <h5 id='api-references-api-references-draft-payments-api-references-api-references-draft-payments-create-draft-payment-parameters'><a href='#api-references-api-references-draft-payments-api-references-api-references-draft-payments-create-draft-payment-parameters' class='header-link'><i></i></a>Parameters</h5>
 <table><thead>
 <tr>
@@ -5224,7 +5216,7 @@ A draft payment will appear on their account, where they can approve or reject t
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>By supplying a <code>DraftPaymentID</code> you can request details related to a specific draft payment that has been created.</p>
+<p>By supplying a <code>DraftPaymentID</code>, you can request details related to a specific draft payment that has been created.</p>
 <h5 id='api-references-api-references-draft-payments-api-references-api-references-draft-payments-get-draft-payment-parameters'><a href='#api-references-api-references-draft-payments-api-references-api-references-draft-payments-get-draft-payment-parameters' class='header-link'><i></i></a>Parameters</h5>
 <table><thead>
 <tr>
@@ -5255,8 +5247,7 @@ A draft payment will appear on their account, where they can approve or reject t
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X DELETE https://sandbox-apis.revolut.com/draft-payments/<span class="o">{</span>DraftPaymentId<span class="o">}</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X DELETE https://apis.revolut.com/draft-payments/<span class="o">{</span>DraftPaymentId<span class="o">}</span>
 </code></pre>
-<p>A <code>DELETE</code> request for a specific <code>DraftPaymentId</code> can be used to delete that draft payment.
-A draft payment can only be deleted if the user hasn&#39;t committed any actions with it (approved, executed, etc.).</p>
+<p>A <code>DELETE</code> request for a specific <code>DraftPaymentId</code> can be used to delete that draft payment. A draft payment can only be deleted if the user hasn&#39;t committed any actions with it (approved, executed, etc.).</p>
 <h5 id='api-references-api-references-draft-payments-api-references-api-references-draft-payments-delete-an-existing-draft-payment-parameters'><a href='#api-references-api-references-draft-payments-api-references-api-references-draft-payments-delete-an-existing-draft-payment-parameters' class='header-link'><i></i></a>Parameters</h5>
 <table><thead>
 <tr>
