@@ -297,13 +297,13 @@
                       <a href="#quickstart-creating-a-valid-jwt" class="toc-h3 toc-link" data-title="creating-a-valid-jwt">Creating a valid JWT</a>
                       </li>
                     <li>
-                      <a href="#quickstart-authentication-and-authorization" class="toc-h3 toc-link" data-title="authentication-and-authorization">Authentication and Authorization</a>
+                      <a href="#quickstart-authentication-and-authorisation" class="toc-h3 toc-link" data-title="authentication-and-authorisation">Authentication and Authorisation</a>
                       <ul class="toc-list-h4">
                           <li>
-                            <a href="#quickstart-quickstart-authentication-and-authorization-getting-user-consent" class="toc-h4 toc-link" data-title="getting-user-consent">Getting user consent</a>
+                            <a href="#quickstart-quickstart-authentication-and-authorisation-getting-user-consent" class="toc-h4 toc-link" data-title="getting-user-consent">Getting user consent</a>
                           </li>
                           <li>
-                            <a href="#quickstart-quickstart-authentication-and-authorization-your-first-api-request" class="toc-h4 toc-link" data-title="your-first-api-request">Your first API request!</a>
+                            <a href="#quickstart-quickstart-authentication-and-authorisation-your-first-api-request" class="toc-h4 toc-link" data-title="your-first-api-request">Your first API request!</a>
                           </li>
                       </ul>
                       </li>
@@ -532,10 +532,10 @@
                       <a href="#api-references-draft-payments" class="toc-h3 toc-link" data-title="draft-payments">Draft Payments</a>
                       <ul class="toc-list-h4">
                           <li>
-                            <a href="#api-references-api-references-draft-payments-get-authorization-for-draft-payments-endpoint" class="toc-h4 toc-link" data-title="get-authorization-for-draft-payments-endpoint">Get authorization for draft payments endpoint</a>
+                            <a href="#api-references-api-references-draft-payments-get-authorisation-for-draft-payments-endpoint" class="toc-h4 toc-link" data-title="get-authorisation-for-draft-payments-endpoint">Get authorisation for draft payments endpoint</a>
                           </li>
                           <li>
-                            <a href="#api-references-api-references-draft-payments-exchanging-authorization-code-for-access-token" class="toc-h4 toc-link" data-title="exchanging-authorization-code-for-access-token">Exchanging authorization code for access token</a>
+                            <a href="#api-references-api-references-draft-payments-exchanging-authorisation-code-for-access-token" class="toc-h4 toc-link" data-title="exchanging-authorisation-code-for-access-token">Exchanging authorisation code for access token</a>
                           </li>
                           <li>
                             <a href="#api-references-api-references-draft-payments-create-draft-payment" class="toc-h4 toc-link" data-title="create-draft-payment">Create draft payment</a>
@@ -738,7 +738,7 @@ It goes without saying that you should seek your own legal advice to understand 
 <p>To confirm that you in fact have a valid JWT, you can use this handy JWT tool by entering the JWT you just created and confirming the values match the JWT header and payload you created for the JWT. At the bottom right you should be able to add your key to verify the signature. If everything is correct, the debugger should tell you that the JWT is valid.</p>
 
 <iframe src="https://jwt.io/#debugger-io" title="JWT Signature debugger" width="100%" height="1100px" style="border:none;" scrolling="no"> </iframe>
-<h3 id='quickstart-authentication-and-authorization'><a href='#quickstart-authentication-and-authorization' class='header-link'><i></i></a>Authentication and Authorization</h3><blockquote>
+<h3 id='quickstart-authentication-and-authorisation'><a href='#quickstart-authentication-and-authorisation' class='header-link'><i></i></a>Authentication and Authorisation</h3><blockquote>
       <div><p>Authorize consent</p>
 </div>
       <div class='env-selector'>
@@ -764,7 +764,7 @@ It goes without saying that you should seek your own legal advice to understand 
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba-auth.revolut.com/token
 </code></pre>
 <p>Once they give you access, you can request a token using the <code>/token</code> endpoint.</p>
-<h4 id='quickstart-quickstart-authentication-and-authorization-getting-user-consent'><a href='#quickstart-quickstart-authentication-and-authorization-getting-user-consent' class='header-link'><i></i></a>Getting user consent</h4><blockquote>
+<h4 id='quickstart-quickstart-authentication-and-authorisation-getting-user-consent'><a href='#quickstart-quickstart-authentication-and-authorisation-getting-user-consent' class='header-link'><i></i></a>Getting user consent</h4><blockquote>
       <div><p>Create user consent</p>
 </div>
       <div class='env-selector'>
@@ -810,7 +810,7 @@ It goes without saying that you should seek your own legal advice to understand 
 <p>Now that you have an <code>authorization token</code> from the last step, you can initiate a consent for the user to complete.</p>
 
 <p>On successful completion of the consent flow, you&#39;ll receive a response that describes the consent ID, whether the consent was authorized by the user and the permissions granted -- among other details that are listed in the <a href="#api-references-account-and-transactions"> API reference.</a></p>
-<h4 id='quickstart-quickstart-authentication-and-authorization-your-first-api-request'><a href='#quickstart-quickstart-authentication-and-authorization-your-first-api-request' class='header-link'><i></i></a>Your first API request!</h4><blockquote>
+<h4 id='quickstart-quickstart-authentication-and-authorisation-your-first-api-request'><a href='#quickstart-quickstart-authentication-and-authorisation-your-first-api-request' class='header-link'><i></i></a>Your first API request!</h4><blockquote>
       <div><p>Get list of accounts</p>
 </div>
       <div class='env-selector'>
@@ -1276,7 +1276,7 @@ In the case that the <code>Client Id</code> is unknown, you will recieve a JSON 
 <p>In the case that you&#39;re having issues deleting a client, don&#39;t hesitate to reach out to <a href="mailto:api-requests@revolut.com">support</a>.</p>
 <h3 id='identification-and-authentication-open-banking-security-profile'><a href='#identification-and-authentication-open-banking-security-profile' class='header-link'><i></i></a>Open Banking Security Profile</h3>
 <p>We use OpenID Connect (OIDC) as a way to verify a client&#39;s identity. For OIDC, the open banking security profile must exist where you as the TPP is certified so we can correctly identify each participant. Only after you have certification can you use these endpoints -- unless explicitly stated. If you&#39;re interested in learning more about the Open Banking security profile, you can see the implementers draft on the <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/83919096/Open+Banking+Security+Profile+-+Implementer+s+Draft+v1.1.2"> official documentation</a>.</p>
-<h5 id='identification-and-authentication-identification-and-authentication-open-banking-security-profile-identification-and-authentication-identification-and-authentication-dynamic-client-registration-deleting-a-client-authorization-endpoint'><a href='#identification-and-authentication-identification-and-authentication-open-banking-security-profile-identification-and-authentication-identification-and-authentication-dynamic-client-registration-deleting-a-client-authorization-endpoint' class='header-link'><i></i></a>Authorization Endpoint</h5><blockquote>
+<h5 id='identification-and-authentication-identification-and-authentication-open-banking-security-profile-identification-and-authentication-identification-and-authentication-dynamic-client-registration-deleting-a-client-authorisation-endpoint'><a href='#identification-and-authentication-identification-and-authentication-open-banking-security-profile-identification-and-authentication-identification-and-authentication-dynamic-client-registration-deleting-a-client-authorisation-endpoint' class='header-link'><i></i></a>Authorisation Endpoint</h5><blockquote>
       <div><p>Authorize consent</p>
 </div>
       <div class='env-selector'>
@@ -1288,7 +1288,7 @@ In the case that the <code>Client Id</code> is unknown, you will recieve a JSON 
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>https://sandbox-oba.revolut.com/ui/index.html
 </code></pre><pre class="highlight shell tab-shell--production"><code>https://oba.revolut.com/ui/index.html
 </code></pre>
-<p>The authorization flow redirects the user to the revolut login screen, where they can securely enter their credentials. 
+<p>The authorisation flow redirects the user to the revolut login screen, where they can securely enter their credentials. 
 As you continue to explore the API, you will also see how users are redirected to give consent for their accounts in a similar fashion.</p>
 <h5 id='identification-and-authentication-identification-and-authentication-open-banking-security-profile-identification-and-authentication-identification-and-authentication-dynamic-client-registration-deleting-a-client-token-endpoint'><a href='#identification-and-authentication-identification-and-authentication-open-banking-security-profile-identification-and-authentication-identification-and-authentication-dynamic-client-registration-deleting-a-client-token-endpoint' class='header-link'><i></i></a>Token Endpoint</h5>
 <p>As with the any typical OAuth 2.0 flow, there is the need to have an access token which you will need to supplement with each request. <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/83919096/Open+Banking+Security+Profile+-+Implementer+s+Draft+v1.1.2">Open Banking specification</a> for more information about the semantics of this API.</p>
@@ -1304,13 +1304,11 @@ As you continue to explore the API, you will also see how users are redirected t
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba-auth.revolut.com/token
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba-auth.revolut.com/token
 </code></pre>
-<p><code>/token</code> endpoint served via Revolut authorization server. This endpoint requires client certificate authentication for MATLS.</p>
+<p><code>/token</code> endpoint served via Revolut authorisation server. This endpoint requires client certificate authentication for MATLS.</p>
 
 <div class="feedback"></div>
 <h2 id='api-references'><a href='#api-references' class='header-link'><i></i></a>API References</h2><h3 id='api-references-account-and-transactions'><a href='#api-references-account-and-transactions' class='header-link'><i></i></a>Account and Transactions</h3>
 <p>Open Banking <code>Account and Transaction API</code> is implemented as specified in the official <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/999622968/Account+and+Transaction+API+Specification+-+v3.1.1">documentation</a></p>
-
-<p>The Interfaces already implemented are below. We continue implementing other endpoints (mandatory endpoints first). We will be updating this documentation as we progress.</p>
 <h4 id='api-references-api-references-account-and-transactions-account-access-consent'><a href='#api-references-api-references-account-and-transactions-account-access-consent' class='header-link'><i></i></a>Account Access Consent</h4><h5 id='api-references-api-references-account-and-transactions-api-references-api-references-account-and-transactions-account-access-consent-cancel-revoke-consent'><a href='#api-references-api-references-account-and-transactions-api-references-api-references-account-and-transactions-account-access-consent-cancel-revoke-consent' class='header-link'><i></i></a>Cancel/Revoke Consent</h5><blockquote>
       <div><p>Reject or revoke Consent</p>
 </div>
@@ -1554,7 +1552,7 @@ follow the rules of the permissions table below:</p>
 <p>This endpoint:</p>
 
 <ul>
-<li><p>Rejects consent if a consent is in a <code>AwaitingAuthorisation</code> state or any error occurs during consent authorization.</p></li>
+<li><p>Rejects consent if a consent is in a <code>AwaitingAuthorisation</code> state or any error occurs during consent authorisation.</p></li>
 <li><p>Revokes consent if consent is in a <code>Authorised</code> state.</p></li>
 </ul>
 <h5 id='api-references-api-references-account-and-transactions-api-references-api-references-account-and-transactions-revoke-consent-request-parameters'><a href='#api-references-api-references-account-and-transactions-api-references-api-references-account-and-transactions-revoke-consent-request-parameters' class='header-link'><i></i></a>Request Parameters</h5>
@@ -2821,7 +2819,7 @@ follow the rules of the permissions table below:</p>
 </span></code></pre>
 <p>This endpoint is for creating payment consent as described in Open Banking API documentation. Domestic payments are used for local payments in the local currency of the user. Revolut supports only GBP as local in the UK and EUR in Single Euro Payments Area (SEPA) countries.</p>
 
-<p>Since Revolut Business users can have multiple accounts in the same currency, we allow them to choose which account they want to be charged in the consent authorization UI.</p>
+<p>Since Revolut Business users can have multiple accounts in the same currency, we allow them to choose which account they want to be charged in the consent authorisation UI.</p>
 
 <p>As part of the API requirement you must pass <code>x-jws-signature</code> header in your request. The signature must be generated from the request body with the TPP signing key that is specified in the JWS header. As specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format.</p>
 
@@ -3095,7 +3093,7 @@ follow the rules of the permissions table below:</p>
 </span></code></pre>
 <p>This endpoint is for creating standing order consent as described in Open Banking API documentation. Domestic Standing Orders are used for local recurring payments in the local currency of the user. Revolut supports only GBP as local in the UK and EUR in SEPA countries.</p>
 
-<p>Since Revolut Business users can have multiple accounts in the same currency, we allow them to choose which account they want to be charged in the consent authorization UI.</p>
+<p>Since Revolut Business users can have multiple accounts in the same currency, we allow them to choose which account they want to be charged in the consent authorisation UI.</p>
 
 <p>As part of the API requirement you must pass the <code>x-jws-signature</code> header in your request. The signature must be generated from request body with the TPP signing key that is specified in the JWS header. As specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format.</p>
 
@@ -3340,7 +3338,7 @@ follow the rules of the permissions table below:</p>
 </span></code></pre>
 <p>This endpoint is for creating scheduled payment consent as described in Open Banking API documentation. Domestic Scheduled Payments are used for local scheduled payments in the local currency of the user. Revolut supports only GBP as local in the UK and EUR in SEPA countries.</p>
 
-<p>Since Revolut Business users can have multiple accounts in the same currency, we allow them to choose which account they want to be charged in the consent authorization UI.</p>
+<p>Since Revolut Business users can have multiple accounts in the same currency, we allow them to choose which account they want to be charged in the consent authorisation UI.</p>
 
 <p>As part of the API requirement, you must pass the <code>x-jws-signature</code> header in your request. The signature must be generated from a request body with the TPP signing key that is specified in the JWS header. As specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format.</p>
 
@@ -3567,7 +3565,7 @@ follow the rules of the permissions table below:</p>
 </span></code></pre>
 <p>This endpoint is for creating payment consent as described in Open Banking API documentation. International Payments are used for international SWIFT payments in all currencies supported by Revolut.</p>
 
-<p>Only payments with <code>InstructedAmount</code> in the same currency as <code>CurrencyOfTransfer</code> are supported. However, we allow users to change which account they want to be charged in consent authorization UI. Even if it is in a different currency. In such a case, the response field ExchangeRateInformation will contain information about the fx rate between source account currency and CurrencyOfTransfer. In case the user doesn&#39;t have enough funds on the selected account, the consent authorisation will be rejected.</p>
+<p>Only payments with <code>InstructedAmount</code> in the same currency as <code>CurrencyOfTransfer</code> are supported. However, we allow users to change which account they want to be charged in consent authorisation UI. Even if it is in a different currency. In such a case, the response field ExchangeRateInformation will contain information about the fx rate between source account currency and CurrencyOfTransfer. In case the user doesn&#39;t have enough funds on the selected account, the consent authorisation will be rejected.</p>
 
 <p>As part of the API requirement, you must pass the <code>x-jws-signature</code> header in your request. The signature must be generated from a request body with the TPP signing key that is specified in the JWS header. As specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format.</p>
 
@@ -3898,7 +3896,7 @@ follow the rules of the permissions table below:</p>
 </span></code></pre>
 <p>This endpoint is for creating standing order consent as described in Open Banking API documentation. International Standing Orders are used for international SWIFT payments in all currencies supported by Revolut.</p>
 
-<p>Only payments with <code>InstructedAmount</code> in the same currency as <code>CurrencyOfTransfer</code> are supported. However, we allow users to change which account they want to be charged in consent authorization UI. Even if it is in a different currency. In case the user doesn&#39;t have enough funds on the selected account, the consent authorisation will be rejected.</p>
+<p>Only payments with <code>InstructedAmount</code> in the same currency as <code>CurrencyOfTransfer</code> are supported. However, we allow users to change which account they want to be charged in consent authorisation UI. Even if it is in a different currency. In case the user doesn&#39;t have enough funds on the selected account, the consent authorisation will be rejected.</p>
 
 <p>As part of the API requirement, you must pass the <code>x-jws-signature</code> header in your request. The signature must be generated from a request body with the TPP signing key that is specified in the JWS header. As specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format.</p>
 
@@ -4198,7 +4196,7 @@ follow the rules of the permissions table below:</p>
 </span></code></pre>
 <p>This endpoint is for creating scheduled payment consent as described in Open Banking API documentation. International Scheduled Payments are used for international SWIFT payments in all currencies supported by Revolut.</p>
 
-<p>Only payments with <code>InstructedAmount</code> in the same currency as <code>CurrencyOfTransfer</code> are supported. However, we allow users to change which account they want to be charged in consent authorization UI. Even if it is in a different currency. In case the user doesn&#39;t have enough funds on the selected account, the consent authorisation will be rejected.</p>
+<p>Only payments with <code>InstructedAmount</code> in the same currency as <code>CurrencyOfTransfer</code> are supported. However, we allow users to change which account they want to be charged in consent authorisation UI. Even if it is in a different currency. In case the user doesn&#39;t have enough funds on the selected account, the consent authorisation will be rejected.</p>
 
 <p>As part of the API requirement, you must pass the <code>x-jws-signature</code> header in your request. The signature must be generated from a request body with the TPP signing key that is specified in the JWS header. As specified in the documentation, you must only pass <code>head</code> and <code>signature</code> in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format.</p>
 
@@ -4981,8 +4979,8 @@ Andrea Frost,INDIVIDUAL    ,40513598      ,207409   ,GB                    ,GBP 
 <aside class="notice">
 If you would like to use the draft payments endpoint, please <a href="https://docs.google.com/forms/d/1jTvhtnCvPvVviGxAqu03vVrnfcrhzkU6KhbAuQvUuQE/viewform?edit_requested=true">reach out</a> to us directly.
 </aside>
-<h4 id='api-references-api-references-draft-payments-get-authorization-for-draft-payments-endpoint'><a href='#api-references-api-references-draft-payments-get-authorization-for-draft-payments-endpoint' class='header-link'><i></i></a>Get authorization for draft payments endpoint</h4><blockquote>
-      <div><p>Draft payments authorization URL</p>
+<h4 id='api-references-api-references-draft-payments-get-authorisation-for-draft-payments-endpoint'><a href='#api-references-api-references-draft-payments-get-authorisation-for-draft-payments-endpoint' class='header-link'><i></i></a>Get authorisation for draft payments endpoint</h4><blockquote>
+      <div><p>Draft payments authorisation URL</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -4994,7 +4992,7 @@ If you would like to use the draft payments endpoint, please <a href="https://do
 </code></pre><pre class="highlight shell tab-shell--production"><code>https://business.revolut.com/partner-confirm?response_type<span class="o">=</span>code&amp;state<span class="o">=</span>state&amp;scope<span class="o">=</span>draft_payments&amp;client_id<span class="o">=</span>your_client_id&amp;redirect_uri<span class="o">=</span>your_redirect_uri
 </code></pre>
 <p>Before you can start creating draft payments, you&#39;ll need to get authorisation from the user to make draft payments on their behalf. By redirecting the user to the authorisation URL,you will get authorisation in the form of an authorisation code.</p>
-<h5 id='api-references-api-references-draft-payments-api-references-api-references-draft-payments-get-authorization-for-draft-payments-endpoint-authorization-url-parameters'><a href='#api-references-api-references-draft-payments-api-references-api-references-draft-payments-get-authorization-for-draft-payments-endpoint-authorization-url-parameters' class='header-link'><i></i></a>Authorization URL Parameters</h5>
+<h5 id='api-references-api-references-draft-payments-api-references-api-references-draft-payments-get-authorisation-for-draft-payments-endpoint-authorisation-url-parameters'><a href='#api-references-api-references-draft-payments-api-references-api-references-draft-payments-get-authorisation-for-draft-payments-endpoint-authorisation-url-parameters' class='header-link'><i></i></a>Authorisation URL Parameters</h5>
 <table><thead>
 <tr>
 <th>Paramater</th>
@@ -5004,7 +5002,7 @@ If you would like to use the draft payments endpoint, please <a href="https://do
 </thead><tbody>
 <tr>
 <td>scope</td>
-<td>Scope for authorization that&#39;s required from the user</td>
+<td>Scope for authorisation that&#39;s required from the user</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -5023,7 +5021,7 @@ If you would like to use the draft payments endpoint, please <a href="https://do
 <td>yes</td>
 </tr>
 </tbody></table>
-<h4 id='api-references-api-references-draft-payments-exchanging-authorization-code-for-access-token'><a href='#api-references-api-references-draft-payments-exchanging-authorization-code-for-access-token' class='header-link'><i></i></a>Exchanging authorization code for access token</h4><blockquote>
+<h4 id='api-references-api-references-draft-payments-exchanging-authorisation-code-for-access-token'><a href='#api-references-api-references-draft-payments-exchanging-authorisation-code-for-access-token' class='header-link'><i></i></a>Exchanging authorisation code for access token</h4><blockquote>
       <div><p>Token request via MATLS</p>
 </div>
       <div class='env-selector'>
@@ -5055,8 +5053,8 @@ If you would like to use the draft payments endpoint, please <a href="https://do
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl --location --request POST <span class="s1">'https://sandbox-apis.revolut.com/draft-payments'</span> --header <span class="s1">'Authorization: Bearer oa_sand_tG6kRPb2LAYJZx1c3w1NZ7ntuscWqsC6WkaW9jbER-E'</span> --header <span class="s1">'Content-Type: text/csv'</span> --data @draft_payments.csv
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request POST <span class="s1">'https://apis.revolut.com/draft-payments'</span> --header <span class="s1">'Authorization: Bearer oa_sand_tG6kRPb2LAYJZx1c3w1NZ7ntuscWqsC6WkaW9jbER-E'</span> --header <span class="s1">'Content-Type: text/csv'</span> --data @draft_payments.csv
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl --location --request POST <span class="s1">'https://sandbox-apis.revolut.com/draft-payments'</span> --header <span class="s1">'Authorization: Bearer oa_sand_tG6kRPb2LAYJZx1c3w1NZ7ntuscWqsC6WkaW9jbER-E'</span> --header <span class="s1">'Content-Type: text/csv'</span> --data-binary @draft_payments.csv
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request POST <span class="s1">'https://apis.revolut.com/draft-payments'</span> --header <span class="s1">'Authorization: Bearer oa_sand_tG6kRPb2LAYJZx1c3w1NZ7ntuscWqsC6WkaW9jbER-E'</span> --header <span class="s1">'Content-Type: text/csv'</span> --data-binary @draft_payments.csv
 </code></pre><blockquote>
       <div><p>Response</p>
 </div>
@@ -5181,7 +5179,7 @@ If you would like to use the draft payments endpoint, please <a href="https://do
 
 <p>Columns with optional values can be omitted in the uploaded file.</p>
 
-<p>Maximum accepted file size is 10 MB.</p>
+<p>Maximum number of rows in a file is 1000. </p>
 <h4 id='api-references-api-references-draft-payments-get-draft-payment'><a href='#api-references-api-references-draft-payments-get-draft-payment' class='header-link'><i></i></a>Get Draft Payment</h4><blockquote>
       <div><p>Get Draft Payment Details</p>
 </div>
