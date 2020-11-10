@@ -1,0 +1,992 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Revolut Checkout JS reference">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MB5SHRL');</script>
+    <!-- End Google Tag Manager -->
+    <title>Revolut Checkout JS reference</title>
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&amp;display=swap" rel="stylesheet" media="all" />
+      <script src="../javascripts/all.js"></script>
+  </head>
+
+  <body class="revolut-checkout-js revolut-checkout-js_index" data-api-type="revolut-checkout-js" data-languages="[&quot;shell--sandbox&quot;,&quot;shell--production&quot;]">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB5SHRL"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+    <header id="slate-doc-header"></header>
+
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+        <ul class="toc-list-h2">
+            <li>
+              <a href="#revolutcheckout-js-reference" class="toc-h2 toc-link" data-title="revolutcheckout-js-reference">RevolutCheckout.js reference</a>
+                <ul class="toc-list-h3">
+                    <li>
+                      <a href="#revolutcheckout-js-reference-initialize-the-widget" class="toc-h3 toc-link" data-title="initialize-the-widget">Initialize the widget</a>
+                      <ul class="toc-list-h4">
+                          <li>
+                            <a href="#revolutcheckout-js-reference-revolutcheckout-js-reference-initialize-the-widget-embed-script" class="toc-h4 toc-link" data-title="embed-script">Embed script</a>
+                          </li>
+                          <li>
+                            <a href="#revolutcheckout-js-reference-revolutcheckout-js-reference-initialize-the-widget-npm-package" class="toc-h4 toc-link" data-title="npm-package">NPM package</a>
+                          </li>
+                      </ul>
+                      </li>
+                    <li>
+                      <a href="#revolutcheckout-js-reference-revolutcheckout" class="toc-h3 toc-link" data-title="revolutcheckout">RevolutCheckout</a>
+                      <ul class="toc-list-h4">
+                          <li>
+                            <a href="#revolutcheckout-js-reference-revolutcheckout-js-reference-revolutcheckout-parameters" class="toc-h4 toc-link" data-title="parameters">Parameters</a>
+                          </li>
+                      </ul>
+                      </li>
+                    <li>
+                      <a href="#revolutcheckout-js-reference-instance" class="toc-h3 toc-link" data-title="instance">Instance</a>
+                      </li>
+                    <li>
+                      <a href="#revolutcheckout-js-reference-instance-paywithpopup" class="toc-h3 toc-link" data-title="instance-paywithpopup">Instance.payWithPopup</a>
+                      <ul class="toc-list-h4">
+                          <li>
+                            <a href="#revolutcheckout-js-reference-revolutcheckout-js-reference-instance-paywithpopup-returns" class="toc-h4 toc-link" data-title="returns">Returns</a>
+                          </li>
+                          <li>
+                            <a href="#revolutcheckout-js-reference-revolutcheckout-js-reference-instance-paywithpopup-examples" class="toc-h4 toc-link" data-title="examples">Examples</a>
+                          </li>
+                      </ul>
+                      </li>
+                    <li>
+                      <a href="#revolutcheckout-js-reference-instance-createcardfield" class="toc-h3 toc-link" data-title="instance-createcardfield">Instance.createCardField</a>
+                      <ul class="toc-list-h4">
+                          <li>
+                            <a href="#revolutcheckout-js-reference-revolutcheckout-js-reference-instance-createcardfield-returns" class="toc-h4 toc-link" data-title="returns">Returns</a>
+                          </li>
+                          <li>
+                            <a href="#revolutcheckout-js-reference-revolutcheckout-js-reference-instance-createcardfield-examples" class="toc-h4 toc-link" data-title="examples">Examples</a>
+                          </li>
+                      </ul>
+                      </li>
+                </ul>
+            </li>
+        </ul>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://business.revolut.com/signup'>Sign up for Revolut Business</a></li>
+            <li><br/>Copyright © 2020 Revolut Ltd</li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h2 id='revolutcheckout-js-reference'><a href='#revolutcheckout-js-reference' class='header-link'><i></i></a>RevolutCheckout.js reference</h2><h3 id='revolutcheckout-js-reference-initialize-the-widget'><a href='#revolutcheckout-js-reference-initialize-the-widget' class='header-link'><i></i></a>Initialize the widget</h3>
+<p>You have the following two options to add RevolutCheckout.js to your website:</p>
+
+<ul>
+<li><a href="#revolutcheckout-js-reference-revolutcheckout-js-reference-initialize-the-widget-embed-script">Embed script</a></li>
+<li><a href="#revolutcheckout-js-reference-revolutcheckout-js-reference-initialize-the-widget-npm-package">NPM package</a></li>
+</ul>
+<h4 id='revolutcheckout-js-reference-revolutcheckout-js-reference-initialize-the-widget-embed-script'><a href='#revolutcheckout-js-reference-revolutcheckout-js-reference-initialize-the-widget-embed-script' class='header-link'><i></i></a>Embed script</h4><pre class="highlight html tab-html"><code><span class="nt">&lt;script&gt;</span><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="nx">o</span><span class="p">,</span><span class="nx">t</span><span class="p">){</span><span class="nx">e</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="nx">r</span><span class="p">){</span><span class="kd">var</span> <span class="nx">c</span><span class="o">=</span><span class="p">{</span><span class="na">sandbox</span><span class="p">:</span><span class="s2">"https://sandbox-merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="na">prod</span><span class="p">:</span><span class="s2">"https://merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="na">dev</span><span class="p">:</span><span class="s2">"https://merchant.revolut.codes/embed.js"</span><span class="p">},</span><span class="nx">d</span><span class="o">=</span><span class="nx">o</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span><span class="nx">d</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"revolut-checkout"</span><span class="p">,</span><span class="nx">d</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="nx">c</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="o">||</span><span class="nx">c</span><span class="p">.</span><span class="nx">prod</span><span class="p">,</span><span class="nx">d</span><span class="p">.</span><span class="nx">async</span><span class="o">=!</span><span class="mi">0</span><span class="p">,</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span><span class="kd">var</span> <span class="nx">s</span><span class="o">=</span><span class="p">{</span><span class="na">then</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">){</span><span class="nx">d</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">r</span><span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">t</span><span class="p">](</span><span class="nx">n</span><span class="p">))},</span><span class="nx">d</span><span class="p">.</span><span class="nx">onerror</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">d</span><span class="p">),</span><span class="nx">c</span><span class="o">&amp;&amp;</span><span class="nx">c</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">t</span><span class="o">+</span><span class="s2">" is failed to load"</span><span class="p">))}}};</span><span class="k">return</span><span class="s2">"function"</span><span class="o">==</span><span class="k">typeof</span> <span class="nx">Promise</span><span class="p">?</span><span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span><span class="nx">s</span><span class="p">}}(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">,</span><span class="s2">"RevolutCheckout"</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
+</code></pre>
+<p>Embed the following script on all pages that you intend to use <a href="#revolutcheckout-js-reference-revolutcheckout"><code>RevolutCheckout</code></a> on. Please note it should be inserted <strong>before</strong> the code that actually calls <code>RevolutCheckout</code>.</p>
+
+<div class="feedback"></div>
+<h4 id='revolutcheckout-js-reference-revolutcheckout-js-reference-initialize-the-widget-npm-package'><a href='#revolutcheckout-js-reference-revolutcheckout-js-reference-initialize-the-widget-npm-package' class='header-link'><i></i></a>NPM package</h4>
+<p>Install <a href="https://npmjs.com/@revolut/checkout"><code>npm</code></a> package and import ES module later in your code.</p>
+<pre class="highlight sh tab-shell"><code>npm install @revolut/checkout
+</code></pre><pre class="highlight javascript"><code><span class="kr">import</span> <span class="nx">RevolutCheckout</span> <span class="nx">from</span> <span class="s2">"@revolut/checkout"</span>
+
+<span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">,</span> <span class="s2">"prod"</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">instance</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// work with instance</span>
+<span class="p">})</span>
+</code></pre>
+<div class="feedback"></div>
+<h3 id='revolutcheckout-js-reference-revolutcheckout'><a href='#revolutcheckout-js-reference-revolutcheckout' class='header-link'><i></i></a><code>RevolutCheckout</code></h3><pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">RevolutCheckout</span> <span class="o">=</span> <span class="p">(</span>
+  <span class="nx">token</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+  <span class="nx">mode</span><span class="p">?:</span> <span class="s1">'prod'</span> <span class="o">|</span> <span class="s1">'sandbox'</span> <span class="o">=</span> <span class="s1">'prod'</span>
+<span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Instance</span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre>
+<p>Load the embedded script and create an <a href="#revolutcheckout-js-reference-instance"><code>Instance</code></a> for the order <code>token</code>.</p>
+<h4 id='revolutcheckout-js-reference-revolutcheckout-js-reference-revolutcheckout-parameters'><a href='#revolutcheckout-js-reference-revolutcheckout-js-reference-revolutcheckout-parameters' class='header-link'><i></i></a>Parameters</h4><blockquote>
+      <div><p>Script load example</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">,</span> <span class="s2">"prod"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Work with instance:</span>
+  <span class="c1">// instance.payWithPopup()</span>
+  <span class="c1">// instance.createCardField()</span>
+  <span class="c1">// ...</span>
+<span class="p">});</span>
+</code></pre>
+<ul>
+<li><code>token</code> - <code>public_id</code> returned from the <a href="#api-reference-api-reference-orders-create-an-order">API request</a></li>
+<li><code>mode</code> - (optional) <a href="#api-reference">API</a> environment either <code>&#39;prod&#39;</code> or <code>&#39;sandbox&#39;</code>, defaults to <code>&#39;prod&#39;</code></li>
+</ul>
+
+<p>Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> with order <a href="#revolutcheckout-js-reference-instance"><code>Instance</code></a>.</p>
+
+<div class="feedback"></div>
+<h3 id='revolutcheckout-js-reference-instance'><a href='#revolutcheckout-js-reference-instance' class='header-link'><i></i></a><code>Instance</code></h3><pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">Instance</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">payWithPopup</span><span class="p">:</span> <span class="nx">InstancePayWithPopup</span><span class="p">;</span>
+  <span class="nl">createCardField</span><span class="p">:</span> <span class="nx">InstanceCreateCardField</span><span class="p">;</span>
+  <span class="nl">destroy</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre>
+<p><code>Instance</code> is passed as an argument to the consuming function of the <code>RevolutCheckout</code> promise e.g., registered using <code>.then</code>. It can be used to open a payment pop-up window or to create a card field.</p>
+<blockquote>
+      <div><p>Instance usage example</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
+    <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">onError</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+<div class="feedback"></div>
+<h3 id='revolutcheckout-js-reference-instance-paywithpopup'><a href='#revolutcheckout-js-reference-instance-paywithpopup' class='header-link'><i></i></a><code>Instance.payWithPopup</code></h3>
+<p>Open a <a href="#integration-guide-integration-guide-first-steps-pop-up">payment pop-up</a> which is available on the <a href="#revolutcheckout-js-reference-instance"><code>Instance</code></a>.</p>
+<pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">InstancePayWithPopup</span> <span class="o">=</span> <span class="p">(</span>
+  <span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span>
+<span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="na">destory</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">type</span> <span class="nx">Options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">onSuccess</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nx">onError</span><span class="p">?:</span> <span class="p">(</span><span class="na">message</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nx">onCancel</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nx">name</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">email</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">phone</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">billingAddress</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="na">countryCode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">region</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">city</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">postcode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="p">};</span>
+  <span class="nx">shippingAddress</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="na">countryCode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">region</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">city</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">postcode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre>
+<p><code>Options</code> object:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>options.onSuccess</code></td>
+<td>Callback when the payment is successfully completed</td>
+<td>Function</td>
+</tr>
+<tr>
+<td><code>options.onError</code></td>
+<td>Callback if the transaction fails to complete. The reason for the failure should be available in the <code>message</code> parameter</td>
+<td>Function</td>
+</tr>
+<tr>
+<td><code>options.onCancel</code></td>
+<td>Callback if a user did not complete the transaction and cancelled the authorisation or closed the payment pop-up window</td>
+<td>Function</td>
+</tr>
+<tr>
+<td><code>options.name</code></td>
+<td>Customer name in form of <code>FirstName LastName</code></td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>options.email</code></td>
+<td>Customer&#39;s email</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>options.phone</code></td>
+<td>Customer&#39;s phone number if available</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>options.savePaymentMethodFor</code></td>
+<td>Indicates that the payment method will be saved for future use against the customer’s profile. <br><br>Possible values:<br>- <code>customer</code>: method will be saved for being used in the future when the customer is on your checkout page<br>- <code>merchant</code>: method will be saved for being used in the future without needing the customer to be on your checkout page (e.g., to take payments for recurring transactions). Method will be saved as the new default payment method for merchant initiated transactions, regardless of the number of saved payment methods stored against the customer</td>
+<td>Enum</td>
+</tr>
+<tr>
+<td><code>options.billingAddress</code></td>
+<td>Contains customer&#39;s billing address which is required if not set on order via API</td>
+<td>Object</td>
+</tr>
+<tr>
+<td><code>options.billingAddress.countryCode</code></td>
+<td><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">Country code</a> (e.g. <code>GB</code>)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>options.billingAddress.region</code></td>
+<td>State, county or region</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>options.billingAddress.city</code></td>
+<td>Name of the city (e.g. <code>London</code>)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>options.billingAddress.postcode</code></td>
+<td>Postal code (e.g. <code>EC2V 6DN</code>)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>options.billingAddress.streetLine1</code></td>
+<td>Address line 1 (e.g. <code>1 Canada Square</code>)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>options.billingAddress.streetLine2</code></td>
+<td>Address line 2 (optional)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>options.shippingAddress</code></td>
+<td>The same object as <code>billingAddress</code> object, however, it is only displayed in the order details on the <a href="https://business.revolut.com/merchant">merchant dashboard</a></td>
+<td>Object</td>
+</tr>
+</tbody></table>
+<h4 id='revolutcheckout-js-reference-revolutcheckout-js-reference-instance-paywithpopup-returns'><a href='#revolutcheckout-js-reference-revolutcheckout-js-reference-instance-paywithpopup-returns' class='header-link'><i></i></a>Returns</h4>
+<p><code>Methods</code> object:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>methods.destroy</code></td>
+<td>Manually destroy payment pop-up if needed</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+<h4 id='revolutcheckout-js-reference-revolutcheckout-js-reference-instance-paywithpopup-examples'><a href='#revolutcheckout-js-reference-revolutcheckout-js-reference-instance-paywithpopup-examples' class='header-link'><i></i></a>Examples</h4>
+<p>Example with minimal required parameters</p>
+<blockquote>
+      <div><p>Minimal required parameters example</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
+    <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">onError</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+<div></div>
+
+<p>Minimal required parameters assuming that the <code>billingAddress</code> object is not sent via API.</p>
+<blockquote>
+      <div><p>Minimal example with billingAddress</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
+    <span class="na">billingAddress</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
+      <span class="na">region</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
+      <span class="na">city</span><span class="p">:</span> <span class="s2">"London"</span><span class="p">,</span>
+      <span class="na">streetLine1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
+      <span class="na">streetLine2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
+      <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span>
+    <span class="p">},</span>
+    <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">onError</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+<div></div>
+
+<p>Full example with all possible parameters.</p>
+<blockquote>
+      <div><p>All possible parameters</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">popup</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s2">"First Last"</span><span class="p">,</span>
+    <span class="na">email</span><span class="p">:</span> <span class="s2">"customer@example.com"</span><span class="p">,</span>
+    <span class="na">phone</span><span class="p">:</span> <span class="s2">"+447950630319"</span><span class="p">,</span>
+    <span class="na">billingAddress</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
+      <span class="na">region</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
+      <span class="na">city</span><span class="p">:</span> <span class="s2">"London"</span><span class="p">,</span>
+      <span class="na">streetLine1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
+      <span class="na">streetLine2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
+      <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span>
+    <span class="p">},</span>
+    <span class="na">shippingAddress</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
+      <span class="na">region</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
+      <span class="na">city</span><span class="p">:</span> <span class="s2">"London"</span><span class="p">,</span>
+      <span class="na">streetLine1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
+      <span class="na">streetLine2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
+      <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span>
+    <span class="p">},</span>
+    <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">onError</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+
+  <span class="c1">// ...</span>
+
+  <span class="nx">popup</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre>
+<div class="feedback"></div>
+<h3 id='revolutcheckout-js-reference-instance-createcardfield'><a href='#revolutcheckout-js-reference-instance-createcardfield' class='header-link'><i></i></a><code>Instance.createCardField</code></h3>
+<p>Create a <a href="#integration-guide-integration-guide-first-steps-card-field">card field</a> which is available on the <a href="#revolutcheckout-js-reference-instance"><code>Instance</code></a>:</p>
+<pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">InstanceCreateCardField</span> <span class="o">=</span> <span class="p">(</span>
+  <span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span>
+<span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="na">submit</span><span class="p">:</span> <span class="p">(</span><span class="na">meta</span><span class="p">:</span> <span class="nx">Meta</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nl">validate</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nl">destory</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">type</span> <span class="nx">Options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">target</span><span class="p">:</span> <span class="nx">HTMLElement</span><span class="p">;</span>
+  <span class="nx">onSuccess</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nx">onError</span><span class="p">?:</span> <span class="p">(</span><span class="na">message</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nx">onValidation</span><span class="p">?:</span> <span class="p">(</span><span class="na">messages</span><span class="p">:</span> <span class="kr">string</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nx">onCancel</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nx">styles</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="k">default</span><span class="p">?:</span> <span class="nb">Object</span><span class="p">;</span>
+    <span class="nx">focused</span><span class="p">?:</span> <span class="nb">Object</span><span class="p">;</span>
+    <span class="nx">invalid</span><span class="p">?:</span> <span class="nb">Object</span><span class="p">;</span>
+    <span class="nx">empty</span><span class="p">?:</span> <span class="nb">Object</span><span class="p">;</span>
+    <span class="nx">autofilled</span><span class="p">?:</span> <span class="nb">Object</span><span class="p">;</span>
+    <span class="nx">completed</span><span class="p">?:</span> <span class="nb">Object</span><span class="p">;</span>
+  <span class="p">};</span>
+  <span class="nx">classes</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="k">default</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">focused</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">invalid</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">empty</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">autofilled</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">completed</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+
+<span class="kd">type</span> <span class="nx">Meta</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">email</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">phone</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">billingAddress</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="na">countryCode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">region</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">city</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">postcode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="p">};</span>
+  <span class="nx">shippingAddress</span><span class="p">?:</span> <span class="p">{</span>
+    <span class="na">countryCode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">region</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">city</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">postcode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nl">streetLine2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="p">};</span>
+<span class="p">};</span>
+</code></pre>
+<p><code>Options</code> object:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>options.onSuccess</code></td>
+<td>Callback will be called when the payment is completed successfully</td>
+<td>Function</td>
+</tr>
+<tr>
+<td><code>options.onError</code></td>
+<td>Callback if the transaction fails to complete. The reason for the failure should be available in the <code>message</code> parameter</td>
+<td>Function</td>
+</tr>
+<tr>
+<td><code>options.onValidation</code></td>
+<td>Callback called on validation of the status change. <br> Function will contain <code>messages</code> as first parameter (see below)</td>
+<td>Function</td>
+</tr>
+<tr>
+<td><code>options.onValidation.messages</code></td>
+<td>Array of strings containing validation errors (e.g., <code>Your card has expired</code>)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>options.onCancel</code></td>
+<td>Callback if a user did not complete the transaction and cancelled the authorisation or closed the checkout window</td>
+<td>Function</td>
+</tr>
+<tr>
+<td><code>options.savePaymentMethodFor</code></td>
+<td>Indicates that the payment method will be saved for future use against the customer’s profile. <br><br>Possible values:<br>- <code>customer</code>: method will be saved for being used in the future when the customer is on your checkout page<br>- <code>merchant</code>: method will be saved for being used in the future without needing the customer to be at checkout (e.g. take payments for recurring transactions). Method will be saved as the new default payment method for merchant initiated transactions, regardless of the number of saved payment methods stored against the customer</td>
+<td>Enum</td>
+</tr>
+<tr>
+<td><code>target</code></td>
+<td>DOM element where secure iframe with the card field input will be rendered</td>
+<td>HTML Element</td>
+</tr>
+<tr>
+<td><code>options.styles</code></td>
+<td>Object of styles for different state of card field input, should be used to customise different states inside the secure iframe</td>
+<td>Object</td>
+</tr>
+<tr>
+<td><code>options.styles.default</code></td>
+<td>Base styles that will be always applied regardless of state</td>
+<td>Object</td>
+</tr>
+<tr>
+<td><code>options.styles.focused</code></td>
+<td>Applied when a user focuses inside the input with a mouse or a keyboard</td>
+<td>Object</td>
+</tr>
+<tr>
+<td><code>options.styles.invalid</code></td>
+<td>Applied on validation error</td>
+<td>Object</td>
+</tr>
+<tr>
+<td><code>options.styles.empty</code></td>
+<td>Applied when a user hasn&#39;t entered any amount</td>
+<td>Object</td>
+</tr>
+<tr>
+<td><code>options.styles.autofilled</code></td>
+<td>Applied when a user used autofilled card details from the browser</td>
+<td>Object</td>
+</tr>
+<tr>
+<td><code>options.styles.completed</code></td>
+<td>Applied if the card field input is completed without any errors</td>
+<td>Object</td>
+</tr>
+<tr>
+<td><code>options.classes</code></td>
+<td>Same as <code>styles</code> but used to apply styles with classes to the <code>target</code> element outside the secure <code>iframe</code></td>
+<td>Object</td>
+</tr>
+<tr>
+<td><code>options.classes.default</code></td>
+<td>Set default to <code>&#39;rc-card-field&#39;</code></td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>options.classes.focused</code></td>
+<td>Set default to <code>&#39;rc-card-field--focused&#39;</code></td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>options.classes.invalid</code></td>
+<td>Set default to <code>&#39;rc-card-field--invalid&#39;</code></td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>options.classes.empty</code></td>
+<td>Set default to <code>&#39;rc-card-field--empty&#39;</code></td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>options.classes.autofilled</code></td>
+<td>Set default to <code>&#39;rc-card-field--autofilled&#39;</code></td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>options.classes.completed</code></td>
+<td>Set default to <code>&#39;rc-card-field--completed&#39;</code></td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h4 id='revolutcheckout-js-reference-revolutcheckout-js-reference-instance-createcardfield-returns'><a href='#revolutcheckout-js-reference-revolutcheckout-js-reference-instance-createcardfield-returns' class='header-link'><i></i></a>Returns</h4>
+<p><code>Methods</code> object:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>methods.destroy</code></td>
+<td>Manually destroy card field if needed</td>
+<td>Function</td>
+</tr>
+<tr>
+<td><code>methods.submit</code></td>
+<td>Submit the card details entered and complete the payment with additional customer meta data. Accepts a single <code>meta</code> parameter (see below)</td>
+<td>Function</td>
+</tr>
+<tr>
+<td><code>methods.validate</code></td>
+<td>Manually trigger validation, by default it will be only triggered after user will start entering card details and on submit</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<p><code>Meta</code> object:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>meta.name</code></td>
+<td>Customer name in the form of <code>FirstName LastName</code></td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>meta.email</code></td>
+<td>Customer&#39;s email (required if not set on the order via API)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>meta.phone</code></td>
+<td>Customer&#39;s phone number if available</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>meta.billingAddress</code></td>
+<td>Customer&#39;s billing address (required if not set on order via API)</td>
+<td>Object</td>
+</tr>
+<tr>
+<td><code>meta.billingAddress.countryCode</code></td>
+<td><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">Country code</a> (e.g. <code>GB</code>)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>meta.billingAddress.region</code></td>
+<td>State, county or region</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>meta.billingAddress.city</code></td>
+<td>Name of the city (e.g. <code>London</code>)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>meta.billingAddress.postcode</code></td>
+<td>Postal code (e.g. <code>EC2V 6DN</code>)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>meta.billingAddress.streetLine1</code></td>
+<td>Address line 1 (e.g. <code>1 Canada Square</code>)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>meta.billingAddress.streetLine2</code></td>
+<td>Address line 2 (optional)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>meta.shippingAddress</code></td>
+<td>Same as <code>meta.billingAddress</code>, but only used to display in the order details on <a href="https://business.revolut.com/merchant">merchant dashboard</a></td>
+<td>Object</td>
+</tr>
+</tbody></table>
+<h4 id='revolutcheckout-js-reference-revolutcheckout-js-reference-instance-createcardfield-examples'><a href='#revolutcheckout-js-reference-revolutcheckout-js-reference-instance-createcardfield-examples' class='header-link'><i></i></a>Examples</h4>
+<p>Minimal required parameters example</p>
+<blockquote>
+      <div><p>HTML</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight html tab-html"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"card-field"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"button-submit"</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
+</code></pre><blockquote>
+      <div><p>JS</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">card</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">createCardField</span><span class="p">({</span>
+    <span class="na">target</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"card-field"</span><span class="p">),</span>
+    <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">onError</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
+    <span class="p">},</span>
+  <span class="p">});</span>
+
+  <span class="nb">document</span>
+    <span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"button-submit"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">card</span><span class="p">.</span><span class="nx">submit</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+<div></div>
+
+<p>Minimal required parameters example, assuming <code>billingAddress</code> and <code>email</code> are not sent via API</p>
+<blockquote>
+      <div><p>HTML</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight html tab-html"><code><span class="nt">&lt;form&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;label&gt;</span>Email<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"email"</span> <span class="na">placeholder=</span><span class="s">"customer@example.com"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;label&gt;</span>Card<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">name=</span><span class="s">"card"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;label&gt;</span>Billing Address<span class="nt">&lt;/label&gt;</span>
+
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"country"</span> <span class="na">placeholder=</span><span class="s">"Country"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"state"</span> <span class="na">placeholder=</span><span class="s">"State"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"city"</span> <span class="na">placeholder=</span><span class="s">"City"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"line1"</span> <span class="na">placeholder=</span><span class="s">"Address line 1"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"line2"</span> <span class="na">placeholder=</span><span class="s">"Address line 2"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">"postal"</span> <span class="na">placeholder=</span><span class="s">"Postal"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;button&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre><blockquote>
+      <div><p>JS</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">form</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"form"</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">card</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">createCardField</span><span class="p">({</span>
+    <span class="na">target</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"[name=card]"</span><span class="p">),</span>
+    <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">onError</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+
+  <span class="nx">form</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"submit"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Prevent browser form submittion. You need to submit card details first.</span>
+    <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+
+    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">(</span><span class="nx">form</span><span class="p">);</span>
+
+    <span class="nx">card</span><span class="p">.</span><span class="nx">submit</span><span class="p">({</span>
+      <span class="na">email</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"email"</span><span class="p">),</span>
+      <span class="na">billingAddress</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">countryCode</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"country"</span><span class="p">),</span>
+        <span class="na">region</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"state"</span><span class="p">),</span>
+        <span class="na">city</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"city"</span><span class="p">),</span>
+        <span class="na">streetLine1</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"line1"</span><span class="p">),</span>
+        <span class="na">streetLine2</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"line2"</span><span class="p">),</span>
+        <span class="na">postcode</span><span class="p">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">"postal"</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre>
+<div></div>
+
+<p>See <a href="#integration-guide-integration-guide-integration-examples-card-field-integration-and-customisation">card field integration and customisation</a> example.</p>
+
+<div class="feedback"></div>
+
+      </div>
+    </div>
+  </body>
+  <script src="../javascripts/components.js" async="true"></script>
+</html>

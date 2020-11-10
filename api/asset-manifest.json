@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d9e0d89c.chunk.css",
+    "main.js": "/static/js/main.d0380852.chunk.js",
+    "main.js.map": "/static/js/main.d0380852.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7172f322.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7172f322.js.map",
+    "static/js/2.643e275a.chunk.js": "/static/js/2.643e275a.chunk.js",
+    "static/js/2.643e275a.chunk.js.map": "/static/js/2.643e275a.chunk.js.map",
+    "static/js/3.6b254fbb.chunk.js": "/static/js/3.6b254fbb.chunk.js",
+    "static/js/3.6b254fbb.chunk.js.map": "/static/js/3.6b254fbb.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.12e662dfa4b53188cc95908969b8eac2.js": "/precache-manifest.12e662dfa4b53188cc95908969b8eac2.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.d9e0d89c.chunk.css.map": "/static/css/main.d9e0d89c.chunk.css.map",
+    "static/js/2.643e275a.chunk.js.LICENSE.txt": "/static/js/2.643e275a.chunk.js.LICENSE.txt",
+    "static/media/business.yaml": "/static/media/business.577a807f.yaml",
+    "static/media/merchant.yaml": "/static/media/merchant.685f2012.yaml",
+    "static/media/open-banking.yaml": "/static/media/open-banking.e911c013.yaml"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7172f322.js",
+    "static/js/2.643e275a.chunk.js",
+    "static/css/main.d9e0d89c.chunk.css",
+    "static/js/main.d0380852.chunk.js"
+  ]
+}
