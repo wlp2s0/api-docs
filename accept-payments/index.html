@@ -258,9 +258,6 @@
                           <li>
                             <a href="#tutorials-tutorials-accept-your-first-payment-3-call-the-widget-instance" class="toc-h4 toc-link" data-title="3-call-the-widget-instance">3. Call the widget instance</a>
                           </li>
-                          <li>
-                            <a href="#tutorials-tutorials-accept-your-first-payment-more-integration-examples" class="toc-h4 toc-link" data-title="more-integration-examples">More integration examples</a>
-                          </li>
                       </ul>
                       </li>
                     <li>
@@ -277,6 +274,9 @@
                     <li>
                       <a href="#tutorials-test-in-the-sandbox-environment" class="toc-h3 toc-link" data-title="test-in-the-sandbox-environment">Test in the Sandbox environment</a>
                       <ul class="toc-list-h4">
+                          <li>
+                            <a href="#tutorials-tutorials-test-in-the-sandbox-environment-use-test-cards" class="toc-h4 toc-link" data-title="use-test-cards">Use test cards</a>
+                          </li>
                           <li>
                             <a href="#tutorials-tutorials-test-in-the-sandbox-environment-change-to-the-production-environment" class="toc-h4 toc-link" data-title="change-to-the-production-environment">Change to the production environment</a>
                           </li>
@@ -342,50 +342,60 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='accept-payments'><a href='#accept-payments' class='header-link'><i></i></a>Accept payments</h1><h2 id='overview'><a href='#overview' class='header-link'><i></i></a>Overview</h2>
-<p>The <strong>Revolut Merchant account</strong> is a sub account under your current Revolut Business account. As a Revolut Business customer, you can use your Revolut Merchant account and the Merchant API to accept online payments straight into your Merchant account. In addition, you can manage orders and customers.
-Depending on how your e-commerce website is hosted, you can choose the corresponding checkout method to accept payments to your Merchant account:
-- Installing an e-commerce platform plugin: If you have your website running on WooCommerce, Prestashop, or Magento e-commerce platform, install the corresponding plugin that Revolut has created. This doesn’t require manual integration with the Merchant API. Revolut will support more plugins in the future. For more information, see <a href="#plugins">Plugins</a>.
-- Adding a Revolut Checkout Widget: If your website is not running on the platforms above, or if you want to customize the checkout experience, add a <a href="https://developer.revolut.com/api-reference/revolut-checkout-js">Revolut Checkout Widget</a> to the checkout page, which can be either a payment pop-up window or a card field. You must manually integrate the widget with the <a href="https://developer.revolut.com/api-reference/merchant">Merchant API</a>. To get started, see the <a href="#tutorials-accept-your-first-payment">Accept your first payment</a>.</p>
+<p>The <strong>Revolut Merchant account</strong> is a sub account under your current Revolut Business account. As a Revolut Business customer, you can use your Revolut Merchant account and the Merchant API to accept online payments straight into your Merchant account. In addition, you can manage orders and customers.</p>
+
+<p>Depending on how your e-commerce website is hosted, you can choose the corresponding checkout method to accept payments to your Merchant account:</p>
+
+<ul>
+<li><p>Installing an e-commerce platform plugin: If you have your website running on WooCommerce, Prestashop, or Magento e-commerce platform, install the corresponding plugin that Revolut has created. This doesn’t require manual integration with the Merchant API. Revolut will support more plugins in the future. For more information, see <a href="#plugins">Plugins</a>.</p></li>
+<li><p>Adding a Revolut Checkout Widget: If your website is not running on the platforms above, or if you want to customize the checkout experience, add a <a href="https://developer.revolut.com/api-reference/revolut-checkout-js">Revolut Checkout Widget</a> to the checkout page, which can be either a payment pop-up window or a card field. You must manually integrate the widget with the <a href="https://developer.revolut.com/api-reference/merchant">Merchant API</a>. To get started, see the <a href="#tutorials-accept-your-first-payment">Accept your first payment</a>.</p></li>
+</ul>
 <h2 id='get-started'><a href='#get-started' class='header-link'><i></i></a>Get started</h2><h3 id='get-started-1-apply-for-a-merchant-account'><a href='#get-started-1-apply-for-a-merchant-account' class='header-link'><i></i></a>1. Apply for a Merchant account</h3>
-<p>Before you begin, apply for a Merchant account in your <a href="https://business.revolut.com/merchant">Revolut Business</a> account. You need to provide required information, for example, website of operation, volume of payments, category of your merchant activities, and then submit your application.
-If your application is successful, you receive an email notification and can access your Merchant account right away.
-For any questions, reach out to support via our in-app chat.</p>
+<p>Before you begin, apply for a Merchant account in your <a href="https://business.revolut.com/merchant">Revolut Business</a> account. You need to provide required information, for example, website of operation, volume of payments, category of your merchant activities, and then submit your application.</p>
+
+<p>If your application is successful, you receive an email notification and can access your Merchant account right away.</p>
+
+<p>For any questions, reach out to support via our in-app chat.</p>
 <h3 id='get-started-2-generate-the-api-key'><a href='#get-started-2-generate-the-api-key' class='header-link'><i></i></a>2. Generate the API key</h3>
-<p>After you successfully apply for a Merchant account in your <a href="https://business.revolut.com/merchant">Revolut Business Account</a>, generate the production API key. You need it as part of the authorization header for each Merchant API request. 
-Complete the following steps to generate the production API key:
-1. Log in to your Revolut Business portal.
-2. From the left sidebar menu, click <strong>Merchant</strong>, and then click the <strong>API</strong> tab on the page. 
-3. Under the <strong>Product API key</strong> section, generate the production API key.
-<img width="1456" alt="Screenshot 2020-02-10 at 15 43 13" src="https://user-images.githubusercontent.com/442932/74165710-704bcd80-4c1d-11ea-89db-8bc8dbfbc2c9.png">
-<strong>Note</strong>: Use this key only for the production environment. For the <a href="https://sandbox-business.revolut.com">Revolut Business Sandbox environment</a>, use the <a href="https://sandbox-business.revolut.com/merchant/api">sandbox API key</a>. For more information, see <a href="#tutorials-test-in-the-sandbox-environment">Test in the sandbox</a>.
-<div class="feedback"></div></p>
+<p>After you successfully apply for a Merchant account in your <a href="https://business.revolut.com/merchant">Revolut Business Account</a>, generate the production API key. You need it as part of the authorization header for each Merchant API request.</p>
+
+<p>Complete the following steps to generate the production API key:</p>
+
+<ol>
+<li>Log in to your Revolut Business portal.</li>
+<li>From the left sidebar menu, click <strong>Merchant</strong>, and then click the <strong>API</strong> tab on the page.</li>
+<li>Under the <strong>Product API key</strong> section, generate the production API key.</li>
+</ol>
+
+<p><img width="1456" alt="Screenshot 2020-02-10 at 15 43 13" src="https://user-images.githubusercontent.com/442932/74165710-704bcd80-4c1d-11ea-89db-8bc8dbfbc2c9.png"></p>
+
+<p><strong>Note</strong>: Use this key only for the production environment. For the <a href="https://sandbox-business.revolut.com">Revolut Business Sandbox environment</a>, use the <a href="https://sandbox-business.revolut.com/merchant/api">sandbox API key</a>. For more information, see <a href="#tutorials-test-in-the-sandbox-environment">Test in the sandbox</a>.</p>
+
+<div class="feedback"></div>
 <h2 id='tutorials'><a href='#tutorials' class='header-link'><i></i></a>Tutorials</h2><h3 id='tutorials-accept-your-first-payment'><a href='#tutorials-accept-your-first-payment' class='header-link'><i></i></a>Accept your first payment</h3>
-<p><strong>Note</strong>: If you have your website running on WooCommerce, Prestashop, or Magento e-commerce platform, you need to <a href="#plugins">Install and configure Revolut plugins</a>.
-This tutorial walks you through the steps to accept the first payment. The tutorial assumes that you run your own e-commerce website and manage its code and files.
-Check the following high-level procedure to integrate a Revolut Checkout Widget (widget) with the Merchant API:
-1. Server side: Create an order via the Merchant API request. 
-2. Client side: Install the widget by adding <code>RevolutCheckout</code> to your application. 
-3. Client side: Choose the option to collect card details and call the widget instance. 
-Before you start this tutorial, ensure that you have completed the following steps:
-* <a href="#get-started-1-apply-for-a-merchant-account">Get started: 1. Apply for a Merchant account</a>
-* <a href="#get-started-2-generate-the-api-key">Get started: 2. Generate the API key</a>
-<div class="feedback"></div></p>
+<p><strong>Note</strong>: If you have your website running on WooCommerce, Prestashop, or Magento e-commerce platform, you need to <a href="#plugins">Install and configure Revolut plugins</a>.</p>
+
+<p>This tutorial walks you through the steps to accept the first payment. The tutorial assumes that you run your own e-commerce website and manage its code and files.</p>
+
+<p>Check the following high-level procedure to integrate a Revolut Checkout Widget (widget) with the Merchant API:</p>
+
+<ol>
+<li>Server side: Create an order via the Merchant API request.</li>
+<li>Client side: Install the widget by adding <code>RevolutCheckout</code> to your application.</li>
+<li>Client side: Choose the option to collect card details and call the widget instance.
+Before you start this tutorial, ensure that you have completed the following steps:</li>
+</ol>
+
+<ul>
+<li><a href="#get-started-1-apply-for-a-merchant-account">Get started: 1. Apply for a Merchant account</a></li>
+<li><a href="#get-started-2-generate-the-api-key">Get started: 2. Generate the API key</a></li>
+</ul>
+
+<div class="feedback"></div>
 <h4 id='tutorials-tutorials-accept-your-first-payment-1-create-an-order'><a href='#tutorials-tutorials-accept-your-first-payment-1-create-an-order' class='header-link'><i></i></a>1. Create an order</h4>
-<p><strong>Note</strong>: The information on this page assumes that you are pushing changes to the production environment. To test in the <a href="https://sandbox-business.revolut.com">Revolut Business Sandbox environment</a>, replace the endpoint address  <code>https://merchant.revolut.com/ with</code>https://sandbox-merchant.revolut.com/` and use the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> in the headers of requests.</p>
+<p><strong>Note</strong>: The information on this page assumes that you are pushing changes to the production environment. To test in the <a href="https://sandbox-business.revolut.com">Revolut Business Sandbox environment</a>, replace the endpoint address <code>https://merchant.revolut.com/ with</code>https://sandbox-merchant.revolut.com/` and use the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> in the headers of requests.</p>
 <blockquote>
-      <div><p>Request
-<code>
-POST https://merchant.revolut.com/api/1.0/orders
-Authorization: `Bearer [yourAPIKey]`
-</code>
-Body of the request
-<code>
-//data
-{
-&quot;amount&quot;: 999,
-&quot;currency&quot;: &quot;EUR&quot;
-}
-</code></p>
+      <div><p>Request</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -393,28 +403,10 @@ Body of the request
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote>
-<p>When a user decides to make a purchase on your e-commerce website, on the server side, you create an order by sending a <code>POST</code> request to <code>https://merchant.revolut.com/api/1.0/orders</code>. You must include the authorization header in the request, which is in the following format:
-<code>Bearer [yourAPIKey]</code>
-Where <code>[yourAPIKey]</code> is the production API key that you <a href="https://business.revolut.com/merchant/api">generated from your Merchant account</a>.
-<strong>Note</strong>: You must create an order for each purchase.
-Here’s an example <a href="https://developer.revolut.com/api-reference/merchant/#operation/createOrder">request</a>:</p>
-<blockquote>
-      <div><p>Response
-<code>
-{
-&quot;id&quot;: &quot;&lt;ID&gt;&quot;,
-&quot;public_id&quot;: &quot;&lt;PUBLIC_ID&gt;&quot;,
-&quot;type&quot;: &quot;PAYMENT&quot;,
-&quot;state&quot;: &quot;PENDING&quot;,
-&quot;created_date&quot;: “2020-10-15T07:46:40.648108Z”,
-&quot;updated_date&quot;: “2020-10-15T07:46:40.648108Z”,
-&quot;order_amount&quot;: { 
-&quot;value&quot;: 10000, 
-&quot;currency&quot;: &quot;GBP&quot;
-}
-}
-</code> </p>
+    </blockquote><pre class="highlight r"><code><span class="w">  </span><span class="n">POST</span><span class="w"> </span><span class="n">https</span><span class="o">://</span><span class="n">merchant.revolut.com</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">orders</span><span class="w">
+  </span><span class="n">Authorization</span><span class="o">:</span><span class="w"> </span><span class="n">`Bearer [yourAPIKey]`</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Body of the request</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -422,243 +414,380 @@ Here’s an example <a href="https://developer.revolut.com/api-reference/merchan
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote>
-<p>When the order is created successfully, the Merchant API returns a <a href="https://developer.revolut.com/api-reference/merchant/#operation/createOrder">response</a> like this:
-<strong>Note</strong>: From the response, save the <code>public_id</code>, which is a temporary token generated for every order a customer initiates on the website. It’s also the identifier passed from the server side to the client side to call the widget instance. When the order is paid, the <code>public_id</code> expires.
-<div class="feedback"></div></p>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">999</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUR"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>When a user decides to make a purchase on your e-commerce website, on the server side, you create an order by sending a <code>POST</code> request to <code>https://merchant.revolut.com/api/1.0/orders</code>. You must include the authorization header in the request, which is in the following format:</p>
+
+<p><code>Bearer [yourAPIKey]</code></p>
+
+<p>Where <code>[yourAPIKey]</code> is the production API key that you <a href="https://business.revolut.com/merchant/api">generated from your Merchant account</a>.</p>
+
+<p><strong>Note</strong>: You must create an order for each purchase.</p>
+
+<p>Here’s an example <a href="https://developer.revolut.com/api-reference/merchant/#operation/createOrder">request</a>:</p>
+<blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"public_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;PUBLIC_ID&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PAYMENT"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PENDING"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="err">“</span><span class="mi">2020-10-15</span><span class="err">T</span><span class="mi">07</span><span class="p">:</span><span class="mi">46</span><span class="p">:</span><span class="mf">40.648108</span><span class="err">Z”</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_date"</span><span class="p">:</span><span class="w"> </span><span class="err">“</span><span class="mi">2020-10-15</span><span class="err">T</span><span class="mi">07</span><span class="p">:</span><span class="mi">46</span><span class="p">:</span><span class="mf">40.648108</span><span class="err">Z”</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_amount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>When the order is created successfully, the Merchant API returns a <a href="https://developer.revolut.com/api-reference/merchant/#operation/createOrder">response</a> like this:</p>
+
+<p><strong>Note</strong>: From the response, save the <code>public_id</code>, which is a temporary token generated for every order a customer initiates on the website. It’s also the identifier passed from the server side to the client side to call the widget instance. When the order is paid, the <code>public_id</code> expires.</p>
 <h4 id='tutorials-tutorials-accept-your-first-payment-2-install-the-widget'><a href='#tutorials-tutorials-accept-your-first-payment-2-install-the-widget' class='header-link'><i></i></a>2. Install the widget</h4>
-<p>When the order is successfully created, on the client side, you install the widget. 
-To install the Revolut Checkout Widget, you need to add <code>RevolutCheckout</code> to your checkout page in one of the following ways:
-* Adding the embed script to the checkout HTML page. This adds <code>RevolutCheckout</code> to the browser’s global window..
-* Installing the widget’s npm package. This uses JavaScript modules to access the widget instance.
-<strong>Note</strong>:  The script is requested asynchronously, so you don’t need to worry about the content that blocks the loading of the page.
-<strong>Add the embed script</strong></p>
-<pre class="highlight plaintext"><code>&lt;head&gt;
-&lt;title&gt;Shop&lt;/title&gt;
-&lt;script&gt;!function(e,o,t){e[t]=function(n,r){var c={sandbox:"https://sandbox-
-merchant.revolut.com/embed.js",prod:"https://merchant.revolut.com/
-embed.js",dev:"https://merchant.revolut.codes/
-embed.js"},d=o.createElement("script");d.id="revolut-checkout",d.src=c[r]||
-c.prod,d.async=!0,o.head.appendChild(d);var s={then:function(r,c)
-{d.onload=function(){r(e[t](n))},d.onerror=function()
-{o.head.removeChild(d),c&amp;&amp;c(new Error(t+" is failed to
-load"))}}};return"function"==typeof Promise?Promise.resolve(s):s}}
-(window,document,"RevolutCheckout");&lt;/script&gt;
-&lt;/head&gt;
+<p>When the order is successfully created, on the client side, you install the widget.</p>
+
+<p>To install the Revolut Checkout Widget, you need to add <code>RevolutCheckout</code> to your checkout page in one of the following ways:</p>
+
+<ul>
+<li>Adding the embed script to the checkout HTML page. This adds <code>RevolutCheckout</code> to the browser’s global window.</li>
+<li>Installing the widget’s npm package. This uses JavaScript modules to access the widget instance.</li>
+</ul>
+
+<p><strong>Note</strong>: The script is requested asynchronously, so you don’t need to worry about the content that blocks the loading of the page.</p>
+
+<p><strong>Add the embed script</strong></p>
+<blockquote>
+      <div><p>Embed script</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight html tab-html"><code><span class="nt">&lt;head&gt;</span>
+<span class="nt">&lt;title&gt;</span>Shop<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;script&gt;</span><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="nx">o</span><span class="p">,</span><span class="nx">t</span><span class="p">){</span><span class="nx">e</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="nx">r</span><span class="p">){</span><span class="kd">var</span> <span class="nx">c</span><span class="o">=</span><span class="p">{</span><span class="na">sandbox</span><span class="p">:</span><span class="s2">"https://sandbox-
+merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="na">prod</span><span class="p">:</span><span class="s2">"https://merchant.revolut.com/
+embed.js"</span><span class="p">,</span><span class="na">dev</span><span class="p">:</span><span class="s2">"https://merchant.revolut.codes/
+embed.js"</span><span class="p">},</span><span class="nx">d</span><span class="o">=</span><span class="nx">o</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span><span class="nx">d</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"revolut-checkout"</span><span class="p">,</span><span class="nx">d</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="nx">c</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="o">||</span>
+<span class="nx">c</span><span class="p">.</span><span class="nx">prod</span><span class="p">,</span><span class="nx">d</span><span class="p">.</span><span class="nx">async</span><span class="o">=!</span><span class="mi">0</span><span class="p">,</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span><span class="kd">var</span> <span class="nx">s</span><span class="o">=</span><span class="p">{</span><span class="na">then</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">)</span>
+<span class="p">{</span><span class="nx">d</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">r</span><span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">t</span><span class="p">](</span><span class="nx">n</span><span class="p">))},</span><span class="nx">d</span><span class="p">.</span><span class="nx">onerror</span><span class="o">=</span><span class="kd">function</span><span class="p">()</span>
+<span class="p">{</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">d</span><span class="p">),</span><span class="nx">c</span><span class="o">&amp;&amp;</span><span class="nx">c</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">t</span><span class="o">+</span><span class="s2">" is failed to
+load"</span><span class="p">))}}};</span><span class="k">return</span><span class="s2">"function"</span><span class="o">==</span><span class="k">typeof</span> <span class="nx">Promise</span><span class="p">?</span><span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span><span class="nx">s</span><span class="p">}}</span>
+<span class="p">(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">,</span><span class="s2">"RevolutCheckout"</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
 </code></pre>
 <p>Add the embed script to the document head of your checkout HTML page.</p>
 
-<p><strong>Install the widget’s npm package</strong></p>
-
-<p><code>npm install @revolut/checkout</code></p>
-
-<ol>
-<li>Run the command to install the widget’s npm package.</li>
-</ol>
-<pre class="highlight plaintext"><code>import RevolutCheckout from "@revolut/checkout"
-RevolutCheckout("XXX", "prod").then((instance) =&gt; {
-  // work with instance
-})
+<p><strong>Install the widget’s NPM package</strong></p>
+<blockquote>
+      <div><p>Install the NPM package</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight plaintext"><code>npm install @revolut/checkout
 </code></pre>
-<ol>
-<li>Import the ES module to the javascript code as follows:</li>
-</ol>
-
-<div class="feedback"></div>
+<p><strong>Step 1.</strong> Run the command to install the widget’s NPM package.</p>
+<blockquote>
+      <div><p>Import the ES module</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight javascript"><code><span class="kr">import</span> <span class="nx">RevolutCheckout</span> <span class="nx">from</span> <span class="s2">"@revolut/checkout"</span><span class="p">;</span>
+<span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">,</span> <span class="s2">"prod"</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">instance</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// work with instance</span>
+<span class="p">});</span>
+</code></pre>
+<p><strong>Step 2.</strong> Import the ES module to the javascript code as follows:</p>
 <h4 id='tutorials-tutorials-accept-your-first-payment-3-call-the-widget-instance'><a href='#tutorials-tutorials-accept-your-first-payment-3-call-the-widget-instance' class='header-link'><i></i></a>3. Call the widget instance</h4>
-<p>Choose one of the following options to integrate with the widget to collect card details:
-* A payment pop-up window, which appears over the page that is currently opened and requests the user’s card information. This is easy and fast to implement. In this tutorial, you use this option. For more information, see the <a href="link%20to:%20https://developer.revolut.com/api-reference/revolut-checkout-js//#instance-paywithpopup">Instance.payWithPopup</a>. 
-<img src="https://user-images.githubusercontent.com/442932/73471824-e761a600-4381-11ea-8b84-8b2d1103823c.png" />
-* A card field, which is inserted as a separate object on the checkout page, which fits well into your custom checkout flow. You can check the example of [card field integration and customization(link to integration example: https://developer.revolut.com/api-reference/revolut-checkout-js/#integration-examples-Integrating-the-payment-pop-up). For more information, see the <a href="https://developer.revolut.com/api-reference/revolut-checkout-js/#instance-createcardfield">Instance.createCardField</a> 
-<img src="https://user-images.githubusercontent.com/442932/73471842-ed578700-4381-11ea-907f-5d55fd4b7d00.png" />
-You design your implementation to call the widget instance  as follows:
-1. When the user clicks <strong>Pay</strong>, the payment pop-up window opens. To achieve this, you create a button and attach a click event listener to it that triggers <code>RC.payWithPopup(options)</code>. 
-2. The user enters the required card details and the optional personal details, and then moves to the payment processing.
-3. After the payment is processed, you can redirect the user to the appropriate page to handle the success or failed status of the order. </p>
-<pre class="highlight plaintext"><code>&lt;button id="pay-button"&gt;
-  Pay
-&lt;/button&gt;
-&lt;script&gt;
-  RevolutCheckout("&lt;PUBLIC_ID&gt;").then(function(RC) {
-    var payButton = document.getElementById("pay-button");`   
-    // On click open payment pop-up
-    payButton.addEventListener("click", function() {
-      RC.payWithPopup({
-        // (optional) name of the customer
-        name: "First Last",
-        // (optional) email of the customer
-        email: "customer@example.com",
-        // (optional) phone of the customer
-        phone: "+447950630319",
-        // (optional) billing address of the customer
-        billingAddress: {
-          countryCode: "UK",
-          region: "Greater London",
-          city: "London",
-          streetLine1: "Revolut",
-          streetLine2: "1 Canada Square",
-          postcode: "EC2V 6DN"
-        },
-        // (optional) shipping address of the customer
-        shippingAddress: {
-          countryCode: "UK",
-          region: "Greater London",
-          city: "London",
-          streetLine1: "Revolut",
-          streetLine2: "1 Canada Square",
-          postcode: "EC2V 6DN"
-        },
-        // Callback called when payment finished successfully
-        onSuccess() {
-          window.alert("Thank you!");
-        },
-        // Callback in case some error happened
-        onError(message) {
-          window.alert("Oh no :(");
-        },
-        // (optional) Callback in case user cancelled a transaction
-        onCancel() {
-          window.alert("Payment cancelled!")
-        },
-      });
-    });
-  });
-&lt;/script&gt;
+<p>Choose one of the following options to integrate with the widget to collect card details:</p>
+
+<ul>
+<li>A payment pop-up window, which appears over the page that is currently opened and requests the user’s card information. This is easy and fast to implement. In this tutorial, you use this option. For more information, see the <a href="link%20to:%20https://developer.revolut.com/api-reference/revolut-checkout-js//#instance-paywithpopup">Instance.payWithPopup</a>.</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/442932/73471824-e761a600-4381-11ea-8b84-8b2d1103823c.png" /></p>
+
+<ul>
+<li>A card field, which is inserted as a separate object on the checkout page, which fits well into your custom checkout flow. You can check the example of [card field integration and customization(link to integration example: https://developer.revolut.com/api-reference/revolut-checkout-js/#integration-examples-Integrating-the-payment-pop-up). For more information, see the <a href="https://developer.revolut.com/api-reference/revolut-checkout-js/#instance-createcardfield">Instance.createCardField</a></li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/442932/73471842-ed578700-4381-11ea-907f-5d55fd4b7d00.png" /></p>
+
+<p>You design your implementation to call the widget instance as follows:</p>
+
+<ol>
+<li>When the user clicks <strong>Pay</strong>, the payment pop-up window opens. To achieve this, you create a button and attach a click event listener to it that triggers <code>RC.payWithPopup(options)</code>.</li>
+<li>The user enters the required card details and the optional personal details, and then moves to the payment processing.</li>
+<li>After the payment is processed, you can redirect the user to the appropriate page to handle the success or failed status of the order.</li>
+</ol>
+<blockquote>
+      <div><p>Code snippet</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"pay-button"</span><span class="nt">&gt;</span>Pay<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"&lt;PUBLIC_ID&gt;"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">RC</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">payButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"pay-button"</span><span class="p">);</span>
+    <span class="c1">// On click open payment pop-up</span>
+    <span class="nx">payButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">RC</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
+        <span class="c1">// (optional) name of the customer</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s2">"First Last"</span><span class="p">,</span>
+        <span class="c1">// (optional) email of the customer</span>
+        <span class="na">email</span><span class="p">:</span> <span class="s2">"customer@example.com"</span><span class="p">,</span>
+        <span class="c1">// (optional) phone of the customer</span>
+        <span class="na">phone</span><span class="p">:</span> <span class="s2">"+447950630319"</span><span class="p">,</span>
+        <span class="c1">// (optional) billing address of the customer</span>
+        <span class="na">billingAddress</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
+          <span class="na">region</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
+          <span class="na">city</span><span class="p">:</span> <span class="s2">"London"</span><span class="p">,</span>
+          <span class="na">streetLine1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
+          <span class="na">streetLine2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
+          <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="c1">// (optional) shipping address of the customer</span>
+        <span class="na">shippingAddress</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"UK"</span><span class="p">,</span>
+          <span class="na">region</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
+          <span class="na">city</span><span class="p">:</span> <span class="s2">"London"</span><span class="p">,</span>
+          <span class="na">streetLine1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
+          <span class="na">streetLine2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
+          <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="c1">// Callback called when payment finished successfully</span>
+        <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
+          <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
+        <span class="p">},</span>
+        <span class="c1">// Callback in case some error happened</span>
+        <span class="nx">onError</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
+        <span class="p">},</span>
+        <span class="c1">// (optional) Callback in case user cancelled a transaction</span>
+        <span class="nx">onCancel</span><span class="p">()</span> <span class="p">{</span>
+          <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Payment cancelled!"</span><span class="p">);</span>
+        <span class="p">},</span>
+      <span class="p">});</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
 </code></pre>
-<p>Implement the code snippet, where:
-* <code>RevolutCheckout</code> is the widget instance. 
-* <code>&lt;PUBLIC_ID&gt;</code> is the <code>public_id</code> passed as the parameter to call the widget instance. You can find the value of <code>public_id</code> in the <a href="#tutorials-accept-your-first-payment-1-create-an-order">response</a> that the Merchant API returns when you create an order successfully.  </p>
+<p>Implement the code snippet, where:</p>
+
+<ul>
+<li><code>RevolutCheckout</code> is the widget instance.</li>
+<li><code>&lt;PUBLIC_ID&gt;</code> is the <code>public_id</code> passed as the parameter to call the widget instance. You can find the value of <code>public_id</code> in the <a href="#tutorials-accept-your-first-payment-1-create-an-order">response</a> that the Merchant API returns when you create an order successfully.</li>
+</ul>
 
 <p>Congratulations! You’ve successfully integrated the widget with the Merchant API to the checkout page and accepted your first payment for the order.</p>
 
-<p><strong>What’s next</strong>
-* <a href="https://developer.revolut.com/api-reference/revolut-checkout-js/#integration-examples">Check more integration examples</a>: Learn more about how to use <code>RevolutCheckout.js</code> with a payment pop-up and with the integrated card field. 
-* Manage your orders. The management includes capturing, canceling, and refunding an order. For more information, check the <a href="https://developer.revolut.com/api-reference/merchant">Merchant API</a>.
-* Manage your customers. For example, save the card details of a customer and charge the customer’s saved payment method later. Click <a href="#tutorials-charge-a-customer-39-s-saved-payment-method">here</a> for more details.
-<div class="feedback"></div></p>
-<h4 id='tutorials-tutorials-accept-your-first-payment-more-integration-examples'><a href='#tutorials-tutorials-accept-your-first-payment-more-integration-examples' class='header-link'><i></i></a>More integration examples</h4>
-<p><strong>Payment pop-up integration</strong>
-This example shows how to use <a href="https://developer.revolut.com/api-reference/revolut-checkout-js">RevolutCheckout.js</a> with a payment pop-up and the <a href="https://developer.revolut.com/api-reference/merchant">Merchant API</a>. The hosted version is running on the Sandbox environment — use one of our <a href="#tutorials-test-in-the-sandbox-environment-use-test-cards">test cards</a> to ensure that the widget works properly.</p>
+<p><strong>What’s next</strong></p>
 
-<div>
-  <iframe
-src="https://codesandbox.io/embed/github/revolut-engineering/revolut-merchant-api-example-next-js/tree/master/?fontsize=14&hidenavigation=1&module=%2Fpages%2Fcheckout.js&theme=dark"
-    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-    title="revolut-checkout-widget-next-example"
-    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
-    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"></iframe>
-</div>
+<ul>
+<li><a href="https://developer.revolut.com/docs/revolut-checkout-js/#integration-examples">Check more integration examples</a>: Learn more about how to use <code>RevolutCheckout.js</code> with a payment pop-up and with the integrated card field.</li>
+<li>Manage your orders. The management includes capturing, canceling, and refunding an order. For more information, check the <a href="https://developer.revolut.com/api-reference/merchant">Merchant API</a>.</li>
+<li>Manage your customers. For example, save the card details of a customer and charge the customer’s saved payment method later. Click <a href="#tutorials-charge-a-customer-39-s-saved-payment-method">here</a> for more details.</li>
+</ul>
 
-<p><strong>Note</strong>: If you fork the example, you need to create a new <a href="https://sandbox-business.revolut.com/">Revolut Business Sandbox</a> account and set the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> as <code>REVOLUT_API_KEY</code> inside <a href="https://codesandbox.io/docs/secrets#adding-secrets">CodeSandbox secrets</a>.
-<a class="github-button" href="https://github.com/revolut-engineering/revolut-merchant-api-example-next-js/fork" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Fork revolut-engineering/revolut-merchant-api-example-next-js on GitHub">Fork</a>
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<strong>Card field integration</strong>
-This example shows how to use <a href="https://developer.revolut.com/api-reference/revolut-checkout-js">RevolutCheckout.js</a> with the integrated card field. The hosted version is running in the Sandbox environment — use one of our <a href="#tutorials-test-in-the-sandbox-environment-use-test-cards">test cards</a> to ensure that the widget works properly.</p>
-
-<div>
-  <iframe    src="https://codesandbox.io/embed/revolut-merchant-api-card-field-example-next-js-wyi77?fontsize=14&hidenavigation=1&theme=dark"
-     style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-     title="revolut-merchant-api-card-field-example-next-js"
-     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr"
-     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
-</div>
-
-<p><strong>Note</strong>: If you fork the example,  you need to create a new <a href="https://sandbox-business.revolut.com/">Revolut Business Sandbox</a> account and set the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> as <code>REVOLUT_API_KEY</code> inside <a href="https://codesandbox.io/docs/secrets#adding-secrets">CodeSandbox secrets</a>.
-<div class="feedback"></div></p>
+<div class="feedback"></div>
 <h3 id='tutorials-charge-a-customer-s-saved-payment-method'><a href='#tutorials-charge-a-customer-s-saved-payment-method' class='header-link'><i></i></a>Charge a customer’s saved payment method</h3>
-<p>You can save your customers’ card details to be able to charge them at a later time. This is useful in the following use cases:
-* When you charge for subscriptions, or recurring transactions.
-* When you want to simplify the checkout experience for your customers, so that they can select a previously used card instead of having to enter its details again.
-To do that, you:
-1. Save the card details of a customer.
-2. Charge the customer’s saved payment method.
-<div class="feedback"></div></p>
-<h4 id='tutorials-tutorials-charge-a-customer-s-saved-payment-method-1-save-the-card-details-of-a-customer'><a href='#tutorials-tutorials-charge-a-customer-s-saved-payment-method-1-save-the-card-details-of-a-customer' class='header-link'><i></i></a>1. Save the card details of a customer</h4>
-<p>There are two approaches to save the card details of a customer:
-* <strong>Create a customer first</strong> and attach the payment method to the customer after the payment is made.
-* <strong>Create an order first</strong> and attach the payment method to the customer created after the order is completed.
-<strong>Create a customer first</strong>
-1. Create a customer(https://developer.revolut.com/api-reference/merchant/#operation/createCustomer) and note down the <code>id</code> of the customer object.
-2. Create an order(https://developer.revolut.com/api-reference/merchant/#operation/createOrder) with the <code>amount</code>, <code>currency</code>, and <code>customer_id</code> parameters in the body of the request.
-3. Make the payment via the Revolut Checkout Widget with <code>options.savePaymentMethodFor</code> = <code>customer</code> or <code>merchant</code>. 
-4. Payment method is created and attached to the customer.</p>
+<p>You can save your customers’ card details to be able to charge them at a later time. This is useful in the following use cases:</p>
 
-<p><strong>Create an order first</strong>
-1. <a href="https://developer.revolut.com/api-reference/merchant/#operation/createOrder">Create an order</a> with the <code>amount</code> and <code>currency</code> parameters.
-2. Make the payment via the Revolut Checkout Widget with <code>options.savePaymentMethodFor</code> = <code>customer</code> or <code>merchant</code>. <strong>Note</strong>: <code>customer_email</code> must be provided when you create an order or when the customer is making the payment; otherwise, an error is returned.
-3. When the payment is successful, a <a href="https://developer.revolut.com/api-reference/merchant/#operation/createCustomer">customer</a> is created with the email.
-4. Payment method is associated with the customer and <code>customer_id</code> is attached to the order automatically.</p>
+<ul>
+<li>When you charge for subscriptions, or recurring transactions.</li>
+<li>When you want to simplify the checkout experience for your customers, so that they can select a previously used card instead of having to enter its details again.</li>
+</ul>
+
+<p>To do that, you:</p>
+
+<ol>
+<li>Save the card details of a customer.</li>
+<li>Charge the customer’s saved payment method.</li>
+</ol>
+<h4 id='tutorials-tutorials-charge-a-customer-s-saved-payment-method-1-save-the-card-details-of-a-customer'><a href='#tutorials-tutorials-charge-a-customer-s-saved-payment-method-1-save-the-card-details-of-a-customer' class='header-link'><i></i></a>1. Save the card details of a customer</h4>
+<p>There are two approaches to save the card details of a customer:</p>
+
+<ul>
+<li><strong>Create a customer first</strong> and attach the payment method to the customer after the payment is made.</li>
+<li><strong>Create an order first</strong> and attach the payment method to the customer created after the order is completed.</li>
+</ul>
+
+<p><strong>Create a customer first</strong></p>
+
+<ol>
+<li>Create a <a href="https://developer.revolut.com/api-reference/merchant/#operation/createCustomer">customer</a> and note down the <code>id</code> of the customer object.</li>
+<li>Create an <a href="https://developer.revolut.com/api-reference/merchant/#operation/createOrder">order</a> with the <code>amount</code>, <code>currency</code>, and <code>customer_id</code> parameters in the body of the request.</li>
+<li>Make the payment via the Revolut Checkout Widget with <code>options.savePaymentMethodFor</code> = <code>customer</code> or <code>merchant</code>.</li>
+<li>Payment method is created and attached to the customer.</li>
+</ol>
+
+<p><strong>Create an order first</strong></p>
+
+<ol>
+<li><a href="https://developer.revolut.com/api-reference/merchant/#operation/createOrder">Create an order</a> with the <code>amount</code> and <code>currency</code> parameters.</li>
+<li>Make the payment via the Revolut Checkout Widget with <code>options.savePaymentMethodFor</code> = <code>customer</code> or <code>merchant</code>. <strong>Note</strong>: <code>customer_email</code> must be provided when you create an order or when the customer is making the payment; otherwise, an error is returned.</li>
+<li>When the payment is successful, a <a href="https://developer.revolut.com/api-reference/merchant/#operation/createCustomer">customer</a> is created with the email.</li>
+<li>Payment method is associated with the customer and <code>customer_id</code> is attached to the order automatically.</li>
+</ol>
 
 <div class="feedback"></div>
 <h4 id='tutorials-tutorials-charge-a-customer-s-saved-payment-method-2-charge-the-saved-payment-method'><a href='#tutorials-tutorials-charge-a-customer-s-saved-payment-method-2-charge-the-saved-payment-method' class='header-link'><i></i></a>2. Charge the saved payment method</h4>
-<p>When you’ve created a customer and saved the customer’s payment method successfully, you can charge this payment method later without the customer being on the checkout page, for example, to charge for recurring transactions. You can also use this approach to speed up the checkout process when the customer is on the checkout page, for example,  for 1-click buy flow. 
+<p>When you’ve created a customer and saved the customer’s payment method successfully, you can charge this payment method later without the customer being on the checkout page, for example, to charge for recurring transactions. You can also use this approach to speed up the checkout process when the customer is on the checkout page, for example, for 1-click buy flow.
 Complete the following steps:</p>
-<pre class="highlight plaintext"><code>POST /api/1.0/orders
-{
-  "amount" : 100,
-  "currency" : "GBP",
-  "customer_id" : "6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae"
-}
-</code></pre>
+<blockquote>
+      <div><p>Create an Order</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">POST</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">orders</span><span class="w">
+</span></code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GBP"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Confirm the Order</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight r"><code><span class="n">POST</span><span class="w"> </span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="m">1.0</span><span class="o">/</span><span class="n">orders</span><span class="o">/</span><span class="m">6</span><span class="n">a</span><span class="m">1353</span><span class="n">a</span><span class="m">8-3054-40</span><span class="n">ee</span><span class="o">-</span><span class="n">ab39</span><span class="m">-97</span><span class="n">a</span><span class="m">11e4</span><span class="n">c</span><span class="m">5</span><span class="n">f</span><span class="m">2</span><span class="n">a</span><span class="o">/</span><span class="n">confirm</span><span class="w">
+</span></code></pre>
 <ol>
-<li><a href="https://developer.revolut.com/api-reference/merchant/#operation/createOrder">Create an order</a> with the <code>amount</code>, <code>currency</code> and <code>customer_id</code> parameters in the body of the request.</li>
+<li><p><a href="https://developer.revolut.com/api-reference/merchant/#operation/createOrder">Create an order</a> with the <code>amount</code>, <code>currency</code> and <code>customer_id</code> parameters in the body of the request.</p></li>
+<li><p><a href="https://developer.revolut.com/api-reference/merchant/#operation/confirmOrder">Confirm the order</a> to take payment from this customer using the saved payment method.</p></li>
 </ol>
-<pre class="highlight plaintext"><code>POST /api/1.0/orders/6a1353a8-3054-40ee-ab39-97a11e4c5f2a/confirm
-</code></pre>
-<ol>
-<li><a href="https://developer.revolut.com/api-reference/merchant/#operation/confirmOrder">Confirm the order</a> to take payment from this customer using the saved payment method.
-<strong>Notes</strong>: </li>
+
+<p><strong>Notes</strong>:</p>
+
+<ul>
 <li>If <code>payment_method_id</code> is specified in the body of the order confirmation request, the value of this parameter is used to make the payment for the order.</li>
-<li>If <code>payment_method_id</code> is not specified, the value of this parameter is taken from the payment method that was last saved for the customer with <code>saved_for</code>= <code>MERCHANT</code>.
-<div class="feedback"></div></li>
-</ol>
+<li>If <code>payment_method_id</code> is not specified, the value of this parameter is taken from the payment method that was last saved for the customer with <code>saved_for</code>= <code>MERCHANT</code>.</li>
+</ul>
+
+<div class="feedback"></div>
 <h3 id='tutorials-test-in-the-sandbox-environment'><a href='#tutorials-test-in-the-sandbox-environment' class='header-link'><i></i></a>Test in the Sandbox environment</h3>
-<p>Use the Revolut Business Sandbox environment to test your Merchant account integration before you push the code changes to the production environment. 
-To get started, complete the following steps:
-1. Sign up for a Sandbox account on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>.
-2. Change the address of the endpoints that you want to test from <code>https://merchant.revolut.com/</code> to <code>https://sandbox-merchant.revolut.com/</code>.
-3. Get the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> and use it in the headers of requests on your server side.</p>
-<pre class="highlight plaintext"><code>type RevolutCheckout = (
+<p>Use the Revolut Business Sandbox environment to test your Merchant account integration before you push the code changes to the production environment.
+To get started, complete the following steps:</p>
+<blockquote>
+      <div><p>Specify the Sandbox environment</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight plaintext"><code>type RevolutCheckout = (
   token: string,
   mode?: 'prod' | 'sandbox' = 'sandbox`
 ) =&gt; Promise&lt;Instance&gt;;
 </code></pre>
 <ol>
-<li>Specify the <code>sandbox</code> environment in the second parameter of <a href="http://developer.revolut.com/api-reference/revolut-checkout-js">RevolutCheckout</a>.
-<div class="feedback"></div>
-#### Use test cards
-To test your various payment flows for a variety of scenarios, you can use the following test card numbers that Revolut provides. 
-<strong>Note</strong>: These cards work only in the Revolut Business Sandbox environment:
-| Card PAN         | Response             |
-| ---------------- | -------------------- |
-| 5185520050000010 | FRICTIONLESS_3DS     |
-| 4111111111111111 | FAILED_AUTHORISATION |
-| 4012888888881881 | FAILED_CAPTURE       |
-| 5205205205205200 | CAN_CANCEL_CAPTURED  |
-| 378282246310005  | FAILED_CANCEL        |
-| 6011111111111117 | FAILED_REFUND        |
-| 5105105105105100 | RISK_DECLINED_CARD   |
-<div class="feedback"></div></li>
+<li>Sign up for a Sandbox account on <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>.</li>
+<li>Change the address of the endpoints that you want to test from <code>https://merchant.revolut.com/</code> to <code>https://sandbox-merchant.revolut.com/</code>.</li>
+<li>Get the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> and use it in the headers of requests on your server side.</li>
+<li>Specify the <code>sandbox</code> environment in the second parameter of <a href="http://developer.revolut.com/api-reference/revolut-checkout-js">RevolutCheckout</a>.</li>
 </ol>
+
+<div class="feedback"></div>
+<h4 id='tutorials-tutorials-test-in-the-sandbox-environment-use-test-cards'><a href='#tutorials-tutorials-test-in-the-sandbox-environment-use-test-cards' class='header-link'><i></i></a>Use test cards</h4>
+<p>To test your various payment flows for a variety of scenarios, you can use the following test card numbers that Revolut provides.</p>
+
+<p><strong>Note</strong>: These cards work only in the Revolut Business Sandbox environment:</p>
+
+<table><thead>
+<tr>
+<th>Card PAN</th>
+<th>Response</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>5185520050000010</td>
+<td>FRICTIONLESS_3DS</td>
+</tr>
+<tr>
+<td>4111111111111111</td>
+<td>FAILED_AUTHORISATION</td>
+</tr>
+<tr>
+<td>4012888888881881</td>
+<td>FAILED_CAPTURE</td>
+</tr>
+<tr>
+<td>5205205205205200</td>
+<td>CAN_CANCEL_CAPTURED</td>
+</tr>
+<tr>
+<td>378282246310005</td>
+<td>FAILED_CANCEL</td>
+</tr>
+<tr>
+<td>6011111111111117</td>
+<td>FAILED_REFUND</td>
+</tr>
+<tr>
+<td>5105105105105100</td>
+<td>RISK_DECLINED_CARD</td>
+</tr>
+</tbody></table>
+
+<div class="feedback"></div>
 <h4 id='tutorials-tutorials-test-in-the-sandbox-environment-change-to-the-production-environment'><a href='#tutorials-tutorials-test-in-the-sandbox-environment-change-to-the-production-environment' class='header-link'><i></i></a>Change to the production environment</h4>
-<p>When you are confident that everything works as expected on the <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>, you can revert the endpoint address back to <code>https://merchant.revolut.com/</code> in both the Merchant API requests and embed script, and replace the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> with <a href="https://business.revolut.com/merchant/api">Production API key</a> in the Merchant API requests. 
-Now you are ready to accept real payments!
-<div class="feedback"></div></p>
+<p>When you are confident that everything works as expected on the <a href="https://sandbox-business.revolut.com/signup">Revolut Business Sandbox environment</a>, you can revert the endpoint address back to <code>https://merchant.revolut.com/</code> in both the Merchant API requests and embed script, and replace the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> with <a href="https://business.revolut.com/merchant/api">Production API key</a> in the Merchant API requests.</p>
+
+<p>Now you are ready to accept real payments!</p>
+
+<div class="feedback"></div>
 <h2 id='plugins'><a href='#plugins' class='header-link'><i></i></a>Plugins</h2>
 <p>If you have your website running on WooCommerce, Prestashop, or Magento e-commerce platform, install the corresponding plugin that Revolut has created. This is a simple way to start accepting payments straight into Revolut Merchant Accounts without having to integrate with <a href="http://developer.revolut.com/api-reference/merchant">Merchant API</a>.</p>
 
-<p>Before you begin to install and configure the plugins, ensure that you have completed the following steps:
-* <a href="#get-started-1-apply-for-a-merchant-account">Get started: 1. Apply for a Merchant account</a>
-* <a href="#get-started-2-generate-the-api-key">Get started: 2. Generate the API key</a></p>
+<p>Before you begin to install and configure the plugins, ensure that you have completed the following steps:</p>
+
+<ul>
+<li><a href="#get-started-1-apply-for-a-merchant-account">Get started: 1. Apply for a Merchant account</a></li>
+<li><a href="#get-started-2-generate-the-api-key">Get started: 2. Generate the API key</a></li>
+</ul>
 <h3 id='plugins-woocommerce'><a href='#plugins-woocommerce' class='header-link'><i></i></a>WooCommerce</h3>
-<p>The <code>Revolut Gateway for WooCommerce</code> plugin enables you to accept online payments via your WooCommerce store easily. </p>
+<p>The <code>Revolut Gateway for WooCommerce</code> plugin enables you to accept online payments via your WooCommerce store easily.</p>
 
-<p>Then, configure the plugin to test in the sandbox environment or use it in the production environment. </p>
+<p>Then, configure the plugin to test in the sandbox environment or use it in the production environment.</p>
 <h4 id='plugins-plugins-woocommerce-install-the-woocommerce-plugin'><a href='#plugins-plugins-woocommerce-install-the-woocommerce-plugin' class='header-link'><i></i></a>Install the WooCommerce plugin</h4>
-<p>You can install the <code>Revolut Gateway for WooCommerce</code> plugin either in a quick way or manually install it when you don’t have the Internet access to the WooCommerce store. </p>
+<p>You can install the <code>Revolut Gateway for WooCommerce</code> plugin either in a quick way or manually install it when you don’t have the Internet access to the WooCommerce store.</p>
 
-<p><em>Quick installation</em></p>
+<p><strong>Quick installation</strong></p>
 
 <p>Complete the following steps to install the plugin directly from your admin section:</p>
 
@@ -671,54 +800,37 @@ Now you are ready to accept real payments!
 <li>When the installation is done, click <strong>Activate</strong>.</li>
 </ol>
 
-<p>Congratulations! You have activated the Revolut Gateway for WooCommerce plugin. </p>
+<p>Congratulations! You have activated the Revolut Gateway for WooCommerce plugin.</p>
 
-<p><em>Manual installation</em></p>
+<p><strong>Manual installation</strong></p>
 
 <ol>
 <li>Log in to your WooCommerce dashboard as the admin role.</li>
-<li>From the left sidebar menu, Click <strong>Plugins</strong>.</li>
-</ol>
-
-<p><img width="100" src="https://user-images.githubusercontent.com/60622352/77462035-65c74b00-6dfb-11ea-85df-c033b049a828.png"></p>
-
-<ol>
-<li>On the top of the page, click <strong>Add New</strong> next to the <strong>Plugins</strong> page title. You are then redirected to the following page.</li>
-</ol>
-
-<p><img width="1368" src="https://user-images.githubusercontent.com/60622352/76890093-a1ec3000-687e-11ea-84ca-964fa6a0faf9.png"></p>
-
-<ol>
+<li>From the left sidebar menu, Click <strong>Plugins</strong>.
+<img width="100" src="https://user-images.githubusercontent.com/60622352/77462035-65c74b00-6dfb-11ea-85df-c033b049a828.png"></li>
+<li>On the top of the page, click <strong>Add New</strong> next to the <strong>Plugins</strong> page title. You are then redirected to the following page.
+<img width="1368" src="https://user-images.githubusercontent.com/60622352/76890093-a1ec3000-687e-11ea-84ca-964fa6a0faf9.png"></li>
 <li>Click <strong>Upload Plugin</strong> next to <strong>Add Plugins</strong> page title.</li>
 <li>Download the latest version of the plugin from the <a href="https://wordpress.org/plugins/revolut-gateway-for-woocommerce">Wordpress Official marketplace</a>.</li>
-<li>Upload the plugin that you downloaded  in <code>.zip</code> format:</li>
+<li>Upload the plugin that you downloaded in <code>.zip</code> format:
+<img width="1396" src="https://user-images.githubusercontent.com/60622352/77462365-f3a33600-6dfb-11ea-98dc-27adc85fc28e.png"></li>
+<li>When the installation is done, click <strong>Activate Plugin</strong>.
+<img width="1394" src="https://user-images.githubusercontent.com/60622352/77464397-00755900-6dff-11ea-8138-e4d9c3eb5032.png"></li>
 </ol>
 
-<p><img width="1396" src="https://user-images.githubusercontent.com/60622352/77462365-f3a33600-6dfb-11ea-98dc-27adc85fc28e.png"></p>
-
-<ol>
-<li>When the installation is done, click <strong>Activate Plugin</strong>.</li>
-</ol>
-
-<p>Congratulations! You have activated the Revolut Gateway for WooCommerce plugin. </p>
-
-<p><img width="1394" src="https://user-images.githubusercontent.com/60622352/77464397-00755900-6dff-11ea-8138-e4d9c3eb5032.png"></p>
+<p>Congratulations! You have activated the Revolut Gateway for WooCommerce plugin.</p>
 
 <div class="feedback"></div>
 <h4 id='plugins-plugins-woocommerce-configure-the-woocommerce-plugin'><a href='#plugins-plugins-woocommerce-configure-the-woocommerce-plugin' class='header-link'><i></i></a>Configure the WooCommerce plugin</h4>
-<p>Configure the Revolut Gateway for WooCommerce plugin to test in the Sandbox environment or use in the production environment. </p>
+<p>Configure the Revolut Gateway for WooCommerce plugin to test in the Sandbox environment or use in the production environment.</p>
 
 <p><strong>Test in the Sandbox environment</strong></p>
 
 <ol>
 <li>Log in to your WooCommerce dashboard as the admin role.</li>
 <li>From the left sidebar menu, click <strong>Plugins</strong>.</li>
-<li>Under <code>WooCommerce Revolut Gateway</code> plugin, click <code>Settings</code>. You are then direct to the following page:</li>
-</ol>
-
-<p><img width="982" src="https://user-images.githubusercontent.com/60622352/77464762-914c3480-6dff-11ea-905a-ce881ec8e193.png"></p>
-
-<ol>
+<li>Under <code>WooCommerce Revolut Gateway</code> plugin, click <code>Settings</code>. You are then direct to the following page:
+<img width="982" src="https://user-images.githubusercontent.com/60622352/77464762-914c3480-6dff-11ea-905a-ce881ec8e193.png"></li>
 <li>Select the <strong>Enable Revolut</strong> check box.</li>
 <li>Select the <strong>Revolut Sandbox</strong> check box.</li>
 <li>In the <strong>API Key</strong> field, add your Sandbox API key. For more information about getting the Sandbox API key, see <a href="#tutorials-test-in-the-sandbox-environment">Test in the Sandbox environment</a>.</li>
@@ -732,7 +844,7 @@ Now you are ready to accept real payments!
 <ol>
 <li>Return to your WooCommerce dashboard as the admin role.</li>
 <li>From the left sidebar menu, click <strong>Plugins</strong>.</li>
-<li>Under <code>WooCommerce Revolut Gateway</code> plugin, click <strong>Settings</strong>. </li>
+<li>Under <code>WooCommerce Revolut Gateway</code> plugin, click <strong>Settings</strong>.</li>
 <li>Select the <strong>Enable Revolut</strong> check box.</li>
 <li>Clear the <strong>Revolut Sandbox</strong> check box.</li>
 <li>In the <strong>API Key</strong> field, add your production API key. For more information about generating the API key, see <a href="#get-started-2-generate-the-api-key">Get started: 2. Generate the API key</a>.</li>
@@ -748,56 +860,56 @@ Now you are ready to accept real payments!
 <ol>
 <li>Log in to your Prestashop 1.7 dashboard as the admin role.</li>
 <li>From the left sidebar menu, click <strong>IMPROVE</strong> &gt; <strong>Module</strong> &gt; <strong>Module Catalog</strong>.</li>
-<li>On the top right of the page, click <strong>Upload a module</strong>.</li>
-</ol>
-
-<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-upload-admin.png"></p>
-
-<ol>
+<li>On the top right of the page, click <strong>Upload a module</strong>.
+<img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-upload-admin.png"></li>
 <li>Download the <a href="https://assets.revolut.com/api-docs/merchant-api/files/revolutgatewayforprestashop17.zip">Revolut Gateway for Prestashop 1.7 .zip file</a>.</li>
-<li>Upload the plugin in <code>.zip</code> format that you downloaded. Then, wait for the installation to finish. It should not take a long time.</li>
+<li>Upload the plugin in <code>.zip</code> format that you downloaded. Then, wait for the installation to finish. It should not take a long time.
+<img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-upload-select_file.png"></li>
+<li>When the installation is done, you&#39;re ready to go. Click <strong>Configure</strong> to set up the plugin.
+<img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-upload-finished.png"></li>
 </ol>
-
-<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-upload-select_file.png"></p>
-
-<ol>
-<li>When the installation is done, you&#39;re ready to go. Click <strong>Configure</strong> to set up the plugin.</li>
-</ol>
-
-<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-upload-finished.png"></p>
 
 <div class="feedback"></div>
 <h4 id='plugins-plugins-prestashop-1-7-configure-the-plugin'><a href='#plugins-plugins-prestashop-1-7-configure-the-plugin' class='header-link'><i></i></a>Configure the plugin</h4>
 <ol>
 <li>Log in to your Prestashop 1.7 dashboard as the admin role.</li>
-<li>From the left sidebar menu, click  <strong>IMPROVE</strong> &gt; <strong>Module</strong> &gt; <strong>Module Manager</strong>.</li>
+<li>From the left sidebar menu, click <strong>IMPROVE</strong> &gt; <strong>Module</strong> &gt; <strong>Module Manager</strong>.</li>
 <li>Scroll down to the <strong>Other</strong> section, and locate the plugin that you installed.</li>
 <li>In the plugin section, Click <strong>Upgrade</strong> to expand the menu, and then select <strong>Configure</strong>.</li>
-<li>Complete the fields in the <strong>Settings</strong> section and click <strong>Save</strong>: </li>
+<li>Complete the fields in the <strong>Settings</strong> section and click <strong>Save</strong>:</li>
+</ol>
+
+<ul>
 <li><strong>Enable plugin</strong>: Set to <strong>Yes</strong> to enable the Revolut Payment Gateway plugin on your Prestashop website. By default, it’s set to <strong>Yes</strong>.</li>
 <li><strong>Title</strong>: Enter the title displayed on the checkout page.</li>
 <li><strong>Description</strong>: Enter the description displayed on the checkout page.</li>
-<li><strong>Mode</strong>: Depending on which environment to use the plugin in,  set to <strong>Sandbox</strong> or <strong>Live</strong>.</li>
+<li><strong>Mode</strong>: Depending on which environment to use the plugin in, set to <strong>Sandbox</strong> or <strong>Live</strong>.</li>
 <li><strong>API key</strong>: Enter the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a> or the [Production API key(https://business.revolut.com/merchant/api).</li>
-<li><strong>Enable “Authorize Only” mode</strong>: 
+<li><strong>Enable “Authorize Only” mode</strong>:
 
 <ul>
 <li>To check the card for validity only but not charge the account until the order is approved, select this check box.</li>
-<li>To charge the debit/credit card when the order is placed, clear this check box. </li>
+<li>To charge the debit/credit card when the order is placed, clear this check box.</li>
 </ul></li>
 <li><strong>Setup webhook</strong>: Set up the webhook to synchronize your Prestashop orders when an order is completed on Revolut&#39;s side.</li>
 <li><strong>Order Status for completed order</strong>: Choose the status for an order to be considered as a completed order on the Revolut’s side. By default, <strong>Payment accepted</strong> is selected.</li>
-<li>Complete the fields in the <strong>Advanced mode</strong> section and click <strong>Save</strong>: </li>
+</ul>
+
+<ol>
+<li>Complete the fields in the <strong>Advanced mode</strong> section and click <strong>Save</strong>:</li>
+</ol>
+
+<ul>
 <li><strong>Customize your order status</strong>: You can customize your orders&#39; status for each possible action in the Revolut payment module. If set to <strong>Yes</strong>, you can see the following two options:</li>
 <li><strong>Order Status for triggering the refund on Revolut</strong>: Select the status that triggers when an order is refunded. By default, <strong>Refunded</strong> is selected.</li>
 <li><strong>Order Status for triggering the capture on Revolut</strong>: Select the status that triggers when an order is captured. By default, <strong>Payment accepted</strong> is selected.</li>
-</ol>
+</ul>
 
 <div class="feedback"></div>
 <h4 id='plugins-plugins-prestashop-1-7-perform-the-operations'><a href='#plugins-plugins-prestashop-1-7-perform-the-operations' class='header-link'><i></i></a>Perform the operations</h4>
 <p><strong>Capture an order from Prestashop&#39;s admin panel</strong></p>
 
-<p>With this plugin,  you can handle the capture of the orders from Prestashop&#39;s admin panel. </p>
+<p>With this plugin, you can handle the capture of the orders from Prestashop&#39;s admin panel.</p>
 
 <p>To do it, complete the following steps:</p>
 
@@ -810,43 +922,61 @@ Now you are ready to accept real payments!
 
 <p><strong>Refund an order from Prestashop&#39;s admin panel</strong></p>
 
-<p>After the funds of an order have been captured, you can refund the amount of an order using Prestashop&#39;s admin panel. </p>
+<p>After the funds of an order have been captured, you can refund the amount of an order using Prestashop&#39;s admin panel.</p>
 
 <p>To do so, in the <strong>Advanced mode</strong> section, change the status of <strong>Order Status for triggering the refund on Revolut</strong> to <strong>Refunded</strong>.</p>
 
 <p><strong>Test the plugin in the sandbox environment</strong></p>
 
-<p>You can make test payments using the plugin in the sandbox environment. </p>
+<p>You can make test payments using the plugin in the sandbox environment.</p>
 
-<p>To do that, complete the following steps:
-1. Log in to your Prestashop 1.7 dashboard as the admin role.
-2. From the left sidebar menu, click  <strong>IMPROVE</strong> &gt; <strong>Module</strong> &gt; <strong>Module Manager</strong>.
-3. Scroll down to the <strong>Other</strong> section, and locate the plugin that you installed.
-4. In the plugin section, Click <strong>Upgrade</strong> to expand the menu, and then select <strong>Configure</strong>.
-5. Complete the fields in the <strong>Settings</strong> section: 
-* <strong>Enable plugin?</strong>: Set to <strong>Yes</strong>.
-* <strong>Mode</strong>: Set to <strong>Sandbox</strong>.
-* <strong>API Key (sandbox mode): Enter the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a>. 
-6. On the bottom right of the **Settings</strong> section, click <strong>Save</strong> to apply the changes.</p>
+<p>To do that, complete the following steps:</p>
+
+<ol>
+<li>Log in to your Prestashop 1.7 dashboard as the admin role.</li>
+<li>From the left sidebar menu, click <strong>IMPROVE</strong> &gt; <strong>Module</strong> &gt; <strong>Module Manager</strong>.</li>
+<li>Scroll down to the <strong>Other</strong> section, and locate the plugin that you installed.</li>
+<li>In the plugin section, Click <strong>Upgrade</strong> to expand the menu, and then select <strong>Configure</strong>.</li>
+<li>Complete the fields in the <strong>Settings</strong> section:</li>
+</ol>
+
+<ul>
+<li><strong>Enable plugin?</strong>: Set to <strong>Yes</strong>.</li>
+<li><strong>Mode</strong>: Set to <strong>Sandbox</strong>.</li>
+<li><strong>API Key (sandbox mode)</strong>: Enter the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a>.</li>
+</ul>
+
+<ol>
+<li>On the bottom right of the <strong>Settings</strong> section, click <strong>Save</strong> to apply the changes.</li>
+</ol>
 
 <p>For more information about testing the integration, see <a href="#tutorials-test-in-the-sandbox-environment">Test in the sandbox environment</a>.</p>
 
 <p><strong>Use the plugin in the production environment</strong></p>
 
-<p>When you are ready to start accepting payments in your store using the <code>Revolut Gateway for Prestashop</code> plugin, complete the following steps:
-1. Log in to your Prestashop 1.7 dashboard as the admin role.
-2. From the left sidebar menu, click  <strong>IMPROVE</strong> &gt; <strong>Module</strong> &gt; <strong>Module Manager</strong>.
-3. Scroll down to the <strong>Other</strong> section, and locate the plugin that you installed.
-4. In the plugin section, Click <strong>Upgrade</strong> to expand the menu, and then select <strong>Configure</strong>.
-5. Complete the fields in the <strong>Settings</strong> section: 
-* <strong>Enable plugin?</strong>: Set to <strong>Yes</strong>.
-* <strong>Mode</strong>: Set to <strong>Live</strong>.
-* <strong>API Key (live mode): Enter the <a href="https://business.revolut.com/merchant/api">Production API key</a>. 
-6. On the bottom right of the **Settings</strong> section, click <strong>Save</strong> to apply the changes.</p>
+<p>When you are ready to start accepting payments in your store using the <code>Revolut Gateway for Prestashop</code> plugin, complete the following steps:</p>
+
+<ol>
+<li>Log in to your Prestashop 1.7 dashboard as the admin role.</li>
+<li>From the left sidebar menu, click <strong>IMPROVE</strong> &gt; <strong>Module</strong> &gt; <strong>Module Manager</strong>.</li>
+<li>Scroll down to the <strong>Other</strong> section, and locate the plugin that you installed.</li>
+<li>In the plugin section, Click <strong>Upgrade</strong> to expand the menu, and then select <strong>Configure</strong>.</li>
+<li>Complete the fields in the <strong>Settings</strong> section:</li>
+</ol>
+
+<ul>
+<li><strong>Enable plugin?</strong>: Set to <strong>Yes</strong>.</li>
+<li><strong>Mode</strong>: Set to <strong>Live</strong>.</li>
+<li>**API Key (live mode): Enter the <a href="https://business.revolut.com/merchant/api">Production API key</a>.</li>
+</ul>
+
+<ol>
+<li>On the bottom right of the <strong>Settings</strong> section, click <strong>Save</strong> to apply the changes.</li>
+</ol>
 
 <div class="feedback"></div>
 <h3 id='plugins-magento-2'><a href='#plugins-magento-2' class='header-link'><i></i></a>Magento 2</h3>
-<p>The <code>Revolut Gateway for Magento 2</code> plugin enables you to accept online payments via your Magento 2 store easily. </p>
+<p>The <code>Revolut Gateway for Magento 2</code> plugin enables you to accept online payments via your Magento 2 store easily.</p>
 <h4 id='plugins-plugins-magento-2-install-the-magento-plugin'><a href='#plugins-plugins-magento-2-install-the-magento-plugin' class='header-link'><i></i></a>Install the Magento plugin</h4>
 <p>Complete the following steps to install the <code>Revolut Gateway for Magento 2</code> plugin manually:</p>
 <blockquote>
@@ -858,7 +988,7 @@ Now you are ready to accept real payments!
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight r"><code><span class="w">   </span><span class="o">$</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="n">revolutgatewayformagento2.zip</span><span class="w">
+    </blockquote><pre class="highlight r"><code><span class="o">$</span><span class="w"> </span><span class="n">unzip</span><span class="w"> </span><span class="n">revolutgatewayformagento2.zip</span><span class="w">
 </span></code></pre><blockquote>
       <div><p>Terminal (Step 4)</p>
 </div>
@@ -868,9 +998,9 @@ Now you are ready to accept real payments!
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight r"><code><span class="w">  </span><span class="o">$</span><span class="w"> </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">setup</span><span class="o">:</span><span class="n">upgrade</span><span class="w">
-  </span><span class="o">$</span><span class="w"> </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">setup</span><span class="o">:</span><span class="n">di</span><span class="o">:</span><span class="n">compile</span><span class="w">
-  </span><span class="o">$</span><span class="w"> </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">setup</span><span class="o">:</span><span class="n">static</span><span class="o">-</span><span class="n">content</span><span class="o">:</span><span class="n">deploy</span><span class="w">
+    </blockquote><pre class="highlight r"><code><span class="o">$</span><span class="w"> </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">setup</span><span class="o">:</span><span class="n">upgrade</span><span class="w">
+</span><span class="o">$</span><span class="w"> </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">setup</span><span class="o">:</span><span class="n">di</span><span class="o">:</span><span class="n">compile</span><span class="w">
+</span><span class="o">$</span><span class="w"> </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">setup</span><span class="o">:</span><span class="n">static</span><span class="o">-</span><span class="n">content</span><span class="o">:</span><span class="n">deploy</span><span class="w">
 </span></code></pre><blockquote>
       <div><p>Terminal (Step 5)</p>
 </div>
@@ -880,7 +1010,7 @@ Now you are ready to accept real payments!
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight r"><code><span class="w">  </span><span class="o">$</span><span class="w"> </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">cache</span><span class="o">:</span><span class="n">flush</span><span class="w">
+    </blockquote><pre class="highlight r"><code><span class="o">$</span><span class="w"> </span><span class="n">php</span><span class="w"> </span><span class="n">bin</span><span class="o">/</span><span class="n">magento</span><span class="w"> </span><span class="n">cache</span><span class="o">:</span><span class="n">flush</span><span class="w">
 </span></code></pre>
 <ol>
 <li>Download the <a href="https://assets.revolut.com/api-docs/merchant-api/files/revolutgatewayformagento2.zip">Revolut Gateway for Magento 2 .zip file</a>.</li>
@@ -894,91 +1024,142 @@ Now you are ready to accept real payments!
 
 <p><strong>Troubleshooting</strong></p>
 
-<p>If you have troubles running the commands in Step 4:
-- Ensure that the PHP version your terminal is using is the same version that your Magento 2 store is using.
-- Ensure that PHP can use enough memory by setting the <code>memory_limit</code> variable in the <code>/conf/php.ini</code> file to more than 756MB.</p>
+<p>If you have troubles running the commands in Step 4:</p>
+
+<ul>
+<li>Ensure that the PHP version your terminal is using is the same version that your Magento 2 store is using.</li>
+<li>Ensure that PHP can use enough memory by setting the <code>memory_limit</code> variable in the <code>/conf/php.ini</code> file to more than 756MB.</li>
+</ul>
 
 <p>The <code>Revolut Gateway for Magento 2</code> plugin is compatible only with Magento versions 2.1.x, 2.2.x or 2.3.x.</p>
 
 <div class="feedback"></div>
 <h4 id='plugins-plugins-magento-2-configure-the-magento-plugin'><a href='#plugins-plugins-magento-2-configure-the-magento-plugin' class='header-link'><i></i></a>Configure the Magento plugin</h4>
-<p>When you’ve successfully installed the Magento plugin, configure the plugin properly to enable you to perform operations. </p>
+<p>When you’ve successfully installed the Magento plugin, configure the plugin properly to enable you to perform operations.</p>
 
-<p>To do that, complete the following steps:
-1. Log in to to your store&#39;s admin panel and navigate to <strong>Stores &gt; Configuration &gt; Sales &gt; Payment Methods &gt; Revolut</strong>.
-2. Click <strong>Configure</strong> to expand the <strong>Required Settings</strong> and the <strong>Additional Settings</strong> section.
-3. In the <strong>Required settings</strong> section, complete the fields:
-- <strong>Select Mode</strong>: Select <strong>Sandbox</strong> or <strong>Live</strong> for the payment gateway mode.
-- <strong>API Key (sandbox mode) or API Key (live mode)</strong>: Enter the API Key for sandbox mode or live mode.
-4. In the <strong>Additional Settings</strong> section, complete the fields:
-- <strong>Enable plugin</strong> : Select <strong>Yes</strong> to enable the Revolut gateway.
-- <strong>Title</strong> : Enter the title displayed on the checkout page.
-- <strong>Payment Action</strong> : Select between <strong>Authorize Only</strong> and <strong>Authorize And Capture</strong>:
-- <em>Authorize Only</em> : To check the card for validity only but not charge the account until the order is approved.
-                  - <em>Authorize and Capture</em>: To charge the debit/credit card when the order is placed.
-- <strong>Always hide postcode</strong>: To allow customers to provide their postcode as part of card details, select <strong>No</strong>. By default ,this is set as <strong>No</strong>.
-- <strong>Payment from Applicable Countries</strong>: Select whether to accept payments from all allowed countries or only specific countries.
-                  - <strong>All Allowed Countries</strong>: Enable all the allowed countries to make payments.
- - <strong>Specific Countries</strong>: Select one or more countries (using the Control or SHIFT key) to accept payments from in the <strong>Payment from Specific Countries</strong> list.
-- <strong>New Order Status</strong> :  Set the order status for new orders as <strong>Processing</strong> or <strong>Suspected Fraud</strong>:
-                 - <strong>Processing</strong>: The payment is made successfully and an order invoice is issued.
-- <strong>Suspected Fraud</strong>: No invoice is issued.
-- <strong>Sort Order</strong> : The order of the Revolut payment method that is displayed on the checkout page. For example, if you set this field to <code>0</code>, the Revolut payment is displayed as the first payment method.
-- <strong>Minimum Order Total</strong> : If the order amount is less than this figure, the Revolut payment method is not displayed on the checkout page.
-- <strong>Maximum Order in Total</strong>: If the order amount is greater than this figure, the Revolut payment method is not displayed on the checkout page.
-5. On the top right of the page, click <strong>Save Config</strong> to apply the changes.</p>
+<p>To do that, complete the following steps:</p>
+
+<ol>
+<li>Log in to to your store&#39;s admin panel and navigate to <strong>Stores &gt; Configuration &gt; Sales &gt; Payment Methods &gt; Revolut</strong>.</li>
+<li>Click <strong>Configure</strong> to expand the <strong>Required Settings</strong> and the <strong>Additional Settings</strong> section.</li>
+<li>In the <strong>Required settings</strong> section, complete the fields:</li>
+</ol>
+
+<ul>
+<li><strong>Select Mode</strong>: Select <strong>Sandbox</strong> or <strong>Live</strong> for the payment gateway mode.</li>
+<li><strong>API Key (sandbox mode) or API Key (live mode)</strong>: Enter the API Key for sandbox mode or live mode.</li>
+</ul>
+
+<ol>
+<li>In the <strong>Additional Settings</strong> section, complete the fields:</li>
+</ol>
+
+<ul>
+<li><strong>Enable plugin</strong> : Select <strong>Yes</strong> to enable the Revolut gateway.</li>
+<li><strong>Title</strong> : Enter the title displayed on the checkout page.</li>
+<li><strong>Payment Action</strong> : Select between <strong>Authorize Only</strong> and <strong>Authorize And Capture</strong>:
+
+<ul>
+<li><em>Authorize Only</em> : To check the card for validity only but not charge the account until the order is approved.</li>
+<li><em>Authorize and Capture</em>: To charge the debit/credit card when the order is placed.</li>
+</ul></li>
+<li><strong>Always hide postcode</strong>: To allow customers to provide their postcode as part of card details, select <strong>No</strong>. By default ,this is set as <strong>No</strong>.</li>
+<li><strong>Payment from Applicable Countries</strong>: Select whether to accept payments from all allowed countries or only specific countries.
+
+<ul>
+<li><strong>All Allowed Countries</strong>: Enable all the allowed countries to make payments.</li>
+</ul></li>
+<li><strong>Specific Countries</strong>: Select one or more countries (using the Control or SHIFT key) to accept payments from in the <strong>Payment from Specific Countries</strong> list.</li>
+<li><strong>New Order Status</strong> : Set the order status for new orders as <strong>Processing</strong> or <strong>Suspected Fraud</strong>:
+
+<ul>
+<li><strong>Processing</strong>: The payment is made successfully and an order invoice is issued.</li>
+<li><strong>Suspected Fraud</strong>: No invoice is issued.</li>
+</ul></li>
+<li><strong>Sort Order</strong> : The order of the Revolut payment method that is displayed on the checkout page. For example, if you set this field to <code>0</code>, the Revolut payment is displayed as the first payment method.</li>
+<li><strong>Minimum Order Total</strong> : If the order amount is less than this figure, the Revolut payment method is not displayed on the checkout page.</li>
+<li><strong>Maximum Order in Total</strong>: If the order amount is greater than this figure, the Revolut payment method is not displayed on the checkout page.</li>
+</ul>
+
+<ol>
+<li>On the top right of the page, click <strong>Save Config</strong> to apply the changes.</li>
+</ol>
 
 <div class="feedback"></div>
 <h4 id='plugins-plugins-magento-2-perform-the-operations'><a href='#plugins-plugins-magento-2-perform-the-operations' class='header-link'><i></i></a>Perform the operations</h4>
 <p><strong>Capture an order from Magento&#39;s admin panel</strong></p>
 
-<p>With this plugin,  you can handle the capture of the orders from Magento&#39;s admin panel. </p>
+<p>With this plugin, you can handle the capture of the orders from Magento&#39;s admin panel.</p>
 
-<p>To do so, complete the following steps:
-1. Log in to to your store&#39;s admin panel and navigate to <strong>Stores &gt; Configuration &gt; Sales &gt; Payment Methods &gt; Revolut</strong>.
-2. Click <strong>Configure</strong> to expand the <strong>Required Settings</strong> and the <strong>Additional Settings</strong> section.
-3. In the <strong>Additional settings</strong> section, set the <strong>Payment Action</strong> to &quot;<em>Authorize Only</em><em>, so that when a customer places an order, the status of the order in Magento is **Processing</em>* by default.
-4. From the store&#39;s admin panel, navigate to <strong>Sales &gt; Orders</strong>. Select the order that has been placed and click to <strong>View</strong> to display the order details view.
-5. Click <strong>Invoice</strong> on the top banner of the order details view.
-6. Scroll to the bottom and, under the <strong>Invoice Totals</strong> section, make sure you have selected the <strong>Capture online</strong> option.
-7. Click <strong>Submit Invoice</strong> to capture the funds for this order.</p>
+<p>To do so, complete the following steps:</p>
+
+<ol>
+<li>Log in to to your store&#39;s admin panel and navigate to <strong>Stores &gt; Configuration &gt; Sales &gt; Payment Methods &gt; Revolut</strong>.</li>
+<li>Click <strong>Configure</strong> to expand the <strong>Required Settings</strong> and the <strong>Additional Settings</strong> section.</li>
+<li>In the <strong>Additional settings</strong> section, set the <strong>Payment Action</strong> to &quot;*Authorize Only**, so that when a customer places an order, the status of the order in Magento is **Processing** by default.</li>
+<li>From the store&#39;s admin panel, navigate to <strong>Sales &gt; Orders</strong>. Select the order that has been placed and click to <strong>View</strong> to display the order details view.</li>
+<li>Click <strong>Invoice</strong> on the top banner of the order details view.</li>
+<li>Scroll to the bottom and, under the <strong>Invoice Totals</strong> section, make sure you have selected the <strong>Capture online</strong> option.</li>
+<li>Click <strong>Submit Invoice</strong> to capture the funds for this order.</li>
+</ol>
 
 <p><strong>Refund an order from Magento&#39;s admin panel</strong></p>
 
 <p>When the amount of an order has been captured and an invoice has been generated, you can refund the total or partial amount of an order using Magento&#39;s admin panel.</p>
 
-<p>To do so, complete the following steps:
-1. From the store&#39;s admin panel, navigate to <strong>Sales &gt; Invoices</strong>. 
-2. Select the invoice of the order you would like to refund, and then click <strong>View</strong>.
-2. On the top banner, click <strong>Credit Memo</strong>.
-3. Scroll down to the <strong>Items to Refund</strong> section and select what items you would like to refund.
-4. Scroll further down and click <strong>Refund</strong> when you&#39;re ready to process the refund.</p>
+<p>To do so, complete the following steps:</p>
+
+<ol>
+<li>From the store&#39;s admin panel, navigate to <strong>Sales &gt; Invoices</strong>.</li>
+<li>Select the invoice of the order you would like to refund, and then click <strong>View</strong>.</li>
+<li>On the top banner, click <strong>Credit Memo</strong>.</li>
+<li>Scroll down to the <strong>Items to Refund</strong> section and select what items you would like to refund.</li>
+<li>Scroll further down and click <strong>Refund</strong> when you&#39;re ready to process the refund.</li>
+</ol>
 
 <p><strong>Test the plugin in the Sandbox environment</strong></p>
 
-<p>You can make test payments using the plugin in the Sandbox environment. </p>
+<p>You can make test payments using the plugin in the Sandbox environment.</p>
 
-<p>To do that, complete the following steps:
-1. Log in to to your store&#39;s admin panel and navigate to <strong>Stores &gt; Configuration &gt; Sales &gt; Payment Methods &gt; Revolut</strong>.
-2. Click <strong>Configure</strong> to expand the <strong>Required Settings</strong> and the <strong>Additional Settings</strong> section.
-3. Complete the fields:
-* In the <strong>Additional Settings</strong> section, set <strong>Enable plugin?</strong> to <strong>Yes</strong>.
-* In the <strong>Required Settings</strong> section, set <strong>Select Mode</strong>  to <strong>Sandbox</strong>.
-* In the <strong>API Key (sandbox mode)</strong> field, enter the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a>. 
-4. On the top right of the page, click <strong>Save Config</strong> to apply the changes. </p>
+<p>To do that, complete the following steps:</p>
+
+<ol>
+<li>Log in to to your store&#39;s admin panel and navigate to <strong>Stores &gt; Configuration &gt; Sales &gt; Payment Methods &gt; Revolut</strong>.</li>
+<li>Click <strong>Configure</strong> to expand the <strong>Required Settings</strong> and the <strong>Additional Settings</strong> section.</li>
+<li>Complete the fields:</li>
+</ol>
+
+<ul>
+<li>In the <strong>Additional Settings</strong> section, set <strong>Enable plugin?</strong> to <strong>Yes</strong>.</li>
+<li>In the <strong>Required Settings</strong> section, set <strong>Select Mode</strong> to <strong>Sandbox</strong>.</li>
+<li>In the <strong>API Key (sandbox mode)</strong> field, enter the <a href="https://sandbox-business.revolut.com/merchant/api">Sandbox API key</a>.</li>
+</ul>
+
+<ol>
+<li>On the top right of the page, click <strong>Save Config</strong> to apply the changes.</li>
+</ol>
 
 <p>For more information about testing the integration, see <a href="#tutorials-test-in-the-sandbox-environment">Test in the Sandbox environment</a>.</p>
 
 <p><strong>Use the plugin in the production environment</strong></p>
 
-<p>When you are ready to start accepting payments in your store using the <code>Revolut Gateway for Magento</code> plugin, complete the following steps:
-1. Log in to to your store&#39;s admin panel and navigate to <strong>Stores &gt; Configuration &gt; Sales &gt; Payment Methods &gt; Revolut</strong>.
-2. Click <strong>Configure</strong> to expand the <strong>Required Settings</strong> and the <strong>Additional Settings</strong> section.
-3. Complete the fields:
-* In the <strong>Additional Settings</strong> section, set <strong>Enable plugin?</strong> to <strong>Yes</strong>.
-* In the <strong>Required Settings</strong> section, set <strong>Select Mode</strong>  to <strong>Live</strong>.
-* In the <strong>API Key</strong> field, enter the <a href="https://business.revolut.com/merchant/api">production API key</a>. 
-4. On the top right of the page, click <strong>Save Config</strong> to apply the changes. </p>
+<p>When you are ready to start accepting payments in your store using the <code>Revolut Gateway for Magento</code> plugin, complete the following steps:</p>
+
+<ol>
+<li>Log in to to your store&#39;s admin panel and navigate to <strong>Stores &gt; Configuration &gt; Sales &gt; Payment Methods &gt; Revolut</strong>.</li>
+<li>Click <strong>Configure</strong> to expand the <strong>Required Settings</strong> and the <strong>Additional Settings</strong> section.</li>
+<li>Complete the fields:</li>
+</ol>
+
+<ul>
+<li>In the <strong>Additional Settings</strong> section, set <strong>Enable plugin?</strong> to <strong>Yes</strong>.</li>
+<li>In the <strong>Required Settings</strong> section, set <strong>Select Mode</strong> to <strong>Live</strong>.</li>
+<li>In the <strong>API Key</strong> field, enter the <a href="https://business.revolut.com/merchant/api">production API key</a>.</li>
+</ul>
+
+<ol>
+<li>On the top right of the page, click <strong>Save Config</strong> to apply the changes.</li>
+</ol>
 
 <div class="feedback"></div>
 <h2 id='errors'><a href='#errors' class='header-link'><i></i></a>Errors</h2>
