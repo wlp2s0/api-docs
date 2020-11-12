@@ -704,7 +704,7 @@ Note: please ensure you seek your own legal advice to understand if you need to 
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'scope=accounts payments'</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -k --cert transport.crt --key server.key <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl --cert transport.crt --key server.key <span class="se">\</span>
 --location --request POST <span class="s1">'https://oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
@@ -835,8 +835,6 @@ Note: please ensure you seek your own legal advice to understand if you need to 
   </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f2d5df7-dd4f-4429-b679-bb9089f20497"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"redirect_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/openid-configuration"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accounts"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af0ifjsldkj"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"nonce"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n-0S6_WzA2Mj"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"claims"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id_token"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"openbanking_intent_id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
