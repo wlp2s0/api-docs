@@ -297,9 +297,12 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='revolutcheckout-js-reference'><a href='#revolutcheckout-js-reference' class='header-link'><i></i></a><code>RevolutCheckout.js</code> reference</h1><h2 id='install-the-widget'><a href='#install-the-widget' class='header-link'><i></i></a>Install the widget</h2>
-<p>To install the Revolut Checkout Widget, you need to add <code>RevolutCheckout</code> to your checkout page in one of the following ways:
-* Adding the <a href="#install-the-widget-embed-script">embed script</a> to the checkout HTML page. This adds <code>RevolutCheckout</code> to the browser’s global window. 
-* Installing the widget’s <a href="#install-the-widget-npm-package">npm package</a>. This uses JavaScript modules to access the widget instance.</p>
+<p>To install the Revolut Checkout Widget, you need to add <code>RevolutCheckout</code> to your checkout page in one of the following ways:</p>
+
+<ul>
+<li>Adding the <a href="#install-the-widget-embed-script">embed script</a> to the checkout HTML page. This adds <code>RevolutCheckout</code> to the browser’s global window. </li>
+<li>Installing the widget’s <a href="#install-the-widget-npm-package">npm package</a>. This uses JavaScript modules to access the widget instance.</li>
+</ul>
 <h3 id='install-the-widget-embed-script'><a href='#install-the-widget-embed-script' class='header-link'><i></i></a>Embed script</h3><pre class="highlight html tab-html"><code><span class="nt">&lt;script&gt;</span><span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span><span class="nx">o</span><span class="p">,</span><span class="nx">t</span><span class="p">){</span><span class="nx">e</span><span class="p">[</span><span class="nx">t</span><span class="p">]</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span><span class="nx">r</span><span class="p">){</span><span class="kd">var</span> <span class="nx">c</span><span class="o">=</span><span class="p">{</span><span class="na">sandbox</span><span class="p">:</span><span class="s2">"https://sandbox-merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="na">prod</span><span class="p">:</span><span class="s2">"https://merchant.revolut.com/embed.js"</span><span class="p">,</span><span class="na">dev</span><span class="p">:</span><span class="s2">"https://merchant.revolut.codes/embed.js"</span><span class="p">},</span><span class="nx">d</span><span class="o">=</span><span class="nx">o</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span><span class="nx">d</span><span class="p">.</span><span class="nx">id</span><span class="o">=</span><span class="s2">"revolut-checkout"</span><span class="p">,</span><span class="nx">d</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="nx">c</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="o">||</span><span class="nx">c</span><span class="p">.</span><span class="nx">prod</span><span class="p">,</span><span class="nx">d</span><span class="p">.</span><span class="nx">async</span><span class="o">=!</span><span class="mi">0</span><span class="p">,</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span><span class="kd">var</span> <span class="nx">s</span><span class="o">=</span><span class="p">{</span><span class="na">then</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">,</span><span class="nx">c</span><span class="p">){</span><span class="nx">d</span><span class="p">.</span><span class="nx">onload</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">r</span><span class="p">(</span><span class="nx">e</span><span class="p">[</span><span class="nx">t</span><span class="p">](</span><span class="nx">n</span><span class="p">))},</span><span class="nx">d</span><span class="p">.</span><span class="nx">onerror</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="nx">o</span><span class="p">.</span><span class="nx">head</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">d</span><span class="p">),</span><span class="nx">c</span><span class="o">&amp;&amp;</span><span class="nx">c</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">t</span><span class="o">+</span><span class="s2">" is failed to load"</span><span class="p">))}}};</span><span class="k">return</span><span class="s2">"function"</span><span class="o">==</span><span class="k">typeof</span> <span class="nx">Promise</span><span class="p">?</span><span class="nx">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">s</span><span class="p">):</span><span class="nx">s</span><span class="p">}}(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">,</span><span class="s2">"RevolutCheckout"</span><span class="p">);</span><span class="nt">&lt;/script&gt;</span>
 </code></pre>
 <p>Add the embed script to all the pages that you want to use <code>RevolutCheckout</code> on. </p>
@@ -309,19 +312,18 @@
 <div class="feedback"></div>
 <h3 id='install-the-widget-npm-package'><a href='#install-the-widget-npm-package' class='header-link'><i></i></a>Npm package</h3>
 <p>Install <a href="https://npmjs.com/@revolut/checkout"><code>npm</code></a> package and import the ES module later to your code.</p>
-<pre class="highlight sh tab-shell"><code>npm install @revolut/checkout
-</code></pre><pre class="highlight javascript"><code><span class="kr">import</span> <span class="nx">RevolutCheckout</span> <span class="nx">from</span> <span class="s2">"@revolut/checkout"</span>
-
+<pre class="highlight r"><code><span class="n">npm</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">@</span><span class="n">revolut</span><span class="o">/</span><span class="n">checkout</span><span class="w">
+</span></code></pre><pre class="highlight javascript"><code><span class="kr">import</span> <span class="nx">RevolutCheckout</span> <span class="nx">from</span> <span class="s2">"@revolut/checkout"</span>
 
 <span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">,</span> <span class="s2">"prod"</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">instance</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// work with instance</span>
 <span class="p">})</span>
 </code></pre>
 <div class="feedback"></div>
-<h2 id='revolutcheckout'><a href='#revolutcheckout' class='header-link'><i></i></a><code>RevolutCheckout</code></h2><pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">RevolutCheckout</span> <span class="o">=</span> <span class="p">(</span>
-  <span class="s2">`public_id`</span><span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+<h2 id='revolutcheckout'><a href='#revolutcheckout' class='header-link'><i></i></a><code>RevolutCheckout</code></h2><pre class="highlight javascript"><code><span class="nx">type</span> <span class="nx">RevolutCheckout</span> <span class="o">=</span> <span class="p">(</span>
+  <span class="s2">`public_id`</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
   <span class="nx">mode</span><span class="p">?:</span> <span class="s1">'prod'</span> <span class="o">|</span> <span class="s1">'sandbox'</span> <span class="o">=</span> <span class="s1">'prod'</span>
-<span class="p">)</span> <span class="o">=&gt;</span> <span class="nb">Promise</span><span class="o">&lt;</span><span class="nx">Instance</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">Instance</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre>
 <p>Load the embed script and create an <a href="#instance"><code>instance</code></a> for the order <code>token</code>.</p>
 <h3 id='revolutcheckout-parameters'><a href='#revolutcheckout-parameters' class='header-link'><i></i></a>Parameters</h3><blockquote>
@@ -1003,7 +1005,7 @@
 
 <div class="feedback"></div>
 <h2 id='integration-examples'><a href='#integration-examples' class='header-link'><i></i></a>Integration examples</h2><h3 id='integration-examples-integrating-the-payment-pop-up'><a href='#integration-examples-integrating-the-payment-pop-up' class='header-link'><i></i></a>Integrating the payment pop-up</h3>
-<p>This sample shows how to use RevolutCheckout.js with a <a href="#instance-instance-paywithpopup">payment pop-up</a> and the <a href="http://developer.revolut.com/api-reference/merchant">Merchant API</a>. The hosted version is running on sandbox environment — use one of our <a href="https://developer.revolut.com/docs/accept-payments/#tutorials-test-in-the-sandbox-environment-use-test-cards">test cards</a> to ensure that the widget works properly.</p>
+<p>This sample shows how to use RevolutCheckout.js with a <a href="#instance-instance-paywithpopup">payment pop-up</a> and the <a href="http://developer.revolut.com/api-reference/merchant">Merchant API</a>. The hosted version is running in the Sandbox environment — use one of our <a href="https://developer.revolut.codes/docs/accept-payments/#tutorials-tutorials-test-in-the-sandbox-environment-use-test-cards">test cards</a> to ensure that the widget works properly.</p>
 
 <div>
   <iframe
@@ -1019,7 +1021,7 @@
 <p><a class="github-button" href="https://github.com/revolut-engineering/revolut-merchant-api-example-next-js/fork" data-color-scheme="no-preference: light; light: light; dark: dark;" data-size="large" aria-label="Fork revolut-engineering/revolut-merchant-api-example-next-js on GitHub">Fork</a>
 <script async defer src="https://buttons.github.io/buttons.js"></script></p>
 <h3 id='integration-examples-integrating-and-customising-the-card-field'><a href='#integration-examples-integrating-and-customising-the-card-field' class='header-link'><i></i></a>Integrating and customising the card field</h3>
-<p>This sample shows how to use RevolutCheckout.js with the integrated <a href="#instance-instance-createCardField">card field</a>. The hosted version is running on Sandbox environment — use one of our <a href="https://developer.revolut.com/docs/accept-payments/#tutorials-test-in-the-sandbox-environment-use-test-cards">test cards</a> to ensure that the widget works properly.</p>
+<p>This sample shows how to use RevolutCheckout.js with the integrated <a href="#instance-instance-createcardfield">card field</a>. The hosted version is running in the Sandbox environment — use one of our <a href="https://developer.revolut.codes/docs/accept-payments/#tutorials-tutorials-test-in-the-sandbox-environment-use-test-cards">test cards</a> to ensure that the widget works properly.</p>
 
 <div>
   <iframe
