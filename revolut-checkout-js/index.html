@@ -296,7 +296,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='revolutcheckout-js-reference'><a href='#revolutcheckout-js-reference' class='header-link'><i></i></a><code>RevolutCheckout.js</code> reference</h1><h2 id='install-the-widget'><a href='#install-the-widget' class='header-link'><i></i></a>Install the widget</h2>
+        <h1 id='revolutcheckout-js-reference'><a href='#revolutcheckout-js-reference' class='header-link'><i></i></a>RevolutCheckout.js reference</h1><h2 id='install-the-widget'><a href='#install-the-widget' class='header-link'><i></i></a>Install the widget</h2>
 <p>To install the Revolut Checkout Widget, you need to add <code>RevolutCheckout</code> to your checkout page in one of the following ways:</p>
 
 <ul>
@@ -311,7 +311,7 @@
 
 <div class="feedback"></div>
 <h3 id='install-the-widget-npm-package'><a href='#install-the-widget-npm-package' class='header-link'><i></i></a>Npm package</h3>
-<p>Install <a href="https://npmjs.com/@revolut/checkout"><code>npm</code></a> package and import the ES module later to your code.</p>
+<p>Install <a href="https://npmjs.com/@revolut/checkout" target="_blank"><code>npm</code></a> package and import the ES module later to your code.</p>
 <pre class="highlight r"><code><span class="n">npm</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">@</span><span class="n">revolut</span><span class="o">/</span><span class="n">checkout</span><span class="w">
 </span></code></pre><pre class="highlight javascript"><code><span class="kr">import</span> <span class="nx">RevolutCheckout</span> <span class="nx">from</span> <span class="s2">"@revolut/checkout"</span>
 
@@ -320,7 +320,7 @@
 <span class="p">})</span>
 </code></pre>
 <div class="feedback"></div>
-<h2 id='revolutcheckout'><a href='#revolutcheckout' class='header-link'><i></i></a><code>RevolutCheckout</code></h2><pre class="highlight javascript"><code><span class="nx">type</span> <span class="nx">RevolutCheckout</span> <span class="o">=</span> <span class="p">(</span>
+<h2 id='revolutcheckout'><a href='#revolutcheckout' class='header-link'><i></i></a>RevolutCheckout</h2><pre class="highlight javascript"><code><span class="nx">type</span> <span class="nx">RevolutCheckout</span> <span class="o">=</span> <span class="p">(</span>
   <span class="s2">`public_id`</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span>
   <span class="nx">mode</span><span class="p">?:</span> <span class="s1">'prod'</span> <span class="o">|</span> <span class="s1">'sandbox'</span> <span class="o">=</span> <span class="s1">'prod'</span>
 <span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">Instance</span><span class="o">&gt;</span><span class="p">;</span>
@@ -343,20 +343,20 @@
 <span class="p">});</span>
 </code></pre>
 <ul>
-<li><code>&lt;PUBLIC_ID&gt;</code><code>is the</code>public_id<code>passed as the parameter to call the widget instance.  You can find the value of</code>public_id` in the <a href="https://developer.revolut.com/api-reference/merchant/#operation/createOrder">response</a> that the Merchant API returns when you create an order successfully.</li>
-<li><code>mode</code> is the Merchant API environment, which can be either <code>&#39;prod&#39;</code> or <code>&#39;sandbox&#39;</code>. By default, this is set to <code>prod</code>. This is an optional parameter.</li>
+<li><code>&lt;PUBLIC_ID&gt;</code> is the <code>public_id</code> passed as the parameter to call the widget instance.  You can find the value of <code>public_id</code> in the <a href="https://developer.revolut.com/api-reference/merchant/#operation/createOrder" target="_blank">response</a> that the Merchant API returns when you create an order successfully.</li>
+<li><code>mode</code> is the Merchant API environment, which can be either <code>prod</code> or <code>sandbox</code>. By default, this is set to <code>prod</code>. This is an optional parameter.</li>
 </ul>
 
-<p>Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> with an order <a href="#revolutcheckout-js-reference-instance"><code>Instance</code></a>.</p>
+<p>Returns <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">Promise</a> with an order <a href="#revolutcheckout-js-reference-instance"><code>Instance</code></a>.</p>
 
 <div class="feedback"></div>
-<h2 id='instance'><a href='#instance' class='header-link'><i></i></a><code>Instance</code></h2><pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">Instance</span> <span class="o">=</span> <span class="p">{</span>
+<h2 id='instance'><a href='#instance' class='header-link'><i></i></a>Instance</h2><pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">Instance</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">payWithPopup</span><span class="p">:</span> <span class="nx">InstancePayWithPopup</span><span class="p">;</span>
   <span class="nl">createCardField</span><span class="p">:</span> <span class="nx">InstanceCreateCardField</span><span class="p">;</span>
   <span class="nl">destroy</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre>
-<p><code>Instance</code> is passed as an argument to the consuming function of the <code>RevolutCheckout</code> promise, e.g., registered using <code>.then</code>. It’s used to open a payment pop-up window or to create a card field.</p>
+<p><code>Instance</code> is passed as an argument to the consuming function of the <code>RevolutCheckout</code> promise (i.e. registered using <code>.then</code>). It’s used to open a payment pop-up window or to create a card field.</p>
 <blockquote>
       <div><p>Instance usage example</p>
 </div>
@@ -378,9 +378,18 @@
 <span class="p">});</span>
 </code></pre>
 <div class="feedback"></div>
-<h3 id='instance-instance-paywithpopup'><a href='#instance-instance-paywithpopup' class='header-link'><i></i></a><code>Instance.payWithPopup</code></h3>
+<h3 id='instance-instance-paywithpopup'><a href='#instance-instance-paywithpopup' class='header-link'><i></i></a>Instance.payWithPopup</h3>
 <p>Open a payment pop-up window, which is available on the <a href="#instance"><code>Instance</code></a>.</p>
-<pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">InstancePayWithPopup</span> <span class="o">=</span> <span class="p">(</span>
+<blockquote>
+      <div><p>Open a payment pop-up window</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">InstancePayWithPopup</span> <span class="o">=</span> <span class="p">(</span>
   <span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span>
 <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="na">destroy</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
@@ -412,87 +421,87 @@
   <span class="p">};</span>
 <span class="p">};</span>
 </code></pre>
-<p><code>Options</code> object:</p>
+<p>Use the <code>Options</code> object to specify the pages where the customer should be redirected and any additional information related to the payment of the customer:</p>
 
 <table><thead>
 <tr>
-<th>Field</th>
+<th>Option</th>
 <th>Description</th>
 <th>Format</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>options.onSuccess</code></td>
+<td><code>onSuccess</code></td>
 <td>Callback when the payment is successfully completed.</td>
 <td>Function</td>
 </tr>
 <tr>
-<td><code>options.onError</code></td>
+<td><code>onError</code></td>
 <td>Callback if the transaction fails to complete. The reason for the failure is available in the <code>message</code> parameter.</td>
 <td>Function</td>
 </tr>
 <tr>
-<td><code>options.onCancel</code></td>
+<td><code>onCancel</code></td>
 <td>Callback if a user did not complete the transaction and cancelled the authorisation or closed the payment pop-up window.</td>
 <td>Function</td>
 </tr>
 <tr>
-<td><code>options.name</code></td>
+<td><code>name</code></td>
 <td>Customer name in the format of <code>FirstName LastName</code></td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.email</code></td>
+<td><code>email</code></td>
 <td>Customer&#39;s email</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.phone</code></td>
+<td><code>phone</code></td>
 <td>Customer&#39;s phone number if available</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.savePaymentMethodFor</code></td>
+<td><code>savePaymentMethodFor</code></td>
 <td>Indicates in which case this saved payment method can be used for payments.<br><br>Possible values:<br>- <code>customer</code>: This method is used only when the customer is on the checkout page.<br>- <code>merchant</code>: This method can be used without the customer being on the checkout page, and the merchant can initiate transactions (e.g. take payments for recurring transactions). This method is saved as the new default payment method for merchant initiated transactions, regardless of the number of saved payment methods stored against the customer.</td>
 <td>Enum</td>
 </tr>
 <tr>
-<td><code>options.billingAddress</code></td>
+<td><code>billingAddress</code></td>
 <td>Customer&#39;s billing address, which is required if not set on order via API.</td>
 <td>Object</td>
 </tr>
 <tr>
-<td><code>options.billingAddress.countryCode</code></td>
+<td><code>billingAddress.countryCode</code></td>
 <td><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements">Country code</a> (e.g. <code>GB</code>)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.billingAddress.region</code></td>
+<td><code>billingAddress.region</code></td>
 <td>State, county or region</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.billingAddress.city</code></td>
+<td><code>billingAddress.city</code></td>
 <td>Name of the city (e.g. <code>London</code>)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.billingAddress.postcode</code></td>
+<td><code>billingAddress.postcode</code></td>
 <td>Postal code (e.g. <code>EC2V 6DN</code>)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.billingAddress.streetLine1</code></td>
+<td><code>billingAddress.streetLine1</code></td>
 <td>Address line 1 (e.g. <code>1 Canada Square</code>)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.billingAddress.streetLine2</code></td>
+<td><code>billingAddress.streetLine2</code></td>
 <td>Address line 2 (optional)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.shippingAddress</code></td>
+<td><code>shippingAddress</code></td>
 <td>The same object as the <code>billingAddress</code> object. However, it is displayed only in the order details on the <a href="https://business.revolut.com/merchant">merchant dashboard</a>.</td>
 <td>Object</td>
 </tr>
@@ -615,8 +624,8 @@
 <span class="p">});</span>
 </code></pre>
 <div class="feedback"></div>
-<h3 id='instance-instance-createcardfield'><a href='#instance-instance-createcardfield' class='header-link'><i></i></a><code>Instance.createCardField</code></h3>
-<p>Create a card field, which is available on the <a href="#instance"><code>Instance</code></a>:</p>
+<h3 id='instance-instance-createcardfield'><a href='#instance-instance-createcardfield' class='header-link'><i></i></a>Instance.createCardField</h3>
+<p>Create a card field, which is available on the <a href="#instance"><code>Instance</code></a>.</p>
 <pre class="highlight typescript"><code><span class="kd">type</span> <span class="nx">InstanceCreateCardField</span> <span class="o">=</span> <span class="p">(</span>
   <span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span>
 <span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -673,42 +682,42 @@
   <span class="p">};</span>
 <span class="p">};</span>
 </code></pre>
-<p><code>Options</code> object:</p>
+<p>Use the <code>Options</code> object to specify the pages where the customer should be redirected and any additional information related to the payment of the customer:</p>
 
 <table><thead>
 <tr>
-<th>Field</th>
+<th>Option</th>
 <th>Description</th>
 <th>Format</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>options.onSuccess</code></td>
+<td><code>onSuccess</code></td>
 <td>Callback is called when the payment is completed successfully.</td>
 <td>Function</td>
 </tr>
 <tr>
-<td><code>options.onError</code></td>
+<td><code>onError</code></td>
 <td>Callback if the transaction fails to complete. The reason for the failure is available in the <code>message</code> parameter.</td>
 <td>Function</td>
 </tr>
 <tr>
-<td><code>options.onValidation</code></td>
+<td><code>onValidation</code></td>
 <td>Callback called on validation of the status change. <br> Function contains <code>messages</code> as first parameter (see below)</td>
 <td>Function</td>
 </tr>
 <tr>
-<td><code>options.onValidation.messages</code></td>
+<td><code>onValidation.messages</code></td>
 <td>Array of strings that contains validation errors (e.g. <code>Your card has expired</code>.)</td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.onCancel</code></td>
+<td><code>onCancel</code></td>
 <td>Callback if a user did not complete the transaction and cancelled the authorisation or closed the checkout window.</td>
 <td>Function</td>
 </tr>
 <tr>
-<td><code>options.savePaymentMethodFor</code></td>
+<td><code>savePaymentMethodFor</code></td>
 <td>Indicates in which case this saved payment method can be used for payments. <br><br>Possible values:<br>- <code>customer</code>: This method can be used only when the customer is on the checkout page.<br>- <code>merchant</code>: This method can be used without the customer being on the checkout page, and the merchant can initiate transactions (e.g. take payments for recurring transactions). This method is saved as the new default payment method for merchant initiated transactions, regardless of the number of saved payment methods stored against the customer.</td>
 <td>Enum</td>
 </tr>
@@ -718,72 +727,72 @@
 <td>HTML Element</td>
 </tr>
 <tr>
-<td><code>options.styles</code></td>
+<td><code>styles</code></td>
 <td>Object of styles for different state of card field input, used to customize different states inside the secure iframe.</td>
 <td>Object</td>
 </tr>
 <tr>
-<td><code>options.styles.default</code></td>
+<td><code>styles.default</code></td>
 <td>Base styles that are always applied regardless of state.</td>
 <td>Object</td>
 </tr>
 <tr>
-<td><code>options.styles.focused</code></td>
+<td><code>styles.focused</code></td>
 <td>Applied when a user focuses inside the input with a mouse or a keyboard.</td>
 <td>Object</td>
 </tr>
 <tr>
-<td><code>options.styles.invalid</code></td>
+<td><code>styles.invalid</code></td>
 <td>Applied on validation error</td>
 <td>Object</td>
 </tr>
 <tr>
-<td><code>options.styles.empty</code></td>
+<td><code>styles.empty</code></td>
 <td>Applied when a user hasn&#39;t entered any amount.</td>
 <td>Object</td>
 </tr>
 <tr>
-<td><code>options.styles.autofilled</code></td>
+<td><code>styles.autofilled</code></td>
 <td>Applied when a user used autofilled card details from the browser.</td>
 <td>Object</td>
 </tr>
 <tr>
-<td><code>options.styles.completed</code></td>
+<td><code>styles.completed</code></td>
 <td>Applied if the card field input is completed without any errors</td>
 <td>Object</td>
 </tr>
 <tr>
-<td><code>options.classes</code></td>
+<td><code>classes</code></td>
 <td>Same as <code>styles</code> but used to apply styles with classes to the <code>target</code> element outside the secure <code>iframe</code>.</td>
 <td>Object</td>
 </tr>
 <tr>
-<td><code>options.classes.default</code></td>
+<td><code>classes.default</code></td>
 <td>Set default to <code>&#39;rc-card-field&#39;</code></td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.classes.focused</code></td>
+<td><code>classes.focused</code></td>
 <td>Set default to <code>&#39;rc-card-field--focused&#39;</code></td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.classes.invalid</code></td>
+<td><code>classes.invalid</code></td>
 <td>Set default to <code>&#39;rc-card-field--invalid&#39;</code></td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.classes.empty</code></td>
+<td><code>classes.empty</code></td>
 <td>Set default to <code>&#39;rc-card-field--empty&#39;</code></td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.classes.autofilled</code></td>
+<td><code>classes.autofilled</code></td>
 <td>Set default to <code>&#39;rc-card-field--autofilled&#39;</code></td>
 <td>String</td>
 </tr>
 <tr>
-<td><code>options.classes.completed</code></td>
+<td><code>classes.completed</code></td>
 <td>Set default to <code>&#39;rc-card-field--completed&#39;</code></td>
 <td>String</td>
 </tr>
