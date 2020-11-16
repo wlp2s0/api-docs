@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/api-reference/static/css/main.d9e0d89c.chunk.css",
+    "main.css": "/api-reference/static/css/main.da3c9275.chunk.css",
     "main.js": "/api-reference/static/js/main.cea05e67.chunk.js",
     "main.js.map": "/api-reference/static/js/main.cea05e67.chunk.js.map",
     "runtime-main.js": "/api-reference/static/js/runtime-main.a5048bed.js",
@@ -10,9 +10,9 @@
     "static/js/3.6b254fbb.chunk.js": "/api-reference/static/js/3.6b254fbb.chunk.js",
     "static/js/3.6b254fbb.chunk.js.map": "/api-reference/static/js/3.6b254fbb.chunk.js.map",
     "index.html": "/api-reference/index.html",
-    "precache-manifest.4842065a77e705c8b8e23b4fb07cc68c.js": "/api-reference/precache-manifest.4842065a77e705c8b8e23b4fb07cc68c.js",
+    "precache-manifest.7a58700c28a3fad65b628e36badf8ea0.js": "/api-reference/precache-manifest.7a58700c28a3fad65b628e36badf8ea0.js",
     "service-worker.js": "/api-reference/service-worker.js",
-    "static/css/main.d9e0d89c.chunk.css.map": "/api-reference/static/css/main.d9e0d89c.chunk.css.map",
+    "static/css/main.da3c9275.chunk.css.map": "/api-reference/static/css/main.da3c9275.chunk.css.map",
     "static/js/2.24f629b2.chunk.js.LICENSE.txt": "/api-reference/static/js/2.24f629b2.chunk.js.LICENSE.txt",
     "static/media/business.yaml": "/api-reference/static/media/business.934a8f66.yaml",
     "static/media/merchant.yaml": "/api-reference/static/media/merchant.3d5d5979.yaml",
@@ -21,7 +21,7 @@
   "entrypoints": [
     "static/js/runtime-main.a5048bed.js",
     "static/js/2.24f629b2.chunk.js",
-    "static/css/main.d9e0d89c.chunk.css",
+    "static/css/main.da3c9275.chunk.css",
     "static/js/main.cea05e67.chunk.js"
   ]
 }
