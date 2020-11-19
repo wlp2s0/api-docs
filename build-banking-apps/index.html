@@ -249,7 +249,15 @@
               <a href="#quickstart" class="toc-h2 toc-link" data-title="quickstart">Quickstart 🚀</a>
                 <ul class="toc-list-h3">
                     <li>
-                      <a href="#quickstart-introduction" class="toc-h3 toc-link" data-title="introduction">Introduction</a>
+                      <a href="#quickstart-registering-an-application" class="toc-h3 toc-link" data-title="registering-an-application">Registering an Application</a>
+                      <ul class="toc-list-h4">
+                          <li>
+                            <a href="#quickstart-quickstart-registering-an-application-registering-using-developer-portal" class="toc-h4 toc-link" data-title="registering-using-developer-portal">Registering using Developer Portal</a>
+                          </li>
+                          <li>
+                            <a href="#quickstart-quickstart-registering-an-application-registering-using-dcr" class="toc-h4 toc-link" data-title="registering-using-dcr">Registering using DCR</a>
+                          </li>
+                      </ul>
                       </li>
                     <li>
                       <a href="#quickstart-working-with-the-sandbox-environment" class="toc-h3 toc-link" data-title="working-with-the-sandbox-environment">Working with the Sandbox environment</a>
@@ -260,21 +268,13 @@
                       </ul>
                       </li>
                     <li>
-                      <a href="#quickstart-registering-an-application" class="toc-h3 toc-link" data-title="registering-an-application">Registering an application</a>
-                      <ul class="toc-list-h4">
-                          <li>
-                            <a href="#quickstart-quickstart-registering-an-application-open-id-configuration-urls" class="toc-h4 toc-link" data-title="open-id-configuration-urls">Open ID Configuration URLs</a>
-                          </li>
-                      </ul>
-                      </li>
-                    <li>
                       <a href="#quickstart-creating-a-consent" class="toc-h3 toc-link" data-title="creating-a-consent">Creating a consent</a>
                       <ul class="toc-list-h4">
                           <li>
                             <a href="#quickstart-quickstart-creating-a-consent-generating-client-credentials-token" class="toc-h4 toc-link" data-title="generating-client-credentials-token">Generating client credentials token</a>
                           </li>
                           <li>
-                            <a href="#quickstart-quickstart-creating-a-consent-using-consents-endpoint" class="toc-h4 toc-link" data-title="using-consents-endpoint">Using consents endpoint</a>
+                            <a href="#quickstart-quickstart-creating-a-consent-using-consents-endpoints" class="toc-h4 toc-link" data-title="using-consents-endpoints">Using consents endpoints</a>
                           </li>
                       </ul>
                       </li>
@@ -520,13 +520,13 @@
                       <a href="#api-references-draft-payments" class="toc-h3 toc-link" data-title="draft-payments">Draft Payments</a>
                       <ul class="toc-list-h4">
                           <li>
-                            <a href="#api-references-api-references-draft-payments-get-authorisation-for-draft-payments-endpoint" class="toc-h4 toc-link" data-title="get-authorisation-for-draft-payments-endpoint">Get authorisation for draft payments endpoint</a>
+                            <a href="#api-references-api-references-draft-payments-get-authorisation-for-draft-payments-endpoint" class="toc-h4 toc-link" data-title="get-authorisation-for-draft-payments-endpoint">Get authorisation for Draft Payments endpoint</a>
                           </li>
                           <li>
                             <a href="#api-references-api-references-draft-payments-exchanging-authorisation-code-for-access-token" class="toc-h4 toc-link" data-title="exchanging-authorisation-code-for-access-token">Exchanging authorisation code for access token</a>
                           </li>
                           <li>
-                            <a href="#api-references-api-references-draft-payments-create-draft-payment" class="toc-h4 toc-link" data-title="create-draft-payment">Create draft payment</a>
+                            <a href="#api-references-api-references-draft-payments-create-draft-payment" class="toc-h4 toc-link" data-title="create-draft-payment">Create Draft Payment</a>
                           </li>
                           <li>
                             <a href="#api-references-api-references-draft-payments-get-draft-payment" class="toc-h4 toc-link" data-title="get-draft-payment">Get Draft Payment</a>
@@ -588,43 +588,17 @@ Note: please ensure you seek your own legal advice to understand if you need to 
 </aside>
 <h2 id='quickstart'><a href='#quickstart' class='header-link'><i></i></a>Quickstart 🚀</h2>
 <p>The quickest way to get up and running with the Open Banking API.</p>
-<h3 id='quickstart-introduction'><a href='#quickstart-introduction' class='header-link'><i></i></a>Introduction</h3>
-<p>The goal of this quickstart is to get you to your first API request as soon as possible.</p>
+<h3 id='quickstart-registering-an-application'><a href='#quickstart-registering-an-application' class='header-link'><i></i></a>Registering an Application</h3>
+<p>The first step before you can start using our APIs is to register your application. </p>
 
-<p>To begin using the API, start by setting up by both a Sandbox Account and a Developer Account. You can use this to test your integration before going live. To set up a Sandbox environment, please head over to the Developer Portal and create your Sandbox certificates.</p>
+<p>The recommended and fastest way to do this is by using our <a href='https://developers.revolut.com/portal/openbanking/sandbox?utm_source=Open%20Banking%20API&utm_medium=docs&utm_campaign=documentation'> Developer Portal </a>, however, you can also do this via API using Dynamic Client Registration (DCR).</p>
+<h4 id='quickstart-quickstart-registering-an-application-registering-using-developer-portal'><a href='#quickstart-quickstart-registering-an-application-registering-using-developer-portal' class='header-link'><i></i></a>Registering using Developer Portal</h4>
+<p>Head over to our <a href='https://developers.revolut.com/portal/openbanking/sandbox?utm_source=Open%20Banking%20API&utm_medium=docs&utm_campaign=documentation'>Developer Portal</a> to start the process of getting up and running on our APIs.</p>
 
-<p><a href='https://developers.revolut.com/portal/openbanking/sandbox?utm_source=Open%20Banking%20API&utm_medium=docs&utm_campaign=documentation' role="button" class="cta-button"> Create account on Developer Portal </a></p>
-<h3 id='quickstart-working-with-the-sandbox-environment'><a href='#quickstart-working-with-the-sandbox-environment' class='header-link'><i></i></a>Working with the Sandbox environment</h3><blockquote>
-      <div><p>Generate RSA</p>
-</div>
-      <div class='env-selector'>
-        <select>
-          <option value="sandbox">Sandbox</option>
-          <option value="production">Production</option>
-        </select>
-      </div>
-    </blockquote><pre class="highlight shell tab-shell"><code>openssl genrsa -out server.key 2048
-</code></pre><blockquote>
-      <div><p>Generate CSR</p>
-</div>
-      <div class='env-selector'>
-        <select>
-          <option value="sandbox">Sandbox</option>
-          <option value="production">Production</option>
-        </select>
-      </div>
-    </blockquote><pre class="highlight shell tab-shell"><code>openssl req -sha256 -new -key server.key -out server.csr -outform der
-</code></pre>
-<p>To create a Sandbox account, first generate a private key and CSR, using the commands detailed on the righthand side. </p>
+<p>If you are in possession of an OBIE/eIDAS certificate, you can upload the certificate in the portal and register a production application without any further approval from Revolut. You will be returned a <code>client_id</code> which will be used later for making requests to any of our APIs. </p>
 
-<p>Upload this CSR in our <a href='https://developer.revolut.com/portal/openbanking/sandbox?utm_source=Open%20Banking%20API&utm_medium=docs&utm_campaign=documentation'> Developer Portal </a> to generate the credentials that can be used in our Sandbox environment. </p>
-<h4 id='quickstart-quickstart-working-with-the-sandbox-environment-creating-sandbox-accounts'><a href='#quickstart-quickstart-working-with-the-sandbox-environment-creating-sandbox-accounts' class='header-link'><i></i></a>Creating Sandbox accounts</h4>
-<p>It is possible to create both Retail and Business Sandbox accounts. </p>
-
-<p>Create a Business Sandbox account from our sandbox environment<a href='https://sandbox-business.revolut.com/?utm_source=Open%20Banking%20API&utm_medium=docs&utm_campaign=documentation'> here</a>.</p>
-
-<p>Create a Personal Sandbox account directly from the <a href='https://developer.revolut.com/portal/openbanking/upload-certificates?utm_source=Open%20Banking%20API&utm_medium=docs&utm_campaign=documentation'> Developer Portal</a>.</p>
-<h3 id='quickstart-registering-an-application'><a href='#quickstart-registering-an-application' class='header-link'><i></i></a>Registering an application</h3><blockquote>
+<p>If you are looking to become a Revolut Partner, you must submit a request for your application to be approved via the portal. On successful approval of your application, we will issue you with production certificates that can be used on our APIs.</p>
+<h4 id='quickstart-quickstart-registering-an-application-registering-using-dcr'><a href='#quickstart-quickstart-registering-an-application-registering-using-dcr' class='header-link'><i></i></a>Registering using DCR</h4><blockquote>
       <div><p>JWT Header</p>
 </div>
       <div class='env-selector'>
@@ -676,20 +650,55 @@ Note: please ensure you seek your own legal advice to understand if you need to 
 --header <span class="s1">'Content-Type: application/jwt'</span> <span class="se">\ </span>
 --data-raw <span class="s1">'&lt;insert JWT&gt;'</span>
 </code></pre>
-<p>Now that you have setup a developer account, an application can be created using Dynamic Client Registration (DCR). The process involves firstly creating a JWT with the details related to your application. This should be signed with your signing certificate&#39;s private key. Please see on the right hand side examples of a JWT Header and Payload should look like.</p>
+<p>The alternative registration method is to register an application using our <code>/register</code> endpoint (Dynamic Client Registration). </p>
+
+<p>First, create a JWT with the details related to your application. This should be signed with your signing certificate&#39;s private key. Please see on the right hand side examples of a JWT Header and Payload.</p>
 
 <p>For full detail on generating the <code>software_statement</code> and <code>tls_client_auth_dn</code> fields, please read the <a href="#identification-and-authentication-identification-and-authentication-dynamic-client-registration-registration-request"> Identification and Authentication</a> section of our documentation.</p>
 
-<p>Once you have a valid JWT, use the <code>register</code> endpoint to dynamically register your application. In the response you will obtain your <code>client_id</code>.</p>
+<p>Once you have a valid JWT, use the <code>/register</code> endpoint to dynamically register your application. In the response you will obtain your <code>client_id</code>.</p>
 
 <p>Note: to check that your JWT is valid, please use this <a href="https://jwt.io/#debugger-io"> JWT debugging tool </a> before attempting to register.</p>
-<h4 id='quickstart-quickstart-registering-an-application-open-id-configuration-urls'><a href='#quickstart-quickstart-registering-an-application-open-id-configuration-urls' class='header-link'><i></i></a>Open ID Configuration URLs</h4>
+
+<p><strong>Open ID Configuration URLs</strong></p>
+
 <p>We use OpenID Connect: please ensure to include <code>openid</code> scope in your JWT payload. For more detail, please see configurations for Production and Sandbox:</p>
 
 <ul>
 <li>Production: <a href="https://oba.revolut.com/openid-configuration"> https://oba.revolut.com/openid-configuration</a></li>
 <li>Sandbox: <a href="https://sandbox-oba.revolut.com/openid-configuration"> https://sandbox-oba.revolut.com/openid-configuration</a></li>
 </ul>
+<h3 id='quickstart-working-with-the-sandbox-environment'><a href='#quickstart-working-with-the-sandbox-environment' class='header-link'><i></i></a>Working with the Sandbox environment</h3><blockquote>
+      <div><p>Generate RSA</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell"><code>openssl genrsa -out server.key 2048
+</code></pre><blockquote>
+      <div><p>Generate CSR</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell"><code>openssl req -sha256 -new -key server.key -out server.csr -outform der
+</code></pre>
+<p>To receive credentials that can be used in our Sandbox environment, first generate a private key and CSR, using the commands detailed on the righthand side. </p>
+
+<p>Upload this CSR in our <a href='https://developer.revolut.com/portal/openbanking/sandbox?utm_source=Open%20Banking%20API&utm_medium=docs&utm_campaign=documentation'>Developer Portal </a> and you will be able to download credentials that work in this environment. </p>
+<h4 id='quickstart-quickstart-working-with-the-sandbox-environment-creating-sandbox-accounts'><a href='#quickstart-quickstart-working-with-the-sandbox-environment-creating-sandbox-accounts' class='header-link'><i></i></a>Creating Sandbox accounts</h4>
+<p>On top of your Sandbox credentials, you will also need test Sandbox accounts which can be used to test your application.
+It is possible to create both Retail and Business Sandbox accounts:</p>
+
+<p>Create a Business Sandbox account from our sandbox environment<a href='https://sandbox-business.revolut.com/?utm_source=Open%20Banking%20API&utm_medium=docs&utm_campaign=documentation'> here</a>.</p>
+
+<p>Create a Personal Sandbox account directly from the <a href='https://developer.revolut.com/portal/openbanking/upload-certificates?utm_source=Open%20Banking%20API&utm_medium=docs&utm_campaign=documentation'> Developer Portal</a>.</p>
 <h3 id='quickstart-creating-a-consent'><a href='#quickstart-creating-a-consent' class='header-link'><i></i></a>Creating a consent</h3><h4 id='quickstart-quickstart-creating-a-consent-generating-client-credentials-token'><a href='#quickstart-quickstart-creating-a-consent-generating-client-credentials-token' class='header-link'><i></i></a>Generating client credentials token</h4><blockquote>
       <div><p>Get access token</p>
 </div>
@@ -699,12 +708,12 @@ Note: please ensure you seek your own legal advice to understand if you need to 
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --cert transport.crt --key server.key <span class="se">\</span>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --cert transport.pem --key server.key <span class="se">\</span>
 --location --request POST <span class="s1">'https://sandbox-oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'scope=accounts payments'</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl --cert transport.crt --key server.key <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl --cert transport.pem --key server.key <span class="se">\</span>
 --location --request POST <span class="s1">'https://oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
@@ -728,9 +737,15 @@ Note: please ensure you seek your own legal advice to understand if you need to 
 
 <p>First, request an access token using the <code>/token</code> endpoint and <code>client_credentials</code> grant type. </p>
 
-<p>This token will allow you to both update your application using the <a href="#identification-and-authentication-identification-and-authentication-dynamic-client-registration-certificate-dn-for-using-in-registration-request"> update endpoint</a>
- and create a consent in the next step. </p>
-<h4 id='quickstart-quickstart-creating-a-consent-using-consents-endpoint'><a href='#quickstart-quickstart-creating-a-consent-using-consents-endpoint' class='header-link'><i></i></a>Using consents endpoint</h4><blockquote>
+<p>This token will allow you to update your application using the <a href="#identification-and-authentication-identification-and-authentication-dynamic-client-registration-certificate-dn-for-using-in-registration-request"> update endpoint</a>
+and create a consent in the next step. </p>
+
+<aside class="warning">
+    Please note, the Quickstart guide from here onwards is only relevant for Developers using our <b><i>Accounts and Transactions</i></b> or <b><i>Payment Initiation</i></b> endpoints. 
+
+    If you are a direct Revolut partner and using our <b><i>Draft Payments</i></b> endpoint, please see that section of the documentation <a href="#api-references-draft-payments"> here</a>.
+</aside>
+<h4 id='quickstart-quickstart-creating-a-consent-using-consents-endpoints'><a href='#quickstart-quickstart-creating-a-consent-using-consents-endpoints' class='header-link'><i></i></a>Using consents endpoints</h4><blockquote>
       <div><p>Create consent</p>
 </div>
       <div class='env-selector'>
@@ -833,7 +848,7 @@ Note: please ensure you seek your own legal advice to understand if you need to 
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"response_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"code id_token"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5f2d5df7-dd4f-4429-b679-bb9089f20497"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"redirect_uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oba.revolut.com/openid-configuration"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"redirect_uri"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;insert</span><span class="w"> </span><span class="err">redirect_uri&gt;</span><span class="p">,</span><span class="w">
   </span><span class="s2">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"accounts"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"claims"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id_token"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -844,7 +859,7 @@ Note: please ensure you seek your own legal advice to understand if you need to 
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Create a JWT request parameter with header and body in the format to the right, signed by your signing certificate’s private key. This signature will be validated using the JWKS endpoint you specified during registration of your app.</p>
+<p>Create a JWT request parameter with header and body in the format to the right, signed by your signing certificate’s private key. This signature will be validated using the JWKs endpoint you specified during registration of your app.</p>
 
 <p>Note:  <code>client_id</code> ,  <code>redirect_uri</code> , <code>kid</code> and <code>scope</code> should correspond to the values for your specific application and consent request. <code>openbanking_intent_id</code> is the <code>ConsentId</code> field generated from the previous step. </p>
 <h4 id='quickstart-quickstart-obtaining-consent-from-the-user-redirect-url'><a href='#quickstart-quickstart-obtaining-consent-from-the-user-redirect-url' class='header-link'><i></i></a>Redirect URL</h4><blockquote>
@@ -856,7 +871,7 @@ Note: please ensure you seek your own legal advice to understand if you need to 
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>https://sandbox-oba.revolut.com/ui/index.html?response_type<span class="o">=</span>code%26id_token&amp;scope<span class="o">=</span>accounts&amp;redirect_uri<span class="o">=</span>&lt;insert redirect URL&gt;&amp;client_id<span class="o">=</span>&lt;insert client_id&gt; &amp;request<span class="o">=</span>&lt;insert JWT&gt;
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>https://sandbox-oba.revolut.com/ui/index.html?response_type<span class="o">=</span>code%26id_token&amp;scope<span class="o">=</span>accounts&amp;redirect_uri<span class="o">=</span>&lt;insert redirect URL&gt;&amp;client_id<span class="o">=</span>&lt;insert client_id&gt;&amp;request<span class="o">=</span>&lt;insert JWT&gt;
 </code></pre><pre class="highlight shell tab-shell--production"><code>https://oba.revolut.com/ui/index.html?response_type<span class="o">=</span>code%26id_token&amp;scope<span class="o">=</span>accounts&amp;redirect_uri<span class="o">=</span>&lt;insert redirect URL&gt;&amp;client_id<span class="o">=</span>&lt;insert client_id&gt;&amp;request<span class="o">=</span>&lt;insert JWT&gt;
 
 </code></pre>
@@ -1100,7 +1115,7 @@ If you have any issues onboarding with eIDAS, please <a href="mailto:api-request
 <tr>
 <td>kid</td>
 <td>String</td>
-<td>key ID of a public key from JWKS file</td>
+<td>key ID of a public key from JWKs file</td>
 <td>Yes</td>
 </tr>
 <tr>
@@ -1275,7 +1290,7 @@ If you have any issues onboarding with eIDAS, please <a href="mailto:api-request
 </thead><tbody>
 <tr>
 <td>org_jwks_endpoint</td>
-<td>a JWKS endpoint, this endpoint has to contain a signing key (QSealC) matching with a <code>kid</code> provided in JWT header of the registration request</td>
+<td>a JWKs endpoint, this endpoint has to contain a signing key (QSealC) matching with a <code>kid</code> provided in JWT header of the registration request</td>
 <td>Yes</td>
 <td>URL</td>
 </tr>
@@ -1300,8 +1315,8 @@ If you have any issues onboarding with eIDAS, please <a href="mailto:api-request
 </tbody></table>
 
 <p>Signature of self-signed software statement should be an empty string.</p>
-<h5 id='identification-and-authentication-identification-and-authentication-dynamic-client-registration-identification-and-authentication-identification-and-authentication-dynamic-client-registration-registration-request-jwks-file-format'><a href='#identification-and-authentication-identification-and-authentication-dynamic-client-registration-identification-and-authentication-identification-and-authentication-dynamic-client-registration-registration-request-jwks-file-format' class='header-link'><i></i></a>JWKS file format</h5>
-<p>JWKS (JWK Set) is a JSON data structure that represents a set of JWKs. A JSON Web Key (JWK) is a (JSON) data structure that represents a cryptographic key. Mandatory JWK parameters are described below.</p>
+<h5 id='identification-and-authentication-identification-and-authentication-dynamic-client-registration-identification-and-authentication-identification-and-authentication-dynamic-client-registration-registration-request-jwks-file-format'><a href='#identification-and-authentication-identification-and-authentication-dynamic-client-registration-identification-and-authentication-identification-and-authentication-dynamic-client-registration-registration-request-jwks-file-format' class='header-link'><i></i></a>JWKs file format</h5>
+<p>JWKs (JWK Set) is a JSON data structure that represents a set of JWKs. A JSON Web Key (JWK) is a (JSON) data structure that represents a cryptographic key. Mandatory JWK parameters are described below.</p>
 
 <table><thead>
 <tr>
@@ -1389,7 +1404,7 @@ If you have any issues onboarding with eIDAS, please <a href="mailto:api-request
 <td><code>redirect_uris</code> field in the SSA</td>
 </tr>
 <tr>
-<td>JWKS URL</td>
+<td>JWKs URL</td>
 <td><code>org_jwks_endpoint</code> field in the SSA</td>
 </tr>
 <tr>
@@ -1445,7 +1460,7 @@ As you continue to explore the API, you will also see how users are redirected t
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-oba-auth.revolut.com/token
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba-auth.revolut.com/token
 </code></pre>
-<p><code>/token</code> endpoint served via Revolut authorisation server. This endpoint requires client certificate authentication for MATLS.</p>
+<p><code>/token</code> endpoint served via Revolut authorisation server. This endpoint requires client certificate authentication for MTLS.</p>
 
 <div class="feedback"></div>
 <h2 id='api-references'><a href='#api-references' class='header-link'><i></i></a>API References</h2><h3 id='api-references-account-and-transactions'><a href='#api-references-account-and-transactions' class='header-link'><i></i></a>Account and Transactions</h3>
@@ -1641,7 +1656,7 @@ follow the rules of the permissions table below:</p>
 </thead><tbody>
 <tr>
 <td>x-fapi-financial-id</td>
-<td>The unique id of the ASPSP to which the request is issued.Revolut&#39;s id is 001580000103UAvAAM001580000103UAvAAM</td>
+<td>The unique id of the ASPSP to which the request is issued. For Revolut this is 001580000103UAvAAM</td>
 <td>Yes</td>
 <td>String</td>
 </tr>
@@ -5117,11 +5132,9 @@ Andrea Frost,INDIVIDUAL    ,40513598      ,207409   ,GB                    ,GBP 
 
 <div class="feedback"></div>
 <h3 id='api-references-draft-payments'><a href='#api-references-draft-payments' class='header-link'><i></i></a>Draft Payments</h3>
-<aside class="notice">
-If you would like to use the draft payments endpoint, please <a href="https://docs.google.com/forms/d/1jTvhtnCvPvVviGxAqu03vVrnfcrhzkU6KhbAuQvUuQE/viewform?edit_requested=true">reach out</a> to us directly.
-</aside>
-<h4 id='api-references-api-references-draft-payments-get-authorisation-for-draft-payments-endpoint'><a href='#api-references-api-references-draft-payments-get-authorisation-for-draft-payments-endpoint' class='header-link'><i></i></a>Get authorisation for draft payments endpoint</h4><blockquote>
-      <div><p>Draft payments authorisation URL</p>
+<p>To request approval to use our draft payments endpoint, please go to our <a href='https://developers.revolut.com/portal/openbanking/sandbox?utm_source=Open%20Banking%20API&utm_medium=docs&utm_campaign=documentation'>Developer Portal</a>.</p>
+<h4 id='api-references-api-references-draft-payments-get-authorisation-for-draft-payments-endpoint'><a href='#api-references-api-references-draft-payments-get-authorisation-for-draft-payments-endpoint' class='header-link'><i></i></a>Get authorisation for Draft Payments endpoint</h4><blockquote>
+      <div><p>Draft Payments authorisation URL</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -5132,7 +5145,7 @@ If you would like to use the draft payments endpoint, please <a href="https://do
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>https://sandbox-business.revolut.com/partner-confirm?response_type<span class="o">=</span>code&amp;state<span class="o">=</span>state&amp;scope<span class="o">=</span>draft_payments&amp;client_id<span class="o">=</span>your_client_id&amp;redirect_uri<span class="o">=</span>your_redirect_uri
 </code></pre><pre class="highlight shell tab-shell--production"><code>https://business.revolut.com/partner-confirm?response_type<span class="o">=</span>code&amp;state<span class="o">=</span>state&amp;scope<span class="o">=</span>draft_payments&amp;client_id<span class="o">=</span>your_client_id&amp;redirect_uri<span class="o">=</span>your_redirect_uri
 </code></pre>
-<p>Before you can start creating draft payments, you&#39;ll need to get authorisation from the user to make draft payments on their behalf. By redirecting the user to the authorisation URL,you will get authorisation in the form of an authorisation code.</p>
+<p>Before you can start creating draft payments, you&#39;ll need to get authorisation from the user to make draft payments on their behalf. By redirecting the user to the authorisation URL, you will get authorisation in the form of an authorisation code.</p>
 <h5 id='api-references-api-references-draft-payments-api-references-api-references-draft-payments-get-authorisation-for-draft-payments-endpoint-authorisation-url-parameters'><a href='#api-references-api-references-draft-payments-api-references-api-references-draft-payments-get-authorisation-for-draft-payments-endpoint-authorisation-url-parameters' class='header-link'><i></i></a>Authorisation URL Parameters</h5>
 <table><thead>
 <tr>
@@ -5163,7 +5176,7 @@ If you would like to use the draft payments endpoint, please <a href="https://do
 </tr>
 </tbody></table>
 <h4 id='api-references-api-references-draft-payments-exchanging-authorisation-code-for-access-token'><a href='#api-references-api-references-draft-payments-exchanging-authorisation-code-for-access-token' class='header-link'><i></i></a>Exchanging authorisation code for access token</h4><blockquote>
-      <div><p>Token request via MATLS</p>
+      <div><p>Token request via MTLS</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -5182,7 +5195,7 @@ If you would like to use the draft payments endpoint, please <a href="https://do
 --data-urlencode <span class="s1">'grant_type=authorization_code'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'code=&lt;insert authorisation_code&gt;'</span> 
 </code></pre><blockquote>
-      <div><p>MATLS response</p>
+      <div><p>MTLS response</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -5193,7 +5206,7 @@ If you would like to use the draft payments endpoint, please <a href="https://do
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"access_token"</span><span class="p">:</span><span class="s2">"oa_sand_tG6kRPb2LAYJZx1c3w1NZ7ntuscssWqsC6WkaW9jbER-E"</span><span class="p">,</span><span class="s2">"token_type"</span><span class="p">:</span><span class="s2">"Bearer"</span><span class="p">,</span><span class="s2">"expires_in"</span><span class="p">:</span><span class="mi">7775999</span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>The last step before you can create a draft payment is getting an access token. An access token can be obtained from <code>https://mtls-auth.revolut.com/token</code> by making a request with your private key, transport certificate and the authorisation code from the last section.</p>
-<h4 id='api-references-api-references-draft-payments-create-draft-payment'><a href='#api-references-api-references-draft-payments-create-draft-payment' class='header-link'><i></i></a>Create draft payment</h4><blockquote>
+<h4 id='api-references-api-references-draft-payments-create-draft-payment'><a href='#api-references-api-references-draft-payments-create-draft-payment' class='header-link'><i></i></a>Create Draft Payment</h4><blockquote>
       <div><p>Create Draft Payment</p>
 </div>
       <div class='env-selector'>
@@ -5204,12 +5217,12 @@ If you would like to use the draft payments endpoint, please <a href="https://do
       </div>
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl --location --request POST <span class="s1">'https://sandbox-apis.revolut.com/draft-payments'</span> <span class="se">\</span>
 --header <span class="s1">'Authorization: Bearer &lt;insert access_token.'</span> <span class="se">\</span>
- --header <span class="s1">'Content-Type: text/csv'</span> <span class="se">\</span>
- --data-binary @draft_payments.csv
+--header <span class="s1">'Content-Type: text/csv'</span> <span class="se">\</span>
+--data-binary @draft_payments.csv
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request POST <span class="s1">'https://apis.revolut.com/draft-payments'</span> <span class="se">\</span>
 --header <span class="s1">'Authorization: Bearer &lt;insert access_token.'</span> <span class="se">\</span>
- --header <span class="s1">'Content-Type: text/csv'</span> <span class="se">\</span>
- --data-binary @draft_payments.csv
+--header <span class="s1">'Content-Type: text/csv'</span> <span class="se">\</span>
+--data-binary @draft_payments.csv
 </code></pre><blockquote>
       <div><p>Response</p>
 </div>
