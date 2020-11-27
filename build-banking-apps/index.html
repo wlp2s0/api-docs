@@ -260,12 +260,10 @@
                       </ul>
                       </li>
                     <li>
-                      <a href="#get-started-working-with-the-sandbox-environment" class="toc-h3 toc-link" data-title="working-with-the-sandbox-environment">Working with the Sandbox environment</a>
-                      <ul class="toc-list-h4">
-                          <li>
-                            <a href="#get-started-get-started-working-with-the-sandbox-environment-creating-sandbox-accounts" class="toc-h4 toc-link" data-title="creating-sandbox-accounts">Creating Sandbox accounts</a>
-                          </li>
-                      </ul>
+                      <a href="#get-started-receiving-sandbox-credentials" class="toc-h3 toc-link" data-title="receiving-sandbox-credentials">Receiving Sandbox credentials</a>
+                      </li>
+                    <li>
+                      <a href="#get-started-creating-test-accounts" class="toc-h3 toc-link" data-title="creating-test-accounts">Creating test accounts</a>
                       </li>
                     <li>
                       <a href="#get-started-next-steps" class="toc-h3 toc-link" data-title="next-steps">Next steps</a>
@@ -419,6 +417,11 @@
 </tbody></table>
 
 <p><span class="subtext">You might be looking for the <a href="https://developer.revolut.com/docs/manage-accounts">Business API</a> or the <a href="https://developer.revolut.com/accept-payments">Merchant API</a></span></p>
+<h5 id='introduction-to-the-open-banking-api-useful-links'><a href='#introduction-to-the-open-banking-api-useful-links' class='header-link'><i></i></a>Useful Links</h5>
+<ul>
+<li><a href="https://developer.revolut.com/api-reference/open-banking/">Open Banking API Reference</a> </li>
+<li><a href="hhttps://developer.revolut.com/portal/signin">Developer Portal</a></li>
+</ul>
 <h3 id='introduction-to-the-open-banking-api-developers-that-can-build-with-this-api'><a href='#introduction-to-the-open-banking-api-developers-that-can-build-with-this-api' class='header-link'><i></i></a>Developers that can build with this API</h3><h4 id='introduction-to-the-open-banking-api-introduction-to-the-open-banking-api-developers-that-can-build-with-this-api-psdii-regulated-third-party-providers'><a href='#introduction-to-the-open-banking-api-introduction-to-the-open-banking-api-developers-that-can-build-with-this-api-psdii-regulated-third-party-providers' class='header-link'><i></i></a>PSDII regulated Third Party Providers</h4>
 <p>Third Party Providers (TPPs) are authorised online service providers that have been introduced as part of Open Banking. If you are engaged in the provision of the payment initiation or account information servives in the European Union (EU) or the United Kingdom (UK), you will have to be regulated by financial regulatory bodies in the relevant jurisdictions. In order to get access to our Open Banking API you will need to use a valid eIDAS certificate or Open Banking (OBIE) certificate to register your application on production.</p>
 
@@ -438,9 +441,9 @@ Note: please ensure you seek your own legal advice to understand if you need to 
 <h4 id='get-started-get-started-registering-an-application-registering-using-developer-portal'><a href='#get-started-get-started-registering-an-application-registering-using-developer-portal' class='header-link'><i></i></a>Registering using Developer Portal</h4>
 <p>This is the recommended and fastest way to get your application registered.</p>
 
-<p>Head over to our <a href='https://developer.revolut.com/portal/applications'>Developer Portal</a> to get up and running on our APIs.</p>
+<p><a href='https://developer.revolut.com/portal/signup' role="button" class="cta-button"> Sign up for a Developer Account </a></p>
 
-<p>If you are in possession of an OBIE/eIDAS certificate, you can upload the certificate in the portal and register a production application without any further approval from Revolut. You will be returned a <code>client_id</code> which will be used later for making requests to any of our APIs. </p>
+<p>If you are in possession of an OBIE/eIDAS certificate, you can upload the certificate in the portal and register a production application without any further approval from Revolut. You will be returned a <code>client_id</code> which will be used for making requests to any of our APIs. </p>
 
 <p>If you are looking to become a Revolut Partner, you must submit a request for your application to be approved via the portal. On successful approval of your application, we will issue you with production certificates that can be used on our APIs.</p>
 <h4 id='get-started-get-started-registering-an-application-registering-using-dcr'><a href='#get-started-get-started-registering-an-application-registering-using-dcr' class='header-link'><i></i></a>Registering using DCR</h4><blockquote>
@@ -507,13 +510,13 @@ Note: please ensure you seek your own legal advice to understand if you need to 
 
 <p><strong>Open ID Configuration URLs</strong></p>
 
-<p>We use OpenID Connect: please ensure to include <code>openid</code> scope in your JWT payload. For more detail, please see configurations for Production and Sandbox:</p>
+<p>We use OpenID Connect: please ensure to include <code>openid</code> scope in your JWT payload. For more detail, please see configurations for Production and  Sandbox environments:</p>
 
 <ul>
 <li>Production: <a href="https://oba.revolut.com/openid-configuration"> https://oba.revolut.com/openid-configuration</a></li>
 <li>Sandbox: <a href="https://sandbox-oba.revolut.com/openid-configuration"> https://sandbox-oba.revolut.com/openid-configuration</a></li>
 </ul>
-<h3 id='get-started-working-with-the-sandbox-environment'><a href='#get-started-working-with-the-sandbox-environment' class='header-link'><i></i></a>Working with the Sandbox environment</h3><blockquote>
+<h3 id='get-started-receiving-sandbox-credentials'><a href='#get-started-receiving-sandbox-credentials' class='header-link'><i></i></a>Receiving Sandbox credentials</h3><blockquote>
       <div><p>Generate RSA</p>
 </div>
       <div class='env-selector'>
@@ -537,16 +540,16 @@ Note: please ensure you seek your own legal advice to understand if you need to 
 <p>To receive credentials that can be used in our Sandbox environment, first generate a private RSA key and CSR.</p>
 
 <p>Upload this CSR in our <a href='https://developer.revolut.com/portal/applications'>Developer Portal </a> and you will be able to download credentials that work in the Sandbox environment. </p>
-<h4 id='get-started-get-started-working-with-the-sandbox-environment-creating-sandbox-accounts'><a href='#get-started-get-started-working-with-the-sandbox-environment-creating-sandbox-accounts' class='header-link'><i></i></a>Creating Sandbox accounts</h4>
-<p>On top of your Sandbox credentials, you will also need test Sandbox accounts which can be used to test your application.
-It is possible to create both Retail and Business Sandbox accounts:</p>
+<h3 id='get-started-creating-test-accounts'><a href='#get-started-creating-test-accounts' class='header-link'><i></i></a>Creating test accounts</h3>
+<p>On top of your Sandbox credentials, you will also need test accounts which can be used to test your application.
+It is possible to create both Retail and Business test accounts:</p>
 
 <ul>
-<li><p>Create a Business Sandbox account from our sandbox environment<a href='https://sandbox-business.revolut.com/?utm_source=Open%20Banking%20API&utm_medium=docs&utm_campaign=documentation'> here</a>.</p></li>
-<li><p>Create a Personal Sandbox account directly from the <a href='https://developer.revolut.com/portal/applications'> Developer Portal</a>.</p></li>
+<li><p>Create a Business test account from our dedicated environment<a href='https://sandbox-business.revolut.com/?utm_source=Open%20Banking%20API&utm_medium=docs&utm_campaign=documentation'> here</a>.</p></li>
+<li><p>Create a Personal test account directly from the <a href='https://developer.revolut.com/portal/applications'> Developer Portal</a>.</p></li>
 </ul>
 <h3 id='get-started-next-steps'><a href='#get-started-next-steps' class='header-link'><i></i></a>Next steps</h3>
-<p>Now that you have your application registered, you are ready to start requesting user consents and make API calls to our endpoint!</p>
+<p>Now that you have your application registered, you are ready to start requesting user consents and make API calls to our various endpoints!</p>
 
 <p>Please see our set of step by step <a href="#tutorials"> tutorials</a> to guide you through.</p>
 <h2 id='identification-and-authentication'><a href='#identification-and-authentication' class='header-link'><i></i></a>Identification and Authentication</h2><h4 id='identification-and-authentication-get-started-next-steps-identification-using-your-valid-eidas-certificate'><a href='#identification-and-authentication-get-started-next-steps-identification-using-your-valid-eidas-certificate' class='header-link'><i></i></a>Identification using your valid eIDAS certificate</h4>
@@ -1765,7 +1768,7 @@ and create a payment consent in the next step. </p>
 <p><strong>What’s next</strong></p>
 
 <ul>
-<li>See the <a href="https://developer.revolut.com/api-reference/open-banking/#tag/Account-and-Transactions" target="_blank">API Reference</a> for full detail on different types of payments supported by Revolut</li>
+<li>See the <a href="https://developer.revolut.com/api-reference/open-banking/#tag/Payment-Initiation" target="_blank">API Reference</a> for full detail on different types of payments supported by Revolut</li>
 <li><a href=#tutorials-create-your-first-draft-payment>Create your first draft payment:</a> see our tutorial for building to our draft payments endpoints</li>
 </ul>
 <h3 id='tutorials-create-your-first-draft-payment'><a href='#tutorials-create-your-first-draft-payment' class='header-link'><i></i></a>Create your first draft payment</h3>
@@ -2140,8 +2143,6 @@ and create a payment consent in the next step. </p>
 <aside class="warning">
 If ever in doubt, users should always reach out to Revolut Business support to get further help in understanding the failure of specific transfers. 
 </aside>
-
-<p>Congratulations! You have successfully created your first draft payment.</p>
 
 <p><strong>What’s next</strong></p>
 
