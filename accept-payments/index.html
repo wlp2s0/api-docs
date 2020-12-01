@@ -369,11 +369,13 @@
 
 <p><img width="1456" alt="Screenshot 2020-02-10 at 15 43 13" src="https://user-images.githubusercontent.com/442932/74165710-704bcd80-4c1d-11ea-89db-8bc8dbfbc2c9.png"></p>
 
-<p><strong>Note</strong>: Use this key only for the production environment. For the <a href="https://sandbox-business.revolut.com" target="_blank">Revolut Business Sandbox environment</a>, use the <a href="https://sandbox-business.revolut.com/merchant/api" target="_blank">sandbox API key</a>. For more information, see <a href="#tutorials-test-in-the-sandbox-environment">Test in the sandbox</a>.</p>
+<p><strong>Note</strong>: Use this key <strong>only</strong> for the production environment. For the <a href="https://sandbox-business.revolut.com" target="_blank">Revolut Business Sandbox environment</a>, use the <a href="https://sandbox-business.revolut.com/merchant/api" target="_blank">sandbox API key</a>. For more information, see <a href="#tutorials-test-in-the-sandbox-environment">Test in the Sandbox environment</a></p>
 
 <div class="feedback"></div>
 <h2 id='tutorials'><a href='#tutorials' class='header-link'><i></i></a>Tutorials</h2><h3 id='tutorials-accept-your-first-payment'><a href='#tutorials-accept-your-first-payment' class='header-link'><i></i></a>Accept your first payment</h3>
-<p><strong>Note</strong>: If you have your website running on WooCommerce, Prestashop, or Magento e-commerce platform, you need to <a href="#plugins">Install and configure Revolut plugins</a>.</p>
+<aside class="notice">
+  If you have your website running on WooCommerce, Prestashop, or Magento e-commerce platform, you need to <a href="#plugins">Install and configure Revolut plugins</a>.
+</aside>
 
 <p>This tutorial walks you through the steps to accept the first payment. The tutorial assumes that you run your own e-commerce website and manage its code and files.</p>
 
@@ -724,45 +726,82 @@ To get started, complete the following steps:</p>
 <li>Specify the <code>sandbox</code> environment in the second parameter of <a href="http://developer.revolut.com/docs/revolut-checkout-js" target="_blank">RevolutCheckout</a>.</li>
 </ol>
 
+<aside class="notice">
+    <b>Important Note</b>: Only <a href="#tutorials-tutorials-test-in-the-sandbox-environment-use-test-cards">test cards</a> will work in the Sandbox environment.
+</aside>
+
 <div class="feedback"></div>
 <h4 id='tutorials-tutorials-test-in-the-sandbox-environment-use-test-cards'><a href='#tutorials-tutorials-test-in-the-sandbox-environment-use-test-cards' class='header-link'><i></i></a>Use test cards</h4>
 <p>To test your various payment flows for a variety of scenarios, you can use the following test card numbers that Revolut provides.</p>
 
-<p><strong>Note</strong>: These cards work only in the Revolut Business Sandbox environment:</p>
+<p><strong>Note</strong>: These cards work only in the Revolut Business Sandbox environment.</p>
+
+<p><strong>Test for successful payments</strong></p>
+
+<p>Use the following test cards to simulate a successful payment in the Sandbox environment. You can also use them to test the use case of <a href="#tutorials-charge-a-customer-s-saved-payment-method">charging a customer&#39;s saved payment method</a>.</p>
+
+<p>Use any 3-digit <code>CVV</code> and any future <code>expiry date</code> (MM/YY).</p>
 
 <table><thead>
 <tr>
 <th>Card PAN</th>
-<th>Response</th>
+<th>Brand</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>5185520050000010</td>
-<td>FRICTIONLESS_3DS</td>
+<td>4929420573595709</td>
+<td>VISA</td>
 </tr>
 <tr>
-<td>4111111111111111</td>
-<td>FAILED_AUTHORISATION</td>
+<td>5281438801804148</td>
+<td>MASTERCARD</td>
+</tr>
+</tbody></table>
+
+<p><strong>Test for error cases</strong></p>
+
+<p>Use the following test cards to create payments that produce error codes in the Sandbox environment. This is useful when you want to:</p>
+
+<ul>
+<li>See how different errors are shown to your customers.</li>
+<li>Implement custom error handling.</li>
+</ul>
+
+<p>Use any 3-digit <code>CVV</code> and any future <code>expiry date</code> (MM/YY).</p>
+
+<table><thead>
+<tr>
+<th>Card PAN</th>
+<th>Case</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>4242424242424242</td>
+<td><code>DECLINED</code></td>
 </tr>
 <tr>
-<td>4012888888881881</td>
-<td>FAILED_CAPTURE</td>
+<td>4929573638125985</td>
+<td><code>DECLINED</code> due to insufficient funds</td>
 </tr>
 <tr>
-<td>5205205205205200</td>
-<td>CAN_CANCEL_CAPTURED</td>
+<td>4532336743874205</td>
+<td><code>DECLINED</code> due to card being expired</td>
 </tr>
 <tr>
-<td>378282246310005</td>
-<td>FAILED_CANCEL</td>
+<td>2720998837779594</td>
+<td><code>DECLINED</code> due to Do Not Honour<br><br>This error happens when your customer&#39;s bank declines the transaction due to internal reasons. For example, their fraud rules might have been triggered or a temporary hold may have been applied to this card.</td>
 </tr>
 <tr>
-<td>6011111111111117</td>
-<td>FAILED_REFUND</td>
+<td>5145014175946025</td>
+<td><code>DECLINED</code> due to CVV code being incorrect</td>
 </tr>
 <tr>
-<td>5105105105105100</td>
-<td>RISK_DECLINED_CARD</td>
+<td>5445850727830242</td>
+<td><code>DECLINED</code> due to invalid postal code<br><br>This error is most common for cards issued in the UK, US, Australia, New Zealand or Canada.</td>
+</tr>
+<tr>
+<td>2223000010479399</td>
+<td>Order stuck in <code>PROCESSING</code> state<br><br>This card is useful to test what would happen with your implementation if the order took longer than expected to complete.</td>
 </tr>
 </tbody></table>
 
@@ -785,7 +824,7 @@ To get started, complete the following steps:</p>
 <h3 id='plugins-woocommerce'><a href='#plugins-woocommerce' class='header-link'><i></i></a>WooCommerce</h3>
 <p>The <code>Revolut Gateway for WooCommerce</code> plugin enables you to accept online payments via your WooCommerce store easily.</p>
 
-<p>Then, configure the plugin to test in the sandbox environment or use it in the production environment.</p>
+<p>Then, configure the plugin to test in the Sandbox environment or use it in the production environment.</p>
 <h4 id='plugins-plugins-woocommerce-install-the-woocommerce-plugin'><a href='#plugins-plugins-woocommerce-install-the-woocommerce-plugin' class='header-link'><i></i></a>Install the WooCommerce plugin</h4>
 <p>You can install the <code>Revolut Gateway for WooCommerce</code> plugin either in a quick way or manually install it when you don’t have the Internet access to the WooCommerce store.</p>
 
@@ -930,9 +969,9 @@ To get started, complete the following steps:</p>
 
 <p>To do so, in the <strong>Advanced mode</strong> section, change the status of <strong>Order Status for triggering the refund on Revolut</strong> to <strong>Refunded</strong>.</p>
 
-<p><strong>Test the plugin in the sandbox environment</strong></p>
+<p><strong>Test the plugin in the Sandbox environment</strong></p>
 
-<p>You can make test payments using the plugin in the sandbox environment.</p>
+<p>You can make test payments using the plugin in the Sandbox environment.</p>
 
 <p>To do that, complete the following steps:</p>
 
@@ -951,7 +990,7 @@ To get started, complete the following steps:</p>
 <li>On the bottom right of the <strong>Settings</strong> section, click <strong>Save</strong> to apply the changes.</li>
 </ol>
 
-<p>For more information about testing the integration, see <a href="#tutorials-test-in-the-sandbox-environment">Test in the sandbox environment</a>.</p>
+<p>For more information about testing the integration, see <a href="#tutorials-test-in-the-sandbox-environment">Test in the Sandbox environment</a>.</p>
 
 <p><strong>Use the plugin in the production environment</strong></p>
 
@@ -1012,7 +1051,7 @@ To get started, complete the following steps:</p>
 </span></code></pre>
 <ol>
 <li>Download the <a href="https://assets.revolut.com/api-docs/merchant-api/files/revolutgatewayformagento2.zip" target="_blank">Revolut Gateway for Magento 2 .zip file</a>.</li>
-<li>Locate the <code>/app/code</code> directory inside the root directory. <strong>Note</strong>: You might need to create it yourself.</li>
+<li>Locate the <code>/app/code</code> directory inside the root directory. (<strong>Note</strong>: You might need to create it yourself.)</li>
 <li>Extract the plugin in <code>.zip</code> format that you downloaded in the <code>/app/code</code> directory.</li>
 <li>Open a terminal in the <code>magento2</code> root folder and run the commands in the provided code block to install the plugin.</li>
 <li>When the installation is done, flush the Magento 2 cache using the admin panel or the terminal command on the right.</li>
