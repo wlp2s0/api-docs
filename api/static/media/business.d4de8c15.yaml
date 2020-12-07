@@ -1,0 +1,1677 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: Business API
+  description: |-
+    As a Revolut Business customer, you can use the Business API to automate your own business processes. For example, you can view accounts, add counterparties, make payments or currency exchanges without manual effort in the WebUI interfaces, which saves time, and reduces costs and errors.
+
+    To get started using the Business API, check the [user guide](https://developer.revolut.com/docs/manage-accounts/#quickstart).
+  contact: {}
+servers:
+  - url: 'https://b2b.revolut.com/api/1.0'
+  - url: 'https://sandbox-b2b.revolut.com/api/1.0'
+paths:
+  /webhook:
+    get:
+      summary: Retrieve a webhook
+      operationId: getWebhook
+      security:
+        - AccessToken:
+            - read
+      responses:
+        '200':
+          description: The existing webhook.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: Get your webhook URL.
+      tags:
+        - Webhooks
+    post:
+      summary: Set a webhook
+      operationId: setupWebhook
+      security:
+        - AccessToken:
+            - write
+      tags:
+        - Webhooks
+      requestBody:
+        description: URL to set up as a webhook
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Webhook'
+      responses:
+        '204':
+          description: The webhook has been set up.
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: Set up a webhook URL so that event notifications are pushed to the specified URL. Only HTTPS URLs are supported.
+    delete:
+      summary: Delete a webhook
+      operationId: deleteWebhook
+      security:
+        - AccessToken:
+            - write
+      tags:
+        - Webhooks
+      responses:
+        '204':
+          description: The webhook has been deleted.
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: Delete a webhook so that events are not sent to the specified URL any more.
+  /transactions:
+    get:
+      summary: Retrieve all transactions
+      operationId: getTransactions
+      security:
+        - AccessToken: null
+      parameters:
+        - in: query
+          name: from
+          schema:
+            type: string
+          description: 'The date and time you retrieve the historical transactions from. '
+        - in: query
+          name: to
+          schema:
+            type: string
+          description: 'The date and time you retrieve the historical transactions to. '
+        - in: query
+          name: counterparty
+          schema:
+            type: string
+            format: uuid
+          description: The ID of the counterparty.
+        - in: query
+          name: count
+          schema:
+            type: integer
+          description: The number of the historical transactions to retrieve.
+        - in: query
+          name: type
+          schema:
+            $ref: '#/components/schemas/TransactionType'
+          description: The type of the historical transactions to retrieve.
+      responses:
+        '200':
+          description: List of historical transactions retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transactions'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |
+        Retrieve the historical transactions based on the provided query criteria.
+
+        >The API returns a maximum of 1,000 transactions per request.
+
+        >To be compliant with PSD2 SCA regulations, we only allow access to the last 90 days’ transactions. However, you can access older transactions within the first 5 minutes of an account access token being authorized. This means that within the first 5 minutes of a Revolut user authenticating your request, you can request data older than 90 days. After the 5 minute mark, the access to the transaction data is automatically restricted only to the last 90 days.
+      tags:
+        - Payments
+  '/transaction/{transactionId}':
+    get:
+      summary: Retrieve a transaction
+      operationId: getTransaction
+      security:
+        - AccessToken: null
+      parameters:
+        - name: transactionId
+          in: path
+          required: true
+          description: The ID of the transaction or request if `id_type` = `request_id`.
+          schema:
+            type: string
+        - name: id_type
+          in: query
+          required: false
+          description: The type of the transaction ID.
+          schema:
+            enum:
+              - request_id
+            type: string
+      responses:
+        '200':
+          description: The information about a specific transaction.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |-
+        Retrieve the details of a specific transaction by transaction ID or by request ID, which can include, for example, cardholder details for card payments.
+
+        **Request**
+
+        To retrieve a transaction by ID:
+
+        `GET https://b2b.revolut.com/api/1.0/transaction/<id>`
+
+        To retrieve a transaction by request ID:
+
+        `GET https://b2b.revolut.com/api/1.0/transaction/<request_id>?id_type=request_id`
+      tags:
+        - Payments
+    delete:
+      summary: Cancel a transaction
+      operationId: cancelTransaction
+      security:
+        - AccessToken: null
+      parameters:
+        - name: transactionId
+          in: path
+          required: true
+          description: The ID of the transaction to cancel.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: The transaction cancelled.
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |
+        Cancel a scheduled transaction that you initiated via the Business API.
+      tags:
+        - Payments
+  /transfer:
+    post:
+      summary: Create a transfer
+      operationId: createTransfer
+      security:
+        - AccessToken: null
+      requestBody:
+        description: Create a transfer
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransferRequest'
+      responses:
+        '200':
+          description: The information about the transfer created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferResponse'
+              examples:
+                example-1:
+                  value:
+                    id: string
+                    state: created
+                    created_at: '2020-11-23T08:39:35.811005Z'
+                    completed_at: '2020-11-23T08:39:35.811005Z'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |-
+        Process the funds transfer between accounts of the business in the same currency.
+
+        The resulting transaction has the `transfer` type.
+      tags:
+        - Transfers
+  /pay:
+    post:
+      summary: Create a payment
+      operationId: createPayment
+      security:
+        - AccessToken: null
+      requestBody:
+        description: Create a payment
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionPaymentRequest'
+      responses:
+        '200':
+          description: The information about the payment created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransferResponse'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |-
+        Create a payment. If you make the payment to another Revolut account, either business or personal, the transaction is executed instantly. 
+
+        **Notes**: When you make the payment to a `business` counterparty, you must specify the `account_id` under `receiver`.
+
+        To avoid submitting duplicate payments because of an error in your code, ensure that `request_id` is unique for each payment and has persisted on your side previously.
+
+        **Schedule Payment** 
+
+        You can schedule payments between Revolut accounts for up to 30 days ahead. Scheduling payments to an external payment network is not supported at the moment. 
+
+        Scheduled payments must be in the currency of the account that you pay from. To schedule a future payment, as opposed to immediate execution, add the `schedule_for` field in the `POST /pay` request:
+
+        **Note**: Payments scheduled for the same time might not be executed all at the same time. As the scheduled processor runs every several hours, the payments are processed in batches; if you schedule too many payments, more time is required to process all the payments.
+      tags:
+        - Payments
+  /rate:
+    get:
+      summary: Get exchange rate
+      operationId: getRate
+      security:
+        - AccessToken:
+            - read
+      tags:
+        - Exchanges
+      parameters:
+        - name: from
+          in: query
+          required: true
+          description: The currency that you exchange from.
+          schema:
+            $ref: '#/components/schemas/Currency'
+        - name: to
+          in: query
+          required: true
+          description: The currency that you exchange to.
+          schema:
+            $ref: '#/components/schemas/Currency'
+        - name: amount
+          in: query
+          required: false
+          description: The amount of the currency. The default value is  `1.00`.
+          schema:
+            type: number
+            format: double
+      responses:
+        '200':
+          description: The exchange rate information.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExchangeRateResponse'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: Get the exchange rate between two currencies.
+  /exchange:
+    post:
+      summary: Exchange money
+      operationId: exchangeMoney
+      security:
+        - AccessToken:
+            - pay
+      tags:
+        - Exchanges
+      requestBody:
+        description: Specify the exchange information
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExchangeRequest'
+      responses:
+        '200':
+          description: Exchange operation info
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExchangeResponse'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |
+        Exchange the money in either of the following cases:
+
+        - You know the amount of currency to **sell**, for example, exchange 135.5 USD to some EUR. Then, specify the amount in the `from` object. 
+        - You know the amount of currency to **buy**, for example, exchange some USD to 200 EUR. Then, specify the amount in the `to` object.
+
+
+        **Note**: You can specify the `amount` field only once either in the `from` object or in the `to` object.
+  /payment-drafts:
+    post:
+      summary: Create a payment draft
+      operationId: createPaymentDraft
+      security:
+        - AccessToken:
+            - write
+      tags:
+        - Payment Drafts
+      requestBody:
+        description: The payment draft information.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePaymentDraftRequest'
+      responses:
+        '201':
+          description: The ID of the payment draft created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreatePaymentDraftResponse'
+        '204':
+          description: No payments provided
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: Create a payment draft.
+    get:
+      summary: Retrieve all payment drafts
+      operationId: getPaymentDrafts
+      security:
+        - AccessToken:
+            - read
+      responses:
+        '200':
+          description: List of payment drafts.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentDraftsResponse'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      tags:
+        - Payment Drafts
+      description: Get a list of all the payment drafts that aren't processed.
+  '/payment-drafts/{paymentDraftId}':
+    get:
+      summary: Retrieve a payment draft
+      operationId: getPaymentDraft
+      security:
+        - AccessToken:
+            - read
+      tags:
+        - Payment Drafts
+      parameters:
+        - name: paymentDraftId
+          in: path
+          required: true
+          description: The ID of the payment draft to retrieve.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: The information about a specific payment draft.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentDraftResponse'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |
+        Get the information about a specific payment draft by ID.
+    delete:
+      summary: Delete a payment draft
+      operationId: deletePaymentDraft
+      security:
+        - AccessToken:
+            - write
+      tags:
+        - Payment Drafts
+      parameters:
+        - name: paymentDraftId
+          in: path
+          required: true
+          description: The ID of the payment draft to delete.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: The payment draft deleted.
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |
+        Delete a payment draft with the given ID. You can delete a payment draft only if it isn't processed.
+  /counterparties:
+    get:
+      summary: Retrieve all counterparties
+      operationId: getCounterparties
+      security:
+        - AccessToken: null
+      responses:
+        '200':
+          description: List of business counterparties
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Counterparties'
+        '201':
+          description: Created
+        '400':
+          description: Bad Request
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |
+        Get a list of all your counterparties.
+      tags:
+        - Counterparties
+  '/counterparty/{counterpartyId}':
+    get:
+      summary: Retrieve a counterparty
+      operationId: getCounterparty
+      security:
+        - AccessToken: null
+      parameters:
+        - name: counterpartyId
+          in: path
+          required: true
+          description: The ID of the counterparty to retrieve.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Counterparty'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |
+        Get the information about a specific counterparty by ID.
+      tags:
+        - Counterparties
+    delete:
+      summary: Delete a counterparty
+      operationId: deleteCounterparty
+      security:
+        - AccessToken: null
+      parameters:
+        - name: counterpartyId
+          in: path
+          required: true
+          description: The ID of the counterparty to delete.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: The counterparty deleted.
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |
+        Deletes a counterparty with the given ID. When a counterparty is deleted, you cannot make any payments to the counterparty. 
+      tags:
+        - Counterparties
+  /counterparty:
+    post:
+      summary: Create a counterparty
+      operationId: addCounterparty
+      security:
+        - AccessToken: null
+      tags:
+        - Counterparties
+      requestBody:
+        description: Counterparty to add
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCounterpartyRequest'
+      responses:
+        '200':
+          description: Added counterparty
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Counterparty'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |-
+        Create a counterparty for an existing Revolut account or non-Revolut bank account. 
+
+        A counterparty can be either a `business` or a `personal` counterparty, which you specify in `profile_type`. For more information, see [Counterparties](https://developer.revolut.com/docs/manage-accounts/#api-reference-counterparties).
+  /accounts:
+    get:
+      summary: Retrieve all accounts
+      operationId: getAccounts
+      security:
+        - AccessToken: null
+      responses:
+        '200':
+          description: List of business accounts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Accounts'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: Get a list of all your accounts.
+      tags:
+        - Accounts
+  '/accounts/{accountId}':
+    get:
+      summary: Retrieve an account
+      operationId: getAccount
+      security:
+        - AccessToken: null
+      tags:
+        - Accounts
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          description: The ID of the account to retrieve.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: Get the information about a specific account by ID.
+  '/accounts/{accountId}/bank-details':
+    get:
+      summary: Retrieve all account's bank details
+      operationId: getAccountDetails
+      security:
+        - AccessToken: null
+      tags:
+        - Accounts
+      parameters:
+        - name: accountId
+          in: path
+          required: true
+          description: The ID of the account to retrieve all bank details.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: The bank details of a specific account.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountBankDetailsItems'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: Get all the bank details of a specific account.
+components:
+  securitySchemes:
+    AccessToken:
+      type: http
+      scheme: bearer
+      description: |-
+        Each Business API must contain an authorization header in the following format to make a call: `Bear [yourAccessToken]`.
+
+        Before you start, ensure that you’ve got an access token in your Revolut Business Account. You need to get the authorization code first and exchange it for an access token. For more information, see [Authentication and Authorization guide](https://developer.revolut.codes/docs/manage-accounts/#api-reference-authentication-and-authorization).
+  schemas:
+    Webhook:
+      type: object
+      properties:
+        url:
+          type: string
+          format: uri
+          description: The valid webhook URL that event notifications are sent to. The supported protocol is `https`.
+      required:
+        - url
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: string
+          description: "The ID of transaction.\t"
+        type:
+          $ref: '#/components/schemas/TransactionType'
+        request_id:
+          type: string
+          description: "The request ID that you provided previously.\t"
+        state:
+          $ref: '#/components/schemas/TransactionState'
+        reason_code:
+          type: string
+          description: "The reason code when the transaction `state` is `declined` or `failed`.\t"
+        created_at:
+          type: string
+          format: date-time
+          description: The date and time the transaction was created in ISO 8601 format.
+        updated_at:
+          type: string
+          format: date-time
+          description: The date and time the transaction was last updated in ISO 8601 format.
+        completed_at:
+          type: string
+          format: date-time
+          description: "The date and time the transaction was completed in ISO 8601 format. This is required when the transaction `state` is `completed`.\t"
+        scheduled_for:
+          type: string
+          format: date
+          description: "The future date and time the payment is scheduled if applicable.\t"
+        related_transaction_id:
+          type: string
+          format: uuid
+          description: The ID of the original transaction that has been refunded.
+        merchant:
+          $ref: '#/components/schemas/TransactionMerchant'
+        reference:
+          type: string
+          description: The payment reference.
+        legs:
+          type: array
+          description: |-
+            The legs of a transaction:
+            - For transactions between your Revolut accounts, there can be 2 legs, for example, an internal transfer made out of the GBP account and into the EUR account.
+            - For transactions in other cases, there is only 1 leg. 
+          items:
+            $ref: '#/components/schemas/TransactionLeg'
+        card:
+          $ref: '#/components/schemas/TransactionCard'
+      required:
+        - id
+        - type
+        - state
+        - created_at
+        - updated_at
+        - legs
+    TransactionType:
+      enum:
+        - atm
+        - card_payment
+        - card_refund
+        - card_chargeback
+        - card_credit
+        - exchange
+        - transfer
+        - loan
+        - fee
+        - refund
+        - topup
+        - topup_return
+        - tax
+        - tax_refund
+      description: Indicates the transaction type.
+      type: string
+    TransactionState:
+      enum:
+        - created
+        - pending
+        - completed
+        - declined
+        - failed
+      description: "Indicates the transaction state.\t"
+      type: string
+    Transactions:
+      type: array
+      items:
+        $ref: '#/components/schemas/Transaction'
+    TransactionLeg:
+      type: object
+      description: |-
+        The legs of a transaction:
+        - For transactions between your Revolut accounts, there can be 2 legs, for example, an internal transfer made out of the BGP account and into the EUR account.
+        - For transactions in other cases, there is only 1 leg. 
+      properties:
+        leg_id:
+          type: string
+          format: uuid
+          description: "The ID of the leg.\t"
+        amount:
+          type: number
+          format: double
+          description: The amount of the transaction.
+        fee:
+          type: number
+          format: double
+          description: The amount of the transaction fee.
+        currency:
+          $ref: '#/components/schemas/Currency'
+        bill_amount:
+          type: number
+          format: double
+          description: The billing amount for cross-currency payments.
+        bill_currency:
+          $ref: '#/components/schemas/Currency'
+        account_id:
+          type: string
+          format: uuid
+          description: The ID of the account that the transaction is associated with.
+        counterparty:
+          $ref: '#/components/schemas/TransactionCounterparty'
+        description:
+          type: string
+          description: "The transaction leg purpose.\t"
+        balance:
+          type: number
+          format: double
+          description: The total balance of the account that the transaction is associated with.
+      required:
+        - leg_id
+        - amount
+        - currency
+        - account_id
+    TransactionCounterparty:
+      type: object
+      properties:
+        account_id:
+          type: string
+          format: uuid
+          description: The ID of the counterparty account.
+        account_type:
+          $ref: '#/components/schemas/TransactionCounterpartyAccountType'
+        id:
+          type: string
+          format: uuid
+          description: The ID of the counterparty.
+      required:
+        - account_type
+    TransactionCounterpartyAccountType:
+      enum:
+        - self
+        - revolut
+        - external
+      description: Indicates the type of the account.
+      type: string
+    TransactionCard:
+      type: object
+      description: "The card details (only for card payments).\t"
+      properties:
+        card_number:
+          type: string
+          description: The masked card number.
+        first_name:
+          type: string
+          description: The first name of the cardholder.
+        last_name:
+          type: string
+          description: The last name of the cardholder.
+        phone:
+          type: string
+          description: The phone number of the cardholder in E.164 format.
+      required:
+        - card_number
+    TransactionMerchant:
+      type: object
+      description: The information about the merchant (only for card payments).
+      properties:
+        name:
+          type: string
+          description: The name of the merchant.
+        city:
+          type: string
+          description: The city of the merchant.
+        category_code:
+          type: string
+          description: "The category code of the merchant.\t"
+        country:
+          $ref: '#/components/schemas/CountryCode'
+    TransferRequest:
+      type: object
+      description: Transfer the funds between accounts of the business in the same currency.
+      x-examples:
+        example-1:
+          request_id: string
+          source_account_id: 75fca71f-6b38-4768-804d-ffb93d0aa579
+          target_account_id: 328459d9-9745-4f8b-9c0b-b330ce904459
+          amount: 0
+          currency: string
+          reference: string
+      properties:
+        request_id:
+          type: string
+          description: "Provide the unique ID, which is used to handle duplicate transfer requests in case of a lost connection or client error. Maximum length: 40 characters.\t"
+        source_account_id:
+          type: string
+          format: uuid
+          description: "The ID of the source account that you transfer the funds from.\t"
+        target_account_id:
+          type: string
+          format: uuid
+          description: The ID of the target account that you transfer the funds to.
+        amount:
+          type: number
+          format: double
+          description: "The amount of the funds to be transferred.\t"
+        currency:
+          $ref: '#/components/schemas/Currency'
+        reference:
+          type: string
+          description: "The reference for the funds transfer.\t"
+      required:
+        - request_id
+        - source_account_id
+        - target_account_id
+        - amount
+        - currency
+    TransferResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the transaction created.
+        state:
+          $ref: '#/components/schemas/TransactionState'
+        created_at:
+          type: string
+          format: date-time
+          description: "The date and time the transaction was created in ISO 8601 format.\t"
+        completed_at:
+          type: string
+          format: date-time
+          description: The date and time the transaction was completed in ISO 8601 format.
+      required:
+        - id
+        - state
+        - created_at
+    TransactionPaymentRequest:
+      type: object
+      properties:
+        request_id:
+          type: string
+          description: 'The ID of the transaction that you provide. Maximum length: 40 characters.'
+        account_id:
+          type: string
+          format: uuid
+          description: "The ID of the account that you pay from.\t"
+        receiver:
+          $ref: '#/components/schemas/PaymentReceiver'
+        amount:
+          type: number
+          format: double
+          description: The amount of the transaction (minor currency unit).
+        currency:
+          $ref: '#/components/schemas/Currency'
+        reference:
+          type: string
+          description: The reference for the transaction.
+        schedule_for:
+          type: string
+          format: date
+          description: "The future date and time that you schedule the payment.\t"
+      required:
+        - request_id
+        - account_id
+        - receiver
+        - amount
+    ExchangeRateResponse:
+      type: object
+      properties:
+        from:
+          $ref: '#/components/schemas/Amount'
+        to:
+          $ref: '#/components/schemas/Amount'
+        rate:
+          type: number
+          format: double
+          description: "The exchange rate.\t"
+        fee:
+          $ref: '#/components/schemas/Amount'
+        rate_date:
+          type: string
+          format: date-time
+          description: The date of the proposed exchange rate.
+      required:
+        - from
+        - to
+        - rate
+        - fee
+        - rate_date
+    ExchangeRequest:
+      type: object
+      description: The exchange information.
+      properties:
+        from:
+          $ref: '#/components/schemas/ExchangePart'
+        to:
+          $ref: '#/components/schemas/ExchangePart'
+        reference:
+          type: string
+          description: Provide the exchange reference.
+        request_id:
+          type: string
+          description: "Provide the unique ID, which is used to handle duplicate exchange requests in case of a lost connection or client error. Maximum length: 40 characters.\t"
+      required:
+        - from
+        - to
+        - request_id
+    ExchangePart:
+      type: object
+      properties:
+        account_id:
+          type: string
+          format: uuid
+          description: "The account ID.\t"
+        currency:
+          $ref: '#/components/schemas/Currency'
+        amount:
+          type: number
+          format: double
+          description: "The amount of currency.\t"
+      required:
+        - account_id
+        - currency
+    ExchangeResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The ID of transaction created.
+        type:
+          type: string
+          description: 'The type of the transaction, which is `exchange` here.'
+        reason_code:
+          type: string
+          description: "The reason code when the transaction `state` is `declined` or `failed`.\t"
+        created_at:
+          type: string
+          format: date-time
+          description: "The date and time the transaction was created in in ISO 8601 format.\t"
+        completed_at:
+          type: string
+          format: date-time
+          description: The date and time the transaction was completed in ISO 8601 format.
+        state:
+          $ref: '#/components/schemas/TransactionState'
+    Amount:
+      type: object
+      description: ''
+      properties:
+        amount:
+          type: number
+          format: double
+          description: The amount of the transaction.
+        currency:
+          $ref: '#/components/schemas/Currency'
+    Currency:
+      type: string
+      pattern: '^[A-Z]{3}$'
+      description: IOS 4217 currency code in upper case.
+    CreatePaymentDraftRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          description: The title of the payment draft.
+        schedule_for:
+          type: string
+          format: date-time
+          description: "The future date and time that you schedule the payment draft.\t"
+        payments:
+          type: array
+          description: The details of the payment.
+          items:
+            $ref: '#/components/schemas/PaymentRequest'
+      required:
+        - payments
+    PaymentRequest:
+      type: object
+      description: The details of the payment draft.
+      properties:
+        account_id:
+          type: string
+          description: |-
+            The ID of the account to pay from. 
+
+            **Note**: You can specify only one account ID for multiple payments in the same payment draft.
+        receiver:
+          $ref: '#/components/schemas/PaymentReceiver'
+        amount:
+          type: number
+          format: double
+          description: "The amount of the payment.\t"
+        currency:
+          $ref: '#/components/schemas/Currency'
+        reference:
+          type: string
+          description: The reference for the payment.
+      required:
+        - account_id
+        - receiver
+        - amount
+        - currency
+        - reference
+    PaymentReceiver:
+      type: object
+      description: The details of the payment receiver.
+      properties:
+        counterparty_id:
+          type: string
+          format: uuid
+          description: The ID of the receiving counterparty.
+        account_id:
+          type: string
+          format: uuid
+          description: 'The ID of the receiving counterparty''s account, which can be own account. This field is required when you make the payment to a `business` counterparty. '
+      required:
+        - counterparty_id
+    CreatePaymentDraftResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: number
+          description: The ID of the payment draft created.
+      required:
+        - id
+    PaymentDraftsResponse:
+      type: object
+      required:
+        - payment_orders
+      properties:
+        payment_orders:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentOrderInfo'
+    PaymentOrderInfo:
+      type: object
+      description: A list of payments.
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The ID of the payment draft.
+        scheduled_for:
+          type: string
+          format: date
+          description: The future data and time that you schedule the payment draft.
+        title:
+          type: string
+          description: The title of the payment draft.
+        payments_count:
+          type: integer
+          description: The number of payments in the payment draft.
+      required:
+        - id
+        - payments_count
+    PaymentDraftResponse:
+      type: object
+      properties:
+        scheduled_for:
+          type: string
+          format: date-time
+          description: "The future date and time that you schedule the payment.\t"
+        title:
+          type: string
+          description: "The title of the payment draft.\t"
+        payments:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentInfo'
+      required:
+        - payments
+    PaymentInfo:
+      type: object
+      description: The details of the payment draft.
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The ID of the payment draft.
+        amount:
+          $ref: '#/components/schemas/Amount'
+        currency:
+          $ref: '#/components/schemas/Currency'
+        account_id:
+          type: string
+          format: uuid
+          description: "The ID of the account to pay from.\t"
+        receiver:
+          $ref: '#/components/schemas/PaymentReceiver'
+        state:
+          $ref: '#/components/schemas/PaymentState'
+        reason:
+          type: string
+          description: "The reason for the current state.\t"
+        error_message:
+          type: string
+          description: "The description of the error message.\t"
+        current_charge_options:
+          type: object
+          description: "explanation of conversation process\t"
+          required:
+            - from
+            - to
+          properties:
+            from:
+              $ref: '#/components/schemas/Amount'
+            to:
+              $ref: '#/components/schemas/Amount'
+            rate:
+              type: string
+            fee:
+              $ref: '#/components/schemas/Amount'
+        reference:
+          type: string
+          description: The description of the transaction.
+      required:
+        - id
+        - amount
+        - account_id
+        - receiver
+        - state
+        - current_charge_options
+    PaymentState:
+      enum:
+        - CREATED
+        - PENDING
+        - COMPLETED
+        - REVERTED
+        - DECLINED
+        - CANCELLED
+        - FAILED
+        - DELETED
+      type: string
+      description: Indicates the state of the transaction.
+    Counterparty:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: "The ID of the counterparty.\t"
+        name:
+          type: string
+          description: "The name of the counterparty.\t"
+        phone:
+          type: string
+          description: The phone number of the counterparty in E.164 format.
+        profile_type:
+          $ref: '#/components/schemas/ProfileType'
+        country:
+          $ref: '#/components/schemas/CountryCode'
+        state:
+          enum:
+            - created
+            - draft
+            - deleted
+          description: Indicates the state of the counterparty.
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          description: "The date and time the counterparty was created in ISO 8601 format.\t"
+        updated_at:
+          type: string
+          format: date-time
+          description: The date and time the counterparty was last updated in ISO 8601 format.
+        accounts:
+          type: array
+          description: "The list of public accounts of this counterparty.\t"
+          items:
+            $ref: '#/components/schemas/CounterpartyAccount'
+      required:
+        - id
+        - name
+        - state
+        - created_at
+        - updated_at
+      x-examples:
+        example-1:
+          id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+          name: string
+          phone: string
+          profile_type: personal
+          country: string
+          state: created
+          created_at: '2020-11-23T08:39:35.811005Z'
+          updated_at: '2020-11-23T08:39:35.811005Z'
+          accounts:
+            - id: 497f6eca-6276-4993-bfeb-53cbbbba6f08
+              name: string
+              email: user@example.com
+              bank_country: string
+              currency: string
+              type: revolut
+              account_no: string
+              iban: string
+              sort_code: string
+              routing_number: string
+              bic: string
+              clabe: string
+              ifsc: string
+              bsb_code: string
+              recipient_charges: 'no'
+    CounterpartyAccount:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: "The ID of the counterparty.\t"
+        name:
+          type: string
+          description: "The name of the counterparty.\t"
+        email:
+          type: string
+          format: email
+          description: "The email address of the admin of the public Revolut Business account. This is shown only when `profile_type` is `business`.\t"
+        bank_country:
+          $ref: '#/components/schemas/BankCountryCode'
+        currency:
+          $ref: '#/components/schemas/AccountCurrency'
+        type:
+          enum:
+            - revolut
+            - external
+          description: Indicates the type of account.
+          type: string
+        account_no:
+          type: string
+          description: "The bank account number\tof the counterparty."
+        iban:
+          type: string
+          description: The IBAN number of the counterparty’s account if applicable.
+        sort_code:
+          type: string
+          description: The sort code of the counterparty’s account if applicable.
+        routing_number:
+          type: string
+          description: The routing number of the counterparty's account if applicable.
+        bic:
+          type: string
+          description: The BIC number of the counterparty's account if applicable.
+        clabe:
+          type: string
+          description: The CLABE number of the counterparty’s account if applicable.
+        ifsc:
+          type: string
+          description: The IFSC number of the counterparty’s account if applicable.
+        bsb_code:
+          type: string
+          description: The BSB number of the counterparty’s account if applicable.
+        recipient_charges:
+          enum:
+            - 'no'
+            - expected
+          description: "Indicates the possibility of the recipient charges.\t"
+          type: string
+      required:
+        - id
+        - currency
+        - type
+    Counterparties:
+      type: array
+      items:
+        $ref: '#/components/schemas/Counterparty'
+    CreateCounterpartyRequest:
+      type: object
+      description: ''
+      properties:
+        company_name:
+          type: string
+          description: The name of the external company counterparty when you create a counterparty for a non-Revolut account and `individual_name` isn’t specified.
+        profile_type:
+          $ref: '#/components/schemas/ProfileType'
+        name:
+          type: string
+          description: "The name of the counterparty that you create for an existing Revolut user. Provide the value only when you specify `personal` for `profile_type`.\t"
+        individual_name:
+          $ref: '#/components/schemas/IndividualName'
+        bank_country:
+          $ref: '#/components/schemas/BankCountryCode'
+        currency:
+          $ref: '#/components/schemas/Currency'
+        email:
+          type: string
+          format: email
+          description: "The email address of the admin of the public Revolut Business account. Provide the value only when you specify `business` for `profile_type`.\t"
+        phone:
+          type: string
+          description: "The phone number of the counterparty in E.164 format. Provide the value only when you specify `personal` for `profile_type`.\t"
+        account_no:
+          type: string
+          description: The bank account number of the counterparty.
+        iban:
+          type: string
+          description: The IBAN number of the counterparty’s account. This field is displayed for IBAN countries.
+        sort_code:
+          type: string
+          description: The sort code of the counterparty’s account. This field is required for GBP accounts.
+        routing_number:
+          type: string
+          description: The routing number of the counterparty’s account. This field is required for USD accounts.
+        bic:
+          type: string
+          description: The BIC number of the counterparty’s account. This field is required for SWIFT.
+        clabe:
+          type: string
+          description: The CLABE number of the counterparty’s account. This field is required for SWIFT MX.
+        ifsc:
+          type: string
+          description: The IFSC number of the counterparty’s account. This field is required for INR accounts.
+        bsb_code:
+          type: string
+          description: The BSB number of the counterparty’s account. This field is required for AUD accounts.
+        address:
+          $ref: '#/components/schemas/BeneficiaryAddress'
+    BeneficiaryAddress:
+      type: object
+      description: The address of the counterparty.
+      x-examples:
+        example-1:
+          street_line1: string
+          street_line2: string
+          region: string
+          city: string
+          country: string
+          postcode: string
+      properties:
+        street_line1:
+          type: string
+          description: Street line 1 information.
+        street_line2:
+          type: string
+          description: Street line 2 information.
+        region:
+          type: string
+          description: The name of the region.
+        city:
+          type: string
+          description: The name of the city.
+        country:
+          type: string
+          description: "The country of the counterparty in 2-letter ISO code.\t"
+        postcode:
+          type: string
+          description: The postcode of the counterparty address.
+      required:
+        - country
+        - postcode
+    IndividualName:
+      type: object
+      description: The name of the external individual counterparty when you create a counterparty for a non-Revolut account and `company_name` isn't specified.
+      properties:
+        first_name:
+          type: string
+          description: The first name of the external individual counterparty.
+        last_name:
+          type: string
+          description: The last name of the external individual counterparty.
+    ProfileType:
+      type: string
+      enum:
+        - personal
+        - business
+      description: The type of the Revolut profile.
+    BankCountryCode:
+      type: string
+      pattern: '^[A-Z]{2,3}$'
+      description: The country of the bank in 2-letter ISO code.
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+          description: The error code.
+        message:
+          type: string
+          description: "The description of the error message.\t"
+      required:
+        - code
+        - message
+    Account:
+      type: object
+      description: ''
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The account ID.
+        name:
+          type: string
+          description: "The account name.\t"
+        balance:
+          type: number
+          format: double
+          description: The current balance on the account.
+        currency:
+          $ref: '#/components/schemas/AccountCurrency'
+        state:
+          type: string
+          enum:
+            - active
+            - inactive
+          description: "Indicates the state of the account.\t"
+        public:
+          type: boolean
+          description: Indicates whether the account is visible to other businesses on Revolut.
+        created_at:
+          type: string
+          format: date-time
+          description: The date and time the account was created in ISO 8601 format.
+        updated_at:
+          type: string
+          format: date-time
+          description: The date and time the account was last updated in ISO 8601 format.
+      required:
+        - id
+        - name
+        - balance
+        - currency
+        - state
+        - public
+        - created_at
+        - updated_at
+    Accounts:
+      type: array
+      items:
+        $ref: '#/components/schemas/Account'
+    AccountBankDetailsItem:
+      type: object
+      description: ''
+      properties:
+        iban:
+          type: string
+          description: The IBAN number.
+        bic:
+          type: string
+          description: 'The BIC number, also known as SWIFT code.'
+        account_no:
+          type: string
+          description: The account number.
+        sort_code:
+          type: string
+          description: The sort code of the account.
+        routing_number:
+          type: string
+          description: The routing number of the account.
+        beneficiary:
+          type: string
+          description: The name of the counterparty.
+        beneficiary_address:
+          $ref: '#/components/schemas/BeneficiaryAddress'
+        bank_country:
+          $ref: '#/components/schemas/BankCountryCode'
+        pooled:
+          type: boolean
+          description: "Indicates whether the account address is pooled or unique.\t"
+        unique_reference:
+          type: string
+          description: "The reference of the pooled account.\t"
+        schemes:
+          type: array
+          description: ''
+          uniqueItems: false
+          items:
+            $ref: '#/components/schemas/PaymentSystem'
+        estimated_time:
+          $ref: '#/components/schemas/EstimatedTime'
+      required:
+        - beneficiary
+        - beneficiary_address
+        - schemes
+        - estimated_time
+    EstimatedTime:
+      type: object
+      properties:
+        unit:
+          type: string
+          description: The estimated time unit of the inbound transfer of the funds.
+          enum:
+            - days
+            - hours
+        min:
+          type: integer
+          description: "The minimum time estimate.\t"
+        max:
+          type: integer
+          description: "The maximum time estimate.\t"
+      required:
+        - unit
+    PaymentSystem:
+      enum:
+        - chaps
+        - bacs
+        - faster_payments
+        - sepa
+        - swift
+        - ach
+        - elixir
+        - sorbnet
+        - nics
+        - rix
+        - sumclearing
+      x-examples:
+        example-1: chaps
+      type: string
+      description: Indicates the payment scheme used to execute transactions.
+    AccountBankDetailsItems:
+      type: array
+      description: Indicates the payment scheme used to execute transactions.
+      items:
+        $ref: '#/components/schemas/AccountBankDetailsItem'
+    CountryCode:
+      type: string
+      pattern: '^[A-Z]{2,3}$'
+      description: The bank country of the counterparty in 2-letter ISO code.
+    AccountCurrency:
+      type: string
+      pattern: '^[A-Z]{3}$'
+      description: ISO 4217 currency code in upper case.
+tags:
+  - name: Accounts
+  - name: Counterparties
+    description: |-
+      To make a fund transfer or payment, add the counterparty that you intend to transact with. You can then retrieve one or all counterparties, or delete a counterparty.
+
+      **Note**: In the Sandbox environment, you cannot add "real" people and businesses as Revolut counterparties. Therefore, to help you simulate "Add Revolut Counterparty" requests, we have created some test accounts:
+        - Business counterparty (use the `email` field): test@sandboxcorp.com
+        - Personal counterparty (use the `mobile` field): +4412345678900, +4412345678901, +4412345678902, ... , +4412345678909
+
+      If you are on a freelancer account, to be compliant with PSD2 Strong Customer Authentication regulations, you must manually approve the counterparty with two-factor authentication in the Revolut Business User Interface before you can make a payment. This can ensure maximum security in case of access token leakages and other fraudulent activities.
+  - name: Transfers
+    description: You can move funds in the same currency  between accounts of the business.
+  - name: Payments
+    description: |-
+      You can create an incoming or outgoing payment. A payment is represented as a transaction here. Then, you can retrieve one or all transactions, and cancel a transaction.
+      A transaction is processed in two stages:
+
+      1. A transaction is created,
+      2. The transaction is processed in either of the following ways:
+        - Credit/debit on both sides of the transaction made between Revolut accounts.
+        - Posted to an external payment network, for example, Faster Payments, SEPA, SWIFT, etc.     
+
+      **Note**:
+        - If the payment is made to an external payment network, when the transaction is created, it has the the `pending` state. When it’s processed, it can have one of the following states:
+          - `completed`
+          - `failed`
+          - `reverted`
+          - `declined`
+        - If the payment is made between Revolut accounts, the transaction is executed instantly, and skips the `pending` state.
+  - name: Payment Drafts
+    description: |-
+      To request an approval for a payment from a business owner or admin before the payment is executed, create a payment draft. The business owner or admin must manually approve it in the Revolut Business User Interface.
+
+      Then, you can also retrieve one or all payment drafts, and delete a payment draft.
+  - name: Exchanges
+  - name: Webhooks
+    description: |-
+      A webhook (also called a web callback) allows your system to receive updates about your account to an HTTPS endpoint that you provide. When a supported event occurs, a notification is posted, via HTTP POST method, to the specified endpoint. 
+
+      If the receiver returns an HTTP error response, there are two more consequent attempts for delivery.
+
+      Currently, the following events are supported:
+
+      - Transaction Creation (`TransactionCreated`)
+      - Transaction State Change (`TransactionStateChanged`)
