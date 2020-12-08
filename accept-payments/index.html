@@ -299,16 +299,16 @@
                       </ul>
                       </li>
                     <li>
-                      <a href="#plugins-prestashop-1-7" class="toc-h3 toc-link" data-title="prestashop-1-7">Prestashop 1.7</a>
+                      <a href="#plugins-prestashop" class="toc-h3 toc-link" data-title="prestashop">Prestashop</a>
                       <ul class="toc-list-h4">
                           <li>
-                            <a href="#plugins-plugins-prestashop-1-7-install-the-prestashop-plugin" class="toc-h4 toc-link" data-title="install-the-prestashop-plugin">Install the Prestashop plugin</a>
+                            <a href="#plugins-plugins-prestashop-install-the-prestashop-plugin" class="toc-h4 toc-link" data-title="install-the-prestashop-plugin">Install the Prestashop plugin</a>
                           </li>
                           <li>
-                            <a href="#plugins-plugins-prestashop-1-7-configure-the-plugin" class="toc-h4 toc-link" data-title="configure-the-plugin">Configure the plugin</a>
+                            <a href="#plugins-plugins-prestashop-configure-the-plugin" class="toc-h4 toc-link" data-title="configure-the-plugin">Configure the plugin</a>
                           </li>
                           <li>
-                            <a href="#plugins-plugins-prestashop-1-7-perform-the-operations" class="toc-h4 toc-link" data-title="perform-the-operations">Perform the operations</a>
+                            <a href="#plugins-plugins-prestashop-perform-the-operations" class="toc-h4 toc-link" data-title="perform-the-operations">Perform the operations</a>
                           </li>
                       </ul>
                       </li>
@@ -607,6 +607,14 @@ load"</span><span class="p">))}}};</span><span class="k">return</span><span clas
 <li><code>&lt;PUBLIC_ID&gt;</code> is the <code>public_id</code> passed as the parameter to call the widget instance. You can find the value of <code>public_id</code> in the <a href="https://developer.revolut.codes/docs/accept-payments/#tutorials-tutorials-accept-your-first-payment-1-create-an-order" target="_blank">response</a> that the Merchant API returns when you create an order successfully.</li>
 </ul>
 
+<aside class="notice">
+    <b>Important Note</b><br>
+    <ul>
+      <li><code>email</code> option is required if the order that is being paid does not contain an email</li>
+      <li><code>name</code> option is required</li>
+    </ul>
+</aside>
+
 <p>Congratulations! You’ve successfully integrated the widget with the Merchant API to the checkout page and accepted your first payment for the order.</p>
 
 <p><strong>What’s next</strong></p>
@@ -758,6 +766,9 @@ To get started, complete the following steps:</p>
 </tr>
 </tbody></table>
 
+<p><br>
+<br></p>
+
 <p><strong>Test for error cases</strong></p>
 
 <p>Use the following test cards to create payments that produce error codes in the Sandbox environment. This is useful when you want to:</p>
@@ -900,29 +911,51 @@ To get started, complete the following steps:</p>
 <p>Now you can start accepting real payments in your WooCommerce online store.</p>
 
 <div class="feedback"></div>
-<h3 id='plugins-prestashop-1-7'><a href='#plugins-prestashop-1-7' class='header-link'><i></i></a>Prestashop 1.7</h3>
-<p>The <code>Revolut Gateway for Prestashop 1.7</code> plugin enables you to accept online payments via your Prestashop 1.7 store easily.</p>
-<h4 id='plugins-plugins-prestashop-1-7-install-the-prestashop-plugin'><a href='#plugins-plugins-prestashop-1-7-install-the-prestashop-plugin' class='header-link'><i></i></a>Install the Prestashop plugin</h4>
+<h3 id='plugins-prestashop'><a href='#plugins-prestashop' class='header-link'><i></i></a>Prestashop</h3>
+<p>The <code>Revolut Gateway for Prestashop</code> plugin enables you to accept online payments via your Prestashop store easily. Revo</p>
+<h4 id='plugins-plugins-prestashop-install-the-prestashop-plugin'><a href='#plugins-plugins-prestashop-install-the-prestashop-plugin' class='header-link'><i></i></a>Install the Prestashop plugin</h4>
+<p><strong>In Prestashop version 1.7</strong></p>
+
 <ol>
 <li>Log in to your Prestashop 1.7 dashboard as the admin role.</li>
 <li>From the left sidebar menu, click <strong>IMPROVE</strong> &gt; <strong>Module</strong> &gt; <strong>Module Catalog</strong>.</li>
-<li>On the top right of the page, click <strong>Upload a module</strong>.
-<img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-upload-admin.png"></li>
-<li>Download the <a href="https://assets.revolut.com/api-docs/merchant-api/files/revolutgatewayforprestashop17.zip" target="_blank">Revolut Gateway for Prestashop 1.7 .zip file</a>.</li>
-<li>Upload the plugin in <code>.zip</code> format that you downloaded. Then, wait for the installation to finish. It should not take a long time.
-<img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-upload-select_file.png"></li>
-<li>When the installation is done, you&#39;re ready to go. Click <strong>Configure</strong> to set up the plugin.
-<img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-upload-finished.png"></li>
+<li><p>Search for <code>Revolut</code> on the search bar as shown below to find our plugin. Make sure it&#39;s the one that is free and shows &quot;Official Partner&quot;. </p>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-catalog-search.png"></p></li>
+<li><p>Click the <code>Install</code> button and wait for the installation to finish. It should not take long.</p></li>
+<li><p>When the installation is done, you&#39;re ready to go! Click <strong>Configure</strong> to set up the plugin and follow the steps you&#39;ll find at the top of the page.</p></li>
 </ol>
 
 <div class="feedback"></div>
-<h4 id='plugins-plugins-prestashop-1-7-configure-the-plugin'><a href='#plugins-plugins-prestashop-1-7-configure-the-plugin' class='header-link'><i></i></a>Configure the plugin</h4>
+
+<p><strong>In Prestashop version 1.6</strong></p>
+
 <ol>
-<li>Log in to your Prestashop 1.7 dashboard as the admin role.</li>
-<li>From the left sidebar menu, click <strong>IMPROVE</strong> &gt; <strong>Module</strong> &gt; <strong>Module Manager</strong>.</li>
-<li>Scroll down to the <strong>Other</strong> section, and locate the plugin that you installed.</li>
-<li>In the plugin section, Click <strong>Upgrade</strong> to expand the menu, and then select <strong>Configure</strong>.</li>
-<li>Complete the fields in the <strong>Settings</strong> section and click <strong>Save</strong>:
+<li>Log in to your Prestashop 1.6 dashboard as the admin role.</li>
+<li>From the left sidebar menu, click <strong>Modules and Services</strong>.</li>
+<li><p>At the top of the categories of modules, search for <code>Revolut</code> in the search bar as seen in the image below to find the plugin. Make sure it&#39;s the one that is free and says &quot;by Prestashop Partners&quot;</p>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-prestashop-module-list-1.6.png"></p></li>
+<li><p>Click the <code>Install</code> button and wait for the installation to finish. It should not take long.</p></li>
+<li><p>When the installation is done, you&#39;ll be redirected to the plugin settings. </p></li>
+<li><p>Follow the steps you&#39;ll find at the top of the page and you&#39;ll be good to go!</p></li>
+</ol>
+
+<p><strong>Manually download and install the plugin</strong></p>
+
+<p>If your store is not connected to the addons marketplace or you prefer to manually upload the plugin to your store, you can download the Revolut Gateway for Prestashop Module:</p>
+
+<ol>
+<li>Visit the <a href="https://addons.prestashop.com/en/payments-gateways-prestashop-modules/50148-revolut-gateway-for-prestashop.html">Prestashop addons marketplace</a></li>
+<li>Click the <code>Download</code> button and select your Prestashop version to get the plugin in a <code>.zip</code> file.</li>
+<li>Install the plugin by uploading this file in the plugins section of your store.</li>
+</ol>
+
+<div class="feedback"></div>
+<h4 id='plugins-plugins-prestashop-configure-the-plugin'><a href='#plugins-plugins-prestashop-configure-the-plugin' class='header-link'><i></i></a>Configure the plugin</h4>
+<p>The <code>Revolut Gateway for Prestashop</code> plugin can be configured to suit your business needs.</p>
+
+<p>Complete the fields in the <strong>Settings</strong> section and click <strong>Save</strong>:</p>
 
 <ul>
 <li><strong>Enable plugin</strong>: Set to <strong>Yes</strong> to enable the Revolut Payment Gateway plugin on your Prestashop website. By default, it’s set to <strong>Yes</strong>.</li>
@@ -938,18 +971,18 @@ To get started, complete the following steps:</p>
 </ul></li>
 <li><strong>Setup webhook</strong>: Set up the webhook to synchronize your Prestashop orders when an order is completed on Revolut&#39;s side.</li>
 <li><strong>Order Status for completed order</strong>: Choose the status for an order to be considered as a completed order on the Revolut’s side. By default, <strong>Payment accepted</strong> is selected.</li>
-</ul></li>
-<li>Complete the fields in the <strong>Advanced mode</strong> section and click <strong>Save</strong>:
+</ul>
+
+<p>If needed, you can also complete the fields in the <strong>Advanced mode</strong> section and click <strong>Save</strong>:</p>
 
 <ul>
 <li><strong>Customize your order status</strong>: You can customize your orders&#39; status for each possible action in the Revolut payment module. If set to <strong>Yes</strong>, you can see the following two options:</li>
 <li><strong>Order Status for triggering the refund on Revolut</strong>: Select the status that triggers when an order is refunded. By default, <strong>Refunded</strong> is selected.</li>
 <li><strong>Order Status for triggering the capture on Revolut</strong>: Select the status that triggers when an order is captured. By default, <strong>Payment accepted</strong> is selected.</li>
-</ul></li>
-</ol>
+</ul>
 
 <div class="feedback"></div>
-<h4 id='plugins-plugins-prestashop-1-7-perform-the-operations'><a href='#plugins-plugins-prestashop-1-7-perform-the-operations' class='header-link'><i></i></a>Perform the operations</h4>
+<h4 id='plugins-plugins-prestashop-perform-the-operations'><a href='#plugins-plugins-prestashop-perform-the-operations' class='header-link'><i></i></a>Perform the operations</h4>
 <p><strong>Capture an order from Prestashop&#39;s admin panel</strong></p>
 
 <p>With this plugin, you can handle the capture of the orders from Prestashop&#39;s admin panel.</p>
@@ -976,10 +1009,8 @@ To get started, complete the following steps:</p>
 <p>To do that, complete the following steps:</p>
 
 <ol>
-<li>Log in to your Prestashop 1.7 dashboard as the admin role.</li>
-<li>From the left sidebar menu, click <strong>IMPROVE</strong> &gt; <strong>Module</strong> &gt; <strong>Module Manager</strong>.</li>
-<li>Scroll down to the <strong>Other</strong> section, and locate the plugin that you installed.</li>
-<li>In the plugin section, Click <strong>Upgrade</strong> to expand the menu, and then select <strong>Configure</strong>.</li>
+<li>Log in to your Prestashop dashboard as the admin role.</li>
+<li>Navigate to the Modules section and <strong>Configure</strong> the plugin.</li>
 <li>Complete the fields in the <strong>Settings</strong> section:
 
 <ul>
@@ -998,9 +1029,7 @@ To get started, complete the following steps:</p>
 
 <ol>
 <li>Log in to your Prestashop 1.7 dashboard as the admin role.</li>
-<li>From the left sidebar menu, click <strong>IMPROVE</strong> &gt; <strong>Module</strong> &gt; <strong>Module Manager</strong>.</li>
-<li>Scroll down to the <strong>Other</strong> section, and locate the plugin that you installed.</li>
-<li>In the plugin section, Click <strong>Upgrade</strong> to expand the menu, and then select <strong>Configure</strong>.</li>
+<li>Navigate to the Modules section and <strong>Configure</strong> the plugin.</li>
 <li>Complete the fields in the <strong>Settings</strong> section:
 
 <ul>
