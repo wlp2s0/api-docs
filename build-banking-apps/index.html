@@ -368,8 +368,25 @@
                           <li>
                             <a href="#tutorials-tutorials-create-your-first-draft-payment-4-get-draft-payment" class="toc-h4 toc-link" data-title="4-get-draft-payment">4. Get Draft Payment</a>
                           </li>
+                      </ul>
+                      </li>
+                    <li>
+                      <a href="#tutorials-working-with-draft-payments" class="toc-h3 toc-link" data-title="working-with-draft-payments">Working with draft payments</a>
+                      <ul class="toc-list-h4">
                           <li>
-                            <a href="#tutorials-tutorials-create-your-first-draft-payment-5-working-with-draft-payments" class="toc-h4 toc-link" data-title="5-working-with-draft-payments">5. Working with Draft Payments</a>
+                            <a href="#tutorials-tutorials-working-with-draft-payments-1-international-payments" class="toc-h4 toc-link" data-title="1-international-payments">1. International payments</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-working-with-draft-payments-2-csv-validation" class="toc-h4 toc-link" data-title="2-csv-validation">2. CSV validation</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-working-with-draft-payments-3-error-codes" class="toc-h4 toc-link" data-title="3-error-codes">3. Error codes</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-working-with-draft-payments-4-payment-orders-vs-transfers" class="toc-h4 toc-link" data-title="4-payment-orders-vs-transfers">4. Payment orders vs transfers</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-working-with-draft-payments-5-failure-codes" class="toc-h4 toc-link" data-title="5-failure-codes">5. Failure codes</a>
                           </li>
                       </ul>
                       </li>
@@ -417,7 +434,7 @@ eIDAS certificates are issued by Qualified Trust Service Providers (QTSPs) that 
 <p>For businesses that are not regulated under PSDII and would like to get access to our APIs - you can <a href="https://docs.google.com/forms/d/1jTvhtnCvPvVviGxAqu03vVrnfcrhzkU6KhbAuQvUuQE/viewform?edit_requested=true">reach out</a> to see if you qualify for access to our endpoints.</p>
 
 <aside class="notice">
-Note: please ensure you seek your own legal advice to understand if you need to be regulated to access financial data surfaced by Revolut's APIs. 
+Please ensure you seek your own legal advice to understand if you need to be regulated to access financial data surfaced by Revolut's APIs. 
 </aside>
 <h2 id='get-started'><a href='#get-started' class='header-link'><i></i></a>Get Started</h2>
 <p>The quickest way to get up and running with the Open Banking API.</p>
@@ -1871,11 +1888,13 @@ and create a payment consent in the next step. </p>
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"DraftPaymentId"</span><span class="p">:</span><span class="s2">"4bc0a477-2c81-4f49-bf5b-c6705bb7a6d9"</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Now you have an access token, you can use the <code>/draft_payments</code> endpoint to create a draft payment on behalf of the customer. Please include a CSV with the below fields, columns with optional values can be omitted in the uploaded file.</p>
+<p>Now you have an access token, you can use the <code>/draft_payments</code> endpoint to create a draft payment on behalf of the customer. Please include a CSV with the below fields.</p>
 
 <p>Once created, a draft payment will appear in their Revolut Business account, which the user can then either approve or reject.</p>
 
 <p><strong>Note:</strong> maximum number of rows in a file is 1000 and all payments must be in the same currency</p>
+
+<aside class="notice">See our <a href="#tutorials-tutorials-working-with-draft-payments-1-international-payments">guide</a> detailing which fields are required per country/currency combination. </aside>
 <h5 id='tutorials-tutorials-create-your-first-draft-payment-tutorials-tutorials-create-your-first-draft-payment-3-create-draft-payment-parameters'><a href='#tutorials-tutorials-create-your-first-draft-payment-tutorials-tutorials-create-your-first-draft-payment-3-create-draft-payment-parameters' class='header-link'><i></i></a>Parameters</h5>
 <table><thead>
 <tr>
@@ -1914,22 +1933,22 @@ and create a payment consent in the next step. </p>
 </tr>
 <tr>
 <td>Account number</td>
-<td>For UK transfers</td>
+<td>For UK/US transfers</td>
 <td>Must contain valid account number if provided</td>
 </tr>
 <tr>
 <td>Sort code or Routing number</td>
-<td>For UK transfers</td>
+<td>For UK/US transfers</td>
 <td>Must contain valid sort code or routing number if provided</td>
 </tr>
 <tr>
 <td>IBAN</td>
-<td>For SEPA transfers</td>
+<td>For transfers to IBAN countries</td>
 <td>Must contain valid IBAN if provided</td>
 </tr>
 <tr>
 <td>BIC</td>
-<td>For SEPA transfers</td>
+<td>For transfers IBAN countries</td>
 <td>Must contain valid BIC if provided</td>
 </tr>
 <tr>
@@ -2032,9 +2051,184 @@ and create a payment consent in the next step. </p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>By supplying a <code>DraftPaymentID</code>, you can request details related to a specific draft payment that has been created. <code>Index</code> indicates which row number from the CSV file this transfer represents. </p>
-<h4 id='tutorials-tutorials-create-your-first-draft-payment-5-working-with-draft-payments'><a href='#tutorials-tutorials-create-your-first-draft-payment-5-working-with-draft-payments' class='header-link'><i></i></a>5. Working with Draft Payments</h4>
+
+<p><strong>What’s next</strong></p>
+
+<ul>
+<li>See the <a href="https://developer.revolut.com/api-reference/open-banking/#operation/createDraftPayment" target="_blank">API Reference</a> for full detail on working with draft payments</li>
+<li>Suggest a new endpoint by filling out this short <a href=https://docs.google.com/forms/d/1jTvhtnCvPvVviGxAqu03vVrnfcrhzkU6KhbAuQvUuQE/edit>form</a></li>
+</ul>
+<h3 id='tutorials-working-with-draft-payments'><a href='#tutorials-working-with-draft-payments' class='header-link'><i></i></a>Working with draft payments</h3>
 <p>Now that your first draft payment has been created, there are some important considerations to take into account when building your integration. </p>
-<h5 id='tutorials-tutorials-create-your-first-draft-payment-tutorials-tutorials-create-your-first-draft-payment-5-working-with-draft-payments-payment-orders-vs-transfers'><a href='#tutorials-tutorials-create-your-first-draft-payment-tutorials-tutorials-create-your-first-draft-payment-5-working-with-draft-payments-payment-orders-vs-transfers' class='header-link'><i></i></a>Payment Orders vs Transfers</h5>
+<h4 id='tutorials-tutorials-working-with-draft-payments-1-international-payments'><a href='#tutorials-tutorials-working-with-draft-payments-1-international-payments' class='header-link'><i></i></a>1. International payments</h4>
+<p>In our CSV upload files we provide the fields, <code>Account Number</code>, <code>Sort Code or Routing Number</code>, <code>IBAN</code>, <code>BIC</code> , <code>Currency</code>, <code>Country</code> and multiple address fields that allow you to create draft payments to acounts across the globe.  </p>
+
+<p>However, depending on the currency and country of the bank account will determine which fields we require on the CSV upload.</p>
+
+<p>On all payments the <code>Name</code>, <code>Recipient type</code>, <code>Recipient bank country</code>, <code>Currency</code>, <code>Amount</code> and <code>Payment reference</code> are required. </p>
+
+<p>Then, depending on the currency/country, further fields should also be provided:</p>
+
+<table><thead>
+<tr>
+<th>Country</th>
+<th>Currency</th>
+<th>Fields Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>GB</td>
+<td>GBP</td>
+<td>Account Number, SortCode</td>
+</tr>
+<tr>
+<td>SEPA Country</td>
+<td>EUR</td>
+<td>IBAN, BIC</td>
+</tr>
+<tr>
+<td>IBAN Country</td>
+<td>Any (with exception of Euros in SEPA)</td>
+<td>IBAN, BIC, Address</td>
+</tr>
+<tr>
+<td>DK, NO, SE</td>
+<td>Local currency (DKK, NOK, SEK)</td>
+<td>IBAN, BIC, Address</td>
+</tr>
+<tr>
+<td>US</td>
+<td>USD</td>
+<td>Account number, Routing number, Address, State or province</td>
+</tr>
+</tbody></table>
+
+<p>If you would like to use our draft payments endpoint in any countries/currencies not listed above, please <a href="mailto:api-requests@revolut.com">reach out</a> and we can look to incorporate your request.</p>
+
+<p><strong>Note:</strong> <i>Address</i> above is defined as <code>Country</code> ,<code>Address line 1</code>, <code>City</code> and <code>Postcode</code> fields.</p>
+<h5 id='tutorials-tutorials-working-with-draft-payments-tutorials-tutorials-working-with-draft-payments-1-international-payments-account-selection'><a href='#tutorials-tutorials-working-with-draft-payments-tutorials-tutorials-working-with-draft-payments-1-international-payments-account-selection' class='header-link'><i></i></a>Account selection</h5>
+<p>In Revolut Business, an account can have multiple pockets in different currencies.</p>
+
+<p>The pocket selected for a draft payment is the pocket with the highest amount of currency that matches the currency of the payment. </p>
+
+<p>If no pocket with a matching currency exists, the pocket with the default currency of the account is chosen and on payment execution there is an automatic currency conversion. </p>
+<h4 id='tutorials-tutorials-working-with-draft-payments-2-csv-validation'><a href='#tutorials-tutorials-working-with-draft-payments-2-csv-validation' class='header-link'><i></i></a>2. CSV validation</h4><blockquote>
+      <div><p>CSV with errors</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell"><code>Name,Recipient <span class="nb">type</span>,Account number,Sort code or Routing number,IBAN,BIC,Recipient bank country,Currency,Amount,Payment reference,Recipient country,State or province,Address line 1,Address line 2,City,Postal code
+Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,GBP,10,Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment,GB,,<span class="s2">"Revolutest LTD, Level 39"</span>,Somewhere <span class="k">in </span>London,London,E14 5AB
+Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,abc,25,Second comment,uk,,<span class="s2">"Revolutest LTD, Level 39"</span>,Somewhere <span class="k">in </span>London,London,E14 5AB
+,INDIVIDUAL,,,UK1234,2,GB,GBP,25,Second comment,GB,,<span class="s2">"Revolutest LTD, Level 39"</span>,Somewhere <span class="k">in </span>London,Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu,E14 5AB
+
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"88d5cbee-cb6f-4b00-a08a-9bd3baa02de9"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File validation failed"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"Row"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment reference"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment reference cannot be longer than 100 symbols"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Row"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Currency"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid Currency: abc"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recipient country"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid Recipient country: uk"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Row"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name is required"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IBAN"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid IBAN: UK1234"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BIC"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid BIC: 2"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City cannot be longer than 50 symbols"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">3039</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>When uploading the CSV file there are a number of validation errors that could stop a bulk order being successfully uploaded. These are aligned with the requirements of each field specified above and check that the bank account details provided are valid. </p>
+
+<p>If there is an issue with the CSV uploaded, the API will respond with a <code>3039</code> error code and give details of the CSV validation errors row by row.</p>
+
+<p>At this step, we validate if the fields in the CSV match the format required and if the bank acount details provided are valid for a payment to be made.</p>
+
+<p>Please see an example file to the right and it&#39;s response with relevant errors. </p>
+
+<p>Without resolving all errors, the file will not be uploaded correctly.</p>
+<h4 id='tutorials-tutorials-working-with-draft-payments-3-error-codes'><a href='#tutorials-tutorials-working-with-draft-payments-3-error-codes' class='header-link'><i></i></a>3. Error codes</h4>
+<p>There are a number of different error codes that can be surfaced from the draft payments endpoint.
+Please see a table detailing these below, the message and when you can expect them to be surfaced.</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Message</th>
+<th>Reason</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>2101</td>
+<td>Maximum file size limit of 10MB bytes exceeded</td>
+<td>File size uploaded was too large</td>
+</tr>
+<tr>
+<td>2101</td>
+<td>Multiple currencies in single file are not allowed</td>
+<td>Only payments in one currency can be uploaded</td>
+</tr>
+<tr>
+<td>3039</td>
+<td>File validation failed</td>
+<td>There was an error in the details provided in the CSV</td>
+</tr>
+<tr>
+<td>9002</td>
+<td>Unable to find suitable template</td>
+<td>The headers provided in the file do not match our CSV format</td>
+</tr>
+<tr>
+<td>3058/11102</td>
+<td>Invalid state error</td>
+<td>Draft payment was not in the right state for a certain action. For example trying to delete a draft payment that had already been processed</td>
+</tr>
+<tr>
+<td>11101/3070</td>
+<td>Not found error</td>
+<td>Draft payment was not found</td>
+</tr>
+<tr>
+<td>9002</td>
+<td>This action is forbidden</td>
+<td>The user that tried to make this action was not the Business owner of the account</td>
+</tr>
+</tbody></table>
+<h4 id='tutorials-tutorials-working-with-draft-payments-4-payment-orders-vs-transfers'><a href='#tutorials-tutorials-working-with-draft-payments-4-payment-orders-vs-transfers' class='header-link'><i></i></a>4. Payment orders vs transfers</h4>
 <p>When you create a bulk draft payment, it consists of a <i>draft payment order</i> which in turn contains a set of <i> transfers</i>, these concepts have independent states. </p>
 
 <p>A <i>draft payment order</i> is what the user will either approve or delete from the UI. There are four states that the order can appear in:</p>
@@ -2092,7 +2286,7 @@ and create a payment consent in the next step. </p>
 <td>Transfer has been deleted by the user.</td>
 </tr>
 </tbody></table>
-<h5 id='tutorials-tutorials-create-your-first-draft-payment-tutorials-tutorials-create-your-first-draft-payment-5-working-with-draft-payments-failure-codes'><a href='#tutorials-tutorials-create-your-first-draft-payment-tutorials-tutorials-create-your-first-draft-payment-5-working-with-draft-payments-failure-codes' class='header-link'><i></i></a>Failure Codes</h5>
+<h4 id='tutorials-tutorials-working-with-draft-payments-5-failure-codes'><a href='#tutorials-tutorials-working-with-draft-payments-5-failure-codes' class='header-link'><i></i></a>5. Failure codes</h4>
 <p>There are a number of different reasons that transfers can fail. Please see the table below as a reference for different values of <code>FailedReasonCode</code>:</p>
 
 <table><thead>
@@ -2128,13 +2322,6 @@ and create a payment consent in the next step. </p>
 <aside class="warning">
 If ever in doubt, users should always reach out to Revolut Business support to get further help in understanding the failure of specific transfers. 
 </aside>
-
-<p><strong>What’s next</strong></p>
-
-<ul>
-<li>See the <a href="https://developer.revolut.com/api-reference/open-banking/#operation/createDraftPayment" target="_blank">API Reference</a> for full detail on working with draft payments</li>
-<li>Suggest a new endpoint by filling out this short <a href=https://docs.google.com/forms/d/1jTvhtnCvPvVviGxAqu03vVrnfcrhzkU6KhbAuQvUuQE/edit>form</a></li>
-</ul>
 <h2 id='api-metrics'><a href='#api-metrics' class='header-link'><i></i></a>API Metrics</h2>
 <p>You can review detailed Open Banking metrics <a href="https://revolut-engineering.github.io/oba/reports/index.html" target="_blank">here</a>. You can also compare the performance of our Open Banking API vs the performance of our direct user interfaces for Retail and Business products <a href="https://revolut-engineering.github.io/oba/reports/indexLine.html" target="_blank">here</a>.</p>
 
