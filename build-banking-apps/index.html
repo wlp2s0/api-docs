@@ -2061,9 +2061,9 @@ and create a payment consent in the next step. </p>
 <h3 id='tutorials-working-with-draft-payments'><a href='#tutorials-working-with-draft-payments' class='header-link'><i></i></a>Working with draft payments</h3>
 <p>Now that your first draft payment has been created, there are some important considerations to take into account when building your integration. </p>
 <h4 id='tutorials-tutorials-working-with-draft-payments-1-international-payments'><a href='#tutorials-tutorials-working-with-draft-payments-1-international-payments' class='header-link'><i></i></a>1. International payments</h4>
-<p>In our CSV upload files we provide the fields, <code>Account Number</code>, <code>Sort Code or Routing Number</code>, <code>IBAN</code>, <code>BIC</code> , <code>Currency</code>, <code>Country</code> and multiple address fields that allow you to create draft payments to acounts across the globe.  </p>
+<p>In our CSV upload files we provide the fields: <code>Account Number</code>, <code>Sort Code or Routing Number</code>, <code>IBAN</code>, <code>BIC</code> , <code>Currency</code>, <code>Country</code> and multiple address fields that allow you to create draft payments to bank accounts across the globe.  </p>
 
-<p>However, depending on the currency and country of the bank account will determine which fields we require on the CSV upload.</p>
+<p>However, depending on the currency and country of the bank account, will determine which fields we require on the CSV upload.</p>
 
 <p>On all payments the <code>Name</code>, <code>Recipient type</code>, <code>Recipient bank country</code>, <code>Currency</code>, <code>Amount</code> and <code>Payment reference</code> are required. </p>
 
@@ -2092,12 +2092,12 @@ and create a payment consent in the next step. </p>
 <td>IBAN, BIC, Address</td>
 </tr>
 <tr>
-<td>DK, NO, SE</td>
+<td>DK, NO, SE.</td>
 <td>Local currency (DKK, NOK, SEK)</td>
 <td>IBAN, BIC, Address</td>
 </tr>
 <tr>
-<td>US</td>
+<td>US.</td>
 <td>USD</td>
 <td>Account number, Routing number, Address, State or province</td>
 </tr>
@@ -2105,7 +2105,7 @@ and create a payment consent in the next step. </p>
 
 <p>If you would like to use our draft payments endpoint in any countries/currencies not listed above, please <a href="mailto:api-requests@revolut.com">reach out</a> and we can look to incorporate your request.</p>
 
-<p><strong>Note:</strong> <i>Address</i> above is defined as <code>Country</code> ,<code>Address line 1</code>, <code>City</code> and <code>Postcode</code> fields.</p>
+<p><strong>Note:</strong> <i>Address</i> is defined as <code>Country</code>, <code>Address line 1</code>, <code>City</code> and <code>Postcode</code> fields.</p>
 <h5 id='tutorials-tutorials-working-with-draft-payments-tutorials-tutorials-working-with-draft-payments-1-international-payments-account-selection'><a href='#tutorials-tutorials-working-with-draft-payments-tutorials-tutorials-working-with-draft-payments-1-international-payments-account-selection' class='header-link'><i></i></a>Account selection</h5>
 <p>In Revolut Business, an account can have multiple pockets in different currencies.</p>
 
@@ -2176,7 +2176,7 @@ Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,abc,25,Second comment,uk,,<span class
 
 <p>If there is an issue with the CSV uploaded, the API will respond with a <code>3039</code> error code and give details of the CSV validation errors row by row.</p>
 
-<p>At this step, we validate if the fields in the CSV match the format required and if the bank acount details provided are valid for a payment to be made.</p>
+<p>At this step, we validate if the fields in the CSV match the format required and if the bank account details provided are valid for a payment to be made.</p>
 
 <p>Please see an example file to the right and it&#39;s response with relevant errors. </p>
 
