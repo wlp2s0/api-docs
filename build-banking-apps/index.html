@@ -506,9 +506,13 @@ Please ensure you seek your own legal advice to understand if you need to be reg
 
 <p>Once you have a valid JWT, use the <code>/register</code> endpoint to dynamically register your application. In the response you will obtain your <code>client_id</code>.</p>
 
-<p><strong>Note:</strong> to check that your JWT is valid, please use this <a href="https://jwt.io/#debugger-io"> JWT debugging tool </a> before attempting to register.</p>
+<aside class="warning">
+<b>Note:</b> to check that your JWT is valid, please use this <a href="https://jwt.io/#debugger-io"> JWT debugging tool </a> before attempting to register.
+</aside>
 
-<p><strong>Note:</strong> for full detail on generating the <code>software_statement</code> and <code>tls_client_auth_dn</code> fields, please read the <a href="#identification-and-authentication-identification-and-authentication-dynamic-client-registration-registration-request"> Identification and Authentication</a> section of our documentation.</p>
+<aside class="warning">
+<b>Note:</b> for full detail on generating the <code>software_statement</code> and <code>tls_client_auth_dn</code> fields, please read the <a href="#identification-and-authentication-identification-and-authentication-dynamic-client-registration-registration-request"> Identification and Authentication</a> section of our documentation.
+</aside>
 
 <p><strong>Open ID Configuration URLs</strong></p>
 
@@ -638,8 +642,6 @@ If you have any issues onboarding with eIDAS, please <a href="mailto:api-request
   </span><span class="s2">"software_statement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ewogICJhbGciOiAibm9uZSIKfQ.ewogICJvcmdfaWQiOiAiNzc3NTgwMDAwMTAzVUF2QUFNIiwKICAib3JnX25hbWUiOiAiUmV2b2x1dCBUUFAiLAogICJzb2Z0d2FyZV9jbGllbnRfbmFtZSI6ICJSZXZvbHV0IFRQUCIsCiAgIm9yZ19qd2tzX2VuZHBvaW50IjogImh0dHA6Ly9vcGVuYmFua2luZy5vcmcudWsvZW5kcG9pbnQiLAogICJzb2Z0d2FyZV9yZWRpcmVjdF91cmlzIjogWwogICAgImh0dHA6Ly91cmwvb25lIgogIF0KfQ."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>NOTE:</strong> You will need a valid JWT signature to register your client. You can debug your JWT header and payload using the <a href="https://jwt.io/#debugger-io"> debug tool.</a></p>
-
 <table><thead>
 <tr>
 <th>JWT payload</th>
@@ -721,6 +723,10 @@ If you have any issues onboarding with eIDAS, please <a href="mailto:api-request
 <td>Yes</td>
 </tr>
 </tbody></table>
+
+<aside class="warning">
+<b>Note:</b> You will need a valid JWT signature to register your client. You can debug your JWT header and payload using the <a href="https://jwt.io/#debugger-io"> debug tool.</a>
+</aside>
 <h5 id='identification-and-authentication-identification-and-authentication-dynamic-client-registration-identification-and-authentication-identification-and-authentication-dynamic-client-registration-registration-request-open-banking-software-statement'><a href='#identification-and-authentication-identification-and-authentication-dynamic-client-registration-identification-and-authentication-identification-and-authentication-dynamic-client-registration-registration-request-open-banking-software-statement' class='header-link'><i></i></a>Open Banking software statement</h5>
 <p>If you are registering with Open Banking certificate, you should use the software statement signed by Open Banking which you can obtain from Directory</p>
 <h5 id='identification-and-authentication-identification-and-authentication-dynamic-client-registration-identification-and-authentication-identification-and-authentication-dynamic-client-registration-registration-request-self-signed-software-statement'><a href='#identification-and-authentication-identification-and-authentication-dynamic-client-registration-identification-and-authentication-identification-and-authentication-dynamic-client-registration-registration-request-self-signed-software-statement' class='header-link'><i></i></a>Self-signed software statement</h5>
@@ -862,7 +868,7 @@ If you have any issues onboarding with eIDAS, please <a href="mailto:api-request
     </blockquote><pre class="highlight shell tab-shell"><code>openssl x509 -in /path/to/your/cert.pem -inform pem -noout -subject -nameopt RFC2253
 </code></pre>
 <aside class="warning">
-    Please note that Dynamic Registration requires using the RFC2253 DN format in <b>tls_client_auth_dn</b> field of your request.
+    <b>Note:</b> Dynamic Registration requires use of the RFC2253 DN format in <b>tls_client_auth_dn</b> field of your request.
 </aside>
 
 <p>Use the commands to the right to obtain the DN from your certificates in either DER or PEM formats.</p>
@@ -1120,7 +1126,14 @@ and create a consent in the next step. </p>
 </span></code></pre>
 <p>Firstly, create a JWT request parameter with header and body in the format to the right, signed by your signing certificate’s private key. This signature will be validated using the JWKs endpoint you specified during registration of your app.</p>
 
-<p><strong>Note:</strong>  <code>client_id</code> ,  <code>redirect_uri</code> , <code>kid</code> and <code>scope</code> should correspond to the values for your specific application and consent request. <code>openbanking_intent_id</code> is the <code>ConsentId</code> field generated from the previous step. </p>
+<aside class="warning">
+  <p>
+<b>Note:</b>  <code>client_id</code>,  <code>redirect_uri</code>, <code>kid</code> and <code>scope</code> should correspond to the values for your specific application and consent request.
+<br />
+<br />
+<code>openbanking_intent_id</code> is the <code>ConsentId</code> field generated from the previous step.
+</p>
+</aside>
 <h4 id='tutorials-tutorials-get-account-and-transaction-information-4-get-consent-from-user'><a href='#tutorials-tutorials-get-account-and-transaction-information-4-get-consent-from-user' class='header-link'><i></i></a>4. Get consent from user</h4><blockquote>
       <div><p>Sample URL</p>
 </div>
@@ -1220,7 +1233,9 @@ and create a consent in the next step. </p>
 </span></code></pre>
 <p>If the user has successfully authorised your consent, return to the <code>/token</code> endpoint, this time with <code>grant_type=authorization_code</code>to obtain the access token that can be used against our Accounts APIs.</p>
 
-<p><strong>Note:</strong> <code>auth_code</code> here is the authorisation code generated from the previous step</p>
+<aside class="warning">
+<b>Note:</b> <code>auth_code</code> here is the authorisation code generated from the previous step.
+</aside>
 <h4 id='tutorials-tutorials-get-account-and-transaction-information-6-get-list-of-accounts'><a href='#tutorials-tutorials-get-account-and-transaction-information-6-get-list-of-accounts' class='header-link'><i></i></a>6. Get list of Accounts</h4><blockquote>
       <div><p>Get list of accounts</p>
 </div>
@@ -1284,9 +1299,9 @@ and create a consent in the next step. </p>
 <li><a href=#tutorials-initiate-your-first-payment>Initiate your first payment:</a> see our tutorial for building to our payments endpoints</li>
 </ul>
 <h3 id='tutorials-initiate-your-first-payment'><a href='#tutorials-initiate-your-first-payment' class='header-link'><i></i></a>Initiate your first payment</h3>
-<p>This tutorial will get you started with building integrations to our Payments endpoints.</p>
+<p>This tutorial will get you started with building integrations to our payments endpoints.</p>
 
-<p>In this example, you will initiate a <code>domestic-payment</code> but the principles used apply to all of our Payments endpoints. See the <a href="https://developer.revolut.com/api-reference/open-banking/#tag/Payment-Initiation">API Reference</a> for the different types of payments supported.</p>
+<p>In this example, you will initiate a <code>domestic-payment</code> but the principles used apply to all of our payments endpoints. See the <a href="https://developer.revolut.com/api-reference/open-banking/#tag/Payment-Initiation">API Reference</a> for the different types of payments supported.</p>
 
 <p>Before starting the tutorial, ensure that you have registered your application with the <code>payments</code> scope.</p>
 
@@ -1325,7 +1340,7 @@ and create a consent in the next step. </p>
   </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="mi">2399</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>The first step in this guide is to request an access token using the <code>/token</code> endpoint and <code>client_credentials</code> grant type. </p>
+<p>The first step is to request an access token using the <code>/token</code> endpoint and <code>client_credentials</code> grant type.</p>
 
 <p>This token will allow you to update your application using the <a href="#identification-and-authentication-identification-and-authentication-dynamic-client-registration-certificate-dn-for-using-in-registration-request">update endpoint</a>
 and create a payment consent in the next step. </p>
@@ -1484,7 +1499,7 @@ and create a payment consent in the next step. </p>
 
 <p><code>x-idempotency-key</code>  is a field specified by you in the case that there is a network failure and you do not receive the ID in response. It allows you to retry the request if needed.</p>
 <h4 id='tutorials-tutorials-initiate-your-first-payment-3-create-a-jwt-url-parameter'><a href='#tutorials-tutorials-initiate-your-first-payment-3-create-a-jwt-url-parameter' class='header-link'><i></i></a>3. Create a JWT URL parameter</h4>
-<p>Now that you have created a consent, you need the user to authorise it so that you can initiate a payment on behalf of the user.</p>
+<p>Now that you have created a consent, you need the user to authorise it, so that you can initiate a payment on their behalf.</p>
 <blockquote>
       <div><p>Header </p>
 </div>
@@ -1523,7 +1538,14 @@ and create a payment consent in the next step. </p>
 </span></code></pre>
 <p>Firstly, create a JWT request parameter with header and body in the format to the right, signed by your signing certificate’s private key. This signature will be validated using the JWKs endpoint you specified during registration of your app.</p>
 
-<p><strong>Note:</strong>  <code>client_id</code> ,  <code>redirect_uri</code> , <code>kid</code> and <code>scope</code> should correspond to the values for your specific application and consent request. <code>openbanking_intent_id</code> is the <code>ConsentId</code> field generated from the previous step. </p>
+<aside class="warning">
+  <p>
+<b>Note:</b> <code>client_id</code>,  <code>redirect_uri</code>, <code>kid</code> and <code>scope</code> should correspond to the values for your specific application and consent request.
+<br />
+<br />
+ <code>openbanking_intent_id</code> is the <code>ConsentId</code> field generated from the previous step. 
+</p>
+</aside>
 <h4 id='tutorials-tutorials-initiate-your-first-payment-4-get-consent-from-user'><a href='#tutorials-tutorials-initiate-your-first-payment-4-get-consent-from-user' class='header-link'><i></i></a>4. Get consent from user</h4><blockquote>
       <div><p>Sample URL</p>
 </div>
@@ -1623,7 +1645,9 @@ and create a payment consent in the next step. </p>
 </span></code></pre>
 <p>If the user has successfully authorised your consent, return to the <code>/token</code> endpoint, this time with <code>grant_type=authorization_code</code>to obtain the access token that can be used against the  <code>/domestic-payments</code> endpoint. </p>
 
-<p><strong>Note:</strong> <code>auth_code</code> here is the authorisation code generated from the previous step</p>
+<aside class="warning">
+<b>Note:</b> <code>auth_code</code> here is the authorisation code generated from the previous step
+</aside>
 <h4 id='tutorials-tutorials-initiate-your-first-payment-6-initiate-domestic-payment'><a href='#tutorials-tutorials-initiate-your-first-payment-6-initiate-domestic-payment' class='header-link'><i></i></a>6. Initiate domestic payment</h4><blockquote>
       <div><p>Create a domestic payment</p>
 </div>
@@ -1776,7 +1800,9 @@ and create a payment consent in the next step. </p>
 <h3 id='tutorials-create-your-first-draft-payment'><a href='#tutorials-create-your-first-draft-payment' class='header-link'><i></i></a>Create your first draft payment</h3>
 <p>To request approval to use our draft payments endpoint, please first register your application in our <a href='https://developer.revolut.com/portal/applications'>Developer Portal</a>.</p>
 
-<p><strong>Note:</strong> draft payment functionality is only available for Revolut Business customers. </p>
+<aside class="warning">
+<b>Note:</b> draft payment functionality is only available for Revolut Business customers. 
+</aside>
 <h4 id='tutorials-tutorials-create-your-first-draft-payment-1-get-authorisation-from-user'><a href='#tutorials-tutorials-create-your-first-draft-payment-1-get-authorisation-from-user' class='header-link'><i></i></a>1. Get authorisation from user</h4><blockquote>
       <div><p>Draft Payments authorisation URL</p>
 </div>
@@ -1892,7 +1918,9 @@ and create a payment consent in the next step. </p>
 
 <p>Once created, a draft payment will appear in their Revolut Business account, which the user can then either approve or reject.</p>
 
-<p><strong>Note:</strong> maximum number of rows in a file is 1000 and all payments must be in the same currency</p>
+<aside class="warning">
+<b>Note:</b> maximum number of rows in a file is 1000 and all payments must be in the same currency. 
+</aside>
 
 <aside class="notice">See our <a href="#tutorials-tutorials-working-with-draft-payments-1-international-payments">guide</a> detailing which fields are required per country/currency combination. </aside>
 <h5 id='tutorials-tutorials-create-your-first-draft-payment-tutorials-tutorials-create-your-first-draft-payment-3-create-draft-payment-parameters'><a href='#tutorials-tutorials-create-your-first-draft-payment-tutorials-tutorials-create-your-first-draft-payment-3-create-draft-payment-parameters' class='header-link'><i></i></a>Parameters</h5>
@@ -2057,6 +2085,7 @@ and create a payment consent in the next step. </p>
 <ul>
 <li>See the <a href="https://developer.revolut.com/api-reference/open-banking/#operation/createDraftPayment" target="_blank">API Reference</a> for full detail on working with draft payments</li>
 <li>Suggest a new endpoint by filling out this short <a href=https://docs.google.com/forms/d/1jTvhtnCvPvVviGxAqu03vVrnfcrhzkU6KhbAuQvUuQE/edit>form</a></li>
+<li>See our <a href=#tutorials-working-with-draft-payments>tutorial</a> for important considerations when building your draft payments integration</li>
 </ul>
 <h3 id='tutorials-working-with-draft-payments'><a href='#tutorials-working-with-draft-payments' class='header-link'><i></i></a>Working with draft payments</h3>
 <p>Now that your first draft payment has been created, there are some important considerations to take into account when building your integration. </p>
@@ -2087,25 +2116,73 @@ and create a payment consent in the next step. </p>
 <td>IBAN, BIC</td>
 </tr>
 <tr>
-<td>IBAN Country</td>
-<td>Any (with exception of Euros in SEPA)</td>
-<td>IBAN, BIC, Address</td>
-</tr>
-<tr>
-<td>DK, NO, SE.</td>
+<td>DK, NO, SE</td>
 <td>Local currency (DKK, NOK, SEK)</td>
+<td>IBAN, BIC</td>
+</tr>
+<tr>
+<td>IBAN Country</td>
+<td>Any supported (with exception of Euros in SEPA)</td>
 <td>IBAN, BIC, Address</td>
 </tr>
 <tr>
-<td>US.</td>
+<td>US</td>
 <td>USD</td>
 <td>Account number, Routing number, Address, State or province</td>
 </tr>
+<tr>
+<td>US</td>
+<td>Any supported (with exception of USD)</td>
+<td>Account number, BIC, Address, State or province</td>
+</tr>
+<tr>
+<td>HK</td>
+<td>Any supported</td>
+<td>Account number, BIC, Address</td>
+</tr>
+<tr>
+<td>PH</td>
+<td>Any supported + PHP</td>
+<td>Account number, BIC, Address</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>Any supported + IDR</td>
+<td>Account number, BIC, Address</td>
+</tr>
 </tbody></table>
 
-<p>If you would like to use our draft payments endpoint in any countries/currencies not listed above, please <a href="mailto:api-requests@revolut.com">reach out</a> and we can look to incorporate your request.</p>
+<p>See lists for IBAN/SEPA countries and currencies supported:</p>
 
-<p><strong>Note:</strong> <i>Address</i> is defined as <code>Country</code>, <code>Address line 1</code>, <code>City</code> and <code>Postcode</code> fields.</p>
+<table><thead>
+<tr>
+<th>Type</th>
+<th>List</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SEPA countries</td>
+<td>AD, AT, AX, BE, BG, BL, CH, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GF, GG, GI, GP, GR, HR, HU, IC, IE, IM, IS, IT, JE, LI, LT, LU, LV, MC, MF, MQ, MT, NL, NO, PL, PM, PT, RE, RO, SE, SI, SK, SM, TF, VA, YT</td>
+</tr>
+<tr>
+<td>IBAN countries</td>
+<td>AD, AD, AE, AL, AO, AT, BA, BE, BG, BH, CH, CR, CY, CZ, DE, DK, DO, DZ, EE, ES, FI, FO, FR, GB, GE, GF, GI, GL, GR, HR, HU, IE, IL, IS, IT, JO, KW, KZ, LB, LI, LT, LU, LV, MC, MD, ME, MG, MK, MQ, MR, MT, MU, NL, NO, PK, PL, PM, PS, PT, QA, RO, RS, SA, SE, SI, SK, SM, TF, TN, TR, VA, VG, YT</td>
+</tr>
+<tr>
+<td>Currencies supported</td>
+<td>AED, AUD, BGN, CAD, CHF, CZK, DKK, EUR, GBP, HKD, HRK, HUF, ILS, JPY, MXN, NOK, NZD, PLN, QAR, RON, SAR, SEK, SGD, THB, TRY, USD, ZAR</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+<b>Note:</b> <i>Address</i> is defined as <code>Country</code>, <code>Address line 1</code>, <code>City</code> and <code>Postcode</code> fields.
+</aside>
+
+<aside class="warning">
+<b>Note:</b> we only support PHP and IDR in the Philippines and Indonesia respectively.
+</aside>
+
+<p>If you would like to use our draft payments endpoint in any countries/currencies not listed above, please <a href="mailto:api-requests@revolut.com">reach out</a> and we can look to incorporate your request.</p>
 <h5 id='tutorials-tutorials-working-with-draft-payments-tutorials-tutorials-working-with-draft-payments-1-international-payments-account-selection'><a href='#tutorials-tutorials-working-with-draft-payments-tutorials-tutorials-working-with-draft-payments-1-international-payments-account-selection' class='header-link'><i></i></a>Account selection</h5>
 <p>In Revolut Business, an account can have multiple pockets in different currencies.</p>
 
@@ -2172,7 +2249,7 @@ Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,abc,25,Second comment,uk,,<span class
   </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">3039</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>When uploading the CSV file there are a number of validation errors that could stop a bulk order being successfully uploaded. These are aligned with the requirements of each field specified above and check that the bank account details provided are valid. </p>
+<p>When uploading the CSV file there are a number of validation errors that could stop a bulk order being successfully uploaded. </p>
 
 <p>If there is an issue with the CSV uploaded, the API will respond with a <code>3039</code> error code and give details of the CSV validation errors row by row.</p>
 
@@ -2180,7 +2257,7 @@ Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,abc,25,Second comment,uk,,<span class
 
 <p>Please see an example file to the right and it&#39;s response with relevant errors. </p>
 
-<p>Without resolving all errors, the file will not be uploaded correctly.</p>
+<p>Without resolving all errors, the creation of the draft payment will fail.</p>
 <h4 id='tutorials-tutorials-working-with-draft-payments-3-error-codes'><a href='#tutorials-tutorials-working-with-draft-payments-3-error-codes' class='header-link'><i></i></a>3. Error codes</h4>
 <p>There are a number of different error codes that can be surfaced from the draft payments endpoint.
 Please see a table detailing these below, the message and when you can expect them to be surfaced.</p>
@@ -2253,7 +2330,7 @@ Please see a table detailing these below, the message and when you can expect th
 </tr>
 <tr>
 <td>Deleted</td>
-<td>Draft payment order has been deleted by the user.</td>
+<td>Draft payment order has been deleted by the user,</td>
 </tr>
 </tbody></table>
 
@@ -2313,7 +2390,7 @@ Please see a table detailing these below, the message and when you can expect th
 </tr>
 <tr>
 <td>3067</td>
-<td>Unknown error. Please ask user to reach out to support</td>
+<td>Unknown error. Please ask user to reach out to support.</td>
 </tr>
 </tbody></table>
 

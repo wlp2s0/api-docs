@@ -400,7 +400,7 @@
   <span class="nx">onSuccess</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
   <span class="nx">onError</span><span class="p">?:</span> <span class="p">(</span><span class="na">message</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
   <span class="nx">onCancel</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
-  <span class="nx">name</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="nx">email</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="nx">phone</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="nx">billingAddress</span><span class="p">?:</span> <span class="p">{</span>
@@ -447,12 +447,12 @@
 </tr>
 <tr>
 <td><code>name</code></td>
-<td>Customer name in the format of <code>FirstName LastName</code></td>
+<td>Customer’s name in the format of <code>FirstName LastName</code>. This value is <strong>required</strong>.</td>
 <td>String</td>
 </tr>
 <tr>
 <td><code>email</code></td>
-<td>Customer&#39;s email</td>
+<td>Customer&#39;s email. This is <strong>required</strong> if not set on the order via API.</td>
 <td>String</td>
 </tr>
 <tr>
@@ -661,7 +661,7 @@
 
 
 <span class="kd">type</span> <span class="nx">Meta</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">name</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="na">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="nx">email</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="nx">phone</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="nx">billingAddress</span><span class="p">?:</span> <span class="p">{</span>
@@ -835,12 +835,12 @@
 </thead><tbody>
 <tr>
 <td><code>meta.name</code></td>
-<td>Customer’s name in the format of <code>FirstName LastName</code></td>
+<td>Customer’s name in the format of <code>FirstName LastName</code>. This value is <strong>required</strong>.</td>
 <td>String</td>
 </tr>
 <tr>
 <td><code>meta.email</code></td>
-<td>Customer&#39;s email. This is required if not set on the order via API.</td>
+<td>Customer&#39;s email. This is <strong>required</strong> if not set on the order via API.</td>
 <td>String</td>
 </tr>
 <tr>
