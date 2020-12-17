@@ -273,6 +273,17 @@
                           </li>
                       </ul>
                       </li>
+                    <li>
+                      <a href="#instance-instance-paywithrevolut" class="toc-h3 toc-link" data-title="instance-paywithrevolut">Instance.payWithRevolut</a>
+                      <ul class="toc-list-h4">
+                          <li>
+                            <a href="#instance-instance-instance-paywithrevolut-returns" class="toc-h4 toc-link" data-title="returns">Returns</a>
+                          </li>
+                          <li>
+                            <a href="#instance-instance-instance-paywithrevolut-example" class="toc-h4 toc-link" data-title="example">Example</a>
+                          </li>
+                      </ul>
+                      </li>
                 </ul>
             </li>
             <li>
@@ -1013,7 +1024,115 @@
 <p>See the <a href="#integration-examples-integrating-and-customising-the-card-field">card field integration</a> example.</p>
 
 <div class="feedback"></div>
-<h2 id='integration-examples'><a href='#integration-examples' class='header-link'><i></i></a>Integration examples</h2><h3 id='integration-examples-integrating-the-payment-pop-up'><a href='#integration-examples-integrating-the-payment-pop-up' class='header-link'><i></i></a>Integrating the payment pop-up</h3>
+<h3 id='instance-instance-paywithrevolut'><a href='#instance-instance-paywithrevolut' class='header-link'><i></i></a>Instance.payWithRevolut</h3>
+<p>Display the <strong>Pay with Revolut</strong> button to allow your customer to make a payment with their Revolut app.</p>
+<blockquote>
+      <div><p>Display the button</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight typescript"><code><span class="kr">interface</span> <span class="nx">Instance</span> <span class="p">{</span>
+  <span class="c1">// ...</span>
+  <span class="nl">payWithRevolut</span><span class="p">:</span> <span class="p">(</span><span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="na">destroy</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">interface</span> <span class="nx">Options</span> <span class="p">{</span>
+  <span class="nl">target</span><span class="p">:</span> <span class="nx">HTMLElement</span>
+  <span class="nx">phone</span><span class="p">?:</span> <span class="kr">string</span>
+  <span class="nx">email</span><span class="p">?:</span> <span class="kr">string</span>
+  <span class="nx">onSuccess</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span>
+  <span class="nx">onError</span><span class="p">?:</span> <span class="p">(</span><span class="nx">RevolutCheckoutError</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
+  <span class="nx">onCancel</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span>
+<span class="p">}</span>
+</code></pre>
+<p>Use the <code>Options</code> object to specify the pages that the user should be redirected to and any additional information related to the payment of the user:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>target</code></td>
+<td>DOM element where secure iframe with the button is rendered</td>
+<td>HTMLElement</td>
+</tr>
+<tr>
+<td><code>phone</code></td>
+<td>User phone number (optional)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>User email address (optional)</td>
+<td>String</td>
+</tr>
+<tr>
+<td><code>onSuccess</code></td>
+<td>Callback when the payment is successfully completed</td>
+<td>Function</td>
+</tr>
+<tr>
+<td><code>onError</code></td>
+<td>Callback if a transaction fails, and the reason is available in the <code>message</code> parameter.</td>
+<td>Function</td>
+</tr>
+<tr>
+<td><code>onCancel</code></td>
+<td>Callback if a user did not complete the transaction and canceled the authorization, or closed the payment pop-up window.</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+<h4 id='instance-instance-instance-paywithrevolut-returns'><a href='#instance-instance-instance-paywithrevolut-returns' class='header-link'><i></i></a>Returns</h4>
+<p><code>Methods</code> object:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>destroy</code></td>
+<td>Manually destroy the button if needed</td>
+<td>String</td>
+</tr>
+</tbody></table>
+<h4 id='instance-instance-instance-paywithrevolut-example'><a href='#instance-instance-instance-paywithrevolut-example' class='header-link'><i></i></a>Example</h4>
+<p>Example with minimal parameters recommended:</p>
+<blockquote>
+      <div><p>Example</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight typescript"><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s1">'pay-with-revolut'</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+<span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithRevolut</span><span class="p">({</span>
+    <span class="na">target</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'pay-with-revolut'</span><span class="p">),</span>
+    <span class="na">phone</span><span class="p">:</span> <span class="s1">'+441632960022'</span><span class="p">,</span> <span class="c1">// recommended</span>
+    <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Payment completed'</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="nx">onError</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Payment failed: '</span> <span class="o">+</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="err">'</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</code></pre><h2 id='integration-examples'><a href='#integration-examples' class='header-link'><i></i></a>Integration examples</h2><h3 id='integration-examples-integrating-the-payment-pop-up'><a href='#integration-examples-integrating-the-payment-pop-up' class='header-link'><i></i></a>Integrating the payment pop-up</h3>
 <p>This sample shows how to use RevolutCheckout.js with a <a href="#instance-instance-paywithpopup">payment pop-up</a> and the <a href="http://developer.revolut.com/api-reference/merchant" target="_blank">Merchant API</a>. The hosted version is running in the Sandbox environment — use one of our <a href="https://developer.revolut.codes/docs/accept-payments/#tutorials-tutorials-test-in-the-sandbox-environment-use-test-cards" target="_blank">test cards</a> to ensure that the widget works properly.</p>
 
 <div>

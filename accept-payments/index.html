@@ -247,16 +247,27 @@
               <a href="#tutorials" class="toc-h2 toc-link" data-title="tutorials">Tutorials</a>
                 <ul class="toc-list-h3">
                     <li>
-                      <a href="#tutorials-accept-your-first-payment" class="toc-h3 toc-link" data-title="accept-your-first-payment">Accept your first payment</a>
+                      <a href="#tutorials-accept-your-first-card-payment" class="toc-h3 toc-link" data-title="accept-your-first-card-payment">Accept your first card payment</a>
                       <ul class="toc-list-h4">
                           <li>
-                            <a href="#tutorials-tutorials-accept-your-first-payment-1-create-an-order" class="toc-h4 toc-link" data-title="1-create-an-order">1. Create an order</a>
+                            <a href="#tutorials-tutorials-accept-your-first-card-payment-1-create-an-order" class="toc-h4 toc-link" data-title="1-create-an-order">1. Create an order</a>
                           </li>
                           <li>
-                            <a href="#tutorials-tutorials-accept-your-first-payment-2-install-the-widget" class="toc-h4 toc-link" data-title="2-install-the-widget">2. Install the widget</a>
+                            <a href="#tutorials-tutorials-accept-your-first-card-payment-2-install-the-widget" class="toc-h4 toc-link" data-title="2-install-the-widget">2. Install the widget</a>
                           </li>
                           <li>
-                            <a href="#tutorials-tutorials-accept-your-first-payment-3-call-the-widget-instance" class="toc-h4 toc-link" data-title="3-call-the-widget-instance">3. Call the widget instance</a>
+                            <a href="#tutorials-tutorials-accept-your-first-card-payment-3-call-the-widget-instance" class="toc-h4 toc-link" data-title="3-call-the-widget-instance">3. Call the widget instance</a>
+                          </li>
+                      </ul>
+                      </li>
+                    <li>
+                      <a href="#tutorials-accept-payments-via-pay-with-revolut" class="toc-h3 toc-link" data-title="accept-payments-via-pay-with-revolut">Accept payments via Pay with Revolut</a>
+                      <ul class="toc-list-h4">
+                          <li>
+                            <a href="#tutorials-tutorials-accept-payments-via-pay-with-revolut-how-pay-with-revolut-works" class="toc-h4 toc-link" data-title="how-pay-with-revolut-works">How Pay with Revolut works</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-accept-payments-via-pay-with-revolut-implement-pay-with-revolut" class="toc-h4 toc-link" data-title="implement-pay-with-revolut">Implement Pay with Revolut</a>
                           </li>
                       </ul>
                       </li>
@@ -372,7 +383,7 @@
 <p><strong>Note</strong>: Use this key <strong>only</strong> for the production environment. For the <a href="https://sandbox-business.revolut.com" target="_blank">Revolut Business Sandbox environment</a>, use the <a href="https://sandbox-business.revolut.com/merchant/api" target="_blank">sandbox API key</a>. For more information, see <a href="#tutorials-test-in-the-sandbox-environment">Test in the Sandbox environment</a></p>
 
 <div class="feedback"></div>
-<h2 id='tutorials'><a href='#tutorials' class='header-link'><i></i></a>Tutorials</h2><h3 id='tutorials-accept-your-first-payment'><a href='#tutorials-accept-your-first-payment' class='header-link'><i></i></a>Accept your first payment</h3>
+<h2 id='tutorials'><a href='#tutorials' class='header-link'><i></i></a>Tutorials</h2><h3 id='tutorials-accept-your-first-card-payment'><a href='#tutorials-accept-your-first-card-payment' class='header-link'><i></i></a>Accept your first card payment</h3>
 <aside class="notice">
   <b>Note:</b> If you have your website running on WooCommerce, Prestashop, or Magento e-commerce platform, you need to <a href="#plugins">Install and configure Revolut plugins</a>.
 </aside>
@@ -395,7 +406,7 @@
 </ul>
 
 <div class="feedback"></div>
-<h4 id='tutorials-tutorials-accept-your-first-payment-1-create-an-order'><a href='#tutorials-tutorials-accept-your-first-payment-1-create-an-order' class='header-link'><i></i></a>1. Create an order</h4>
+<h4 id='tutorials-tutorials-accept-your-first-card-payment-1-create-an-order'><a href='#tutorials-tutorials-accept-your-first-card-payment-1-create-an-order' class='header-link'><i></i></a>1. Create an order</h4>
 <p><strong>Note</strong>: The information on this page assumes that you are pushing changes to the production environment. To test in the <a href="https://sandbox-business.revolut.com" target="_blank">Revolut Business Sandbox environment</a>, replace the endpoint address <code>https://merchant.revolut.com/</code> with <code>https://sandbox-merchant.revolut.com/</code> and use the <a href="https://sandbox-business.revolut.com/merchant/api" target="_blank">Sandbox API key</a> in the headers of requests.</p>
 <blockquote>
       <div><p>Request</p>
@@ -456,7 +467,7 @@
 <p>When the order is created successfully, the Merchant API returns a <a href="https://developer.revolut.com/api-reference/merchant/#operation/createOrder" target="_blank">response</a> like this:</p>
 
 <p><strong>Note</strong>: From the response, save the <code>public_id</code>, which is a temporary token generated for every order a customer initiates on the website. It’s also the identifier passed from the server side to the client side to call the widget instance. When the order is paid, the <code>public_id</code> expires.</p>
-<h4 id='tutorials-tutorials-accept-your-first-payment-2-install-the-widget'><a href='#tutorials-tutorials-accept-your-first-payment-2-install-the-widget' class='header-link'><i></i></a>2. Install the widget</h4>
+<h4 id='tutorials-tutorials-accept-your-first-card-payment-2-install-the-widget'><a href='#tutorials-tutorials-accept-your-first-card-payment-2-install-the-widget' class='header-link'><i></i></a>2. Install the widget</h4>
 <p>When the order is successfully created, on the client side, you install the widget.</p>
 <blockquote>
       <div><p>Embed script</p>
@@ -521,7 +532,7 @@ load"</span><span class="p">))}}};</span><span class="k">return</span><span clas
 <p><strong>Step 1.</strong> Run the command to install the widget’s NPM package.</p>
 
 <p><strong>Step 2.</strong> Import the ES module to the javascript code as follows:</p>
-<h4 id='tutorials-tutorials-accept-your-first-payment-3-call-the-widget-instance'><a href='#tutorials-tutorials-accept-your-first-payment-3-call-the-widget-instance' class='header-link'><i></i></a>3. Call the widget instance</h4>
+<h4 id='tutorials-tutorials-accept-your-first-card-payment-3-call-the-widget-instance'><a href='#tutorials-tutorials-accept-your-first-card-payment-3-call-the-widget-instance' class='header-link'><i></i></a>3. Call the widget instance</h4>
 <p>Choose one of the following options to integrate with the widget to collect card details:</p>
 
 <ul>
@@ -610,8 +621,8 @@ load"</span><span class="p">))}}};</span><span class="k">return</span><span clas
 <aside class="notice">
     <b>Note:</b><br>
     <ul>
-      <li><code>email</code> option is required if the order that is being paid does not contain an email already</li>
-      <li><code>name</code> option is required</li>
+      <li><code>email</code> option is required if the order that is being paid does not contain an email</li>
+      <li><code>name</code> option is always required</li>
     </ul>
 </aside>
 
@@ -624,6 +635,84 @@ load"</span><span class="p">))}}};</span><span class="k">return</span><span clas
 <li>Manage your orders. The management includes capturing, canceling, and refunding an order. For more information, check the <a href="https://developer.revolut.com/api-reference/merchant" target="_blank">Merchant API</a>.</li>
 <li>Manage your customers. For example, save the card details of a customer and charge the customer’s saved payment method later. Click <a href="#tutorials-charge-a-customer-s-saved-payment-method">here</a> for more details.</li>
 </ul>
+
+<div class="feedback"></div>
+<h3 id='tutorials-accept-payments-via-pay-with-revolut'><a href='#tutorials-accept-payments-via-pay-with-revolut' class='header-link'><i></i></a>Accept payments via Pay with Revolut</h3>
+<p>The <code>Pay with Revolut</code> payment method enables your users to pay with their Revolut account directly after they authorize this payment method on the Revolut App.</p>
+
+<p>In this way, you can accept payments without having to ask your users to enter their card details. This improves the checkout experience for your users greatly.</p>
+<h4 id='tutorials-tutorials-accept-payments-via-pay-with-revolut-how-pay-with-revolut-works'><a href='#tutorials-tutorials-accept-payments-via-pay-with-revolut-how-pay-with-revolut-works' class='header-link'><i></i></a>How Pay with Revolut works</h4>
+<p>See how the <code>Pay with Revolut</code> works the first time a user is directed to a checkout page on a web browser:</p>
+
+<ol>
+<li><p>The user finds the <code>Pay with Revolut</code> payment method on the checkout page, and scans the QR code. This starts the authorization process of paying with their Revolut account.</p>
+
+<p><strong>Note</strong>: If the user doesn&#39;t have the Revolut app installed on the phone, the user is redirected to a promotional page to download the app and open an account.</p></li>
+<li><p>The user receives a notification on their Revolut app to authorize this payment method.</p></li>
+<li><p>After the user makes the first payment successfully on the checkout page, the Revolut checkout widget saves a token in local storage of the browser.</p></li>
+<li><p>The next time the user visits your site or any other site with the <code>Pay with Revolut</code> payment method, the user doesn&#39;t need to scan the QR code, and the notification for authorization appears directly on their Revolut app. </p></li>
+</ol>
+
+<aside class="notice">
+    <b>Note:</b> So that the user can skip scanning the QR code, the same phone and/or email used as the first time must be filled in the checkout form.
+</aside>
+
+<p>You can check the payment process in the following diagram:</p>
+
+<p><img src="https://assets.revolut.com/business/merchant/docs/pwr-flow%402x.png" /></p>
+<h4 id='tutorials-tutorials-accept-payments-via-pay-with-revolut-implement-pay-with-revolut'><a href='#tutorials-tutorials-accept-payments-via-pay-with-revolut-implement-pay-with-revolut' class='header-link'><i></i></a>Implement Pay with Revolut</h4>
+<p>Because the <code>Pay with Revolut</code> method is included in the Revolut Checkout Widget, the steps to accept a payment via <code>Pay with Revolut</code> are similar to those to accept a card payment.</p>
+
+<p>Check the following high-level procedure to integrate a Revolut Checkout Widget for the <code>Pay with Revolut</code> method with the Merchant API:</p>
+
+<ol>
+<li>Server side: <a href="#tutorials-tutorials-accept-your-first-payment-1-create-an-order">Create an order</a> via the Merchant API request</li>
+<li>Client side: <a href="#tutorials-tutorials-accept-your-first-payment-2-install-the-widget">Install the widget</a> by adding RevolutCheckout to your application</li>
+<li>Client side: Choose the option to load <code>Pay with Revolut</code> and call the widget instance.</li>
+</ol>
+
+<aside class="notice">
+    <b>Note:</b> As you can see, the only difference is in Step 3 where you need to insert the <b>Pay with Revolut</b> button to call the widget instance. Check the following implementation details below.
+</aside>
+
+<p><strong>Calling the widget instance</strong></p>
+<blockquote>
+      <div><p>Insert the Pay with Revolut button</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight typescript"><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s1">'pay-with-revolut'</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+<span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"&lt;PUBLIC_ID&gt;"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithRevolut</span><span class="p">({</span>
+    <span class="na">target</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'pay-with-revolut'</span><span class="p">),</span>
+    <span class="na">phone</span><span class="p">:</span> <span class="s1">'+441632960022'</span><span class="p">,</span> <span class="c1">// recommended</span>
+    <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Payment completed'</span><span class="p">)</span>
+    <span class="p">},</span>
+    <span class="nx">onError</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Payment failed: '</span> <span class="o">+</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</code></pre>
+<p>Insert the <strong>Pay with Revolut</strong> button using the code snippet on the right that contains an example with minimum required parameters, where:</p>
+
+<ul>
+<li><code>RevolutCheckout</code> is the widget instance</li>
+<li><code>&lt;PUBLIC_ID&gt;</code> is the <code>public_id</code> passed as the parameter to call the widget instance. You can find the value of <code>public_id</code> in the response that the Merchant API returns when you create an order successfully.</li>
+<li>The <code>onSuccess</code> and <code>onError</code> options are used to redirect the user to the right pages when the payment has been processed.</li>
+</ul>
+
+<p>This is what the button looks like:</p>
+
+<p><img src="https://assets.revolut.com/business/merchant/docs/pwr-screenshot%402x.png" /></p>
+
+<p>To view the full list of parameters, take a look at the <a href="https://developer.revolut.com/docs/revolut-checkout-js/#instance-instance-paywithrevolut" target="_blank">documentation</a>.</p>
 
 <div class="feedback"></div>
 <h3 id='tutorials-charge-a-customer-s-saved-payment-method'><a href='#tutorials-charge-a-customer-s-saved-payment-method' class='header-link'><i></i></a>Charge a customer’s saved payment method</h3>
