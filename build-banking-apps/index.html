@@ -2216,10 +2216,15 @@ and create a payment consent in the next step.</p>
         </select>
       </div>
     </blockquote><pre class="highlight shell tab-shell"><code>Name,Recipient <span class="nb">type</span>,Account number,Sort code or Routing number,IBAN,BIC,Recipient bank country,Currency,Amount,Payment reference,Recipient country,State or province,Address line 1,Address line 2,City,Postal code
-Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,GBP,10,Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment,GB,,<span class="s2">"Revolutest LTD, Level 39"</span>,Somewhere <span class="k">in </span>London,London,E14 5AB
-Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,abc,25,Second comment,uk,,<span class="s2">"Revolutest LTD, Level 39"</span>,Somewhere <span class="k">in </span>London,London,E14 5AB
-,INDIVIDUAL,,,UK1234,2,GB,GBP,25,Second comment,GB,,<span class="s2">"Revolutest LTD, Level 39"</span>,Somewhere <span class="k">in </span>London,Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu,E14 5AB
-
+Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,GBP,10,Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment Comment,GB,,Revolutest LTD, Level 39,Somewhere <span class="k">in </span>London,E14 5AB
+Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,abc,25,Second comment,uk,,Revolutest LTD, Level 39,Somewhere <span class="k">in </span>London,E14 5AB
+,INDIVIDUAL,,,,,GB,GBP,25,Second comment,GB,,Revolutest LTD Level 39,Somewhere <span class="k">in </span>London,Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu,E14 5AB
+Dmitry Vim,INDIVIDUAL,776644,,,BOFMHKHH,CN,USD,10,User comment,CN,,1 Yuan,,Beijing City,100046
+Dmitry Vim,,40513598,207409,,,GB,GBP,0.10,User comment,GB,,Revolutest LTD, Level 39,Somewhere <span class="k">in </span>London,E14 5AB
+Dmitry Vim,INDIVIDUA,40513598,207409,,,GB,GBP,10,User comment,GB,,Revolutest LTD, Level 39,Somewhere <span class="k">in </span>London,E14 5AB
+Dmitry Vim,INDIVIDUAL,ÓŁ,2409,1234,ABC,GB,GBP,10,User comment,GB,,Revolutest LTD, Level 39,Somewhere <span class="k">in </span>London,E14 5AB
+DmitryVim,INDIVIDUAL,40513598,207409,,,GB,GBP,10,User comment,GB,,,Somewhere <span class="k">in </span>London,123
+Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,GBP,10,User comment,GB,,Revolutest LTD, Level 39,Somewhere <span class="k">in </span>London,123
 </code></pre><blockquote>
       <div><p>Response</p>
 </div>
@@ -2230,37 +2235,88 @@ Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,abc,25,Second comment,uk,,<span class
         </select>
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"88d5cbee-cb6f-4b00-a08a-9bd3baa02de9"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a3805a6c-ae21-4871-b9a3-2c2c9db60ffa"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"File validation failed"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
     </span><span class="s2">"Row"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment reference"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2003</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Payment reference cannot be longer than 100 symbols"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
   </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"Row"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Currency"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2004</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid Currency: abc"</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recipient country"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2004</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid Recipient country: uk"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
   </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"Row"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
       </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2001</span><span class="p">,</span><span class="w">
       </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name is required"</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2003</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City cannot be longer than 50 symbols"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Row"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2008</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid BIC for CN bank country"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Row"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recipient type"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2001</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recipient type is required"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Row"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Recipient type"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2004</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid Recipient type: INDIVIDUA"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Row"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Account number"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2004</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid Account number: �?"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sort code or Routing number"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2004</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid Sort code or Routing number: 2409"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IBAN"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid IBAN: UK1234"</span><span class="w">
+      </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2004</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid IBAN: 1234"</span><span class="w">
     </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BIC"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid BIC: 2"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"City cannot be longer than 50 symbols"</span><span class="w">
+      </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2004</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid BIC: ABC"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Row"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"Field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2005</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First and last name are required for individuals"</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Row"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+      </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">2008</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Postcode 123 is invalid, please change it before continuing"</span><span class="w">
     </span><span class="p">}]</span><span class="w">
   </span><span class="p">}],</span><span class="w">
   </span><span class="s2">"Code"</span><span class="p">:</span><span class="w"> </span><span class="mi">3039</span><span class="w">
@@ -2268,13 +2324,61 @@ Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,abc,25,Second comment,uk,,<span class
 </span></code></pre>
 <p>When uploading the CSV file there are a number of validation errors that could stop a bulk order being successfully uploaded.</p>
 
-<p>If there is an issue with the CSV uploaded, the API will respond with a <code>3039</code> error code and give details of the CSV validation errors row by row.</p>
-
 <p>At this step, we validate if the fields in the CSV match the format required and if the bank account details provided are valid for a payment to be made.</p>
+
+<p>If there is an issue with the CSV uploaded, the API will respond with a <code>3039</code> error code and give details of the CSV validation errors row by row. Each error message is accompanied by a corresponding code.</p>
+
+<p>Without resolving all errors, the creation of the draft payment will fail.</p>
 
 <p>Please see an example file to the right and it&#39;s response with relevant errors.</p>
 
-<p>Without resolving all errors, the creation of the draft payment will fail.</p>
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Reason</th>
+<th>Sample error messages</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>2001</td>
+<td>Fields that are required are missing in CSV</td>
+<td><code>Name is required</code>, <code>Recipient type is required</code></td>
+</tr>
+<tr>
+<td>2002</td>
+<td><code>amount</code> field is not a valid decimal number</td>
+<td><code>Invalid amount format: 0;10, use only numbers and dot to separate cents</code>, <code>Invalid amount format: A, use only numbers and dot to separate cents</code></td>
+</tr>
+<tr>
+<td>2003</td>
+<td>String size is too large</td>
+<td><code>Name cannot be longer than 80 symbols</code>, <code>City cannot be longer than 50 symbols</code></td>
+</tr>
+<tr>
+<td>2004</td>
+<td>One of the fields in CSV is invalid</td>
+<td><code>Invalid Recipient type: INDIVIDUA</code>, <code>Invalid IBAN: 1234</code>, <code>Invalid Recipient country: uk</code></td>
+</tr>
+<tr>
+<td>2005</td>
+<td>First and last name is required when recipient type is <code>INDVIDUAL</code></td>
+<td><code>First and last name are required for individuals</code></td>
+</tr>
+<tr>
+<td>2008</td>
+<td>It was not possible to create counterparty based on details provided</td>
+<td><code>Invalid BIC for &lt;some_country&gt; bank country</code>, <code>Unsupported currency for external beneficiary</code>, <code>Postcode &lt;postcode&gt; is invalid, please change it before continuing</code></td>
+</tr>
+<tr>
+<td>1000</td>
+<td>Unknown reason</td>
+<td><code>Something went wrong. Please contact support.</code>, <code>Something went wrong: &lt;error_id&gt;</code></td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+<b>Note:</b> while the error codes above encapsulate all potential errors, the message provided is subject to change. Please reach out for further details. 
+</aside>
 <h4 id='tutorials-tutorials-working-with-draft-payments-3-error-codes'><a href='#tutorials-tutorials-working-with-draft-payments-3-error-codes' class='header-link'><i></i></a>3. Error codes</h4>
 <p>There are a number of different error codes that can be surfaced from the draft payments endpoint.
 Please see a table detailing these below, the message and when you can expect them to be surfaced.</p>
