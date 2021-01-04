@@ -243,6 +243,9 @@
                           </li>
                       </ul>
                       </li>
+                    <li>
+                      <a href="#introduction-to-the-open-banking-api-global-customer-access-controls" class="toc-h3 toc-link" data-title="global-customer-access-controls">Global customer access controls</a>
+                      </li>
                 </ul>
             </li>
             <li>
@@ -427,7 +430,7 @@
 <p>You can take advantage of the Open Banking API to build your banking applications whether you are</p>
 
 <ul>
-<li>A regulated third party provider that wants to get account and transaction information of Revolut customers and initiate differernt types of payments, or</li>
+<li>A regulated third party provider that wants to get account and transaction information of Revolut customers and initiate different types of payments, or</li>
 <li>An innovative service provider that is looking to seamlessly integrate Revolut functions into your own applications. You must become our Revolut partner to get access to our API. For more information, see <a href='https://developer.revolut.com/partner'>Revolut partners</a>.</li>
 </ul>
 
@@ -458,6 +461,63 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 </aside>
 
 <div class="feedback"></div>
+<h3 id='introduction-to-the-open-banking-api-global-customer-access-controls'><a href='#introduction-to-the-open-banking-api-global-customer-access-controls' class='header-link'><i></i></a>Global customer access controls</h3>
+<p>From the 1st January 2021, we made changes to which third-parties are able to access Revolut customer data across the globe. This depends on the type of certificate held, the regulator of the third-party and the type of endpoints used.  </p>
+
+<p>For those that are in possesion of both OBIE and eIDAS certificates, please read the below carefully before deciding what certificate to use for your integration. </p>
+
+<p>For Revolut Partners, all functionality is available, please reach out for further details.</p>
+
+<table><thead>
+<tr>
+<th>Revolut Entity</th>
+<th>Certificate Type</th>
+<th>Endpoints</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Revolut LTD (UK, Switzerland, Canada customers)</td>
+<td>OBIE, eIDAS, Revolut Partners</td>
+<td>Accounts, Payments</td>
+</tr>
+<tr>
+<td>Revolut Payments UAB (EEA customers)</td>
+<td>OBIE (EEA-regulated third-parties only), eIDAS, Revolut Partners</td>
+<td>Accounts, Payments</td>
+</tr>
+<tr>
+<td>Revolut Technologies Singapore Pte Ltd</td>
+<td>OBIE, eIDAS, Revolut Partners</td>
+<td>Accounts</td>
+</tr>
+<tr>
+<td>Revolut Technologies Inc. US</td>
+<td>OBIE, eIDAS, Revolut Partners</td>
+<td>Accounts</td>
+</tr>
+<tr>
+<td>Revolut Payments Australia Pty Ltd</td>
+<td>Revolut Partners</td>
+<td>Accounts, Payments</td>
+</tr>
+<tr>
+<td>Revolut Payments New Zealand Pty Ltd</td>
+<td>Revolut Partners</td>
+<td>Accounts, Payments</td>
+</tr>
+<tr>
+<td>Revolut Technologies Japan Inc</td>
+<td>Revolut Partners</td>
+<td>Accounts, Payments</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+    Revolut's long term position for accepting Open Banking certificates for our EEA based customers is not yet defined. Any changes will be announced via OBIE. 
+</a>
+</aside>
+
+<div class="feedback"></div>
 <h2 id='get-started'><a href='#get-started' class='header-link'><i></i></a>Get Started</h2>
 <p>To start using our Open Banking API, you must register your application. In addition, you need to set up your Sandbox environment to test your integration. </p>
 
@@ -467,6 +527,11 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 <li>Register in the Developer Portal. This is the recommended way to get your application registered much faster. This is covered in this section.</li>
 <li>Register using Dynamic Client Registration (DCR). For more information, see <a href='#register-your-application-using-dcr'>Register using DCR</a>.</li>
 </ul>
+
+<aside class="warning">
+    Before starting to build your integration, please read the section on <a href='#introduction-to-the-open-banking-api-global-customer-access-controls'>global customer access</a> carefully.
+</a>
+</aside> 
 
 <div class="feedback"></div>
 <h3 id='get-started-register-your-application-in-the-developer-portal'><a href='#get-started-register-your-application-in-the-developer-portal' class='header-link'><i></i></a>Register your application in the Developer Portal</h3>
@@ -945,8 +1010,8 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 <p>To request deletion of an existing application, make a <code>DELETE</code> request to the <code>register</code> endpoint. In the request header, provide the <code>client_id</code> and access token.</p>
 
 <ul>
-<li>If the request is successful, you recieve a JSON payload that matches the <code>client_id</code> of the application that client-credentials grant access token was issued.</li>
-<li>If the <code>client_id</code> is unknown, you recieve a JSON payload with an <code>Unauthorized</code> status code.</li>
+<li>If the request is successful, you receive a JSON payload that matches the <code>client_id</code> of the application that client-credentials grant access token was issued.</li>
+<li>If the <code>client_id</code> is unknown, you receive a JSON payload with an <code>Unauthorized</code> status code.</li>
 <li>If you&#39;re having issues deleting an application, reach out to <a href="mailto:api-requests@revolut.com">support</a>.</li>
 </ul>
 
@@ -1891,7 +1956,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 
 <table><thead>
 <tr>
-<th>Paramater</th>
+<th>Parameter</th>
 <th>Description</th>
 <th>Required</th>
 </tr>
