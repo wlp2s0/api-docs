@@ -400,6 +400,26 @@
                           </li>
                       </ul>
                       </li>
+                    <li>
+                      <a href="#tutorials-work-with-webhooks" class="toc-h3 toc-link" data-title="work-with-webhooks">Work with webhooks</a>
+                      <ul class="toc-list-h4">
+                          <li>
+                            <a href="#tutorials-tutorials-work-with-webhooks-1-generate-a-client-credentials-token" class="toc-h4 toc-link" data-title="1-generate-a-client-credentials-token">1. Generate a client credentials token</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-work-with-webhooks-2-create-a-webhook" class="toc-h4 toc-link" data-title="2-create-a-webhook">2. Create a webhook</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-work-with-webhooks-3-get-list-of-webhook-uris" class="toc-h4 toc-link" data-title="3-get-list-of-webhook-uris">3. Get list of webhook URIs</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-work-with-webhooks-4-listen-for-notifications" class="toc-h4 toc-link" data-title="4-listen-for-notifications">4. Listen for notifications</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-work-with-webhooks-5-delete-a-webhook" class="toc-h4 toc-link" data-title="5-delete-a-webhook">5. Delete a webhook</a>
+                          </li>
+                      </ul>
+                      </li>
                 </ul>
             </li>
             <li>
@@ -1057,7 +1077,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"access_token"</span><span class="p">:</span><span class="s2">"eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjFlYzFkYjJkLTNlNWItNGQ4Mi1iNDJlLTA2Nzk0NTYyZTIwZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDQ5MzAzOTh9.pMMtYxYh8_M8P0v9_yfJ29iq3h2x_1RT6BLJPbrJ6SSsai_fQmMNGWXtDapPCSvWtn-ol0aN8Pl725uSSJqWHFxdh0PwvKP1762s5jy7xcLTkb8tgg-AoTPm87-vsnHnw5z63yiDW1Migdx7vDN_jRe3WUSfE-u0Qv7W3SLVo8kB5-qxn2VHZTBSaBr5XReINBHJgh7Xi9LzqxqUh0yCiZSSRnu8o7-I_Q1K0jPK1D7ve7BxlkOb5fSR59CbtzfkZpI6jKDOWSqU_5mftqRRylle382nfS6AeY2eubdH6OS-lJRFcwsYplauE-tZ__54G4LTjPhUWQezvewCc5gq2Q"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"token_type"</span><span class="p">:</span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="mi">2399</span><span class="w">
+  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">2399</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>Request an access token for client credentials using the <code>/token</code> endpoint and the <code>client_credentials</code> grant type. </p>
@@ -2232,6 +2252,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 <ul>
 <li>See the <a href="https://developer.revolut.com/api-reference/open-banking/#operation/createDraftPayment" target="_blank">API Reference</a> for full details on draft payments.</li>
 <li>To check important considerations when you build your draft payments integration, see <a href='#tutorials-work-with-draft-payments'>Work with draft payments</a>.</li>
+<li>To receive notifications about draft payments that you have created, see <a href=#tutorials-work-with-webhooks>Work with webhooks</a>.</li>
 <li>To request a new endpoint that meets your business requirements, fill out this short <a href=https://docs.google.com/forms/d/1jTvhtnCvPvVviGxAqu03vVrnfcrhzkU6KhbAuQvUuQE/edit>form</a>.</li>
 </ul>
 
@@ -2608,7 +2629,7 @@ Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,GBP,10,User comment,GB,,Revolutest LT
 </tr>
 <tr>
 <td><code>Deleted</code></td>
-<td>The draft payment order is deleted by the user,</td>
+<td>The draft payment order is deleted by the user.</td>
 </tr>
 </tbody></table>
 
@@ -2685,6 +2706,196 @@ In case of any questions, reach out to Revolut Business support to get further h
 </aside>
 
 <div class="feedback"></div>
+<h3 id='tutorials-work-with-webhooks'><a href='#tutorials-work-with-webhooks' class='header-link'><i></i></a>Work with webhooks</h3>
+<p>Webhooks allow you to receive real-time notifications for events that are happening in relation to your application. </p>
+
+<p>When a supported event occurs, a real-time notification is posted, via HTTP POST method, to the specified endpoint.</p>
+
+<aside class="warning">
+<b>Note:</b> Currently, webhooks are supported only for draft payments. We will be working to support other notification types soon.
+</aside>
+<h4 id='tutorials-tutorials-work-with-webhooks-1-generate-a-client-credentials-token'><a href='#tutorials-tutorials-work-with-webhooks-1-generate-a-client-credentials-token' class='header-link'><i></i></a>1. Generate a client credentials token</h4><blockquote>
+      <div><p>Get a token</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --cert transport.pem --key server.key <span class="se">\</span>
+--location --request POST <span class="s1">'https://sandbox-mtls-auth.revolut.com/token'</span> <span class="se">\</span>
+--header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+--data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
+--data-urlencode <span class="s1">'scope=accounts'</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl --cert transport.pem --key server.key <span class="se">\</span>
+--location --request POST <span class="s1">'https://mtls-auth.revolut.com/token'</span> <span class="se">\</span>
+--header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+--data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
+--data-urlencode <span class="s1">'scope=accounts'</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="s2">"eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjFlYzFkYjJkLTNlNWItNGQ4Mi1iNDJlLTA2Nzk0NTYyZTIwZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDQ5MzAzOTh9.pMMtYxYh8_M8P0v9_yfJ29iq3h2x_1RT6BLJPbrJ6SSsai_fQmMNGWXtDapPCSvWtn-ol0aN8Pl725uSSJqWHFxdh0PwvKP1762s5jy7xcLTkb8tgg-AoTPm87-vsnHnw5z63yiDW1Migdx7vDN_jRe3WUSfE-u0Qv7W3SLVo8kB5-qxn2VHZTBSaBr5XReINBHJgh7Xi9LzqxqUh0yCiZSSRnu8o7-I_Q1K0jPK1D7ve7BxlkOb5fSR59CbtzfkZpI6jKDOWSqU_5mftqRRylle382nfS6AeY2eubdH6OS-lJRFcwsYplauE-tZ__54G4LTjPhUWQezvewCc5gq2Q"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">2399</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Request an access token for client credentials using the <code>/token</code> endpoint and the <code>client_credentials</code> grant type.</p>
+<h4 id='tutorials-tutorials-work-with-webhooks-2-create-a-webhook'><a href='#tutorials-tutorials-work-with-webhooks-2-create-a-webhook' class='header-link'><i></i></a>2. Create a webhook</h4><blockquote>
+      <div><p>Create webhook</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl --location --request POST <span class="s1">'https://sandbox-apis.revolut.com/webhooks/subscribe'</span> <span class="se">\</span>
+--header <span class="s1">'x-fapi-financial-id: 001580000103UAvAAM'</span> <span class="se">\</span>
+--header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjFlYzFkYjJkLTNlNWItNGQ4Mi1iNDJlLTA2Nzk0NTYyZTIwZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDQ5MzAzOTh9.pMMtYxYh8_M8P0v9_yfJ29iq3h2x_1RT6BLJPbrJ6SSsai_fQmMNGWXtDapPCSvWtn-ol0aN8Pl725uSSJqWHFxdh0PwvKP1762s5jy7xcLTkb8tgg-AoTPm87-vsnHnw5z63yiDW1Migdx7vDN_jRe3WUSfE-u0Qv7W3SLVo8kB5-qxn2VHZTBSaBr5XReINBHJgh7Xi9LzqxqUh0yCiZSSRnu8o7-I_Q1K0jPK1D7ve7BxlkOb5fSR59CbtzfkZpI6jKDOWSqU_5mftqRRylle382nfS6AeY2eubdH6OS-lJRFcwsYplauE-tZ__54G4LTjPhUWQezvewCc5gq2Q'</span> <span class="se">\</span>
+--data-raw <span class="s1">'
+{
+    "Topic": "draftpayments/transfers",
+    "Version": 1,
+    "Uri": "https://revolut_test.com" 
+}'</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request POST <span class="s1">'https://apis.revolut.com/webhooks/subscribe'</span> <span class="se">\</span>
+--header <span class="s1">'x-fapi-financial-id: 001580000103UAvAAM'</span> <span class="se">\</span>
+--header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjFlYzFkYjJkLTNlNWItNGQ4Mi1iNDJlLTA2Nzk0NTYyZTIwZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDQ5MzAzOTh9.pMMtYxYh8_M8P0v9_yfJ29iq3h2x_1RT6BLJPbrJ6SSsai_fQmMNGWXtDapPCSvWtn-ol0aN8Pl725uSSJqWHFxdh0PwvKP1762s5jy7xcLTkb8tgg-AoTPm87-vsnHnw5z63yiDW1Migdx7vDN_jRe3WUSfE-u0Qv7W3SLVo8kB5-qxn2VHZTBSaBr5XReINBHJgh7Xi9LzqxqUh0yCiZSSRnu8o7-I_Q1K0jPK1D7ve7BxlkOb5fSR59CbtzfkZpI6jKDOWSqU_5mftqRRylle382nfS6AeY2eubdH6OS-lJRFcwsYplauE-tZ__54G4LTjPhUWQezvewCc5gq2Q'</span> <span class="se">\</span>
+--data-raw <span class="s1">'
+{
+    "Topic": "draftpayments/transfers",
+    "Version": 1,
+    "Uri": "https://revolut_test.com" 
+}'</span>
+</code></pre>
+<p>For draft payments, the following types of topic are supported:</p>
+
+<ul>
+<li>draftpayments/transfers</li>
+<li>draftpayments/orders</li>
+</ul>
+
+<p>This means that when the state of transfers and orders that your application previously created changes, a notification is sent. Each topic that you subscribe to requires an individual API call.</p>
+
+<p>To create a webhook, make a call to the <code>/webhooks/subscribe</code> endpoint.</p>
+
+<aside class="warning">
+<b>Note:</b> Currently, only one webhook URI per topic is supported. Subscribing to the same topic multiple times overwrites the previous webhook URI.
+</aside>
+<h4 id='tutorials-tutorials-work-with-webhooks-3-get-list-of-webhook-uris'><a href='#tutorials-tutorials-work-with-webhooks-3-get-list-of-webhook-uris' class='header-link'><i></i></a>3. Get list of webhook URIs</h4><blockquote>
+      <div><p>Get list of webhooks</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl --location --request <span class="s1">'https://sandbox-oba.revolut.com/webhooks'</span>
+--header <span class="s1">'x-fapi-financial-id: 001580000103UAvAAM'</span>
+--header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjQ4ZjllZWJjLTA0YmItNGM2NS1hMzE1LWIwYjQ1OWJhN2I5ZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDk3Nzk0NzF9.ihoDIi5bELncONFL68uAmKgGJPe7ShyUCpOXHwjjzwYSW8M9G-kb6As9ybaNFYsaK2ee3BhPo0eIhnXCPFocpWc7OLeaJq_q4ytCHafvvgQNBNJH6lKJEGAne6QYyAtkYxR7hIaaX-AKOGNBy_-gtigrgyb5-qqtg5KP25eBF9JkygTlAIYZPq7IhENjBocWCYXNetUVOy7oA2tGyW_r3QdI9adMKu-Iqhx2cBh6aXMOjydmz8K6iv9quzNHB-Oh32Riz9V9kX1XEt5We32VgRM_S1Vdw7x1-sVZKMTPkh0CVnORpDYns9rwcEBfm3qEidd0HqcBgBXqWuoxBhQAhA'</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request <span class="s1">'https://sandbox-oba.revolut.com/webhooks'</span>
+--header <span class="s1">'x-fapi-financial-id: 001580000103UAvAAM'</span>
+--header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjQ4ZjllZWJjLTA0YmItNGM2NS1hMzE1LWIwYjQ1OWJhN2I5ZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDk3Nzk0NzF9.ihoDIi5bELncONFL68uAmKgGJPe7ShyUCpOXHwjjzwYSW8M9G-kb6As9ybaNFYsaK2ee3BhPo0eIhnXCPFocpWc7OLeaJq_q4ytCHafvvgQNBNJH6lKJEGAne6QYyAtkYxR7hIaaX-AKOGNBy_-gtigrgyb5-qqtg5KP25eBF9JkygTlAIYZPq7IhENjBocWCYXNetUVOy7oA2tGyW_r3QdI9adMKu-Iqhx2cBh6aXMOjydmz8K6iv9quzNHB-Oh32Riz9V9kX1XEt5We32VgRM_S1Vdw7x1-sVZKMTPkh0CVnORpDYns9rwcEBfm3qEidd0HqcBgBXqWuoxBhQAhA'</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
+  </span><span class="s2">"Topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"draftpayments/orders"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://revolut_test.com"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"Topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"draftpayments/transfers"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://revolut_test.com"</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre>
+<p>When the webhooks are created, make a call to the <code>/webhooks</code> endpoint and you can see them returned in the response.</p>
+<h4 id='tutorials-tutorials-work-with-webhooks-4-listen-for-notifications'><a href='#tutorials-tutorials-work-with-webhooks-4-listen-for-notifications' class='header-link'><i></i></a>4. Listen for notifications</h4><blockquote>
+      <div><p>Draft payment order notification payload</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"draftpayments/orders"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"IdempotencyKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3cffda-15d9-4596-8068-e95321319973"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b36b0bb7-c162-4919-8205-32f914b4fa29"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Processed"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Draft payment transfer notification payload</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"draftpayments/transfers"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"IdempotencyKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51350d68-e285-406e-8571-6f7b13f9e024"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7e18d804-b154-4035-bc8e-7a038acbb104"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>When draft payments are approved from the Revolut Business UI, you receive a notification that indicates a change to the state of draft payment order and its individual transfers.</p>
+
+<p>The <code>Status</code> field corresponds to those detailed <a href='#tutorials-tutorials-work-with-draft-payments-payment-orders-vs-transfers'>here</a>.</p>
+
+<p>Please see examples of two payloads to the right. The <code>ID</code> field indicates the relevant object that has changed state, while <code>IdempotencyKey</code> can be used as a unique identifier for a specific event. </p>
+<h4 id='tutorials-tutorials-work-with-webhooks-5-delete-a-webhook'><a href='#tutorials-tutorials-work-with-webhooks-5-delete-a-webhook' class='header-link'><i></i></a>5. Delete a webhook</h4><blockquote>
+      <div><p>Unsubscribe from a topic</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl --location --request POST <span class="s1">'https://sandbox-oba.revolut.com/webhooks/unsubscribe'</span> <span class="se">\</span>
+--header <span class="s1">'x-fapi-financial-id: 001580000103UAvAAM'</span> <span class="se">\</span>
+--header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjQ4ZjllZWJjLTA0YmItNGM2NS1hMzE1LWIwYjQ1OWJhN2I5ZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDk3Nzk0NzF9.ihoDIi5bELncONFL68uAmKgGJPe7ShyUCpOXHwjjzwYSW8M9G-kb6As9ybaNFYsaK2ee3BhPo0eIhnXCPFocpWc7OLeaJq_q4ytCHafvvgQNBNJH6lKJEGAne6QYyAtkYxR7hIaaX-AKOGNBy_-gtigrgyb5-qqtg5KP25eBF9JkygTlAIYZPq7IhENjBocWCYXNetUVOy7oA2tGyW_r3QdI9adMKu-Iqhx2cBh6aXMOjydmz8K6iv9quzNHB-Oh32Riz9V9kX1XEt5We32VgRM_S1Vdw7x1-sVZKMTPkh0CVnORpDYns9rwcEBfm3qEidd0HqcBgBXqWuoxBhQAhA'</span> <span class="se">\</span>
+--data-raw <span class="s1">'
+{
+    "Topic": "draftpayments/transfers"
+}
+'</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request POST <span class="s1">'https://oba.revolut.com/webhooks/unsubscribe'</span> <span class="se">\</span>
+--header <span class="s1">'x-fapi-financial-id: 001580000103UAvAAM'</span> <span class="se">\</span>
+--header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjQ4ZjllZWJjLTA0YmItNGM2NS1hMzE1LWIwYjQ1OWJhN2I5ZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDk3Nzk0NzF9.ihoDIi5bELncONFL68uAmKgGJPe7ShyUCpOXHwjjzwYSW8M9G-kb6As9ybaNFYsaK2ee3BhPo0eIhnXCPFocpWc7OLeaJq_q4ytCHafvvgQNBNJH6lKJEGAne6QYyAtkYxR7hIaaX-AKOGNBy_-gtigrgyb5-qqtg5KP25eBF9JkygTlAIYZPq7IhENjBocWCYXNetUVOy7oA2tGyW_r3QdI9adMKu-Iqhx2cBh6aXMOjydmz8K6iv9quzNHB-Oh32Riz9V9kX1XEt5We32VgRM_S1Vdw7x1-sVZKMTPkh0CVnORpDYns9rwcEBfm3qEidd0HqcBgBXqWuoxBhQAhA'</span> <span class="se">\</span>
+--data-raw <span class="s1">'
+{
+    "Topic": "draftpayments/transfers"
+}'</span>
+</code></pre>
+<p>If you no longer want to receive notifications on a webhook, you can unsubscribe by running a <code>POST</code> request to the <code>/webhooks/unsubscribe</code> endpoint. </p>
+
+<p>Congratulations! You have successfully set up webhooks to receive relevant notifications about your application.</p>
 <h2 id='api-metrics'><a href='#api-metrics' class='header-link'><i></i></a>API Metrics</h2>
 <p>You can review detailed Open Banking metrics <a href="https://revolut-engineering.github.io/oba/reports/index.html" target="_blank">here</a>. You can also compare the performance of our Open Banking API vs the performance of our direct user interfaces for Retail and Business products <a href="https://revolut-engineering.github.io/oba/reports/indexLine.html" target="_blank">here</a>.</p>
 
