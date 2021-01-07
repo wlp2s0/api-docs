@@ -2557,45 +2557,47 @@ Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,GBP,10,User comment,GB,,Revolutest LT
 
 <table><thead>
 <tr>
+<th>Http Error</th>
 <th>Code</th>
 <th>Message</th>
 <th>Reason</th>
 </tr>
 </thead><tbody>
 <tr>
+<td>400</td>
 <td>2101</td>
 <td>Maximum file size limit of 10MB bytes exceeded</td>
 <td>File size uploaded was too large.</td>
 </tr>
 <tr>
+<td>400</td>
 <td>2101</td>
 <td>Multiple currencies in single file are not allowed</td>
 <td>Only payments in one currency can be uploaded.</td>
 </tr>
 <tr>
+<td>400</td>
 <td>3039</td>
 <td>File validation failed</td>
 <td>There was an error in the details provided in the CSV.</td>
 </tr>
 <tr>
+<td>403</td>
 <td>9002</td>
-<td>Unable to find suitable template</td>
-<td>The headers provided in the file do not match our CSV format.</td>
+<td>This action is forbidden</td>
+<td>The user that tried to make this action was not the Business owner of the account.</td>
 </tr>
 <tr>
-<td>3058/11102</td>
-<td>Invalid state error</td>
-<td>Draft payment was not in the right state for a certain action. For example trying to delete a draft payment that had already been processed.</td>
-</tr>
-<tr>
-<td>11101/3070</td>
+<td>404</td>
+<td>3070/11101</td>
 <td>Not found error</td>
 <td>Draft payment was not found.</td>
 </tr>
 <tr>
-<td>9002</td>
-<td>This action is forbidden</td>
-<td>The user that tried to make this action was not the Business owner of the account.</td>
+<td>422</td>
+<td>3058/11102</td>
+<td>Invalid state error</td>
+<td>Draft payment was not in the right state for a certain action. For example trying to delete a draft payment that had already been processed.</td>
 </tr>
 </tbody></table>
 
