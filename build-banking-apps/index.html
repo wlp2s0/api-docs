@@ -2870,6 +2870,10 @@ In case of any questions, reach out to Revolut Business support to get further h
 <p>The <code>Status</code> field corresponds to those detailed <a href='#tutorials-tutorials-work-with-draft-payments-payment-orders-vs-transfers'>here</a>.</p>
 
 <p>Please see examples of two payloads to the right. The <code>ID</code> field indicates the relevant object that has changed state, while <code>IdempotencyKey</code> can be used as a unique identifier for a specific event. </p>
+
+<aside class="warning">
+<b>Note:</b> we guarantee at-least-once delivery of webhooks, all duplicate events will have the same idempotency key
+</aside>
 <h4 id='tutorials-tutorials-work-with-webhooks-5-delete-a-webhook'><a href='#tutorials-tutorials-work-with-webhooks-5-delete-a-webhook' class='header-link'><i></i></a>5. Delete a webhook</h4><blockquote>
       <div><p>Unsubscribe from a topic</p>
 </div>
