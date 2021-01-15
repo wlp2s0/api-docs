@@ -750,7 +750,7 @@ load"</span><span class="p">))}}};</span><span class="k">return</span><span clas
 
 <ol>
 <li><a href="https://developer.revolut.com/api-reference/merchant/#operation/createOrder" target="_blank">Create an order</a> with the <code>amount</code> and <code>currency</code> parameters.</li>
-<li>Make the payment via the Revolut Checkout Widget with <code>options.savePaymentMethodFor</code> = <code>customer</code> or <code>merchant</code>. <strong>Note</strong>: <code>customer_email</code> must be provided when you create an order or when the customer is making the payment; otherwise, an error is returned.</li>
+<li>Make the payment via the Revolut Checkout Widget with <code>options.savePaymentMethodFor</code> = <code>customer</code> or <code>merchant</code>. <strong>Note</strong>: <code>email</code> must be provided when you create an order or when the customer is making the payment; otherwise, an error is returned.</li>
 <li>When the payment is successful, a <a href="https://developer.revolut.com/api-reference/merchant/#operation/createCustomer" target="_blank">customer</a> is created with the email.</li>
 <li>Payment method is associated with the customer and <code>customer_id</code> is attached to the order automatically.</li>
 </ol>
