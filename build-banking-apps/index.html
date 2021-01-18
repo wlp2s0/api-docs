@@ -1957,8 +1957,8 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>https://sandbox-business.revolut.com/partner-confirm?response_type<span class="o">=</span>code&amp;state<span class="o">=</span>state&amp;scope<span class="o">=</span>draft_payments&amp;client_id<span class="o">=</span>your_client_id&amp;redirect_uri<span class="o">=</span>your_redirect_uri
-</code></pre><pre class="highlight shell tab-shell--production"><code>https://business.revolut.com/partner-confirm?response_type<span class="o">=</span>code&amp;state<span class="o">=</span>state&amp;scope<span class="o">=</span>draft_payments&amp;client_id<span class="o">=</span>your_client_id&amp;redirect_uri<span class="o">=</span>your_redirect_uri
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>https://sandbox-business.revolut.com/partner-confirm?response_type<span class="o">=</span>code&amp;state<span class="o">=</span>state&amp;scope<span class="o">=</span>draftpayments&amp;client_id<span class="o">=</span>your_client_id&amp;redirect_uri<span class="o">=</span>your_redirect_uri
+</code></pre><pre class="highlight shell tab-shell--production"><code>https://business.revolut.com/partner-confirm?response_type<span class="o">=</span>code&amp;state<span class="o">=</span>state&amp;scope<span class="o">=</span>draftpayments&amp;client_id<span class="o">=</span>your_client_id&amp;redirect_uri<span class="o">=</span>your_redirect_uri
 </code></pre><blockquote>
       <div><p>Response</p>
 </div>
@@ -2073,7 +2073,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"DraftPaymentId"</span><span class="p">:</span><span class="s2">"4bc0a477-2c81-4f49-bf5b-c6705bb7a6d9"</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>After you have an access token, you can use the <code>/draft_payments</code> endpoint to create a draft payment on behalf of the user. Include a CSV file with the supported format shown in the following tables.</p>
+<p>After you have an access token, you can use the <code>/draft-payments</code> endpoint to create a draft payment on behalf of the user. Include a CSV file with the supported format shown in the following tables.</p>
 
 <p>After you create the draft payment, it appears in the user&#39;s Revolut Business account where user can approve or reject.</p>
 
@@ -2352,11 +2352,11 @@ To use our draft payments endpoint in any countries/currencies not listed below,
 </thead><tbody>
 <tr>
 <td>SEPA countries</td>
-<td>AD, AT, AX, BE, BG, BL, CH, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GF, GG, GI, GP, GR, HR, HU, IC, IE, IM, IS, IT, JE, LI, LT, LU, LV, MC, MF, MQ, MT, NL, NO, PL, PM, PT, RE, RO, SE, SI, SK, SM, TF, VA, YT</td>
+<td>AT, AX, BE, BG, BL, CH, CZ, DE, DK, EE, ES, FI, FR, GB, GF, GP, GR, HR, HU, IC, IE, IS, IT, LT, LU, LV, MF, MQ, NL, NO, PL, PM, PT, RE, RO, SE, SI, SK, SM, TF, VA, YT</td>
 </tr>
 <tr>
 <td>IBAN countries</td>
-<td>AD, AD, AE, AL, AO, AT, BA, BE, BG, BH, CH, CR, CY, CZ, DE, DK, DO, DZ, EE, ES, FI, FO, FR, GB, GE, GF, GI, GL, GR, HR, HU, IE, IL, IS, IT, JO, KW, KZ, LB, LI, LT, LU, LV, MC, MD, ME, MG, MK, MQ, MR, MT, MU, NL, NO, PK, PL, PM, PS, PT, QA, RO, RS, SA, SE, SI, SK, SM, TF, TN, TR, VA, VG, YT</td>
+<td>AD, AE, AL, AO, AT, BA, BE, BG, BH, CH, CR, CY, CZ, DE, DK, DO, DZ, EE, ES, FI, FO, FR, GB, GE, GF, GI, GL, GR, HR, HU, IE, IL, IS, IT, JO, KW, KZ, LB, LI, LT, LU, LV, MC, MD, ME, MG, MK, MQ, MR, MT, MU, NL, NO, PK, PL, PM, PS, PT, QA, RO, RS, SA, SE, SI, SK, SM, TF, TN, TR, VA, VG, YT</td>
 </tr>
 <tr>
 <td>Currencies supported</td>
@@ -2543,6 +2543,11 @@ Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,GBP,10,User comment,GB,,Revolutest LT
 <td><code>Invalid BIC for &lt;some_country&gt; bank country</code>, <code>Unsupported currency for external beneficiary</code>, <code>Postcode &lt;postcode&gt; is invalid, please change it before continuing</code>.</td>
 </tr>
 <tr>
+<td>2009</td>
+<td>Payments must be greater than 0</td>
+<td><code>Amount has to be greater than zero</code>.</td>
+</tr>
+<tr>
 <td>1000</td>
 <td>Unknown reason</td>
 <td><code>Something went wrong. Please contact support.</code>, <code>Something went wrong: &lt;error_id&gt;</code></td>
@@ -2716,6 +2721,10 @@ In case of any questions, reach out to Revolut Business support to get further h
 <aside class="warning">
 <b>Note:</b> Currently, webhooks are supported only for draft payments. We will be working to support other notification types soon.
 </aside>
+
+<aside class="warning">
+<b>Note:</b> If a user revokes the consent for your application, events for objects created using this token will not be sent.
+</aside>
 <h4 id='tutorials-tutorials-work-with-webhooks-1-generate-a-client-credentials-token'><a href='#tutorials-tutorials-work-with-webhooks-1-generate-a-client-credentials-token' class='header-link'><i></i></a>1. Generate a client credentials token</h4><blockquote>
       <div><p>Get a token</p>
 </div>
@@ -2860,12 +2869,25 @@ In case of any questions, reach out to Revolut Business support to get further h
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span></code></pre><blockquote>
+      <div><p>JWKS endpoint</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>https://sandbox-apis.revolut.com/jwk
+</code></pre><pre class="highlight shell tab-shell--production"><code>https://apis.revolut.com/jwk
+</code></pre>
 <p>When draft payments are approved from the Revolut Business UI, you receive a notification that indicates a change to the state of draft payment order and its individual transfers.</p>
 
 <p>The <code>Status</code> field corresponds to those detailed <a href='#tutorials-tutorials-work-with-draft-payments-payment-orders-vs-transfers'>here</a>.</p>
 
 <p>Please see examples of two payloads to the right. The <code>ID</code> field indicates the relevant object that has changed state, while <code>IdempotencyKey</code> can be used as a unique identifier for a specific event. </p>
+
+<p>The header in the request will contain a detached JWS containing a <code>kid</code>. Please use the JWKS endpoint to the right to validate this signature.</p>
 
 <aside class="warning">
 <b>Note:</b> we guarantee at-least-once delivery of webhooks, all duplicate events will have the same idempotency key
