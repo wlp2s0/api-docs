@@ -2733,12 +2733,12 @@ In case of any questions, reach out to Revolut Business support to get further h
 --location --request POST <span class="s1">'https://sandbox-mtls-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
---data-urlencode <span class="s1">'scope=accounts'</span>
+--data-urlencode <span class="s1">'scope=draftpayments'</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl --cert transport.pem --key server.key <span class="se">\</span>
 --location --request POST <span class="s1">'https://mtls-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
---data-urlencode <span class="s1">'scope=accounts'</span>
+--data-urlencode <span class="s1">'scope=draftpayments'</span>
 </code></pre><blockquote>
       <div><p>Response</p>
 </div>
@@ -2804,9 +2804,9 @@ In case of any questions, reach out to Revolut Business support to get further h
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl --location --request <span class="s1">'https://sandbox-oba.revolut.com/webhooks'</span>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl --location --request GET <span class="s1">'https://sandbox-oba.revolut.com/webhooks'</span> <span class="se">\</span>
 --header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjQ4ZjllZWJjLTA0YmItNGM2NS1hMzE1LWIwYjQ1OWJhN2I5ZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDk3Nzk0NzF9.ihoDIi5bELncONFL68uAmKgGJPe7ShyUCpOXHwjjzwYSW8M9G-kb6As9ybaNFYsaK2ee3BhPo0eIhnXCPFocpWc7OLeaJq_q4ytCHafvvgQNBNJH6lKJEGAne6QYyAtkYxR7hIaaX-AKOGNBy_-gtigrgyb5-qqtg5KP25eBF9JkygTlAIYZPq7IhENjBocWCYXNetUVOy7oA2tGyW_r3QdI9adMKu-Iqhx2cBh6aXMOjydmz8K6iv9quzNHB-Oh32Riz9V9kX1XEt5We32VgRM_S1Vdw7x1-sVZKMTPkh0CVnORpDYns9rwcEBfm3qEidd0HqcBgBXqWuoxBhQAhA'</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request <span class="s1">'https://sandbox-oba.revolut.com/webhooks'</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request GET <span class="s1">'https://oba.revolut.com/webhooks'</span> <span class="se">\</span>
 --header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjQ4ZjllZWJjLTA0YmItNGM2NS1hMzE1LWIwYjQ1OWJhN2I5ZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDk3Nzk0NzF9.ihoDIi5bELncONFL68uAmKgGJPe7ShyUCpOXHwjjzwYSW8M9G-kb6As9ybaNFYsaK2ee3BhPo0eIhnXCPFocpWc7OLeaJq_q4ytCHafvvgQNBNJH6lKJEGAne6QYyAtkYxR7hIaaX-AKOGNBy_-gtigrgyb5-qqtg5KP25eBF9JkygTlAIYZPq7IhENjBocWCYXNetUVOy7oA2tGyW_r3QdI9adMKu-Iqhx2cBh6aXMOjydmz8K6iv9quzNHB-Oh32Riz9V9kX1XEt5We32VgRM_S1Vdw7x1-sVZKMTPkh0CVnORpDYns9rwcEBfm3qEidd0HqcBgBXqWuoxBhQAhA'</span>
 </code></pre><blockquote>
       <div><p>Response</p>
