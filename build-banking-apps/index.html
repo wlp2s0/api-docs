@@ -373,10 +373,13 @@
                             <a href="#tutorials-tutorials-create-your-first-draft-payment-2-exchange-authorization-code-for-access-token" class="toc-h4 toc-link" data-title="2-exchange-authorization-code-for-access-token">2. Exchange authorization code for access token</a>
                           </li>
                           <li>
-                            <a href="#tutorials-tutorials-create-your-first-draft-payment-3-create-a-draft-payment" class="toc-h4 toc-link" data-title="3-create-a-draft-payment">3. Create a draft payment</a>
+                            <a href="#tutorials-tutorials-create-your-first-draft-payment-3-refresh-access-token" class="toc-h4 toc-link" data-title="3-refresh-access-token">3. Refresh access token</a>
                           </li>
                           <li>
-                            <a href="#tutorials-tutorials-create-your-first-draft-payment-4-get-a-draft-payment" class="toc-h4 toc-link" data-title="4-get-a-draft-payment">4. Get a draft payment</a>
+                            <a href="#tutorials-tutorials-create-your-first-draft-payment-4-create-a-draft-payment" class="toc-h4 toc-link" data-title="4-create-a-draft-payment">4. Create a draft payment</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-create-your-first-draft-payment-5-get-a-draft-payment" class="toc-h4 toc-link" data-title="5-get-a-draft-payment">5. Get a draft payment</a>
                           </li>
                       </ul>
                       </li>
@@ -1299,13 +1302,13 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --key private.key --cert transport.pem <span class="se">\</span>
 --location --request POST <span class="s1">'https://sandbox-oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type:application/x-www-form-urlencoded'</span> <span class="se">\</span>
---data-encoded <span class="nv">grant_type</span><span class="o">=</span>authorization_code <span class="se">\</span>
---data-encoded <span class="nv">code</span><span class="o">=</span>&lt;insert auth_code&gt;
+--data-urlencode <span class="s1">'grant_type=authorization_code \
+--data-urlencode '</span><span class="nv">code</span><span class="o">=</span>&lt;insert auth_code&gt;
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl  --key private.key --cert transport.pem <span class="se">\</span>
 --location --request POST <span class="s1">'https://oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type:application/x-www-form-urlencoded'</span> <span class="se">\</span>
---data-encoded <span class="nv">grant_type</span><span class="o">=</span>authorization_code <span class="se">\</span>
---data-encoded <span class="nv">code</span><span class="o">=</span>&lt;insert auth_code&gt;
+--data-urlencode <span class="s1">'grant_type=authorization_code \
+--data-urlencode '</span><span class="nv">code</span><span class="o">=</span>&lt;insert auth_code&gt;
 </code></pre><blockquote>
       <div><p>Response</p>
 </div>
@@ -1756,13 +1759,13 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --key private.key --cert transport.pem <span class="se">\</span>
 --location --request POST <span class="s1">'https://sandbox-oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type:application/x-www-form-urlencoded'</span> <span class="se">\</span>
---data-encoded <span class="nv">grant_type</span><span class="o">=</span>authorization_code <span class="se">\</span>
---data-encoded <span class="nv">code</span><span class="o">=</span>&lt;insert auth_code&gt;
+--data-urlencode <span class="s1">'grant_type=authorization_code \
+--data-urlencode '</span><span class="nv">code</span><span class="o">=</span>&lt;insert auth_code&gt;
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl  --key private.key --cert transport.pem <span class="se">\</span>
 --location --request POST <span class="s1">'https://oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type:application/x-www-form-urlencoded'</span> <span class="se">\</span>
---data-encoded <span class="nv">grant_type</span><span class="o">=</span>authorization_code <span class="se">\</span>
---data-encoded <span class="nv">code</span><span class="o">=</span>&lt;insert auth_code&gt;
+--data-urlencode <span class="s1">'grant_type=authorization_code \
+--data-urlencode'</span><span class="nv">code</span><span class="o">=</span>&lt;insert auth_code&gt;
 </code></pre><blockquote>
       <div><p>Response</p>
 </div>
@@ -2016,12 +2019,12 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --key your_private.key --cert your_transport.pem <span class="se">\</span>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --key private.key --cert transport.pem <span class="se">\</span>
 --location --request POST <span class="s1">'https://sandbox-mtls-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=authorization_code'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'code=&lt;insert authorisation_code&gt;'</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl  --key your_private.key --cert your_transport.pem <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl  --key private.key --cert transport.pem <span class="se">\</span>
 --location --request POST <span class="s1">'https://mtls-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=authorization_code'</span> <span class="se">\</span>
@@ -2035,12 +2038,60 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"access_token"</span><span class="p">:</span><span class="s2">"oa_sand_tG6kRPb2LAYJZx1c3w1NZ7ntuscssWqsC6WkaW9jbER-E"</span><span class="p">,</span><span class="s2">"token_type"</span><span class="p">:</span><span class="s2">"Bearer"</span><span class="p">,</span><span class="s2">"expires_in"</span><span class="p">:</span><span class="mi">7775999</span><span class="p">}</span><span class="w">
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="s2">"oa_prod_uuWhyiJt1oSoE6aeSxVO8ZpuR_VtgrgPllZKSvHoQ-I"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="s2">"oa_prod_tUf_3gZJA6vNH4AnBMVEPqbykkfgBomWwDGRo8tBThA"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="mi">7775999</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Exchange your authorization code for an access token using the <code>token</code> endpoint. Check the request example on the right.</p>
+<p>Exchange your authorization code for an access token using the token endpoint.</p>
 
-<div class="feedback"></div>
-<h4 id='tutorials-tutorials-create-your-first-draft-payment-3-create-a-draft-payment'><a href='#tutorials-tutorials-create-your-first-draft-payment-3-create-a-draft-payment' class='header-link'><i></i></a>3. Create a draft payment</h4><blockquote>
+<p>Check the request and response example on the right, where:</p>
+
+<ul>
+<li><code>access_token</code> is the access token you received.</li>
+<li><code>expires_in</code> is the time duration in seconds that the token is valid for. An access token is valid for 90 days. Before it expires, you must refresh the access token. For more information, see <a href=#tutorials-tutorials-create-your-first-draft-payment-3-refresh-access-token>Refresh access token</a>.
+<div class="feedback"></div></li>
+</ul>
+<h4 id='tutorials-tutorials-create-your-first-draft-payment-3-refresh-access-token'><a href='#tutorials-tutorials-create-your-first-draft-payment-3-refresh-access-token' class='header-link'><i></i></a>3. Refresh access token</h4><blockquote>
+      <div><p>Refresh access token</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --key private.key --cert transport.pem <span class="se">\</span>
+--location --request POST <span class="s1">'https://sandbox-mtls-auth.revolut.com/token'</span> <span class="se">\</span>
+--header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+--data-urlencode <span class="s1">'grant_type=refresh_token'</span> <span class="se">\</span>
+--data-urlencode <span class="s1">'refresh_token=&lt;insert refresh_token&gt;'</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl --key private.key --cert transport.pem <span class="se">\</span>
+--location --request POST <span class="s1">'https://mtls-auth.revolut.com/token'</span> <span class="se">\</span>
+--header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
+--data-urlencode <span class="s1">'grant_type=refresh_token'</span> <span class="se">\</span>
+--data-urlencode <span class="s1">'refresh_token=&lt;insert refresh_token&gt;'</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"access_token"</span><span class="p">:</span><span class="s2">"oa_prod_h_M1nWyehXEkx3kF1QhEoqksQT0NaYKfBuEEBv1dSOY"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token_type"</span><span class="p">:</span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="mi">7775999</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Each access token is valid for 90 days. When it expires, you must refresh the access token before you create a draft payment.</p>
+
+<p>To do that, use the <code>refresh_token</code> returned in the previous step to request a new access token that can be used for a further 90 days. Check the request and response example on the right.</p>
+<h4 id='tutorials-tutorials-create-your-first-draft-payment-4-create-a-draft-payment'><a href='#tutorials-tutorials-create-your-first-draft-payment-4-create-a-draft-payment' class='header-link'><i></i></a>4. Create a draft payment</h4><blockquote>
       <div><p>Create a draft payment</p>
 </div>
       <div class='env-selector'>
@@ -2190,7 +2241,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 </tbody></table>
 
 <div class="feedback"></div>
-<h4 id='tutorials-tutorials-create-your-first-draft-payment-4-get-a-draft-payment'><a href='#tutorials-tutorials-create-your-first-draft-payment-4-get-a-draft-payment' class='header-link'><i></i></a>4. Get a draft payment</h4><blockquote>
+<h4 id='tutorials-tutorials-create-your-first-draft-payment-5-get-a-draft-payment'><a href='#tutorials-tutorials-create-your-first-draft-payment-5-get-a-draft-payment' class='header-link'><i></i></a>5. Get a draft payment</h4><blockquote>
       <div><p>Get the details of a draft payment</p>
 </div>
       <div class='env-selector'>
@@ -2347,7 +2398,7 @@ To use our draft payments endpoint in any countries/currencies not listed below,
 </thead><tbody>
 <tr>
 <td>SEPA countries</td>
-<td>AT, AX, BE, BG, BL, CH, CZ, DE, DK, EE, ES, FI, FR, GB, GF, GP, GR, HR, HU, IC, IE, IS, IT, LT, LU, LV, MF, MQ, NL, NO, PL, PM, PT, RE, RO, SE, SI, SK, SM, TF, VA, YT</td>
+<td>AT, BE, BG, CH, CZ, DE, DK, EE, ES, FI, FR, GB, GF, GR, HR, HU, IE, IS, IT, LT, LU, LV, MQ, NL, NO, PL, PM, PT, RO, SE, SI, SK, SM, TF, VA, YT</td>
 </tr>
 <tr>
 <td>IBAN countries</td>
