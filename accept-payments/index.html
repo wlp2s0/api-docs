@@ -341,6 +341,14 @@
             </li>
             <li>
               <a href="#errors" class="toc-h2 toc-link" data-title="errors">Errors</a>
+                <ul class="toc-list-h3">
+                    <li>
+                      <a href="#errors-http-response-errors" class="toc-h3 toc-link" data-title="http-response-errors">HTTP Response errors</a>
+                      </li>
+                    <li>
+                      <a href="#errors-failure-reasons" class="toc-h3 toc-link" data-title="failure-reasons">Failure Reasons</a>
+                      </li>
+                </ul>
             </li>
         </ul>
       </div>
@@ -1314,7 +1322,7 @@ To get started, complete the following steps:</p>
 </ol>
 
 <div class="feedback"></div>
-<h2 id='errors'><a href='#errors' class='header-link'><i></i></a>Errors</h2>
+<h2 id='errors'><a href='#errors' class='header-link'><i></i></a>Errors</h2><h3 id='errors-http-response-errors'><a href='#errors-http-response-errors' class='header-link'><i></i></a>HTTP Response errors</h3>
 <p>The API uses the following error codes:</p>
 
 <table><thead>
@@ -1325,7 +1333,7 @@ To get started, complete the following steps:</p>
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>Bad Request -- Your request is invalid. Ensure that all the parameters provided in the request follow the <a href="https://developer.revolut.com/api-reference/merchant/">API Reference</a>.</td>
 </tr>
 <tr>
 <td>401</td>
@@ -1358,6 +1366,78 @@ To get started, complete the following steps:</p>
 <tr>
 <td>503</td>
 <td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+<h3 id='errors-failure-reasons'><a href='#errors-failure-reasons' class='header-link'><i></i></a>Failure Reasons</h3>
+<p>A payment towards an order can be <code>DECLINED</code> or <code>FAILED</code> for a reason. You can check it from the <code>failure_reason</code> field under <code>payments</code> in the response.</p>
+
+<p>The following table lists the most common reasons that are mapped to human-readable values:</p>
+
+<table><thead>
+<tr>
+<th>failure_reason value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>do_not_honour</td>
+<td>The customer&#39;s bank declines the payment because it fails the authorization process. The most common reasons are: <br><br><ol><li>The bank&#39;s fraud rules are triggered.</li><li>The bank has placed a temporary hold on the customer&#39;s card.</li><li>The purchase session is locked due to multiple declined payments.</li><li>The seller is located in a different country from that of the card issuing bank.</li></ol></td>
+</tr>
+<tr>
+<td>3ds_challenge_abandoned</td>
+<td>The customer has abandoned the 3DS challenge without completing it.</td>
+</tr>
+<tr>
+<td>3ds_challenge_failed</td>
+<td>The customer has failed the 3DS challenge.</td>
+</tr>
+<tr>
+<td>3ds_challenge_failed_manually</td>
+<td>The customer has failed the 3DS challenge manually.</td>
+</tr>
+<tr>
+<td>insufficient_funds</td>
+<td>The account associated with the payment method used doesn’t have sufficient funds to make the payment.</td>
+</tr>
+<tr>
+<td>transaction_not_allowed_for_cardholder</td>
+<td>The customer&#39;s bank doesn’t allow the cardholder to make the payment.</td>
+</tr>
+<tr>
+<td>high_risk</td>
+<td>The transaction has been declined due to high risk. This can be a trigger from both the issuing bank and internal Revolut tools.</td>
+</tr>
+<tr>
+<td>cardholder_name_missing</td>
+<td>The cardholder name is missing. This is a required parameter to make a card payment.</td>
+</tr>
+<tr>
+<td>unknown_card</td>
+<td>The card can’t be identified. Ensure that you don’t use a test card in the production mode.</td>
+</tr>
+<tr>
+<td>invalid_card</td>
+<td>The card number provided is invalid.</td>
+</tr>
+<tr>
+<td>invalid_email</td>
+<td>The email provided doesn’t have a valid format.</td>
+</tr>
+<tr>
+<td>restricted_card</td>
+<td>The issuing bank has a restriction on the card. Ask the customer to contact their bank for more details.</td>
+</tr>
+<tr>
+<td>expired_card</td>
+<td>The card provided has expired.</td>
+</tr>
+<tr>
+<td>withdrawal_limit_exceeded</td>
+<td>The withdrawal limit for a specific card or account has been reached or exceeded. Ask the customer to contact their bank to extend this limit.</td>
+</tr>
+<tr>
+<td>pick_up_card</td>
+<td>The card has been reported as lost or stolen. The issuing bank has given the instruction to pick up the card and notify the issuing bank so that it can be returned to its rightful owner.</td>
 </tr>
 </tbody></table>
 
