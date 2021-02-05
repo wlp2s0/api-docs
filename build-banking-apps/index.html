@@ -1308,13 +1308,13 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --key private.key --cert transport.pem <span class="se">\</span>
 --location --request POST <span class="s1">'https://sandbox-oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type:application/x-www-form-urlencoded'</span> <span class="se">\</span>
---data-urlencode <span class="s1">'grant_type=authorization_code \
---data-urlencode '</span><span class="nv">code</span><span class="o">=</span>&lt;insert auth_code&gt;
+--data-urlencode <span class="s1">'grant_type=authorization_code'</span> <span class="se">\</span>
+--data-urlencode <span class="s1">'code=&lt;insert auth_code&gt;'</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl  --key private.key --cert transport.pem <span class="se">\</span>
 --location --request POST <span class="s1">'https://oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type:application/x-www-form-urlencoded'</span> <span class="se">\</span>
---data-urlencode <span class="s1">'grant_type=authorization_code \
---data-urlencode '</span><span class="nv">code</span><span class="o">=</span>&lt;insert auth_code&gt;
+--data-urlencode <span class="s1">'grant_type=authorization_code'</span> <span class="se">\</span>
+--data-urlencode <span class="s1">'code=&lt;insert auth_code&gt;'</span>
 </code></pre><blockquote>
       <div><p>Response</p>
 </div>
@@ -2107,11 +2107,13 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
         </select>
       </div>
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl --location --request POST <span class="s1">'https://sandbox-apis.revolut.com/draft-payments'</span> <span class="se">\</span>
---header <span class="s1">'Authorization: Bearer &lt;insert access_token.'</span> <span class="se">\</span>
+--header <span class="s1">'Authorization: Bearer &lt;insert access_token&gt;'</span> <span class="se">\</span>
+--header <span class="s1">'x-idempotency-key: 2c199c8c-671f-11eb-ae93-0242ac130002'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: text/csv'</span> <span class="se">\</span>
 --data-binary @draft_payments.csv
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request POST <span class="s1">'https://apis.revolut.com/draft-payments'</span> <span class="se">\</span>
---header <span class="s1">'Authorization: Bearer &lt;insert access_token.'</span> <span class="se">\</span>
+--header <span class="s1">'x-idempotency-key: 2c199c8c-671f-11eb-ae93-0242ac130002'</span> <span class="se">\</span>
+--header <span class="s1">'Authorization: Bearer &lt;insert access_token&gt;'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: text/csv'</span> <span class="se">\</span>
 --data-binary @draft_payments.csv
 </code></pre><blockquote>
@@ -2125,7 +2127,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"DraftPaymentId"</span><span class="p">:</span><span class="s2">"4bc0a477-2c81-4f49-bf5b-c6705bb7a6d9"</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>After you have an access token, you can use the <code>/draft-payments</code> endpoint to create a draft payment on behalf of the user. Include a CSV file with the supported format shown in the following tables.</p>
+<p>After you have an access token, you can use the <code>/draft-payments</code> endpoint to create a draft payment on behalf of the user. Include a CSV file with the supported format shown in the following tables and a unique <code>idempotency-key</code>.</p>
 
 <p>After you create the draft payment, it appears in the user&#39;s Revolut Business account where user can approve or reject.</p>
 
