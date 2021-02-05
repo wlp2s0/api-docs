@@ -1326,12 +1326,15 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"access_token"</span><span class="p">:</span><span class="s2">"oa_sand_tP1Nofi1ixsRfBmVBtVPdIVN0J5x91imqmheQIWTS5s"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"access_token_id"</span><span class="p">:</span><span class="s2">"3d3ef8a1-f920-4d6d-9106-e7fcf350125c"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"token_type"</span><span class="p">:</span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="mi">7775999</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id_token"</span><span class="p">:</span><span class="s2">"eyJraWQiOiJxRlFQaTRPVkJVLVNaVk5iMjJ5VjVHQVZDN1UiLCJhbGciOiJQUzI1NiJ9.eyJpc3MiOiJodHRwczovL29iYS5yZXZvbHV0LmNvZGVzIiwic3ViIjoiNDY3YmM4NzAtYzk5ZS00NDM0LWE5NTktYjhjNTZlZTZhMDI3IiwiYXVkIjoiMWVjMWRiMmQtM2U1Yi00ZDgyLWI0MmUtMDY3OTQ1NjJlMjBlIiwibm9uY2UiOiJuLTBTNl9XekEyTWoiLCJleHAiOjE2MDQ5Mzc0Nzk1NjksImlhdCI6MTYwNDkzNjg3OX0.NrcI6qSwmkTC4zhVP7S9Se1RD8Mnwfz5D3RyGp_5CI7MN6-GLqGHnIBNPNzbUBjlmer8ecCvhm0j9tkScT0xDMSZUdMjRyvb7qrsXYTVbj0ogDPthZSe-45tiq3y4oOsIusIwMPFWGHzI2zq_wzxYY8h6QXFIK6TB_oC93jM6J5JEUUQwvDR23ntcCoH_9uNaGM2PXO2ppxhxZiJe92TYcoZFCIMxqrcVxuUYM1VLQ8d7TcpoIDWdOmtOVqDYmblUHyjFpO3IcBHalua0LRGmU3ZuaEv2iG3YzpqV0OMIHFUe9fQ95z_jID4rGIWwxRL6URIdzw6ZSSyxRXKRWNh3g"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>After the user authorize your consent, you use the <code>/token</code> endpoint with <code>grant_type=authorization_code</code> to get the access token that you can use to access the Accounts API.</p>
+
+<p><code>access_token_id</code> is used in conjunction with the <code>token</code> webhook to identify tokens where the user has revoked their consent.</p>
 
 <aside class="warning">
 <b>Note:</b> The value of <code>auth_code</code> is the authorization code (<code>code</code>) generated from the previous step.
@@ -1765,13 +1768,13 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --key private.key --cert transport.pem <span class="se">\</span>
 --location --request POST <span class="s1">'https://sandbox-oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type:application/x-www-form-urlencoded'</span> <span class="se">\</span>
---data-urlencode <span class="s1">'grant_type=authorization_code \
---data-urlencode '</span><span class="nv">code</span><span class="o">=</span>&lt;insert auth_code&gt;
+--data-urlencode <span class="s1">'grant_type=authorization_code'</span> <span class="se">\</span>
+--data-urlencode <span class="s1">'code=&lt;insert auth_code&gt;'</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl  --key private.key --cert transport.pem <span class="se">\</span>
 --location --request POST <span class="s1">'https://oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type:application/x-www-form-urlencoded'</span> <span class="se">\</span>
---data-urlencode <span class="s1">'grant_type=authorization_code \
---data-urlencode'</span><span class="nv">code</span><span class="o">=</span>&lt;insert auth_code&gt;
+--data-urlencode <span class="s1">'grant_type=authorization_code'</span> <span class="se">\</span>
+--data-urlencode<span class="s1">'code=&lt;insert auth_code&gt;'</span>
 </code></pre><blockquote>
       <div><p>Response</p>
 </div>
@@ -2047,6 +2050,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"access_token"</span><span class="p">:</span><span class="s2">"oa_prod_uuWhyiJt1oSoE6aeSxVO8ZpuR_VtgrgPllZKSvHoQ-I"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="s2">"oa_prod_tUf_3gZJA6vNH4AnBMVEPqbykkfgBomWwDGRo8tBThA"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"access_token_id"</span><span class="p">:</span><span class="s2">"3d3ef8a1-f920-4d6d-9106-e7fcf350125c"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"token_type"</span><span class="p">:</span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="mi">7775999</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2057,9 +2061,11 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 
 <ul>
 <li><code>access_token</code> is the access token you received.</li>
-<li><code>expires_in</code> is the time duration in seconds that the token is valid for. An access token is valid for 90 days. Before it expires, you must refresh the access token. For more information, see <a href=#tutorials-tutorials-create-your-first-draft-payment-3-refresh-access-token>Refresh access token</a>.
-<div class="feedback"></div></li>
+<li><code>expires_in</code> is the time duration in seconds that the token is valid for. An access token is valid for 90 days. Before it expires, you must refresh the access token. For more information, see <a href=#tutorials-tutorials-create-your-first-draft-payment-3-refresh-access-token>Refresh access token</a>.</li>
+<li><code>access_token_id</code> is used in conjunction with the <code>token</code> webhook to identify tokens where the user has revoked their consent.</li>
 </ul>
+
+<div class="feedback"></div>
 <h4 id='tutorials-tutorials-create-your-first-draft-payment-3-refresh-access-token'><a href='#tutorials-tutorials-create-your-first-draft-payment-3-refresh-access-token' class='header-link'><i></i></a>3. Refresh access token</h4><blockquote>
       <div><p>Refresh access token</p>
 </div>
@@ -2112,8 +2118,8 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 --header <span class="s1">'Content-Type: text/csv'</span> <span class="se">\</span>
 --data-binary @draft_payments.csv
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request POST <span class="s1">'https://apis.revolut.com/draft-payments'</span> <span class="se">\</span>
---header <span class="s1">'x-idempotency-key: 2c199c8c-671f-11eb-ae93-0242ac130002'</span> <span class="se">\</span>
 --header <span class="s1">'Authorization: Bearer &lt;insert access_token&gt;'</span> <span class="se">\</span>
+--header <span class="s1">'x-idempotency-key: 2c199c8c-671f-11eb-ae93-0242ac130002'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: text/csv'</span> <span class="se">\</span>
 --data-binary @draft_payments.csv
 </code></pre><blockquote>
@@ -2127,7 +2133,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="s2">"DraftPaymentId"</span><span class="p">:</span><span class="s2">"4bc0a477-2c81-4f49-bf5b-c6705bb7a6d9"</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>After you have an access token, you can use the <code>/draft-payments</code> endpoint to create a draft payment on behalf of the user. Include a CSV file with the supported format shown in the following tables and a unique <code>idempotency-key</code>.</p>
+<p>After you have an access token, you can use the <code>/draft-payments</code> endpoint to create a draft payment on behalf of the user. Include a CSV file with the supported format shown in the following tables and a unique <code>idempotency-key</code> of <code>uuid</code> format.</p>
 
 <p>After you create the draft payment, it appears in the user&#39;s Revolut Business account where user can approve or reject.</p>
 
@@ -2772,9 +2778,29 @@ In case of any questions, reach out to Revolut Business support to get further h
 
 <p>When a supported event occurs, a real-time notification is posted, via HTTP POST method, to the specified endpoint.</p>
 
-<aside class="warning">
-<b>Note:</b> Currently, webhooks are supported only for draft payments. We will be working to support other notification types soon.
-</aside>
+<p>We currently support webhooks for the following topics:</p>
+
+<table><thead>
+<tr>
+<th>Topic</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>draftpayments/orders</td>
+<td>Notifications for changes of state in a draft payment order.</td>
+</tr>
+<tr>
+<td>draftpayments/transfers</td>
+<td>Notifications for changes of state in a draft payment transfer.</td>
+</tr>
+<tr>
+<td>tokens</td>
+<td>Notification when a user revokes consent for your application. Identify the token leveraging the <code>access_token_id</code> returned with <code>access_token</code> in previous tutorials.</td>
+</tr>
+</tbody></table>
+
+<p>Each topic that you subscribe to requires an individual API call.</p>
 
 <aside class="warning">
 <b>Note:</b> If a user revokes the consent for your application, events for objects created using this token will not be sent.
@@ -2813,7 +2839,11 @@ In case of any questions, reach out to Revolut Business support to get further h
   </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">2399</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Request an access token for client credentials using the <code>/token</code> endpoint and the <code>client_credentials</code> grant type.</p>
+<p>Request an access token for client credentials using the <code>/token</code> endpoint and the <code>client_credentials</code> grant type. </p>
+
+<aside class="warning">
+<b>Note:</b> <code>tokens</code> topic works for all consents no matter the scope. Depending on your application, adjust the <code>scope</code> parameter accordingly.
+</aside>
 <h4 id='tutorials-tutorials-work-with-webhooks-2-create-a-webhook'><a href='#tutorials-tutorials-work-with-webhooks-2-create-a-webhook' class='header-link'><i></i></a>2. Create a webhook</h4><blockquote>
       <div><p>Create webhook</p>
 </div>
@@ -2840,15 +2870,6 @@ In case of any questions, reach out to Revolut Business support to get further h
     "Uri": "https://revolut_test.com" 
 }'</span>
 </code></pre>
-<p>For draft payments, the following types of topic are supported:</p>
-
-<ul>
-<li>draftpayments/transfers</li>
-<li>draftpayments/orders</li>
-</ul>
-
-<p>This means that when the state of transfers and orders that your application previously created changes, a notification is sent. Each topic that you subscribe to requires an individual API call.</p>
-
 <p>To create a webhook, make a call to the <code>/webhooks/subscribe</code> endpoint.</p>
 
 <aside class="warning">
@@ -2882,6 +2903,10 @@ In case of any questions, reach out to Revolut Business support to get further h
   </span><span class="s2">"Uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://revolut_test.com"</span><span class="w">
 </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
   </span><span class="s2">"Topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"draftpayments/transfers"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://revolut_test.com"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"Topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"draftpayments/tokens"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://revolut_test.com"</span><span class="w">
 </span><span class="p">}]</span><span class="w">
@@ -2921,6 +2946,24 @@ In case of any questions, reach out to Revolut Business support to get further h
   </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7e18d804-b154-4035-bc8e-7a038acbb104"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Consent revocation payload</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tokens"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"IdempotencyKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f18b4784-36f3-41f8-871e-2869f8e40f78"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53408510-9154-4f30-bd60-308d3558b063"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Terminated"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><blockquote>
