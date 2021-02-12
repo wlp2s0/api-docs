@@ -1,0 +1,2591 @@
+openapi: 3.0.0
+info:
+  title: Merchant API
+  version: '1.0'
+  description: 'As a Revolut Business customer, you can use the Merchant API to accept online payments (Card Not Present) by debit or credit cards, and also to manage the orders and customers. '
+  contact: {}
+servers:
+  - url: 'https://merchant.revolut.com'
+    description: Production
+  - description: Sandbox
+    url: 'https://sandbox-merchant.revolut.com'
+paths:
+  /api/1.0/orders:
+    post:
+      summary: Create an order
+      operationId: createOrder
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                Created order:
+                  value:
+                    id: 5fd927ba-6f73-4a01-8e2b-fcd37fb629c5
+                    public_id: 94a11217-6319-4d34-8dae-a2b80b953adb
+                    type: PAYMENT
+                    state: PENDING
+                    created_at: '2020-10-15T07:46:40.648108Z'
+                    updated_at: '2020-10-15T07:46:40.648108Z'
+                    capture_mode: AUTOMATIC
+                    merchant_order_ext_ref: Order test
+                    email: johndoe001@gmail.com
+                    order_amount:
+                      value: 777
+                      currency: GBP
+            application/xml:
+              schema:
+                type: object
+                properties: {}
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    errorId: 94b27660-fdda-49ec-8b85-cd46a068ade0
+                    timestamp: 1601296792533
+          headers: {}
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: integer
+                  description: The amount of the order (minor currency unit).
+                capture_mode:
+                  type: string
+                  description: |-
+                    The capture mode of the order. `AUTOMATIC` is used by default.
+
+                    - `AUTOMATIC`: The order is captured automatically after payment authorization.
+                    - `MANUAL`: The order is not captured automatically. You must manually capture the order later.
+
+                    For more information, see [Capture an order](#operation/captureOrder).
+                  enum:
+                    - AUTOMATIC
+                    - MANUAL
+                merchant_order_ext_ref:
+                  type: string
+                  description: |-
+                    Merchant order ID for external reference.
+
+                    Use this field to set the ID that your own system can use to easily track orders.
+                email:
+                  type: string
+                  description: The email of the customer.
+                  format: email
+                description:
+                  type: string
+                  description: The description of the order.
+                currency:
+                  type: string
+                  description: ISO 4217 currency code in upper case.
+                settlement_currency:
+                  type: string
+                  description: |-
+                    Settlement currency. 
+
+                    If `settlement_currency` is not specified, this value is taken from `currency`.
+                customer_id:
+                  type: string
+                  description: |-
+                    ID of the [customer](https://developer.revolut.com/api-reference/merchant/#tag/Customers) that is associated with this order.
+
+                    When you specify a `customer_id`, the email associated with the customer ID overrides the value of the `email` field.
+              required:
+                - amount
+                - currency
+            examples:
+              Example request:
+                value:
+                  amount: 777
+                  capture_mode: AUTOMATIC
+                  merchant_order_ext_ref: Order test
+                  email: johndoe001@gmail.com
+                  currency: GBP
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ''
+      parameters: []
+      description: Create an `Order` object.
+      security:
+        - API key: []
+      tags:
+        - Orders
+    get:
+      summary: Retrieve Order list
+      operationId: retrieveOrderList
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Simplified-Order'
+              examples:
+                List of orders:
+                  value:
+                    - id: f0d685f4-07ab-4eff-ba80-5811303c607d
+                      type: PAYMENT
+                      state: PENDING
+                      created_at: '2021-02-10T18:17:37.959383Z'
+                      updated_at: '2021-02-10T18:17:37.959383Z'
+                      order_amount:
+                        value: 35000
+                        currency: GBP
+                      order_outstanding_amount:
+                        value: 35000
+                        currency: GBP
+                    - id: feca684a-b9ea-4033-9bc4-b9e6ac12ada6
+                      type: PAYMENT
+                      state: COMPLETED
+                      created_at: '2021-02-10T16:59:23.642673Z'
+                      updated_at: '2021-02-10T16:59:50.886826Z'
+                      completed_at: '2021-02-10T16:59:50.886826Z'
+                      settlement_currency: USD
+                      email: sally.gibson@lloydsbank.co.uk
+                      order_amount:
+                        value: 1000
+                        currency: GBP
+                      order_outstanding_amount:
+                        value: 0
+                        currency: GBP
+                    - id: f3c5e3f1-f73a-4853-a9e3-b0261301c66a
+                      type: PAYMENT
+                      state: COMPLETED
+                      created_at: '2021-02-10T16:58:47.507560Z'
+                      updated_at: '2021-02-10T16:59:52.847017Z'
+                      completed_at: '2021-02-10T16:59:52.847017Z'
+                      description: URBAN 'Panther' Watch by José Almeida
+                      capture_mode: AUTOMATIC
+                      merchant_order_ext_ref: testorder123
+                      customer_id: 31345442-3d03-4c4b-8354-3bdaf0ca9600
+                      email: someothermail@gmail.com
+                      order_amount:
+                        value: 777
+                        currency: GBP
+                      order_outstanding_amount:
+                        value: 0
+                        currency: GBP
+      parameters:
+        - schema:
+            type: integer
+            default: '100'
+          in: query
+          name: limit
+          description: The maximum number of orders returned per page. Used for **pagination**.
+        - schema:
+            type: string
+            format: date-time
+          in: query
+          name: created_before
+          description: |-
+            Retrieve orders with a `created_date` < `created_before`. Used for **pagination**. Use the `created_date` of the last order returned in the previous response to get to the next page.
+
+            The default value is the current date and time you are calling the endpoint.
+        - schema:
+            type: string
+            format: date-time
+          in: query
+          name: from_created_date
+          description: |-
+            Retrieve all orders with a `created_date` ≥ `from_created_date`. Used for **filtering**.
+
+            Use the [ISO date format](https://en.wikipedia.org/wiki/ISO_8601) : `yyyy-MM-ddTHH:mm:ss[.SSSSSS]Z`. For example, `2021-02-10T16:59:50.886826Z`.
+        - schema:
+            type: string
+            format: date-time
+          in: query
+          name: to_created_date
+          description: |-
+            Retrieve all orders with a `created_date` ≤ `to_created_date`. Used for **filtering**.
+            
+            Use the [ISO date format](https://en.wikipedia.org/wiki/ISO_8601) : `yyyy-MM-ddTHH:mm:ss[.SSSSSS]Z`. For example, `2021-02-10T16:59:50.886826Z`.
+        - schema:
+            type: string
+            format: email
+          in: query
+          name: email
+          description: |- 
+            Retrieve all orders that have this `email` associated to them. Used for **filtering**. 
+          
+            This parameter is case sensitive.
+        - schema:
+            type: string
+          in: query
+          name: merchant_order_ext_ref
+          description: |-
+            Merchant order ID for external reference. Use this field to filter and retrieve all the orders that have this ID. Used for **filtering**. 
+            
+            This parameter is case sensitive.
+      description: |-
+        Retrieve all the orders that you’ve created. You can also use the query parameters to:
+
+          * Filter the orders that you want to retrieve, for example, only retrieve the orders that have a specific email. (Filtering)
+          * View the orders without loading all of them at once, for example, return a specified number of orders per page. (Pagination)
+
+        The response contains an array of simplified `Order` objects. To get the full details of an `Order` object, use the [Retrieve an order](#operation/retrieveOrder) endpoint.
+      tags:
+        - Orders
+  '/api/1.0/orders/{order_id}':
+    get:
+      summary: Retrieve an order
+      tags:
+        - Orders
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                Retrieved order:
+                  value:
+                    id: 7c97ce7e-a7e4-4ff9-b3ca-9f988b0ba5e0
+                    public_id: fecaafa0-c230-44e9-a24e-7005e82e03f8
+                    type: PAYMENT
+                    state: COMPLETED
+                    created_at: '2021-01-14T18:37:06.055371Z'
+                    updated_at: '2021-01-14T18:38:04.115204Z'
+                    completed_at: '2021-01-14T18:38:39.476986Z'
+                    description: Testing Orders
+                    capture_mode: MANUAL
+                    settlement_currency: EUR
+                    merchant_order_ext_ref: testorder123
+                    customer_id: 56db1367-2494-4a35-8254-c23929f8e5e1
+                    email: test@revolut.com
+                    phone: '+447123456789'
+                    order_amount:
+                      value: 50
+                      currency: GBP
+                    order_outstanding_amount:
+                      value: 0
+                      currency: GBP
+                    refunded_amount:
+                      value: 30
+                      currency: GBP
+                    shipping_address:
+                      street_line_1: 7 Westferry Circus
+                      street_line_2: Revolut
+                      city: London
+                      country_code: GB
+                      postcode: E14 4HD
+                    payments:
+                      - id: 7c97ce7e-a7e4-4ff9-b3ca-absgdjwuio12
+                        state: COMPLETED
+                        created_at: '2021-01-14T18:37:48.069092Z'
+                        updated_at: '2021-01-14T18:38:39.476986Z'
+                        amount:
+                          value: 50
+                          currency: GBP
+                        settled_amount:
+                          value: 67
+                          currency: EUR
+                        payment_method:
+                          type: CARD
+                          card:
+                            card_brand: VISA
+                            funding: CREDIT
+                            card_country: GB
+                            card_bin: '459664'
+                            card_last_four: '6376'
+                            card_expiry: 03/2025
+                            cardholder_name: John Doe
+                            checks:
+                              three_ds:
+                                state: VERIFIED
+                                version: 2
+                              cvv_verification: MATCH
+                              address: NOT_MATCH
+                              postcode: MATCH
+                              cardholder: N_A
+                        billing_address:
+                          street_line_1: 7 Westferry Circus
+                          street_line_2: Revolut
+                          city: London
+                          country_code: GB
+                          postcode: E14 4HD
+                        risk_level: LOW
+                        fees:
+                          - type: ACQUIRING
+                            amount:
+                              value: 5
+                              currency: GBP
+                    related:
+                      - id: 8af43efa-0d0c-4267-9abc-72679bc56859
+                        type: REFUND
+                        state: COMPLETED
+                        amount:
+                          value: 30
+                          currency: GBP
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    errorId: 94b27660-fdda-49ec-8b85-cd46a068ade0
+                    timestamp: 1601296792533
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      operationId: retrieveOrder
+      description: 'Retrieve the details of an order that has been created. Provide the unique order ID, and the corresponding order information is returned.'
+      parameters: []
+      security:
+        - API key: []
+    parameters:
+      - schema:
+          type: string
+        name: order_id
+        in: path
+        required: true
+        description: The ID of the `Order` object.
+    patch:
+      summary: Update an order
+      operationId: updateOrder
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                Updated Order:
+                  value:
+                    id: 5fd927ba-6f73-4a01-8e2b-fcd37fb629c5
+                    public_id: 94a11217-6319-4d34-8dae-a2b80b953adb
+                    type: PAYMENT
+                    state: PENDING
+                    created_at: '2020-10-15T07:46:40.648108Z'
+                    updated_at: '2020-10-15T07:46:40.648108Z'
+                    order_amount:
+                      value: 100
+                      currency: EUR
+                    merchant_order_ext_ref: '#2234'
+                    email: johndoe001@gmail.com
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |-
+        Update the details of an order. 
+
+        You can update the details of an order based on the state of the order:
+
+        * `PENDING` state: You can use all the following parameters to update the order.
+        * `AUTHORISED` or `COMPLETED` state: You can update only the `merchant_order_ext_ref` parameter.
+        * `PROCESSING` state: You cannot update the order.
+      tags:
+        - Orders
+      security:
+        - API key: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                amount:
+                  type: integer
+                  description: The new amount of the order (minor currency unit).
+                currency:
+                  type: string
+                  description: ISO 4217 currency code in upper case.
+                merchant_order_ext_ref:
+                  type: string
+                  description: |-
+                    Merchant order ID for external reference.
+                                        Use this field to set the ID that your own system can use to easily track orders.
+                description:
+                  type: string
+                  description: The description of the order.
+                email:
+                  type: string
+                  description: The email of the customer.
+                capture_mode:
+                  type: string
+                  description: |-
+                    The capture mode of the order. `AUTOMATIC` is used by default.
+
+                    - `AUTOMATIC`: The order is captured automatically after payment authorization.
+                    - `MANUAL`: The order is not captured automatically. You must manually capture the order later.
+
+                    For more information, see [Capture an order](#operation/captureOrder).
+                  enum:
+                    - AUTOMATIC
+                    - MANUAL
+                settlement_currency:
+                  type: string
+                  description: |-
+                    Settlement currency. 
+
+                    If `settlement_currency` is not specified, this value is taken from `currency`.
+            examples:
+              Example request:
+                value:
+                  amount: 100
+                  currency: EUR
+                  merchant_order_ext_ref: '#2234'
+  '/api/1.0/orders/{order_id}/capture':
+    post:
+      summary: Capture an order
+      operationId: captureOrder
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                Captured order:
+                  value:
+                    id: 7c97ce7e-a7e4-4ff9-b3ca-9f988b0ba5e0
+                    public_id: fecaafa0-c230-44e9-a24e-7005e82e03f8
+                    type: PAYMENT
+                    state: COMPLETED
+                    created_at: '2021-01-14T18:37:06.055371Z'
+                    updated_at: '2021-01-14T18:38:04.115204Z'
+                    completed_at: '2021-01-14T18:38:39.476986Z'
+                    description: Testing Orders
+                    capture_mode: MANUAL
+                    settlement_currency: EUR
+                    merchant_order_ext_ref: testorder123
+                    customer_id: 56db1367-2494-4a35-8254-c23929f8e5e1
+                    email: test@revolut.com
+                    phone: '+447123456789'
+                    order_amount:
+                      value: 50
+                      currency: GBP
+                    order_outstanding_amount:
+                      value: 0
+                      currency: GBP
+                    shipping_address:
+                      street_line_1: 7 Westferry Circus
+                      street_line_2: Revolut
+                      city: London
+                      country_code: GB
+                      postcode: E14 4HD
+                    payments:
+                      - id: 7c97ce7e-a7e4-4ff9-b3ca-absgdjwuio12
+                        state: COMPLETED
+                        created_at: '2021-01-14T18:37:48.069092Z'
+                        updated_at: '2021-01-14T18:38:39.476986Z'
+                        amount:
+                          value: 50
+                          currency: GBP
+                        settled_amount:
+                          value: 67
+                          currency: EUR
+                        payment_method:
+                          type: CARD
+                          card:
+                            card_brand: VISA
+                            funding: CREDIT
+                            card_country: GB
+                            card_bin: '459664'
+                            card_last_four: '6376'
+                            card_expiry: 03/2025
+                            cardholder_name: John Doe
+                            checks:
+                              cvv_verification: MATCH
+                              address: NOT_MATCH
+                              postcode: MATCH
+                              cardholder: N_A
+                        billing_address:
+                          street_line_1: 7 Westferry Circus
+                          street_line_2: Revolut
+                          city: London
+                          country_code: GB
+                          postcode: E14 4HD
+                        risk_level: LOW
+                        fees:
+                          - type: ACQUIRING
+                            amount:
+                              value: 5
+                              currency: GBP
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    errorId: 94b27660-fdda-49ec-8b85-cd46a068ade0
+                    timestamp: 1601296792533
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |-
+        Capture the funds of an existing, uncaptured order. When the payment for an order is authorized, the order is captured to be sent to the processing stage.
+
+        When you create an order, you can choose one of the following capture modes:
+        - `AUTOMATIC`: The order is captured automatically after payment authorization, so you don't need to take any action then. 
+        - `MANUAL`: The order is not captured automatically, and stays in the `AUTHORISED` state. You must manually capture the order later using one of the following methods:
+            - WebUI interface: Complete the following steps:
+                1. Log in to your Revolut Business portal. 
+                2. From the left sidebar menu, click **Merchant**, and then click the **Transactions** tab on the page.
+                3. Select an uncaptured payment, and click **Capture**.
+            - Endpoint: Use the `/capture` endpoint.
+            
+        **Note**: Orders stay in an uncaptured state for 7 days. After this period, the funds are released back to the customer's original payment method.
+      security:
+        - API key: []
+      tags:
+        - Orders
+    parameters:
+      - schema:
+          type: string
+        name: order_id
+        in: path
+        required: true
+        description: The ID of the `Order` object.
+  '/api/1.0/orders/{order_id}/cancel':
+    post:
+      summary: Cancel an order
+      operationId: cancelOrder
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                Cancelled order:
+                  value:
+                    id: 7c97ce7e-a7e4-4ff9-b3ca-9f988b0ba5e0
+                    public_id: fecaafa0-c230-44e9-a24e-7005e82e03f8
+                    type: PAYMENT
+                    state: CANCELLED
+                    created_at: '2021-01-14T18:37:06.055371Z'
+                    updated_at: '2021-01-14T18:38:04.115204Z'
+                    completed_at: '2021-01-14T18:38:39.476986Z'
+                    description: Testing Orders
+                    capture_mode: MANUAL
+                    settlement_currency: EUR
+                    merchant_order_ext_ref: testorder123
+                    customer_id: 56db1367-2494-4a35-8254-c23929f8e5e1
+                    email: test@revolut.com
+                    phone: '+447123456789'
+                    order_amount:
+                      value: 50
+                      currency: GBP
+                    order_outstanding_amount:
+                      value: 0
+                      currency: GBP
+                    shipping_address:
+                      street_line_1: 7 Westferry Circus
+                      street_line_2: Revolut
+                      city: London
+                      country_code: GB
+                      postcode: E14 4HD
+                    payments:
+                      - id: 7c97ce7e-a7e4-4ff9-b3ca-absgdjwuio12
+                        state: CANCELLED
+                        created_at: '2021-01-14T18:37:48.069092Z'
+                        updated_at: '2021-01-14T18:38:39.476986Z'
+                        amount:
+                          value: 50
+                          currency: GBP
+                        payment_method:
+                          type: CARD
+                          card:
+                            card_brand: VISA
+                            funding: CREDIT
+                            card_country: GB
+                            card_bin: '459664'
+                            card_last_four: '6376'
+                            card_expiry: 03/2025
+                            cardholder_name: John Doe
+                            checks:
+                              cvv_verification: MATCH
+                              address: NOT_MATCH
+                              postcode: MATCH
+                              cardholder: N_A
+                        billing_address:
+                          street_line_1: 7 Westferry Circus
+                          street_line_2: Revolut
+                          city: London
+                          country_code: GB
+                          postcode: E14 4HD
+                        risk_level: LOW
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example-1:
+                  value:
+                    errorId: 94b27660-fdda-49ec-8b85-cd46a068ade0
+                    timestamp: 1601296792533
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |-
+        Cancel an existing uncaptured order.
+
+        You can only cancel an order that is in one of the following states: 
+        - In the `AUTHORISED` state, which means that the `capture_mode` of an order is set to `MANUAL` and the customer has made a successful payment.
+        - In the `PENDING` state, which means that it doesn't have any successful payment associated with it.
+      security:
+        - API key: []
+      tags:
+        - Orders
+    parameters:
+      - schema:
+          type: string
+        name: order_id
+        in: path
+        required: true
+        description: The ID of the `Order` object.
+  '/api/1.0/orders/{order_id}/refund':
+    post:
+      summary: Refund an order
+      operationId: refundOrder
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                Refund example:
+                  value:
+                    id: 6a1353a8-3054-40ee-ab39-97a11e4c5f2a
+                    type: REFUND
+                    state: COMPLETED
+                    created_at: '2020-05-12T14:23:11.046526Z'
+                    updated_at: '2020-05-12T14:23:11.046526Z'
+                    completed_at: '2020-05-12T14:23:11.046526Z'
+                    order_amount:
+                      value: 40
+                      currency: GBP
+                    email: customer@gmail.com
+                    related:
+                      - id: 4695b666-45d0-4f15-ad10-e66a84c914bf
+                        type: PAYMENT
+                        amount:
+                          value: 100
+                          currency: GBP
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |-
+        Issue a refund for a completed order. A refund can be either full or partial. Funds are refunded to the customer's original payment method.
+
+        The `refund` operation creates a new order that represents such refund.
+
+        You can initiate a refund for an order only when it is in the `COMPLETED` state.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: integer
+                  description: The amount of the refund (minor currency unit).
+                merchant_order_ext_ref:
+                  type: string
+                  description: |-
+                    Merchant order ID for external reference.
+
+                    Use this field to set the ID that your own system can use to easily track orders.
+                description:
+                  type: string
+                  description: The description of the refund.
+              required:
+                - amount
+            examples:
+              Example request:
+                value:
+                  amount: 40
+                  currency: GBP
+                  merchant_order_ext_ref: '00122'
+                  description: Refund for damaged goods
+      parameters: []
+      security:
+        - API key: []
+      tags:
+        - Orders
+    parameters:
+      - schema:
+          type: string
+        name: order_id
+        in: path
+        required: true
+        description: The ID of the `Order` object.
+  '/api/1.0/orders/{order_id}/confirm':
+    post:
+      summary: Confirm an order
+      operationId: confirmOrder
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+              examples:
+                Confirmed order:
+                  value:
+                    id: 7c97ce7e-a7e4-4ff9-b3ca-9f988b0ba5e0
+                    public_id: fecaafa0-c230-44e9-a24e-7005e82e03f8
+                    type: PAYMENT
+                    state: COMPLETED
+                    created_at: '2021-01-14T18:37:06.055371Z'
+                    updated_at: '2021-01-14T18:38:04.115204Z'
+                    completed_at: '2021-01-14T18:38:39.476986Z'
+                    description: Testing Orders
+                    capture_mode: MANUAL
+                    settlement_currency: EUR
+                    merchant_order_ext_ref: testorder123
+                    customer_id: 56db1367-2494-4a35-8254-c23929f8e5e1
+                    email: test@revolut.com
+                    phone: '+447123456789'
+                    order_amount:
+                      value: 50
+                      currency: GBP
+                    order_outstanding_amount:
+                      value: 0
+                      currency: GBP
+                    shipping_address:
+                      street_line_1: 7 Westferry Circus
+                      street_line_2: Revolut
+                      city: London
+                      country_code: GB
+                      postcode: E14 4HD
+                    payments:
+                      - id: 7c97ce7e-a7e4-4ff9-b3ca-absgdjwuio12
+                        state: COMPLETED
+                        created_at: '2021-01-14T18:37:48.069092Z'
+                        updated_at: '2021-01-14T18:38:39.476986Z'
+                        amount:
+                          value: 50
+                          currency: GBP
+                        settled_amount:
+                          value: 67
+                          currency: EUR
+                        payment_method:
+                          id: 4cd4aae4-64e9-11eb-ae93-0242ac130002
+                          type: CARD
+                          card:
+                            card_brand: VISA
+                            funding: CREDIT
+                            card_country: GB
+                            card_bin: '459664'
+                            card_last_four: '6376'
+                            card_expiry: 03/2025
+                            cardholder_name: John Doe
+                            checks:
+                              cvv_verification: MATCH
+                              address: NOT_MATCH
+                              postcode: MATCH
+                              cardholder: N_A
+                        billing_address:
+                          street_line_1: 7 Westferry Circus
+                          street_line_2: Revolut
+                          city: London
+                          country_code: GB
+                          postcode: E14 4HD
+                        risk_level: LOW
+                        fees:
+                          - type: ACQUIRING
+                            amount:
+                              value: 5
+                              currency: GBP
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorId:
+                    type: string
+                    description: The ID of the error. You can share this ID with Revolut support for troubleshooting.
+                  timestamp:
+                    type: integer
+                    description: The date and time the error happened.
+              examples:
+                example-1:
+                  value:
+                    errorId: 94b27660-fdda-49ec-8b85-cd46a068ade0
+                    timestamp: 1601296792533
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorId:
+                    type: string
+                    description: The ID of the error. You can share this ID with Revolut support for troubleshooting.
+                  timestamp:
+                    type: integer
+                    description: The date and time the error happened.
+                  code:
+                    type: integer
+              examples:
+                example-1:
+                  value:
+                    errorId: 94b27660-fdda-49ec-8b85-cd46a068ade0
+                    timestamp: 1601296792533
+                    code: 1024
+      description: |-
+        Attempt to authorize and authenticate a payment. The payment can be made using either of the following ways:
+        - The default payment method saved in the customer's profile.
+        - A specific payment method, which you can specify in `payment_method_id` below.
+
+        **Note**: Use this request _only_ when the following conditions are met:
+        - There is a `customer_id` associated with the order.
+        - The customer has one or more valid payment methods saved that the merchant can initiate.
+        - The order is in the `PENDING` state.
+
+        For information about saving cards for this purpose, see the [Integration guide: Saving card details and creating customers](https://developer.revolut.com/docs/accept-payments/#tutorials-charge-a-customer-s-saved-payment-method).
+      security:
+        - API key: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payment_method_id:
+                  type: string
+                  description: |-
+                    The ID of a payment method associated with the customer.
+
+                    - If `payment_method_id` is specified, this value is used to make the payment for the order.
+                    - If `payment_method_id` is not specified, this value is taken from the customer’s default payment method (the last payment method saved with `saved_for` = `MERCHANT`).
+                  format: uuid
+        description: ''
+      tags:
+        - Orders
+    parameters:
+      - schema:
+          type: string
+        name: order_id
+        in: path
+        required: true
+        description: The ID of the `Order` object.
+  /api/1.0/customers:
+    post:
+      summary: Create a customer
+      operationId: createCustomer
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+              examples:
+                Created customer:
+                  value:
+                    id: 6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae
+                    full_name: First Last
+                    business_name: Revolut
+                    email: customer@gmail.com
+                    phone: '+447123456789'
+                    created_at: '2020-06-24T12:03:39.979397Z'
+                    updated_at: '2020-06-24T12:03:39.979397Z'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  errorId:
+                    type: string
+                    description: The ID of the error. You can share this ID with Revolut support for troubleshooting.
+                  timestamp:
+                    type: number
+                    description: The date and time the error happened.
+                  code:
+                    type: number
+                    description: '`1018` - The customer already exists.'
+                required:
+                  - errorId
+                  - timestamp
+              examples:
+                Error:
+                  value:
+                    errorId: 5226f800-e9be-4b74-ae61-6c7b71c913b5
+                    timestamp: 1593439990599
+                    code: 1018
+        '401':
+          description: Unauthorized
+      description: Create a `customer` that has the information in the body of the request.
+      security:
+        - API key: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                full_name:
+                  type: string
+                  description: |-
+                    The full name of the customer.
+
+                    If `full_name` is not specified, this value is taken from the `cardholder_name` the first time a payment is made.
+                business_name:
+                  type: string
+                  description: The name of the customer’s business.
+                email:
+                  type: string
+                  description: |-
+                    The email address of the customer. 
+
+                    **Note**: This value must be unique for each customer for one merchant. If the email address matches an existing customer, an error is returned.
+                  format: email
+                phone:
+                  type: string
+                  description: The phone number of the customer in E.164 format.
+            examples:
+              example-1:
+                value:
+                  full_name: string
+                  business_name: string
+                  email: user@example.com
+                  phone: string
+        description: ''
+      tags:
+        - Customers
+    get:
+      summary: Retrieve all customers
+      operationId: retrieveAllCustomers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+              examples:
+                List of customers:
+                  value:
+                    - id: 9dfb8491-bfb0-4420-ad63-0fa7bdd3dffb
+                      full_name: First Customer
+                      email: firstcustomer@gmail.com
+                      created_at: '2020-06-24T12:12:56.596703Z'
+                      updated_at: '2020-06-24T12:12:56.737082Z'
+                    - id: 6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae
+                      full_name: John Doe
+                      business_name: Revolut
+                      email: customer@gmail.com
+                      phone: '+447123456789'
+                      created_at: '2020-06-24T12:03:39.979397Z'
+                      updated_at: '2020-06-25T10:03:39.134417Z'
+                    - id: 014f0ad6-c45b-4d7d-83c6-80eea94fceac
+                      full_name: Second Customer
+                      email: secondcustomer@gmail.com
+                      phone: '+447179509911'
+                      created_at: '2020-06-23T14:13:08.262336Z'
+                      updated_at: '2020-06-24T10:47:11.173027Z'
+        '401':
+          description: Unauthorized
+      description: Get a list of all your `customers`.
+      parameters: []
+      security:
+        - API key: []
+      tags:
+        - Customers
+  '/api/1.0/customers/{customer_id}':
+    get:
+      summary: Retrieve a customer
+      tags:
+        - Customers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer-With-Payment-Method'
+              examples:
+                Retrieved customer:
+                  value:
+                    id: 6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae
+                    full_name: John Doe
+                    business_name: Revolut
+                    email: customer@gmail.com
+                    phone: '+447123456789'
+                    created_at: '2020-06-24T12:03:39.979397Z'
+                    updated_at: '2020-06-25T10:03:39.134417Z'
+                    payment_methods:
+                      - id: edef3ba4-60a0-4df3-8f12-e5fc858c2420
+                        type: CARD
+                        saved_for: CUSTOMER
+                        method_details:
+                          bin: '459765'
+                          last4: '6578'
+                          expiry_month: 2
+                          expiry_year: 2025
+                          cardholder_name: John Doe
+                          billing_address:
+                            street_line_1: '7, Westferry Circus'
+                            street_line_2: Columbus Building
+                            post_code: E144HD
+                            city: London
+                            region: Greater London
+                            country_code: GB
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      operationId: retrieveCustomer
+      description: Get the information about a specific `customer`.
+      security:
+        - API key: []
+    patch:
+      summary: Update a customer
+      operationId: updateCustomer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+              examples:
+                Updated customer:
+                  value:
+                    id: 6c7c97a8-cfc1-4cf3-8b38-26a74fdf1fae
+                    full_name: John Doe
+                    business_name: Revolut
+                    email: customer@gmail.com
+                    phone: '+447123456789'
+                    created_at: '2020-06-24T12:03:39.979397Z'
+                    updated_at: '2020-06-25T10:03:39.134417Z'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errorId:
+                    type: string
+                    description: The ID of the error. You can share this ID with Revolut support for troubleshooting.
+                  timestamp:
+                    type: integer
+                    description: The date and time the error happened.
+              examples:
+                example-1:
+                  value:
+                    errorId: 94b27660-fdda-49ec-8b85-cd46a068ade0
+                    timestamp: 1601296792533
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: Update the attributes of a specific `customer`.
+      security:
+        - API key: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                full_name:
+                  type: string
+                  description: |-
+                    The full name of the customer.
+
+                    If `full_name` is not specified, this value is taken from the `cardholder_name` the first time a payment is made.
+                business_name:
+                  type: string
+                  description: The name of the customer's business.
+                email:
+                  type: string
+                  description: |-
+                    The email address of the customer. 
+
+                    **Note**: This value must be unique for each customer for one merchant. If the email address matches an existing customer, an error is returned.
+                  format: email
+                phone:
+                  type: string
+                  description: The phone number of the customer in E.164 format.
+      tags:
+        - Customers
+    delete:
+      summary: Delete a customer
+      operationId: deleteCustomer
+      responses:
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: Delete the profile of a specific `customer`.
+      security:
+        - API key: []
+      tags:
+        - Customers
+    parameters:
+      - schema:
+          type: string
+        name: customer_id
+        in: path
+        required: true
+        description: The ID of the customer.
+  '/api/1.0/customers/{customer_id}/payment-methods':
+    get:
+      summary: Retrieve all customer's payment methods
+      tags:
+        - Customers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer-Payment-Method'
+              examples:
+                Returned payment methods:
+                  value:
+                    - id: edef3ba4-60a0-4df3-8f12-e5fc858c2420
+                      type: CARD
+                      saved_for: CUSTOMER
+                      method_details:
+                        bin: '459678'
+                        last4: '6896'
+                        expiry_month: 3
+                        expiry_year: 2025
+                        cardholder_name: John Doe
+                        billing_address:
+                          street_line_1: '7'
+                          street_line_2: Westferry Circus
+                          post_code: E144HD
+                          city: London
+                          region: Greater London
+                          country_code: GB
+                    - id: a04406c4-05be-498b-8207-cc1e02a9b3ca
+                      type: CARD
+                      saved_for: MERCHANT
+                      method_details:
+                        bin: '459885'
+                        last4: '7653'
+                        expiry_month: 12
+                        expiry_year: 2021
+                        cardholder_name: Rick Astley
+                        billing_address:
+                          street_line_1: Revolut
+                          street_line_2: 1 Canada Square
+                          post_code: EC2V 6DN
+                          city: London
+                          region: Greater London
+                          country_code: GB
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      operationId: retrieveAllPaymentMethods
+      description: |-
+        Retrieve all the payment methods for a specific customer. 
+
+        This can be useful in the following example cases:
+        - To show what information is stored for the customer.
+        - To try a different payment method if the first payment method fails when a recurring transaction occurs.
+      security:
+        - API key: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                only_merchant:
+                  type: boolean
+                  description: |-
+                    If `only_merchant` is set to `true`, you retrieve the payment methods that only the merchant can use to initiate transactions. 
+
+                    By default, `only_merchant` is set to `false`.
+            examples:
+              Request:
+                value:
+                  only_merchant: true
+        description: ''
+    parameters:
+      - schema:
+          type: string
+        name: customer_id
+        in: path
+        required: true
+        description: The ID of the customer.
+  '/api/1.0/customers/{customer_id}/payment-methods/{payment_method_id}':
+    get:
+      summary: Retrieve a customer's payment method
+      tags:
+        - Customers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer-Payment-Method'
+              examples:
+                Retrieved payment method:
+                  value:
+                    id: edef3ba4-60a0-4df3-8f12-e5fc858c2420
+                    type: CARD
+                    saved_for: CUSTOMER
+                    method_details:
+                      bin: '459678'
+                      last4: '6896'
+                      expiry_month: 3
+                      expiry_year: 2025
+                      cardholder_name: John Doe
+                      billing_address:
+                        street_line_1: '7'
+                        street_line_2: Westferry Circus
+                        post_code: E144HD
+                        city: London
+                        region: Greater London
+                        country_code: GB
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      operationId: retrievePaymentMethod
+      description: Retrieve the information of a specific payment method that is saved.
+      security:
+        - API key: []
+    patch:
+      summary: Update a customer's payment method
+      operationId: updatePaymentMethod
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer-Payment-Method'
+              examples:
+                Updated payment method:
+                  value:
+                    id: edef3ba4-60a0-4df3-8f12-e5fc858c2420
+                    type: CARD
+                    saved_for: CUSTOMER
+                    method_details:
+                      bin: '459678'
+                      last4: '6896'
+                      expiry_month: 3
+                      expiry_year: 2025
+                      cardholder_name: John Doe
+                      billing_address:
+                        street_line_1: '7'
+                        street_line_2: Westferry Circus
+                        post_code: E144HD
+                        city: London
+                        region: Greater London
+                        country_code: GB
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: 'When you use this request to update a customer''s payment method, the payment method can''t be used by the merchant to initiate transactions any more. This payment method can be used only when the customer is on the checkout page.'
+      security:
+        - API key: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                saved_for:
+                  type: string
+                  description: |-
+                    Update the value of `saved_for` from `MERCHANT` to `CUSTOMER`.
+
+                    This indicates that payment method can't be used by the merchant to initiate transactions any more. This payment method can be used only when the customer is on the checkout page.
+                  enum:
+                    - CUSTOMER
+              required:
+                - saved_for
+            examples:
+              Example request:
+                value:
+                  saved_for: CUSTOMER
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        description: ''
+      tags:
+        - Customers
+    delete:
+      summary: Delete a customer's payment method
+      operationId: deletePaymentMethod
+      responses:
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: |-
+        Delete a specific payment method. The payment method is completely deleted from the customer payment methods. 
+
+        To reuse the payment method that is deleted, direct your customer to the checkout page and save the card details again.
+      security:
+        - API key: []
+      tags:
+        - Customers
+    parameters:
+      - schema:
+          type: string
+        name: customer_id
+        in: path
+        required: true
+        description: The ID of the customer.
+      - schema:
+          type: string
+        name: payment_method_id
+        in: path
+        required: true
+        description: The ID of the payment method.
+  /api/1.0/webhooks:
+    get:
+      summary: Retrieve all webhooks
+      tags:
+        - Webhooks
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Webhook'
+              examples:
+                List of webhooks:
+                  value:
+                    - id: 6fc8db62-6489-4470-a9e0-84b462fe3908
+                      url: 'https://revolut.com/webhooks'
+                      events:
+                        - ORDER_COMPLETED
+                    - id: b466ab77-4932-4850-beb0-113bfc1166f8
+                      url: 'https://business.revolut.com/webhooks'
+                      events:
+                        - ORDER_COMPLETED
+                        - ORDER_AUTHORISED
+                    - id: 4a31c8a3-8037-4260-a09e-090475d37025
+                      url: 'https://developer.revolut.com/webhooks'
+                      events:
+                        - ORDER_AUTHORISED
+                    - id: 5d815041-5753-46bc-aebc-315fe99f30aa
+                      url: 'https://example.com/webhooks'
+                      events:
+                        - ORDER_COMPLETED
+                        - ORDER_AUTHORISED
+        '401':
+          description: Unauthorized
+      operationId: retrieveAllWebhooks
+      description: Get a list of webhooks that you are currently subscribed to.
+      security:
+        - API key: []
+    post:
+      summary: Set a webhook URL
+      operationId: setWebhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+              examples:
+                Created webhook:
+                  value:
+                    id: c6b981f4-53b3-47d5-9b24-4f87af1160eb
+                    url: 'https://developer.revolut.com'
+                    events:
+                      - ORDER_AUTHORISED
+                      - ORDER_COMPLETED
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+      description: Set up a webhook URL so that the webhook can push event notifications to the specified URL.
+      security:
+        - API key: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  description: The valid webhook URL that event notifications are sent to.
+                events:
+                  type: array
+                  description: The events that the webhook is configured for.
+                  items:
+                    type: string
+                    enum:
+                      - ORDER_COMPLETED
+                      - ORDER_AUTHORISED
+                      - ORDER_PAYMENT_AUTHENTICATED
+                      - ORDER_PAYMENT_DECLINED
+                      - ORDER_PAYMENT_FAILED
+              required:
+                - url
+                - events
+            examples:
+              Example request:
+                value:
+                  url: 'https://developer.revolut.com'
+                  events:
+                    - ORDER_COMPLETED
+                    - ORDER_AUTHORISED
+        description: Set up a webhook URL so that the webhook can push event notifications to the specified URL.
+      tags:
+        - Webhooks
+  '/api/1.0/webhooks/{webhook_id}':
+    get:
+      summary: Retrieve webhook details
+      tags:
+        - Webhooks
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+              examples:
+                Retrieved webhook:
+                  value:
+                    id: c6b981f4-53b3-47d5-9b24-4f87af1160eb
+                    url: 'https://developer.revolut.com'
+                    events:
+                      - ORDER_AUTHORISED
+                      - ORDER_COMPLETED
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      operationId: retrieveWebhook
+      description: Get the details of a specific webhook.
+      security:
+        - API key: []
+    put:
+      summary: Update webhook details
+      operationId: updateWebhook
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Webhook'
+              examples:
+                Updated webhook:
+                  value:
+                    id: c6b981f4-53b3-47d5-9b24-4f87af1160eb
+                    url: 'http://business.revolut.com'
+                    events:
+                      - ORDER_COMPLETED
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: Update the details of a specific webhook.
+      security:
+        - API key: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                url:
+                  type: string
+                  description: The valid URL of the webhook.
+                events:
+                  type: array
+                  uniqueItems: false
+                  description: The events that the webhook is configured for.
+                  items:
+                    type: string
+                    enum:
+                      - ORDER_COMPLETED
+                      - ORDER_AUTHORISED
+            examples:
+              Example Request:
+                value:
+                  url: 'http://business.revolut.com'
+                  events:
+                    - ORDER_COMPLETED
+        description: ''
+      tags:
+        - Webhooks
+    delete:
+      summary: Delete a webhook
+      operationId: deleteWebhook
+      responses:
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      description: Delete a webhook so that events are not sent to the specified URL any more.
+      security:
+        - API key: []
+      tags:
+        - Webhooks
+    parameters:
+      - schema:
+          type: string
+        name: webhook_id
+        in: path
+        required: true
+        description: The ID of the webhook.
+components:
+  schemas:
+    Customer:
+      title: Customer
+      type: object
+      description: ''
+      x-tags:
+        - Customers
+      x-examples:
+        example-1:
+          id: string
+          full_name: string
+          business_name: string
+          phone: string
+          created_at: '2019-08-24T14:15:22Z'
+          updated_at: '2019-08-24T14:15:22Z'
+          email: string
+      properties:
+        id:
+          type: string
+          description: 'Permanent customer ID used to retrieve, update, and delete a customer.'
+        full_name:
+          type: string
+          description: |-
+            The full name of the customer.
+
+            If `full_name` is not specified, this value is taken from the `cardholder_name` the first time a payment is made.
+        business_name:
+          type: string
+          description: "The name of the customer's business.\t"
+        phone:
+          type: string
+          description: The phone number of the customer.
+        created_at:
+          type: string
+          description: "The date and time the customer was created.\t"
+          format: date-time
+        updated_at:
+          type: string
+          description: The data and time the customer was last updated.
+          format: date-time
+        email:
+          type: string
+          description: The email address of the customer.
+          format: email
+      required:
+        - id
+        - created_at
+        - updated_at
+        - email
+    Order:
+      title: Order
+      type: object
+      description: |-
+        An Order object helps you through the process of accepting payments from your customers.
+
+        Create an order for every customer session or while an order is being created in your own system. Then, the order goes through multiple states using the [Revolut Checkout Widget](https://developer.revolut.com/docs/revolut-checkout-js/#install-the-widget) to collect payments from your customers.
+      x-examples:
+        Order object:
+          id: 7c97ce7e-a7e4-4ff9-b3ca-9f988b0ba5e0
+          public_id: fecaafa0-c230-44e9-a24e-7005e82e03f8
+          type: PAYMENT
+          state: COMPLETED
+          created_at: '2021-01-14T18:37:06.055371Z'
+          updated_at: '2021-01-14T18:38:04.115204Z'
+          completed_at: '2021-01-14T18:38:39.476986Z'
+          description: Testing Orders
+          capture_mode: MANUAL
+          settlement_currency: EUR
+          merchant_order_ext_ref: testorder123
+          customer_id: 56db1367-2494-4a35-8254-c23929f8e5e1
+          email: test@revolut.com
+          phone: '+447123456789'
+          order_amount:
+            value: 50
+            currency: GBP
+          order_outstanding_amount:
+            value: 0
+            currency: GBP
+          refunded_amount:
+            value: 30
+            currency: GBP
+          shipping_address:
+            street_line_1: 7 Westferry Circus
+            street_line_2: Revolut
+            city: London
+            country_code: GB
+            postcode: E14 4HD
+          payments:
+            - id: 7c97ce7e-a7e4-4ff9-b3ca-absgdjwuio12
+              state: COMPLETED
+              created_at: '2021-01-14T18:37:48.069092Z'
+              updated_at: '2021-01-14T18:38:39.476986Z'
+              amount:
+                value: 50
+                currency: GBP
+              settled_amount:
+                value: 67
+                currency: EUR
+              payment_method:
+                id: 4cd4aae4-64e9-11eb-ae93-0242ac130002
+                type: CARD
+                card:
+                  card_brand: VISA
+                  funding: CREDIT
+                  card_country: GB
+                  card_bin: '459664'
+                  card_last_four: '6376'
+                  card_expiry: 03/2025
+                  cardholder_name: John Doe
+                  checks:
+                    three_ds:
+                      state: VERIFIED
+                      version: 2
+                    cvv_verification: MATCH
+                    address: NOT_MATCH
+                    postcode: MATCH
+                    cardholder: N_A
+              billing_address:
+                street_line_1: 7 Westferry Circus
+                street_line_2: Revolut
+                city: London
+                country_code: GB
+                postcode: E14 4HD
+              risk_level: LOW
+              fees:
+                - type: ACQUIRING
+                  amount:
+                    value: 5
+                    currency: GBP
+          related:
+            - id: 8af43efa-0d0c-4267-9abc-72679bc56859
+              type: REFUND
+              state: COMPLETED
+              amount:
+                value: 30
+                currency: GBP
+      x-tags:
+        - Orders
+      properties:
+        id:
+          type: string
+          description: 'Permanent order ID used to retrieve, capture, cancel, or refund an order after authorization.'
+        public_id:
+          type: string
+          description: |-
+            Temporary ID for the order. 
+
+            It expires when the payment is authorized.
+        type:
+          type: string
+          description: The type of the order.
+          enum:
+            - PAYMENT
+            - REFUND
+            - CHARGEBACK
+        state:
+          type: string
+          description: The state of the order.
+          enum:
+            - PENDING
+            - PROCESSING
+            - AUTHORISED
+            - COMPLETED
+            - CANCELLED
+            - FAILED
+        created_at:
+          type: string
+          description: The date and time the order was created.
+          format: date-time
+        updated_at:
+          type: string
+          description: The date and time the order was last updated.
+          format: date-time
+        completed_at:
+          type: string
+          description: The date and time the order was completed.
+          format: date-time
+        description:
+          type: string
+          description: The description of the order.
+        capture_mode:
+          type: string
+          description: |-
+            The capture mode of the order. `AUTOMATIC` is used by default.
+
+            - `AUTOMATIC`: The order is captured automatically after payment authorization.
+            - `MANUAL`: The order is not captured automatically. You must manually capture the order later.
+
+            For more information, see [Capture an order](#operation/captureOrder).
+        settlement_currency:
+          type: string
+          description: ISO 4217 currency code in upper case. All payments made towards this order are settled in this currency.
+        merchant_order_ext_ref:
+          type: string
+          description: |-
+            Merchant order ID for external reference.
+
+            Use this field to set the ID that your own system can use to easily track orders.
+        customer_id:
+          type: string
+          description: 'The ID of the [customer](#tag/Customers) associated with this order.'
+        email:
+          type: string
+          description: The email of the customer.
+          format: email
+        phone:
+          type: string
+          description: The phone number of the customer.
+        order_amount:
+          type: object
+          description: The amount and currency of the order.
+          required:
+            - value
+            - currency
+          properties:
+            value:
+              type: integer
+              description: The amount of the order (minor currency unit).
+            currency:
+              type: string
+              description: The currency of the order. ISO 4217 currency code in upper case.
+        order_outstanding_amount:
+          type: object
+          description: The amount and currency outstanding to be paid for this order.
+          properties:
+            value:
+              type: integer
+              description: The amount of the order (minor currency unit) that is outstanding.
+            currency:
+              type: string
+              description: The currency of the amount that is outstanding. ISO 4217 currency code in upper case.
+        refunded_amount:
+          type: object
+          description: The amount and currency of the refunded order.
+          properties:
+            value:
+              type: integer
+              description: The amount of the refunded order (minor currency unit).
+            currency:
+              type: string
+              description: The currency of the refunded order. ISO 4217 currency code in upper case.
+        shipping_address:
+          $ref: '#/components/schemas/Address'
+        payments:
+          type: array
+          description: The details of all the payments that have been made towards this order (successful or unsuccessful).
+          items:
+            $ref: '#/components/schemas/Payment'
+        related:
+          type: array
+          description: The details of related transactions.
+          items:
+            $ref: '#/components/schemas/Order-Related'
+      required:
+        - id
+        - type
+        - state
+        - created_at
+        - updated_at
+        - order_amount
+    Customer-Payment-Method:
+      description: ''
+      type: object
+      x-examples:
+        example-1:
+          id: edef3ba4-60a0-4df3-8f12-e5fc858c2420
+          type: CARD
+          saved_for: CUSTOMER
+          method_details:
+            bin: '459765'
+            last4: '6578'
+            expiry_month: 2
+            expiry_year: 2025
+            cardholder_name: John Doe
+            billing_address:
+              street_line_1: '7, Westferry Circus'
+              street_line_2: Columbus Building
+              post_code: E144HD
+              city: London
+              region: Greater London
+              country_code: GB
+      title: Payment method object
+      x-tags:
+        - Customers
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The ID of the payment method.
+        type:
+          type: string
+          enum:
+            - CARD
+          description: The type of the payment method.
+        saved_for:
+          type: string
+          enum:
+            - CUSTOMER
+            - MERCHANT
+          description: |-
+            Indicates in which case this saved payment method can be used for payments.
+
+            - `CUSTOMER`: This payment method can be used only when the customer is on the checkout page.
+            - `MERCHANT`: This payment method can be used without the customer being on the checkout page, and the merchant can initiate transactions, for example, to take payments for recurring transactions.
+        method_details:
+          type: object
+          description: The details of the payment method.
+          properties:
+            bin:
+              type: string
+              maxLength: 6
+              minLength: 6
+              description: The BIN of the payment card.
+            last4:
+              type: string
+              maxLength: 4
+              minLength: 4
+              description: The last four digits of the payment card.
+            expiry_month:
+              type: number
+              description: THe expiry month of the payment card.
+            expiry_year:
+              type: number
+              description: The expiry year of the payment card.
+            cardholder_name:
+              type: string
+              description: The name of the cardholder.
+            billing_address:
+              type: object
+              description: The billing address of the payment method.
+              properties:
+                street_line_1:
+                  type: string
+                  minLength: 1
+                  description: Street line 1 information.
+                street_line_2:
+                  type: string
+                  minLength: 1
+                  description: Street line 2 information.
+                post_code:
+                  type: string
+                  minLength: 1
+                  description: The postcode associated with the address.
+                city:
+                  type: string
+                  minLength: 1
+                  description: The name of the city.
+                region:
+                  type: string
+                  minLength: 1
+                  description: The name of the region.
+                country_code:
+                  type: string
+                  minLength: 1
+                  description: The country associated with the address.
+      required:
+        - id
+    Error:
+      title: Error
+      type: object
+      x-examples:
+        Example error:
+          errorId: 94b27660-fdda-49ec-8b85-cd46a068ade0
+          timestamp: 1601296792533
+      properties:
+        errorId:
+          type: string
+          description: The ID of the error. You can share this ID with Revolut support for troubleshooting.
+        timestamp:
+          type: integer
+          description: The date and time the error happened.
+      required:
+        - errorId
+        - timestamp
+    Webhook:
+      title: Webhook
+      type: object
+      description: |-
+        A `webhook` (also called a web callback) allows your system to receive an event from a different app immediately after it happens. 
+
+        For example, you can subscribe to a webhook when an order changes from Pending to Completed. When the payment is cleared and the order is completed, Revolut servers will send a notification to the URL of your choice. This is a much more efficient way to know when an order is paid as opposed to trying to get the status of the order every few seconds.
+
+        Many events that happen to a Revolut Merchant account are synchronous, which means that they arrive instantly and have immediate results. For example, a successful request to create a customer immediately returns a Customer object. Such requests don't require webhooks.
+
+        The Revolut Merchant API supports webhooks for events such as `ORDER_COMPLETED` and `ORDER_AUTHORISED`.
+      x-tags:
+        - Webhooks
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The ID of the webhook.
+        url:
+          type: string
+          description: 'The valid URL of the webhook if set; otherwise, `null` is displayed.'
+        events:
+          type: array
+          description: The events that the webhook is configured for.
+          items:
+            type: string
+            enum:
+              - ORDER_COMPLETED
+              - ORDER_AUTHORISED
+              - ORDER_PAYMENT_AUTHENTICATED
+              - ORDER_PAYMENT_DECLINED
+              - ORDER_PAYMENT_FAILED
+      required:
+        - id
+    Customer-With-Payment-Method:
+      title: Customer object with Payment Method object
+      type: object
+      properties:
+        id:
+          type: string
+          description: 'Permanent customer ID used to retrieve, update, and delete a customer.'
+        full_name:
+          type: string
+          description: |-
+            The full name of the customer.
+
+            If `full_name` is not specified, this value is taken from the `cardholder_name` the first time a payment is made.
+        business_name:
+          type: string
+          description: "The name of the customer's business.\t"
+        phone:
+          type: string
+          description: The phone number of the customer.
+        created_at:
+          type: string
+          description: "The date and time the customer was created.\t"
+          format: date-time
+        updated_at:
+          type: string
+          description: The data and time the customer was last updated.
+          format: date-time
+        email:
+          type: string
+          description: The email address of the customer.
+          format: email
+        payment_methods:
+          type: array
+          uniqueItems: false
+          description: All the payment methods for this customer.
+          items:
+            $ref: '#/components/schemas/Customer-Payment-Method'
+      required:
+        - id
+        - created_at
+        - updated_at
+        - email
+    Order-Related:
+      title: Order-Related
+      type: object
+      properties:
+        id:
+          type: string
+          description: The ID of the related order. You can use this ID to get more information about the related order using the `GET /order` operation.
+        type:
+          type: string
+          description: The type of the related order.
+          enum:
+            - PAYMENT
+            - REFUND
+            - CHARGEBACK
+        state:
+          type: string
+          description: The state of the related order.
+          enum:
+            - PENDING
+            - PROCESSING
+            - AUTHORISED
+            - COMPLETED
+            - CANCELLED
+            - FAILED
+        amount:
+          type: object
+          description: The amount and currency of the related order.
+          properties:
+            value:
+              type: integer
+              description: The amount of the order (minor currency unit).
+            currency:
+              type: string
+              description: The currency of the order. ISO 4217 currency code in upper case.
+    Address:
+      title: Address
+      type: object
+      properties:
+        street_line_1:
+          type: string
+          description: Street line 1 information.
+        street_line_2:
+          type: string
+          description: Street line 2 information.
+        region:
+          type: string
+          description: The name of the region name.
+        city:
+          type: string
+          description: The name of the city.
+        country_code:
+          type: string
+          description: The country associated with the address.
+        postcode:
+          type: string
+          description: The postcode associated with the address.
+    Payment:
+      title: Payment
+      type: object
+      description: ''
+      properties:
+        id:
+          type: string
+          description: The ID of the payment.
+        state:
+          type: string
+          description: The state of the payment.
+          enum:
+            - PROCESSING
+            - AUTHORISED
+            - CAPTURED
+            - COMPLETED
+            - FAILED
+            - DECLINED
+            - CANCELLED
+        failure_reason:
+          type: string
+          description: |-
+            The reason for a `FAILED` or `DECLINED` payment.
+
+            A failed or declined payment can result from multiple reasons. To learn more, check our [failure reasons](https://developer.revolut.com/docs/accept-payments/#errors-failure-reasons).
+          enum:
+            - do_not_honour
+            - 3ds_challenge_abandoned
+            - 3ds_challenge_failed
+            - 3ds_challenge_failed_manually
+            - insufficient_funds
+            - transaction_not_allowed_for_cardholder
+            - high_risk
+            - cardholder_name_missing
+            - unknown_card
+            - invalid_card
+            - invalid_email
+            - restricted_card
+            - expired_card
+            - rejected_by_customer
+            - withdrawal_limit_exceeded
+            - pick_up_card
+            - invalid_amount
+        created_at:
+          type: string
+          description: The date and time the payment was created.
+          format: date-time
+        updated_at:
+          type: string
+          description: The date and time the payment was last updated.
+          format: date-time
+        amount:
+          type: object
+          description: The amount and currency of the payment.
+          required:
+            - value
+            - currency
+          properties:
+            value:
+              type: integer
+              description: The amount of the payment (minor currency unit)
+            currency:
+              type: string
+              description: The currency of the payment. ISO 4217 currency code in upper case.
+        settled_amount:
+          type: object
+          description: The amount and currency of the settled payment.
+          properties:
+            value:
+              type: integer
+              description: The amount of the settled payment (minor currency unit)
+            currency:
+              type: string
+              description: The currency of the settled payment. ISO 4217 currency code in upper case.
+        payment_method:
+          $ref: '#/components/schemas/Payment-Method'
+        billing_address:
+          $ref: '#/components/schemas/Address'
+        risk_level:
+          type: string
+          description: |-
+            The risk level of the card.
+
+            If the risk level is `HIGH`, the payment might be declined.
+          enum:
+            - LOW
+            - HIGH
+        fees:
+          type: array
+          description: The details of the order fee.
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                description: The type of the order fee.
+                enum:
+                  - FX
+                  - ACQUIRING
+              amount:
+                type: object
+                description: The amount and currency of the payment fee.
+                properties:
+                  value:
+                    type: integer
+                    description: The amount of the payment fee (minor currency unit).
+                  currency:
+                    type: string
+                    description: The currency of the payment fee. ISO 4217 currency code in upper case.
+      required:
+        - id
+        - state
+        - created_at
+        - updated_at
+        - amount
+    Payment-Method:
+      title: Payment-Method
+      type: object
+      description: The details of the payment method used to make the payment.
+      properties:
+        id:
+          type: string
+          description: The ID of the payment method. This value is present only if the payment method was previously saved.
+          format: uuid
+        type:
+          type: string
+          description: The type of the payment.
+          enum:
+            - CARD
+            - REVOLUT
+        card:
+          type: object
+          description: The details of the card. Only present for payments with `payment_method.type` = `CARD`.
+          properties:
+            card_brand:
+              type: string
+              description: The type of the card.
+              enum:
+                - VISA
+                - MASTERCARD
+            funding:
+              type: string
+              description: The type of card funding.
+              enum:
+                - CREDIT
+                - DEBIT
+                - PREPAID
+            card_country:
+              type: string
+              description: The country where the card was issued.
+            card_bin:
+              type: string
+              description: The BIN of the card.
+              minLength: 6
+              maxLength: 6
+            card_last_four:
+              type: string
+              description: The last four digits of the card.
+              minLength: 4
+              maxLength: 4
+            card_expiry:
+              type: string
+              description: The expiry date of the card in the format of MM/YY.
+            cardholder_name:
+              type: string
+              description: The name of the cardholder.
+            checks:
+              type: object
+              description: The details of the check for card payment. Only for orders with successful payments.
+              properties:
+                three_ds:
+                  type: object
+                  description: The details of the 3-D Secure check. Only for orders with successful payments.
+                  properties:
+                    state:
+                      type: string
+                      description: The result of 3-D Secure check.
+                      enum:
+                        - VERIFIED
+                        - FAILED
+                        - CHALLENGE
+                    version:
+                      type: integer
+                      description: The 3-D Secure version.
+                cvv_verification:
+                  type: string
+                  description: |-
+                    The result of CVV verfication.
+
+                    `MATCH`: CVV matches the card's CVV
+                    `NOT_MATCH`: CVV does not match the card's CVV
+                    `INCORRECT`: CVV format is incorrect for this type of card
+                    `NOT_PROCESSED`: CVV verification was not performed
+                  enum:
+                    - MATCH
+                    - NOT_MATCH
+                    - INCORRECT
+                    - NOT_PROCESSED
+                address:
+                  type: string
+                  description: The result of address verification.
+                  enum:
+                    - MATCH
+                    - NOT_MATCH
+                    - N_A
+                    - INVALID
+                postcode:
+                  type: string
+                  description: The result of postcode verification.
+                  enum:
+                    - MATCH
+                    - NOT_MATCH
+                    - N_A
+                    - INVALID
+                cardholder:
+                  type: string
+                  description: The result of cardholder verification.
+                  enum:
+                    - MATCH
+                    - NOT_MATCH
+                    - N_A
+                    - INVALID
+    Simplified-Order:
+      title: Simplified-Order
+      type: object
+      properties:
+        id:
+          type: string
+          description: 'Permanent order ID used to retrieve, capture, cancel, or refund an order after authorization.'
+        type:
+          type: string
+          description: The type of the order.
+          enum:
+            - PAYMENT
+            - REFUND
+            - CHARGEBACK
+        state:
+          type: string
+          description: The state of the order.
+          enum:
+            - PENDING
+            - PROCESSING
+            - AUTHORISED
+            - COMPLETED
+            - CANCELLED
+            - FAILED
+        created_at:
+          type: string
+          description: The date and time the order was created.
+          format: date-time
+        updated_at:
+          type: string
+          description: The date and time the order was last updated.
+          format: date-time
+        completed_at:
+          type: string
+          description: The date and time the order was completed.
+          format: date-time
+        description:
+          type: string
+          description: The description of the order.
+        capture_mode:
+          type: string
+          description: |-
+            The capture mode of the order. `AUTOMATIC` is used by default.
+
+            - `AUTOMATIC`: The order is captured automatically after payment authorization.
+            - `MANUAL`: The order is not captured automatically. You must manually capture the order later.
+
+            For more information, see [Capture an order](#operation/captureOrder).
+        settlement_currency:
+          type: string
+          description: ISO 4217 currency code in upper case. All payments made towards this order are settled in this currency.
+        merchant_order_ext_ref:
+          type: string
+          description: |-
+            Merchant order ID for external reference.
+
+            Use this field to set the ID that your own system can use to easily track orders.
+        customer_id:
+          type: string
+          description: 'The ID of the [customer](#tag/Customers) associated with this order.'
+        email:
+          type: string
+          description: The email of the customer.
+          format: email
+        phone:
+          type: string
+          description: The phone number of the customer.
+        order_amount:
+          type: object
+          description: The amount and currency of the order.
+          required:
+            - value
+            - currency
+          properties:
+            value:
+              type: integer
+              description: The amount of the order (minor currency unit).
+            currency:
+              type: string
+              description: The currency of the order. ISO 4217 currency code in upper case.
+        order_outstanding_amount:
+          type: object
+          description: The amount and currency outstanding to be paid for this order.
+          properties:
+            value:
+              type: integer
+              description: The amount of the order (minor currency unit) that is outstanding.
+            currency:
+              type: string
+              description: The currency of the amount that is outstanding. ISO 4217 currency code in upper case.
+        shipping_address:
+          $ref: '#/components/schemas/Address'
+      required:
+        - id
+        - type
+        - state
+        - created_at
+        - updated_at
+        - order_amount
+      description: The `Order` object returned when you retrieve a list of orders.
+  securitySchemes:
+    API key:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: |-
+        Each Merchant API request must contain an authorization header in the following format to make a call: 
+        `Bearer [yourAPIKey]`
+
+        Before you start, ensure that you’ve successfully applied for a Merchant Account in your [Revolut Business Account](https://business.revolut.com/merchant). Then, complete the following steps to generate the production API key:
+
+        1. Log in to your Revolut Business portal.
+        1. From the left sidebar menu, click **Merchant**, and then click the **API** tab on the page. 
+        1. Under the **Product API key** section, generate the production API key.
+
+        **Note**: Use this key only for the production environment. For the [Revolut Business Sandbox environment](https://sandbox-business.revolut.com), use the [sandbox API key](https://sandbox-business.revolut.com/merchant/api).
+security:
+  - API Key - 1: []
+tags:
+  - name: Orders
+    description: 'To process the order from a credit or debit card, you create an `Order` object. You can then retrieve, capture, cancel, refund, or confirm an order using its unique `id`. Alternatively, you can use its unique `public_id` to process a card payment with the Revolut Checkout Widget.'
+  - name: Customers
+    description: |-
+      `Customer` objects enable you to track multiple transactions associated     with the same customer.
+
+      A `Customer` object can be created in the following ways:
+      - **Automatically**: When an order is paid without customer ID and there is   enough information to identify a customer, the customer is created automatically.
+      - **Manually**: Use the `POST /customers` endpoint to create a customer.
+
+      You can then retrieve, update and delete a customer using its `id`.
+
+      You can save the payment methods of a customer using the `payment_method` object. Payment methods are used to make transactions. A merchant can store the details of the payment securely and group transactions from the same payment method. 
+
+      A payment method is unique for each customer. For example, if the same card is used for a transaction by two different customers, two payment method objects are created.
+
+      **Note**: You cannot create a payment method explicitly because they are generated as part of a payment. You can only retrieve, update or delete a payment method, or you can retrieve all payment methods of a customer.
+  - name: Webhooks
+    description: |-
+      A `webhook` (also called a web callback) allows your system to receive an event from a different app immediately after it happens. 
+
+      For example, you can subscribe to a webhook when an order changes from Pending to Completed. When the payment is cleared and the order is completed, Revolut servers will send a notification to the URL of your choice. This is a much more efficient way to know when an order is paid as opposed to trying to get the status of the order every few seconds.
+
+      Many events that happen to a Revolut Merchant account are synchronous, which means that they arrive instantly and have immediate results. For example, a successful request to create a customer immediately returns a Customer object. Such requests don't require webhooks.
+
+      The Revolut Merchant API supports webhooks for events including `ORDER_COMPLETED` and `ORDER_AUTHORISED`.
