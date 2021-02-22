@@ -570,16 +570,6 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 <h3 id='get-started-prepare-your-sandbox-environment'><a href='#get-started-prepare-your-sandbox-environment' class='header-link'><i></i></a>Prepare your Sandbox environment</h3>
 <p>Set up the Sandbox environment to test the integration before you push it to the production environment.</p>
 <h4 id='get-started-get-started-prepare-your-sandbox-environment-download-sandbox-credentials'><a href='#get-started-get-started-prepare-your-sandbox-environment-download-sandbox-credentials' class='header-link'><i></i></a>Download sandbox credentials</h4><blockquote>
-      <div><p>Generate RSA</p>
-</div>
-      <div class='env-selector'>
-        <select>
-          <option value="sandbox">Sandbox</option>
-          <option value="production">Production</option>
-        </select>
-      </div>
-    </blockquote><pre class="highlight shell tab-shell"><code>openssl genrsa -out server.key 2048
-</code></pre><blockquote>
       <div><p>Generate CSR</p>
 </div>
       <div class='env-selector'>
@@ -588,10 +578,10 @@ Ensure that you seek your own legal advice to understand if you need to be regul
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell"><code>openssl req -sha256 -new -key server.key -out server.csr -outform der
+    </blockquote><pre class="highlight shell tab-shell"><code>openssl req -new -newkey rsa:2048 -nodes -out revolut.csr -keyout private.key -subj <span class="s1">'/C=GB/ST=/L=/O=OpenBanking/OU=001580000103UAvAAM/CN=2kiXQyo0tedjW2somjSgH7'</span> -sha256 -outform der
 </code></pre>
 <ol>
-<li>Run the commands to generate a private RSA key and CSR file.</li>
+<li>Run the command to the right to generate a private RSA key and CSR file.</li>
 <li>Log in to the <a href='https://developer.revolut.com/portal/applications'>Developer Portal </a>, navigate to the Sandbox tab, and upload the CSR file in the Sandbox authentication. </li>
 <li>Download the Sandbox certificates. </li>
 </ol>
@@ -677,7 +667,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 
 <div class="feedback"></div>
 <h3 id='register-your-application-using-dcr-2-get-the-software-statement'><a href='#register-your-application-using-dcr-2-get-the-software-statement' class='header-link'><i></i></a>2. Get the software statement</h3><h4 id='register-your-application-using-dcr-register-your-application-using-dcr-2-get-the-software-statement-open-banking-software-statement'><a href='#register-your-application-using-dcr-register-your-application-using-dcr-2-get-the-software-statement-open-banking-software-statement' class='header-link'><i></i></a>Open Banking software statement</h4>
-<p>If you&#39;re using your Open Banking certificate, use the software statement signed by Open Banking, which you can obtain from the <a href="https://www.openbanking.org.uk/providers/directory/">Open Banking Directory</a>. You need this software statement when you create the JWT later.</p>
+<p>If you&#39;re using your Open Banking certificate, use the software statement signed by Open Banking, which you can obtain from the <a href="https://www.openbanking.org.uk/providers/directory/">Open Banking Directory</a>. You need this software statement when you create the JWT later. </p>
 <h4 id='register-your-application-using-dcr-register-your-application-using-dcr-2-get-the-software-statement-self-signed-software-statement'><a href='#register-your-application-using-dcr-register-your-application-using-dcr-2-get-the-software-statement-self-signed-software-statement' class='header-link'><i></i></a>Self-signed software statement</h4>
 <p>If you&#39;re using your eIDAS certificate, use the self-signed software statement. You need this software statement when you create the JWT later.</p>
 
@@ -769,7 +759,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 
 <div class="feedback"></div>
 <h3 id='register-your-application-using-dcr-3-create-a-jwt'><a href='#register-your-application-using-dcr-3-create-a-jwt' class='header-link'><i></i></a>3. Create a JWT</h3>
-<p>To create a <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a>, specify the parameters that are required for your application in the JWT header and the payload. For the JWT signature, include both the public key and the signing certificate&#39;s RSA private key.</p>
+<p>To create a <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a>, specify the parameters that are required for your application in the JWT header and the payload. For the JWT signature, include both the public key and the signing certificate&#39;s RSA private key. https://jwt.io/ is a helpful tool for debugging JWTs. </p>
 
 <p>Ensure that the parameters meet the following format. You can also check the examples on the right.</p>
 <blockquote>
@@ -805,8 +795,8 @@ Ensure that you seek your own legal advice to understand if you need to be regul
   </span><span class="s2">"application_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"web"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"id_token_signed_response_alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PS256"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"request_object_signing_alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PS256"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"tls_client_auth_dn"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-dn"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"software_statement"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ewogICJhbGciOiAibm9uZSIKfQ.ewogICJvcmdfaWQiOiAiNzc3NTgwMDAwMTAzVUF2QUFNIiwKICAib3JnX25hbWUiOiAiUmV2b2x1dCBUUFAiLAogICJzb2Z0d2FyZV9jbGllbnRfbmFtZSI6ICJSZXZvbHV0IFRQUCIsCiAgIm9yZ19qd2tzX2VuZHBvaW50IjogImh0dHA6Ly9vcGVuYmFua2luZy5vcmcudWsvZW5kcG9pbnQiLAogICJzb2Z0d2FyZV9yZWRpcmVjdF91cmlzIjogWwogICAgImh0dHA6Ly91cmwvb25lIgogIF0KfQ."</span><span class="w">
+  </span><span class="s2">"tls_client_auth_dn"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;insert</span><span class="w"> </span><span class="err">tls_client_auth_dn&gt;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"software_statement"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;insert</span><span class="w"> </span><span class="err">software_statement&gt;</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <table><thead>
@@ -1049,7 +1039,14 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 
 <p>See the <a href="https://developer.revolut.com/api-reference/open-banking/#tag/Account-and-Transactions">API Reference</a> for all the available endpoints.</p>
 
-<p>Before you begin, ensure that you have registered your application with the <code>accounts</code> <a href='#register-your-application-using-dcr-3-create-a-jwt'><code>scope</code></a>.</p>
+<p>Before you begin, ensure that you have:</p>
+
+<ul>
+<li>Registered your application with the <code>accounts</code> scope in Developer Portal</li>
+<li>Obtained a sandbox/production <code>client_id</code>  from Developer Portal</li>
+<li>Obtained a sandbox/production <code>transport.pem</code> certificate from Developer Portal or QTSP issuing body</li>
+<li>Uploaded the <a href='https://developer.revolut.com/docs/build-banking-apps/#register-your-application-using-dcr-1-get-the-jwks-url'><code>jwks_url</code></a> in Developer Portal that is specific to your <code>transport.pem</code> certificate</li>
+</ul>
 
 <div class="feedback"></div>
 <h4 id='tutorials-tutorials-get-account-and-transaction-information-1-generate-a-client-credentials-token'><a href='#tutorials-tutorials-get-account-and-transaction-information-1-generate-a-client-credentials-token' class='header-link'><i></i></a>1. Generate a client credentials token</h4><blockquote>
@@ -1061,12 +1058,12 @@ Ensure that you seek your own legal advice to understand if you need to be regul
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --cert transport.pem --key server.key <span class="se">\</span>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --cert transport.pem --key private.key <span class="se">\</span>
 --location --request POST <span class="s1">'https://sandbox-oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'scope=accounts'</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl --cert transport.pem --key server.key <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl --cert transport.pem --key private.key <span class="se">\</span>
 --location --request POST <span class="s1">'https://oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
@@ -1107,7 +1104,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
       </div>
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl --location --request POST <span class="s1">'https://sandbox-oba.revolut.com/account-access-consents'</span> <span class="se">\</span>
 --header <span class="s1">'x-fapi-financial-id: 001580000103UAvAAM'</span> <span class="se">\</span>
---header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjFlYzFkYjJkLTNlNWItNGQ4Mi1iNDJlLTA2Nzk0NTYyZTIwZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDQ5MzAzOTh9.pMMtYxYh8_M8P0v9_yfJ29iq3h2x_1RT6BLJPbrJ6SSsai_fQmMNGWXtDapPCSvWtn-ol0aN8Pl725uSSJqWHFxdh0PwvKP1762s5jy7xcLTkb8tgg-AoTPm87-vsnHnw5z63yiDW1Migdx7vDN_jRe3WUSfE-u0Qv7W3SLVo8kB5-qxn2VHZTBSaBr5XReINBHJgh7Xi9LzqxqUh0yCiZSSRnu8o7-I_Q1K0jPK1D7ve7BxlkOb5fSR59CbtzfkZpI6jKDOWSqU_5mftqRRylle382nfS6AeY2eubdH6OS-lJRFcwsYplauE-tZ__54G4LTjPhUWQezvewCc5gq2Q'</span> <span class="se">\</span>
+--header <span class="s1">'Authorization: Bearer &lt;insert access_token&gt;'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 --data-raw <span class="s1">'
 {
@@ -1124,7 +1121,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 }'</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request POST <span class="s1">'https://oba.revolut.com/account-access-consents'</span> <span class="se">\</span>
 --header <span class="s1">'x-fapi-financial-id: 001580000103UAvAAM'</span> <span class="se">\</span>
---header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjFlYzFkYjJkLTNlNWItNGQ4Mi1iNDJlLTA2Nzk0NTYyZTIwZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDQ5MzAzOTh9.pMMtYxYh8_M8P0v9_yfJ29iq3h2x_1RT6BLJPbrJ6SSsai_fQmMNGWXtDapPCSvWtn-ol0aN8Pl725uSSJqWHFxdh0PwvKP1762s5jy7xcLTkb8tgg-AoTPm87-vsnHnw5z63yiDW1Migdx7vDN_jRe3WUSfE-u0Qv7W3SLVo8kB5-qxn2VHZTBSaBr5XReINBHJgh7Xi9LzqxqUh0yCiZSSRnu8o7-I_Q1K0jPK1D7ve7BxlkOb5fSR59CbtzfkZpI6jKDOWSqU_5mftqRRylle382nfS6AeY2eubdH6OS-lJRFcwsYplauE-tZ__54G4LTjPhUWQezvewCc5gq2Q'</span> <span class="se">\</span>
+--header <span class="s1">'Authorization: Bearer &lt;insert access_token&gt;'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 --data-raw <span class="s1">'
 {
@@ -1221,7 +1218,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Create a JWT request parameter with the header and body format on the right, signed by your signing certificate’s private key. This signature is validated using the JWKs endpoint that you specified during the registration of your application.</p>
+<p>Create a JWT request parameter with the header and body format on the right, signed by your signing certificate’s private key. This signature is validated using the JWKs endpoint that you specified during the registration of your application. https://jwt.io/ is a helpful tool for debugging JWTs.</p>
 
 <aside class="warning">
 The values of <code>client_id</code>,  <code>redirect_uri</code>, <code>kid</code>, and <code>scope</code> should correspond to those for your specific application and consent request.
@@ -1414,11 +1411,13 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 
 <p>See the <a href="https://developer.revolut.com/api-reference/open-banking/#tag/Payment-Initiation">API Reference</a> for all the supported payments.</p>
 
-<p>Before you begin, ensure that:</p>
+<p>Before you begin, ensure that you have:</p>
 
 <ul>
-<li>You have registered your application with the <code>payments</code> <a href='#register-your-application-using-dcr-3-create-a-jwt'><code>scope</code></a>.</li>
-<li>The <a href="#register-your-application-using-dcr-1-get-the-jwks-url"><code>jwks_url</code></a> that you specified during the application registration has an <code>x5c</code> claim specified. This is a base64-encoded DER.</li>
+<li>Registered your application with the <code>payments</code> scope in Developer Portal </li>
+<li>Obtained a sandbox/production <code>client_id</code>  from Developer Portal</li>
+<li>Obtained sandbox/production <code>transport.pem</code> and <code>signing.pem</code> certificates, from Developer Portal or QTSP issuing body</li>
+<li>Uploaded the <a href='https://developer.revolut.com/docs/build-banking-apps/#register-your-application-using-dcr-1-get-the-jwks-url'><code>jwks_url</code></a> in Developer Portal that is specific to your <code>transport.pem</code> certificate. Ensure that the <code>x5c</code> claim is specified. </li>
 </ul>
 
 <div class="feedback"></div>
@@ -1431,12 +1430,12 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --cert transport.pem --key server.key <span class="se">\</span>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --cert transport.pem --key private.key <span class="se">\</span>
 --location --request POST <span class="s1">'https://sandbox-oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'scope=payments'</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl --cert transport.pem --key server.key <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl --cert transport.pem --key private.key <span class="se">\</span>
 --location --request POST <span class="s1">'https://oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
@@ -1678,7 +1677,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Create a JWT request parameter with the header and body format on the right, signed by your signing certificate’s private key. This signature is validated using the JWKs endpoint that you specified during the registration of your application.</p>
+<p>Create a JWT request parameter with the header and body format on the right, signed by your signing certificate’s private key. This signature is validated using the JWKs endpoint that you specified during the registration of your application. https://jwt.io/ is a helpful tool for debugging JWTs.</p>
 
 <aside class="warning">
   <p>
@@ -1951,6 +1950,14 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 <div class="feedback"></div>
 <h3 id='tutorials-create-your-first-draft-payment'><a href='#tutorials-create-your-first-draft-payment' class='header-link'><i></i></a>Create your first draft payment</h3>
 <p>To use our draft payments endpoint, you must register your application and request an approval in the <a href='https://developer.revolut.com/portal/applications'>Developer Portal</a>.</p>
+
+<p>Before you begin, ensure that you have:</p>
+
+<ul>
+<li>Registered your application with the <code>draftpayments</code> in Developer Portal </li>
+<li>Obtained a sandbox/production <code>client_id</code>  from Developer Portal</li>
+<li>Obtained a sandbox/production <code>transport.pem</code> certificate from Developer Portal</li>
+</ul>
 
 <aside class="warning">
 <b>Note:</b> The draft payment function is available only for Revolut Business customers. 
@@ -2816,12 +2823,12 @@ In case of any questions, reach out to Revolut Business support to get further h
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --cert transport.pem --key server.key <span class="se">\</span>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --cert transport.pem --key private.key <span class="se">\</span>
 --location --request POST <span class="s1">'https://sandbox-mtls-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'scope=draftpayments'</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl --cert transport.pem --key server.key <span class="se">\</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl --cert transport.pem --key private.key <span class="se">\</span>
 --location --request POST <span class="s1">'https://mtls-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
@@ -2856,7 +2863,7 @@ In case of any questions, reach out to Revolut Business support to get further h
         </select>
       </div>
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl --location --request POST <span class="s1">'https://sandbox-apis.revolut.com/webhooks/subscribe'</span> <span class="se">\</span>
---header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjFlYzFkYjJkLTNlNWItNGQ4Mi1iNDJlLTA2Nzk0NTYyZTIwZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDQ5MzAzOTh9.pMMtYxYh8_M8P0v9_yfJ29iq3h2x_1RT6BLJPbrJ6SSsai_fQmMNGWXtDapPCSvWtn-ol0aN8Pl725uSSJqWHFxdh0PwvKP1762s5jy7xcLTkb8tgg-AoTPm87-vsnHnw5z63yiDW1Migdx7vDN_jRe3WUSfE-u0Qv7W3SLVo8kB5-qxn2VHZTBSaBr5XReINBHJgh7Xi9LzqxqUh0yCiZSSRnu8o7-I_Q1K0jPK1D7ve7BxlkOb5fSR59CbtzfkZpI6jKDOWSqU_5mftqRRylle382nfS6AeY2eubdH6OS-lJRFcwsYplauE-tZ__54G4LTjPhUWQezvewCc5gq2Q'</span> <span class="se">\</span>
+--header <span class="s1">'Authorization: Bearer &lt;insert access_token&gt;'</span> <span class="se">\</span>
 --data-raw <span class="s1">'
 {
     "Topic": "draftpayments/transfers",
@@ -2864,7 +2871,7 @@ In case of any questions, reach out to Revolut Business support to get further h
     "Uri": "https://revolut_test.com" 
 }'</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request POST <span class="s1">'https://apis.revolut.com/webhooks/subscribe'</span> <span class="se">\</span>
---header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjFlYzFkYjJkLTNlNWItNGQ4Mi1iNDJlLTA2Nzk0NTYyZTIwZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDQ5MzAzOTh9.pMMtYxYh8_M8P0v9_yfJ29iq3h2x_1RT6BLJPbrJ6SSsai_fQmMNGWXtDapPCSvWtn-ol0aN8Pl725uSSJqWHFxdh0PwvKP1762s5jy7xcLTkb8tgg-AoTPm87-vsnHnw5z63yiDW1Migdx7vDN_jRe3WUSfE-u0Qv7W3SLVo8kB5-qxn2VHZTBSaBr5XReINBHJgh7Xi9LzqxqUh0yCiZSSRnu8o7-I_Q1K0jPK1D7ve7BxlkOb5fSR59CbtzfkZpI6jKDOWSqU_5mftqRRylle382nfS6AeY2eubdH6OS-lJRFcwsYplauE-tZ__54G4LTjPhUWQezvewCc5gq2Q'</span> <span class="se">\</span>
+--header <span class="s1">'Authorization: Bearer &lt;insert access_token&gt;'</span> <span class="se">\</span>
 --data-raw <span class="s1">'
 {
     "Topic": "draftpayments/transfers",
@@ -2887,9 +2894,9 @@ In case of any questions, reach out to Revolut Business support to get further h
         </select>
       </div>
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl --location --request GET <span class="s1">'https://sandbox-oba.revolut.com/webhooks'</span> <span class="se">\</span>
---header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjQ4ZjllZWJjLTA0YmItNGM2NS1hMzE1LWIwYjQ1OWJhN2I5ZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDk3Nzk0NzF9.ihoDIi5bELncONFL68uAmKgGJPe7ShyUCpOXHwjjzwYSW8M9G-kb6As9ybaNFYsaK2ee3BhPo0eIhnXCPFocpWc7OLeaJq_q4ytCHafvvgQNBNJH6lKJEGAne6QYyAtkYxR7hIaaX-AKOGNBy_-gtigrgyb5-qqtg5KP25eBF9JkygTlAIYZPq7IhENjBocWCYXNetUVOy7oA2tGyW_r3QdI9adMKu-Iqhx2cBh6aXMOjydmz8K6iv9quzNHB-Oh32Riz9V9kX1XEt5We32VgRM_S1Vdw7x1-sVZKMTPkh0CVnORpDYns9rwcEBfm3qEidd0HqcBgBXqWuoxBhQAhA'</span>
+--header <span class="s1">'Authorization: Bearer &lt;insert access_token&gt;'</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request GET <span class="s1">'https://oba.revolut.com/webhooks'</span> <span class="se">\</span>
---header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjQ4ZjllZWJjLTA0YmItNGM2NS1hMzE1LWIwYjQ1OWJhN2I5ZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDk3Nzk0NzF9.ihoDIi5bELncONFL68uAmKgGJPe7ShyUCpOXHwjjzwYSW8M9G-kb6As9ybaNFYsaK2ee3BhPo0eIhnXCPFocpWc7OLeaJq_q4ytCHafvvgQNBNJH6lKJEGAne6QYyAtkYxR7hIaaX-AKOGNBy_-gtigrgyb5-qqtg5KP25eBF9JkygTlAIYZPq7IhENjBocWCYXNetUVOy7oA2tGyW_r3QdI9adMKu-Iqhx2cBh6aXMOjydmz8K6iv9quzNHB-Oh32Riz9V9kX1XEt5We32VgRM_S1Vdw7x1-sVZKMTPkh0CVnORpDYns9rwcEBfm3qEidd0HqcBgBXqWuoxBhQAhA'</span>
+--header <span class="s1">'Authorization: Bearer &lt;insert access_token&gt;'</span>
 </code></pre><blockquote>
       <div><p>Response</p>
 </div>
@@ -3001,14 +3008,14 @@ In case of any questions, reach out to Revolut Business support to get further h
         </select>
       </div>
     </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl --location --request POST <span class="s1">'https://sandbox-oba.revolut.com/webhooks/unsubscribe'</span> <span class="se">\</span>
---header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjQ4ZjllZWJjLTA0YmItNGM2NS1hMzE1LWIwYjQ1OWJhN2I5ZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDk3Nzk0NzF9.ihoDIi5bELncONFL68uAmKgGJPe7ShyUCpOXHwjjzwYSW8M9G-kb6As9ybaNFYsaK2ee3BhPo0eIhnXCPFocpWc7OLeaJq_q4ytCHafvvgQNBNJH6lKJEGAne6QYyAtkYxR7hIaaX-AKOGNBy_-gtigrgyb5-qqtg5KP25eBF9JkygTlAIYZPq7IhENjBocWCYXNetUVOy7oA2tGyW_r3QdI9adMKu-Iqhx2cBh6aXMOjydmz8K6iv9quzNHB-Oh32Riz9V9kX1XEt5We32VgRM_S1Vdw7x1-sVZKMTPkh0CVnORpDYns9rwcEBfm3qEidd0HqcBgBXqWuoxBhQAhA'</span> <span class="se">\</span>
+--header <span class="s1">'Authorization: Bearer &lt;insert access_token&gt;'</span> <span class="se">\</span>
 --data-raw <span class="s1">'
 {
     "Topic": "draftpayments/transfers"
 }
 '</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request POST <span class="s1">'https://oba.revolut.com/webhooks/unsubscribe'</span> <span class="se">\</span>
---header <span class="s1">'Authorization: Bearer eyJhbGciOiJQUzI1NiJ9.eyJjbGllbnRJZCI6IjQ4ZjllZWJjLTA0YmItNGM2NS1hMzE1LWIwYjQ1OWJhN2I5ZSIsInNjb3BlcyI6WyJhY2NvdW50cyJdLCJleHAiOjE2MDk3Nzk0NzF9.ihoDIi5bELncONFL68uAmKgGJPe7ShyUCpOXHwjjzwYSW8M9G-kb6As9ybaNFYsaK2ee3BhPo0eIhnXCPFocpWc7OLeaJq_q4ytCHafvvgQNBNJH6lKJEGAne6QYyAtkYxR7hIaaX-AKOGNBy_-gtigrgyb5-qqtg5KP25eBF9JkygTlAIYZPq7IhENjBocWCYXNetUVOy7oA2tGyW_r3QdI9adMKu-Iqhx2cBh6aXMOjydmz8K6iv9quzNHB-Oh32Riz9V9kX1XEt5We32VgRM_S1Vdw7x1-sVZKMTPkh0CVnORpDYns9rwcEBfm3qEidd0HqcBgBXqWuoxBhQAhA'</span> <span class="se">\</span>
+--header <span class="s1">'Authorization: Bearer &lt;insert access_token&gt;'</span> <span class="se">\</span>
 --data-raw <span class="s1">'
 {
     "Topic": "draftpayments/transfers"
