@@ -984,10 +984,11 @@ To get started, complete the following steps:</p>
 <li>From the left sidebar menu, click <strong>Plugins</strong>.</li>
 <li><p>Under <code>WooCommerce Revolut Gateway</code> plugin, click <code>Settings</code>. You are then direct to the following page:</p>
 
-<p><img width="982" src="https://user-images.githubusercontent.com/60622352/77464762-914c3480-6dff-11ea-905a-ce881ec8e193.png"></p></li>
+<p><img width="982" src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-woocommerce-settings.png"></p></li>
 <li><p>Select the <strong>Enable Revolut</strong> check box.</p></li>
-<li><p>Select the <strong>Revolut Sandbox</strong> check box.</p></li>
-<li><p>In the <strong>API Key</strong> field, add your Sandbox API key. For more information about getting the Sandbox API key, see <a href="#tutorials-test-in-the-sandbox-environment">Test in the Sandbox environment</a>.</p></li>
+<li><p>From the <strong>Select Mode</strong> drop-down menu, select <strong>Sandbox</strong>.</p></li>
+<li><p>In the <strong>API Key Sandbox</strong> field, add your Sandbox API key. For more information about getting the Sandbox API key, see <a href="#tutorials-test-in-the-sandbox-environment">Test in the Sandbox environment</a>.</p></li>
+<li><p>In <strong>Setup Webhook Sandbox</strong>, click <strong>Setup</strong> to enable webhooks.</p></li>
 <li><p>Click <strong>Save changes</strong> to apply the changes.</p></li>
 </ol>
 
@@ -1000,12 +1001,46 @@ To get started, complete the following steps:</p>
 <li>From the left sidebar menu, click <strong>Plugins</strong>.</li>
 <li>Under <code>WooCommerce Revolut Gateway</code> plugin, click <strong>Settings</strong>.</li>
 <li>Select the <strong>Enable Revolut</strong> check box.</li>
-<li>Clear the <strong>Revolut Sandbox</strong> check box.</li>
-<li>In the <strong>API Key</strong> field, add your production API key. For more information about generating the API key, see <a href="#get-started-2-generate-the-api-key">Get started: 2. Generate the API key</a>.</li>
+<li>From the <strong>Select Mode</strong> drop-down menu, select <strong>Sandbox</strong>.</li>
+<li>In the <strong>API Key Live</strong> field, add your production API key. For more information about generating the API key, see <a href="#get-started-2-generate-the-api-key">Get started: 2. Generate the API key</a>.</li>
+<li>In <strong>Setup Webhook Live</strong>, click <strong>Setup</strong> to enable webhooks.</li>
 <li>Click <strong>Save changes</strong> to apply the changes.</li>
 </ol>
 
 <p>Now you can start accepting real payments in your WooCommerce online store.</p>
+
+<p><strong>Refund order from WooCommerce order view</strong></p>
+
+<ol>
+<li>Log in to your WooCommerce dashboard as the admin role.</li>
+<li>From the left sidebar menu, click <strong>Orders</strong>.</li>
+<li><p>Select the order that you want to refund, and locate the order details section. From the bottom left corner, click <strong>Refund</strong>.</p>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-woocommerce-refund-1.png"></p></li>
+<li><p>In the <strong>Refund amount</strong> field, enter the amount that you want to refund.</p>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-woocommerce-refund-2.png"></p></li>
+<li><p>Optional: In the <strong>Reason for refund</strong> field, provide the reason why you want to refund.</p></li>
+<li><p>Click <strong>Refund via Revolut</strong>.</p></li>
+</ol>
+
+<p>You’ve successfully refunded the customer’s payment for this order.</p>
+
+<p><strong>Capture authorized orders by changing their status</strong></p>
+
+<aside class="notice">
+  <b>Note:</b> Before you begin, make sure that you’ve selected the <b>Automatically capture order in Revolut</b> check box when you configure the WooCommerce plugin.
+</aside>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-woocommerce-capture-1.png"></p>
+
+<ol>
+<li>Log in to your WooCommerce dashboard as the admin role.</li>
+<li>From the left sidebar menu, click <strong>Orders</strong>. Select the order that you want to capture.</li>
+<li>Change the status of the order from <strong>On Hold</strong> to either <strong>Processing</strong> or <strong>Completed</strong> </li>
+</ol>
+
+<p>You’ve successfully captured the customer’s authorized order.</p>
 
 <div class="feedback"></div>
 <h3 id='plugins-prestashop'><a href='#plugins-prestashop' class='header-link'><i></i></a>Prestashop</h3>
