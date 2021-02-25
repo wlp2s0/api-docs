@@ -230,7 +230,12 @@
       <div id="toc">
         <ul class="toc-list-h2">
             <li>
-              <a href="#overview" class="toc-h2 toc-link" data-title="overview">Overview</a>
+              <a href="#introduction-to-the-merchant-api" class="toc-h2 toc-link" data-title="introduction-to-the-merchant-api">Introduction to the Merchant API</a>
+                <ul class="toc-list-h3">
+                    <li>
+                      <a href="#introduction-to-the-merchant-api-3d-secure-overview" class="toc-h3 toc-link" data-title="3d-secure-overview">3D Secure overview</a>
+                      </li>
+                </ul>
             </li>
             <li>
               <a href="#get-started" class="toc-h2 toc-link" data-title="get-started">Get started</a>
@@ -360,7 +365,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='accept-payments'><a href='#accept-payments' class='header-link'><i></i></a>Accept payments</h1><h2 id='overview'><a href='#overview' class='header-link'><i></i></a>Overview</h2>
+        <h1 id='accept-payments'><a href='#accept-payments' class='header-link'><i></i></a>Accept payments</h1><h2 id='introduction-to-the-merchant-api'><a href='#introduction-to-the-merchant-api' class='header-link'><i></i></a>Introduction to the Merchant API</h2>
 <p>The <strong>Revolut Merchant account</strong> is a sub account under your current Revolut Business account. As a Revolut Business customer, you can use your Revolut Merchant account and the Merchant API to accept online payments straight into your Merchant account. In addition, you can manage orders and customers.</p>
 
 <p>Depending on how your e-commerce website is hosted, you can choose the corresponding checkout method to accept payments to your Merchant account:</p>
@@ -369,6 +374,36 @@
 <li><p>Installing an e-commerce platform plugin: If you have your website running on WooCommerce, Prestashop, or Magento e-commerce platform, install the corresponding plugin that Revolut has created. This doesn’t require manual integration with the Merchant API. Revolut will support more plugins in the future. For more information, see <a href="#plugins">Plugins</a>.</p></li>
 <li><p>Adding a Revolut Checkout Widget: If your website is not running on the platforms above, or if you want to customize the checkout experience, add a <a href="https://developer.revolut.com/docs/revolut-checkout-js" target="_blank">Revolut Checkout Widget</a> to the checkout page, which can be either a payment pop-up window or a card field. You must manually integrate the widget with the <a href="https://developer.revolut.com/api-reference/merchant" target="_blank">Merchant API</a>. To get started, see the <a href="#tutorials-accept-your-first-payment">Accept your first payment</a>.</p></li>
 </ul>
+<h3 id='introduction-to-the-merchant-api-3d-secure-overview'><a href='#introduction-to-the-merchant-api-3d-secure-overview' class='header-link'><i></i></a>3D Secure overview</h3>
+<p>3-D Secure (3DS) is a protocol designed to be an additional security layer for online transactions. During the checkout process, the customers are required to complete an extra authentication step to verify the cardholder&#39;s identity, which reduces fraud and meets regulatory requirements.</p>
+
+<p><strong>How it works</strong></p>
+
+<p>3DS allows the merchant to challenge its customers by asking them to perform an action that only cardholders are able to complete. Based on different mechanisms, the challenge can have different formats: </p>
+
+<ul>
+<li>The cardholder goes through a frictionless flow where Revolut sends information about the device being used. This might be enough for the issuing bank to approve the payment. This format is called Fingerprint.</li>
+<li>The cardholder is asked to provide a one-time password (OTP) sent to their phone, which is registered with their bank account. This is the usual format of the challenge.</li>
+<li>The cardholder is asked to verify the transaction using their card bank application. This is a more modern and common format.</li>
+</ul>
+
+<p><strong>Benefits</strong></p>
+
+<p>Payments that are successfully authenticated using 3DS are covered by a liability shift, which means that the liability of the payment is with the issuing bank and not with you as a merchant. </p>
+
+<p>In case of a <a href="https://www.revolut.com/en-PL/business/help/merchant-accounts/chargebacks-refunds/what-is-a-chargeback">chargeback</a> for a payment where 3DS was used, by default the cardholder’s bank is responsible and liable to refund this amount to the cardholder.</p>
+
+<aside class="notice">
+  <b>Note:</b> As a merchant, using 3DS for payment authentication does not mean that you are immune to any disputed payments.
+</aside>
+
+<p><strong>Our 3DS solution</strong></p>
+
+<p>To ensure your safety as a merchant and to protect cardholders from having their stolen cards being used without their knowledge, Revolut performs a 3DS challenge when needed when a card payment is being made.</p>
+
+<p>Also, the new Payments Services Directive (PSD2) regulations stipulate that merchants must be compliant with the Strong Customer Authentication (SCA) procedures from 1st January 2021. The Financial Conduct Authority FCA has extended the deadline for the UK to 14th September 2021. </p>
+
+<p>Thanks to Revolut’s policy to request 3DS challenges, you don’t have to worry about not being compliant with these regulations.</p>
 <h2 id='get-started'><a href='#get-started' class='header-link'><i></i></a>Get started</h2><h3 id='get-started-1-apply-for-a-merchant-account'><a href='#get-started-1-apply-for-a-merchant-account' class='header-link'><i></i></a>1. Apply for a Merchant account</h3>
 <p>Before you begin, apply for a Merchant account in your <a href="https://business.revolut.com/merchant" target="_blank">Revolut Business</a> account. You need to provide required information, for example, website of operation, volume of payments, category of your merchant activities, and then submit your application.</p>
 
@@ -982,7 +1017,7 @@ To get started, complete the following steps:</p>
 <ol>
 <li>Log in to your WooCommerce dashboard as the admin role.</li>
 <li>From the left sidebar menu, click <strong>Plugins</strong>.</li>
-<li><p>Under <code>WooCommerce Revolut Gateway</code> plugin, click <code>Settings</code>. You are then direct to the following page:</p>
+<li><p>Under <code>WooCommerce Revolut Gateway</code> plugin, click <code>Settings</code>. You are then directed to the following page:</p>
 
 <p><img width="982" src="https://assets.revolut.com/api-docs/merchant-api/images/plugins-woocommerce-settings.png"></p></li>
 <li><p>Select the <strong>Enable Revolut</strong> check box.</p></li>
@@ -1037,7 +1072,7 @@ To get started, complete the following steps:</p>
 <ol>
 <li>Log in to your WooCommerce dashboard as the admin role.</li>
 <li>From the left sidebar menu, click <strong>Orders</strong>. Select the order that you want to capture.</li>
-<li>Change the status of the order from <strong>On Hold</strong> to either <strong>Processing</strong> or <strong>Completed</strong> </li>
+<li>Change the status of the order from <strong>On Hold</strong> to either <strong>Processing</strong> or <strong>Completed</strong>.</li>
 </ol>
 
 <p>You’ve successfully captured the customer’s authorized order.</p>
