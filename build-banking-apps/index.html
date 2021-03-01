@@ -2434,7 +2434,7 @@ To use our draft payments endpoint in any countries/currencies not listed below,
 </tbody></table>
 
 <aside class="warning">
-Address is defined as <code>Country</code>, <code>Address line 1</code>, <code>City</code> and <code>Postcode</code> fields.
+Address is defined as <code>Country</code>, <code>Address line 1</code>, <code>City</code> and <code>Postcode</code> fields. It should be the address of the recipient. 
 <br><br>
 PHP and IDR transfers are only supported within the Philippines and Indonesia respectively.
 </aside>
@@ -2568,7 +2568,9 @@ Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,GBP,10,User comment,GB,,Revolutest LT
 </span></code></pre>
 <p>We validate if the fields in the CSV match the format required and if the bank account details provided are valid for a payment to be made.</p>
 
-<p>If there is an issue with the CSV uploaded, the API responds with a <code>3039</code> error code and give details of the CSV validation errors row by row. Each error message is accompanied by a corresponding code.</p>
+<p>If there is an issue with the CSV uploaded, the API responds with a <code>3039</code> error code and give details of the CSV validation errors row by row. Each error message is accompanied by a corresponding <code>code</code>. </p>
+
+<p>In addition, with the exception of error codes <code>2008</code> and <code>1000</code>, we will also pass the relevant <code>Field</code> that causes the validation to fail.</p>
 
 <p><strong>Error codes</strong></p>
 
