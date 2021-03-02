@@ -2924,7 +2924,7 @@ In case of any questions, reach out to Revolut Business support to get further h
 </span></code></pre>
 <p>When the webhooks are created, make a call to the <code>/webhooks</code> endpoint and you can see them returned in the response.</p>
 <h4 id='tutorials-tutorials-work-with-webhooks-4-listen-for-notifications'><a href='#tutorials-tutorials-work-with-webhooks-4-listen-for-notifications' class='header-link'><i></i></a>4. Listen for notifications</h4><blockquote>
-      <div><p>Draft payment order notification payload</p>
+      <div><p>Draft payment order creation payload</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -2935,7 +2935,26 @@ In case of any questions, reach out to Revolut Business support to get further h
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"draftpayments/orders"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"IdempotencyKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3cffda-15d9-4596-8068-e95321319973"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"EventId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e6784099-4925-430d-8a38-c51eab865620"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b36b0bb7-c162-4919-8205-32f914b4fa29"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awaiting"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"IdempotencyKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3cffda-15d9-4596-8068-e95321319973"</span><span class="p">,</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><blockquote>
+      <div><p>Draft payment order state change payload</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"draftpayments/orders"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"EventId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e6784099-4925-430d-8a38-c51eab865620"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b36b0bb7-c162-4919-8205-32f914b4fa29"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Processed"</span><span class="w">
@@ -2953,7 +2972,7 @@ In case of any questions, reach out to Revolut Business support to get further h
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"draftpayments/transfers"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"IdempotencyKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51350d68-e285-406e-8571-6f7b13f9e024"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"EventId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51350d68-e285-406e-8571-6f7b13f9e024"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7e18d804-b154-4035-bc8e-7a038acbb104"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="w">
@@ -2971,7 +2990,7 @@ In case of any questions, reach out to Revolut Business support to get further h
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"Topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tokens"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Version"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"IdempotencyKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f18b4784-36f3-41f8-871e-2869f8e40f78"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"EventId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f18b4784-36f3-41f8-871e-2869f8e40f78"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"53408510-9154-4f30-bd60-308d3558b063"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Terminated"</span><span class="w">
@@ -2993,7 +3012,7 @@ In case of any questions, reach out to Revolut Business support to get further h
 
 <p>The <code>Status</code> field corresponds to those detailed <a href='#tutorials-tutorials-work-with-draft-payments-payment-orders-vs-transfers'>here</a>.</p>
 
-<p>Please see examples of two payloads to the right. The <code>ID</code> field indicates the relevant object that has changed state, while <code>IdempotencyKey</code> can be used as a unique identifier for a specific event. </p>
+<p>Please see examples of two payloads to the right. The <code>ID</code> field indicates the relevant object that has changed state, while <code>EventId</code> can be used as a unique identifier for a specific event. For Draft Payment Order creation, we will also include the <code>IdempotencyKey</code> that was provided in the creation request. </p>
 
 <p>The header in the request will contain a detached JWS containing a <code>kid</code>. Please use the JWKS endpoint to the right to validate this signature.</p>
 
