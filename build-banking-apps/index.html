@@ -1736,6 +1736,11 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 <td>The encoded JWT generated from the previous step.</td>
 <td>yes</td>
 </tr>
+<tr>
+<td><code>response_mode</code></td>
+<td>If set to <code>fragment</code> parameters will be passed in fragment section of redirect URI. Otherwise, parameters are passed in URI query. Passing parameters in fragment considered to be more secure.</td>
+<td>no</td>
+</tr>
 </tbody></table>
 <blockquote>
       <div><p>Sample redirect after successful response</p>
@@ -2016,6 +2021,11 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 <td><code>state</code></td>
 <td>The generated string to verify the response is initiated by the same user.</td>
 <td>yes</td>
+</tr>
+<tr>
+<td><code>response_mode</code></td>
+<td>If set to <code>fragment</code> parameters will be passed in fragment section of redirect URI. Otherwise, parameters are passed in URI query. Passing parameters in fragment considered to be more secure.</td>
+<td>no</td>
 </tr>
 </tbody></table>
 
