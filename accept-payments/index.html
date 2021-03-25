@@ -592,7 +592,7 @@ load"</span><span class="p">))}}};</span><span class="k">return</span><span clas
     <span class="c1">// On click open payment pop-up</span>
     <span class="nx">payButton</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">RC</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
-        <span class="c1">// (optional) name of the customer</span>
+        <span class="c1">// (mandatory!) name of the cardholder</span>
         <span class="na">name</span><span class="p">:</span> <span class="s2">"First Last"</span><span class="p">,</span>
         <span class="c1">// (optional) email of the customer</span>
         <span class="na">email</span><span class="p">:</span> <span class="s2">"customer@example.com"</span><span class="p">,</span>
@@ -600,21 +600,21 @@ load"</span><span class="p">))}}};</span><span class="k">return</span><span clas
         <span class="na">phone</span><span class="p">:</span> <span class="s2">"+447950630319"</span><span class="p">,</span>
         <span class="c1">// (optional) billing address of the customer</span>
         <span class="na">billingAddress</span><span class="p">:</span> <span class="p">{</span>
-          <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"GB"</span><span class="p">,</span>
+          <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"GB"</span><span class="p">,</span> <span class="c1">//if sending billing address, this field is mandatory</span>
           <span class="na">region</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
           <span class="na">city</span><span class="p">:</span> <span class="s2">"London"</span><span class="p">,</span>
           <span class="na">streetLine1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
           <span class="na">streetLine2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
-          <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span><span class="p">,</span>
+          <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span><span class="p">,</span> <span class="c1">//if sending billing address, this field is mandatory</span>
         <span class="p">},</span>
         <span class="c1">// (optional) shipping address of the customer</span>
         <span class="na">shippingAddress</span><span class="p">:</span> <span class="p">{</span>
-          <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"GB"</span><span class="p">,</span>
+          <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"GB"</span><span class="p">,</span> <span class="c1">//if sending shipping address, this field is mandatory</span>
           <span class="na">region</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
           <span class="na">city</span><span class="p">:</span> <span class="s2">"London"</span><span class="p">,</span>
           <span class="na">streetLine1</span><span class="p">:</span> <span class="s2">"Revolut"</span><span class="p">,</span>
           <span class="na">streetLine2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
-          <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span><span class="p">,</span>
+          <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span><span class="p">,</span> <span class="c1">//if sending shipping address, this field is mandatory</span>
         <span class="p">},</span>
         <span class="c1">// Callback called when payment finished successfully</span>
         <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
@@ -914,12 +914,8 @@ To get started, complete the following steps:</p>
 <td><code>DECLINED</code> due to Do Not Honour<br><br>This error happens when your customer&#39;s bank declines the transaction due to internal reasons. For example, their fraud rules might have been triggered or a temporary hold may have been applied to this card.</td>
 </tr>
 <tr>
-<td>5145014175946025</td>
-<td><code>DECLINED</code> due to CVV code being incorrect</td>
-</tr>
-<tr>
-<td>5445850727830242</td>
-<td><code>DECLINED</code> due to invalid postal code<br><br>This error is most common for cards issued in the UK, US, Australia, New Zealand or Canada.</td>
+<td>5215674115127070</td>
+<td><code>DECLINED</code> due to the issuing bank needing additional verification. A message is returned from your bank that should be displayed to the cardholder.</td>
 </tr>
 <tr>
 <td>2223000010479399</td>

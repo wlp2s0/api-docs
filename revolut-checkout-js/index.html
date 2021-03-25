@@ -417,21 +417,23 @@
   <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="nx">email</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="nx">phone</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">locale</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">savePaymentMethodFor</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="nx">billingAddress</span><span class="p">?:</span> <span class="p">{</span>
     <span class="na">countryCode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">region</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">city</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">region</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">city</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
     <span class="nl">postcode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">streetLine1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">streetLine2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">streetLine1</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">streetLine2</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="p">};</span>
   <span class="nx">shippingAddress</span><span class="p">?:</span> <span class="p">{</span>
     <span class="na">countryCode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">region</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">city</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">region</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">city</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
     <span class="nl">postcode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">streetLine1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">streetLine2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">streetLine1</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">streetLine2</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="p">};</span>
 <span class="p">};</span>
 </code></pre>
@@ -460,8 +462,13 @@
 <td>Function</td>
 </tr>
 <tr>
+<td><code>locale</code></td>
+<td>Controls the language of the text in the widget. Possible values are: <code>en</code> (English), <code>es</code> (Spanish), <code>de</code> (German), <code>fr</code> (French), <code>it</code> (Italian), <code>nl</code> (Dutch), <code>pl</code> (Polish), <code>pt</code> (Portuguese)</td>
+<td>String</td>
+</tr>
+<tr>
 <td><code>name</code></td>
-<td>Customer’s name in the format of <code>FirstName LastName</code>. This value is <strong>required</strong>.</td>
+<td>Cardholder’s name in the format of <code>FirstName LastName</code>. This value is <strong>required</strong>.</td>
 <td>String</td>
 </tr>
 <tr>
@@ -486,7 +493,7 @@
 </tr>
 <tr>
 <td><code>billingAddress.countryCode</code></td>
-<td><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">Country code</a> (e.g. <code>GB</code>)</td>
+<td><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">Country code</a> (e.g. <code>GB</code>). If sending the <code>billingAddress</code>, this is <strong>required</strong>.</td>
 <td>String</td>
 </tr>
 <tr>
@@ -501,7 +508,7 @@
 </tr>
 <tr>
 <td><code>billingAddress.postcode</code></td>
-<td>Postal code (e.g. <code>EC2V 6DN</code>)</td>
+<td>Postal code (e.g. <code>EC2V 6DN</code>). If sending the <code>billingAddress</code>, this is <strong>required</strong>.</td>
 <td>String</td>
 </tr>
 <tr>
@@ -572,6 +579,13 @@
       </div>
     </blockquote><pre class="highlight javascript"><code><span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"&lt;PUBLIC_ID&gt;"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithPopup</span><span class="p">({</span>
+    <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="nx">onError</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="na">locale</span><span class="p">:</span> <span class="s2">"es"</span><span class="p">,</span>
     <span class="na">billingAddress</span><span class="p">:</span> <span class="p">{</span>
       <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"GB"</span><span class="p">,</span>
       <span class="na">region</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
@@ -580,12 +594,6 @@
       <span class="na">streetLine2</span><span class="p">:</span> <span class="s2">"1 Canada Square"</span><span class="p">,</span>
       <span class="na">postcode</span><span class="p">:</span> <span class="s2">"EC2V 6DN"</span>
     <span class="p">},</span>
-    <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
-      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Thank you!"</span><span class="p">);</span>
-    <span class="p">},</span>
-    <span class="nx">onError</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
-    <span class="p">}</span>
   <span class="p">});</span>
 <span class="p">});</span>
 </code></pre>
@@ -606,6 +614,7 @@
     <span class="na">name</span><span class="p">:</span> <span class="s2">"First Last"</span><span class="p">,</span>
     <span class="na">email</span><span class="p">:</span> <span class="s2">"customer@example.com"</span><span class="p">,</span>
     <span class="na">phone</span><span class="p">:</span> <span class="s2">"+447950630319"</span><span class="p">,</span>
+    <span class="na">locale</span><span class="p">:</span> <span class="s2">"es"</span><span class="p">,</span>
     <span class="na">billingAddress</span><span class="p">:</span> <span class="p">{</span>
       <span class="na">countryCode</span><span class="p">:</span> <span class="s2">"GB"</span><span class="p">,</span>
       <span class="na">region</span><span class="p">:</span> <span class="s2">"Greater London"</span><span class="p">,</span>
@@ -655,6 +664,7 @@
   <span class="nx">onError</span><span class="p">?:</span> <span class="p">(</span><span class="na">message</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
   <span class="nx">onValidation</span><span class="p">?:</span> <span class="p">(</span><span class="na">messages</span><span class="p">:</span> <span class="kr">string</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
   <span class="nx">onCancel</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nx">locale</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="nx">styles</span><span class="p">?:</span> <span class="p">{</span>
     <span class="k">default</span><span class="p">?:</span> <span class="nb">Object</span><span class="p">;</span>
     <span class="nx">focused</span><span class="p">?:</span> <span class="nb">Object</span><span class="p">;</span>
@@ -678,21 +688,22 @@
   <span class="na">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="nx">email</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="nx">phone</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nx">savePaymentMethodFor</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="nx">billingAddress</span><span class="p">?:</span> <span class="p">{</span>
     <span class="na">countryCode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">region</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">city</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">region</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">city</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
     <span class="nl">postcode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">streetLine1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">streetLine2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">streetLine1</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">streetLine2</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="p">};</span>
   <span class="nx">shippingAddress</span><span class="p">?:</span> <span class="p">{</span>
     <span class="na">countryCode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">region</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">city</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">region</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">city</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
     <span class="nl">postcode</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">streetLine1</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
-    <span class="nl">streetLine2</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">streetLine1</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
+    <span class="nx">streetLine2</span><span class="p">?:</span> <span class="kr">string</span><span class="p">;</span>
   <span class="p">};</span>
 <span class="p">};</span>
 </code></pre>
@@ -731,9 +742,9 @@
 <td>Function</td>
 </tr>
 <tr>
-<td><code>savePaymentMethodFor</code></td>
-<td>Indicates in which case this saved payment method can be used for payments. <br><br>Possible values:<br>- <code>customer</code>: This method can be used only when the customer is on the checkout page.<br>- <code>merchant</code>: This method can be used without the customer being on the checkout page, and the merchant can initiate transactions (e.g. take payments for recurring transactions). This method is saved as the new default payment method for merchant initiated transactions, regardless of the number of saved payment methods stored against the customer.</td>
-<td>Enum</td>
+<td><code>locale</code></td>
+<td>Controls the language of the text in the widget. Possible values are: <code>en</code> (English), <code>es</code> (Spanish), <code>de</code> (German), <code>fr</code> (French), <code>it</code> (Italian), <code>nl</code> (Dutch), <code>pl</code> (Polish), <code>pt</code> (Portuguese)</td>
+<td>String</td>
 </tr>
 <tr>
 <td><code>target</code></td>
@@ -849,7 +860,7 @@
 </thead><tbody>
 <tr>
 <td><code>meta.name</code></td>
-<td>Customer’s name in the format of <code>FirstName LastName</code>. This value is <strong>required</strong>.</td>
+<td>Cardholder’s name in the format of <code>FirstName LastName</code>. This value is <strong>required</strong>.</td>
 <td>String</td>
 </tr>
 <tr>
@@ -863,13 +874,18 @@
 <td>String</td>
 </tr>
 <tr>
+<td><code>meta.savePaymentMethodFor</code></td>
+<td>Indicates in which case this saved payment method can be used for payments. <br><br>Possible values:<br>- <code>customer</code>: This method can be used only when the customer is on the checkout page.<br>- <code>merchant</code>: This method can be used without the customer being on the checkout page, and the merchant can initiate transactions (e.g. take payments for recurring transactions). This method is saved as the new default payment method for merchant initiated transactions, regardless of the number of saved payment methods stored against the customer.</td>
+<td>Enum</td>
+</tr>
+<tr>
 <td><code>meta.billingAddress</code></td>
 <td>Customer&#39;s billing address. This is required if not set on order via API.</td>
 <td>Object</td>
 </tr>
 <tr>
 <td><code>meta.billingAddress.countryCode</code></td>
-<td><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">Country code</a> (e.g. <code>GB</code>)</td>
+<td><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">Country code</a> (e.g. <code>GB</code>). If sending the <code>billingAddress</code>, this is <strong>required</strong>.</td>
 <td>String</td>
 </tr>
 <tr>
@@ -884,7 +900,7 @@
 </tr>
 <tr>
 <td><code>meta.billingAddress.postcode</code></td>
-<td>Postal code (e.g. <code>EC2V 6DN</code>)</td>
+<td>Postal code (e.g. <code>EC2V 6DN</code>). If sending the <code>billingAddress</code>, this is <strong>required</strong>.</td>
 <td>String</td>
 </tr>
 <tr>
@@ -996,7 +1012,8 @@
     <span class="p">},</span>
     <span class="nx">onError</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
       <span class="nb">window</span><span class="p">.</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"Oh no :("</span><span class="p">);</span>
-    <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="na">locale</span><span class="p">:</span> <span class="s2">"es"</span>
   <span class="p">});</span>
 
 
@@ -1049,6 +1066,7 @@
   <span class="nl">target</span><span class="p">:</span> <span class="nx">HTMLElement</span>
   <span class="nx">phone</span><span class="p">?:</span> <span class="kr">string</span>
   <span class="nx">email</span><span class="p">?:</span> <span class="kr">string</span>
+  <span class="nx">locale</span><span class="p">?:</span> <span class="kr">string</span>
   <span class="nx">onSuccess</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span>
   <span class="nx">onError</span><span class="p">?:</span> <span class="p">(</span><span class="nx">RevolutCheckoutError</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>
   <span class="nx">onCancel</span><span class="p">?:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span>
@@ -1093,6 +1111,11 @@
 <td>Callback if a user did not complete the transaction and canceled the authorization, or closed the payment pop-up window.</td>
 <td>Function</td>
 </tr>
+<tr>
+<td><code>locale</code></td>
+<td>Controls the language of the text in the widget. Possible values are: <code>en</code> (English), <code>es</code> (Spanish), <code>de</code> (German), <code>fr</code> (French), <code>it</code> (Italian), <code>nl</code> (Dutch), <code>pl</code> (Polish), <code>pt</code> (Portuguese)</td>
+<td>String</td>
+</tr>
 </tbody></table>
 <h4 id='instance-instance-instance-paywithrevolut-returns'><a href='#instance-instance-instance-paywithrevolut-returns' class='header-link'><i></i></a>Returns</h4>
 <p><code>Methods</code> object:</p>
@@ -1131,7 +1154,7 @@
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Payment completed'</span><span class="p">)</span>
     <span class="p">},</span>
     <span class="nx">onError</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Payment failed: '</span> <span class="o">+</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="err">'</span><span class="p">)</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Payment failed: '</span> <span class="o">+</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>
     <span class="p">}</span>
   <span class="p">})</span>
 <span class="p">})</span>
