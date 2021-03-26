@@ -1062,12 +1062,14 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 --location --request POST <span class="s1">'https://sandbox-oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
---data-urlencode <span class="s1">'scope=accounts'</span>
+--data-urlencode <span class="s1">'scope=accounts'</span> <span class="se">\</span>
+--data-urlencode <span class="s1">'client_id=&lt;your_client_id&gt;'</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl --cert transport.pem --key private.key <span class="se">\</span>
 --location --request POST <span class="s1">'https://oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
---data-urlencode <span class="s1">'scope=accounts'</span>
+--data-urlencode <span class="s1">'scope=accounts'</span> <span class="se">\</span>
+--data-urlencode <span class="s1">'client_id=&lt;your_client_id&gt;'</span>
 </code></pre><blockquote>
       <div><p>Response</p>
 </div>
@@ -1439,12 +1441,14 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 --location --request POST <span class="s1">'https://sandbox-oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
---data-urlencode <span class="s1">'scope=payments'</span>
+--data-urlencode <span class="s1">'scope=payments'</span> <span class="se">\</span>
+--data-urlencode <span class="s1">'client_id=&lt;your_client_id&gt;'</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl --cert transport.pem --key private.key <span class="se">\</span>
 --location --request POST <span class="s1">'https://oba-auth.revolut.com/token'</span> <span class="se">\</span>
 --header <span class="s1">'Content-Type: application/x-www-form-urlencoded'</span> <span class="se">\</span>
 --data-urlencode <span class="s1">'grant_type=client_credentials'</span> <span class="se">\</span>
---data-urlencode <span class="s1">'scope=payments'</span>
+--data-urlencode <span class="s1">'scope=payments'</span> <span class="se">\</span>
+--data-urlencode <span class="s1">'client_id=&lt;your_client_id&gt;'</span>
 </code></pre><blockquote>
       <div><p>Response</p>
 </div>
