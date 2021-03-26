@@ -759,7 +759,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 
 <div class="feedback"></div>
 <h3 id='register-your-application-using-dcr-3-create-a-jwt'><a href='#register-your-application-using-dcr-3-create-a-jwt' class='header-link'><i></i></a>3. Create a JWT</h3>
-<p>To create a <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a>, specify the parameters that are required for your application in the JWT header and the payload. For the JWT signature, include both the public key and the signing certificate&#39;s RSA private key. https://jwt.io/ is a helpful tool for debugging JWTs. </p>
+<p>To create a <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a>, specify the parameters that are required for your application in the JWT header and the payload. For the JWT signature, include both the public key and the signing certificate&#39;s RSA private key. <a href="https://jwt.io/">jwt.io</a> is a helpful tool for debugging JWTs. </p>
 
 <p>Ensure that the parameters meet the following format. You can also check the examples on the right.</p>
 <blockquote>
@@ -772,7 +772,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
         </select>
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"kid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-kid"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"kid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;insert kid&gt;"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PS256"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><blockquote>
@@ -974,8 +974,8 @@ Ensure that you seek your own legal advice to understand if you need to be regul
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X PUT https://sandbox-oba.revolut.com/register/17b2738f-26b1-46f9-a979-debbf1f39365
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X PUT https://oba.revolut.com/register/17b2738f-26b1-46f9-a979-debbf1f39365
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X PUT https://sandbox-oba.revolut.com/register/&lt;insert client_id&gt;
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X PUT https://oba.revolut.com/register/&lt;insert client_id&gt;
 </code></pre>
 <p>To update the information for an existing application, make a <code>PUT</code> request to the <code>register</code> endpoint:</p>
 
@@ -1018,9 +1018,9 @@ Ensure that you seek your own legal advice to understand if you need to be regul
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X DELETE https://sandbox-oba.revolut.com/register/17b2738f-26b1-46f9-a979-debbf1f39365
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X DELETE https://sandbox-oba.revolut.com/register/&lt;insert client_id&gt;
 --header <span class="s1">'Authorisation: Bearer &lt;your token&gt;'</span>
-</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X DELETE https://oba.revolut.com/register/17b2738f-26b1-46f9-a979-debbf1f39365
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X DELETE https://oba.revolut.com/register/&lt;insert client_id&gt;
 --header <span class="s1">'Authorisation: Bearer &lt;your token&gt;'</span>
 </code></pre>
 <p>To request deletion of an existing application, make a <code>DELETE</code> request to the <code>register</code> endpoint. In the request header, provide the <code>client_id</code> and access token.</p>
@@ -1193,7 +1193,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PS256"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"kid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-kid"</span><span class="w">
+  </span><span class="s2">"kid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;insert kid&gt;"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><blockquote>
       <div><p>Body</p>
@@ -1218,7 +1218,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Create a JWT request parameter with the header and body format on the right, signed by your signing certificate’s private key. This signature is validated using the JWKs endpoint that you specified during the registration of your application. https://jwt.io/ is a helpful tool for debugging JWTs.</p>
+<p>Create a JWT request parameter with the header and body format on the right, signed by your signing certificate’s private key. This signature is validated using the JWKs endpoint that you specified during the registration of your application. <a href="https://jwt.io/">jwt.io</a> is a helpful tool for debugging JWTs.</p>
 
 <aside class="warning">
 The values of <code>client_id</code>,  <code>redirect_uri</code>, <code>kid</code>, and <code>scope</code> should correspond to those for your specific application and consent request.
@@ -1481,7 +1481,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PS256"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"kid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-kid"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"kid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;insert kid&gt;"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"crit"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"http://openbanking.org.uk/tan"</span><span class="p">],</span><span class="w">
   </span><span class="s2">"http://openbanking.org.uk/tan"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;insert</span><span class="w"> </span><span class="err">JWKs</span><span class="w"> </span><span class="err">root</span><span class="w"> </span><span class="err">domain&gt;</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1657,7 +1657,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
       </div>
     </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PS256"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"kid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-kid"</span><span class="w">
+  </span><span class="s2">"kid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;insert kid&gt;"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><blockquote>
       <div><p>Body</p>
@@ -1682,7 +1682,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Create a JWT request parameter with the header and body format on the right, signed by your signing certificate’s private key. This signature is validated using the JWKs endpoint that you specified during the registration of your application. https://jwt.io/ is a helpful tool for debugging JWTs.</p>
+<p>Create a JWT request parameter with the header and body format on the right, signed by your signing certificate’s private key. This signature is validated using the JWKs endpoint that you specified during the registration of your application. <a href="https://jwt.io/">jwt.io</a> is a helpful tool for debugging JWTs.</p>
 
 <aside class="warning">
   <p>
