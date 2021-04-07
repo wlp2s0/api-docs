@@ -301,7 +301,7 @@
                             <a href="#tutorials-tutorials-retrieve-transaction-data-filter-transactions" class="toc-h4 toc-link" data-title="filter-transactions">Filter transactions</a>
                           </li>
                           <li>
-                            <a href="#tutorials-tutorials-retrieve-transaction-data-pagination-of-transfers" class="toc-h4 toc-link" data-title="pagination-of-transfers">Pagination of transfers</a>
+                            <a href="#tutorials-tutorials-retrieve-transaction-data-pagination-of-transactions" class="toc-h4 toc-link" data-title="pagination-of-transactions">Pagination of transactions</a>
                           </li>
                       </ul>
                       </li>
@@ -1162,7 +1162,7 @@ EOF
 <div class="feedback"></div>
 <h3 id='tutorials-create-a-payment'><a href='#tutorials-create-a-payment' class='header-link'><i></i></a>Create a payment</h3>
 <aside class="warning">
-​<b>Note:</b>Due to PSD2 Strong Customer Authentication regulations, from the 1st April 2021, the payments endpoint is only available for customers on Revolut Business Company plans. We suggest that Freelancers wishing to use the Payment endpoint leverage our Payment Drafts endpoint instead to minimise disruption.
+​<b>Note:</b> Due to PSD2 Strong Customer Authentication regulations, from the 1st April 2021, the payments endpoint is only available for customers on Revolut Business Company plans. We suggest that Freelancers wishing to use the Payment endpoint leverage our Payment Drafts endpoint instead to minimise disruption.
 </aside>
 
 <p>This tutorial walks you through the steps to make an instant payment and schedule a payment.</p>
@@ -1501,7 +1501,7 @@ As the scheduled processor runs every several hours, the payments are processed 
 </tbody></table>
 
 <div class="feedback"></div>
-<h4 id='tutorials-tutorials-retrieve-transaction-data-pagination-of-transfers'><a href='#tutorials-tutorials-retrieve-transaction-data-pagination-of-transfers' class='header-link'><i></i></a>Pagination of transfers</h4>
+<h4 id='tutorials-tutorials-retrieve-transaction-data-pagination-of-transactions'><a href='#tutorials-tutorials-retrieve-transaction-data-pagination-of-transactions' class='header-link'><i></i></a>Pagination of transactions</h4>
 <p>The <code>/transactions</code> endpoint supports time-based pagination. It returns transactions in reverse chronological order (<code>from</code> &lt;= <code>created_at</code> &lt; <code>to</code>) limited to most recent <code>count</code> entities. Thus, to get the next page of results, you should set parameter <code>to</code> with the value of <code>created_at</code> last item of the previous page.</p>
 
 <div class="feedback"></div>

@@ -381,6 +381,9 @@
                           <li>
                             <a href="#tutorials-tutorials-create-your-first-draft-payment-5-get-a-draft-payment" class="toc-h4 toc-link" data-title="5-get-a-draft-payment">5. Get a draft payment</a>
                           </li>
+                          <li>
+                            <a href="#tutorials-tutorials-create-your-first-draft-payment-6-get-list-of-draft-payments" class="toc-h4 toc-link" data-title="6-get-list-of-draft-payments">6. Get list of draft payments</a>
+                          </li>
                       </ul>
                       </li>
                     <li>
@@ -2189,6 +2192,13 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 <td>No</td>
 <td>date in &quot;YYYY-MM-DD&quot; format</td>
 </tr>
+<tr>
+<td><code>title</code></td>
+<td>query</td>
+<td>Title field for the Draft Payment order. Note that this is an API-only field, it won&#39;t appear in the user interface.</td>
+<td>No</td>
+<td>string</td>
+</tr>
 </tbody></table>
 
 <p><strong>CSV format</strong></p>
@@ -2334,6 +2344,88 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 <p>Get the details about a specific draft payment with the given draft payment ID. </p>
 
 <p><code>Index</code> indicates the row number the draft payment represents in the CSV file.</p>
+<h4 id='tutorials-tutorials-create-your-first-draft-payment-6-get-list-of-draft-payments'><a href='#tutorials-tutorials-create-your-first-draft-payment-6-get-list-of-draft-payments' class='header-link'><i></i></a>6. Get list of draft payments</h4><blockquote>
+      <div><p>Get a list of draft payments</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-apis.revolut.com/draft-payments?from<span class="o">=</span>&lt;insert_datefrom&gt;&amp;to<span class="o">=</span>&lt;insert_dateto&gt;&amp;limit<span class="o">=</span>&lt;insert_limit&gt; <span class="se">\</span>
+--header <span class="s1">'Authorization: Bearer &lt;insert access_token&gt;'</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://apis.revolut.com/draft-payments?from<span class="o">=</span>&lt;insert_datefrom&gt;&amp;to<span class="o">=</span>&lt;insert_dateto&gt;&amp;limit<span class="o">=</span>&lt;insert_limit&gt; <span class="se">\</span>
+--header <span class="s1">'Authorization: Bearer &lt;insert access_token&gt;'</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d9805904-f722-432c-accd-d0f288c3532e"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"CreatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-28T15:16:20.444101Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awaiting"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_1"</span><span class="w">
+              </span><span class="p">},</span><span class="w"> 
+              </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d9ab7bf0-5781-46ab-b503-d962ae5715ea"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"CreatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-24T19:03:03.367473Z"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awaiting"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_2"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> 
+          </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"Next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/draft-payments?to=2021-03-24T19:02:21.351937Z&amp;limit=2"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Get a list of draft payments created by your application. </p>
+
+<p>This endpoint returns draft payments in descending order of creation time and supports pagination: use the <code>limit</code> field to specify the number of orders returned in the request. The location of the next page of results will be returned in the <code>Links.Next</code> field.</p>
+
+<p>Use the <code>to</code> and <code>from</code> parameters to specify the date range that you want to pull Draft Payments from by creation date. <code>from</code> and <code>to</code> dates are inclusive and exclusive of Draft Payments respectively.  </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>from</code></td>
+<td>query</td>
+<td>Date and time you retrieve the draft payment orders from.</td>
+<td>No</td>
+<td>date in &quot;YYYY-MM-2DDThh:mm:ssZ&quot; format</td>
+</tr>
+<tr>
+<td><code>to</code></td>
+<td>query</td>
+<td>The date and time you retrieve the draft payment orders to. The default is now.</td>
+<td>No</td>
+<td>date in &quot;YYYY-MM-2DDThh:mm:ssZ&quot; format</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>query</td>
+<td>The number of draft payment orders returned via API.</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+</tbody></table>
 
 <p><strong>What’s next</strong></p>
 
@@ -2634,8 +2726,13 @@ Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,GBP,10,User comment,GB,,Revolutest LT
 </tr>
 <tr>
 <td>2009</td>
-<td>Payments must be greater than 0</td>
+<td>Payments must be greater than 0.</td>
 <td><code>Amount has to be greater than zero</code>.</td>
+</tr>
+<tr>
+<td>4025</td>
+<td>Routing number must be valid for US payments.</td>
+<td><code>123456759 is not a valid US routing number</code>.</td>
 </tr>
 <tr>
 <td>1000</td>
