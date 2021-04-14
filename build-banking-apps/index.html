@@ -285,13 +285,16 @@
                       </ul>
                       </li>
                     <li>
-                      <a href="#register-your-application-using-dcr-3-create-a-jwt" class="toc-h3 toc-link" data-title="3-create-a-jwt">3. Create a JWT</a>
+                      <a href="#register-your-application-using-dcr-3-get-your-certificate-39-s-distinguished-name" class="toc-h3 toc-link" data-title="3-get-your-certificate-s-distinguished-name">3. Get your certificate's distinguished name</a>
                       </li>
                     <li>
-                      <a href="#register-your-application-using-dcr-4-validate-your-jwt" class="toc-h3 toc-link" data-title="4-validate-your-jwt">4. Validate your JWT</a>
+                      <a href="#register-your-application-using-dcr-4-create-a-jwt" class="toc-h3 toc-link" data-title="4-create-a-jwt">4. Create a JWT</a>
                       </li>
                     <li>
-                      <a href="#register-your-application-using-dcr-5-get-a-client-id" class="toc-h3 toc-link" data-title="5-get-a-client-id">5. Get a client ID</a>
+                      <a href="#register-your-application-using-dcr-5-validate-your-jwt" class="toc-h3 toc-link" data-title="5-validate-your-jwt">5. Validate your JWT</a>
+                      </li>
+                    <li>
+                      <a href="#register-your-application-using-dcr-6-get-a-client-id" class="toc-h3 toc-link" data-title="6-get-a-client-id">6. Get a client ID</a>
                       </li>
                     <li>
                       <a href="#register-your-application-using-dcr-open-id-configuration-urls" class="toc-h3 toc-link" data-title="open-id-configuration-urls">Open ID configuration URLs</a>
@@ -761,7 +764,36 @@ Ensure that you seek your own legal advice to understand if you need to be regul
  
 
 <div class="feedback"></div>
-<h3 id='register-your-application-using-dcr-3-create-a-jwt'><a href='#register-your-application-using-dcr-3-create-a-jwt' class='header-link'><i></i></a>3. Create a JWT</h3>
+<h3 id='register-your-application-using-dcr-3-get-your-certificate-39-s-distinguished-name'><a href='#register-your-application-using-dcr-3-get-your-certificate-39-s-distinguished-name' class='header-link'><i></i></a>3. Get your certificate&#39;s distinguished name</h3><blockquote>
+      <div><p>Get a distinguished name</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -k --cert transport.pem --key private.key <span class="se">\</span>
+--location --request GET <span class="s1">'https://sandbox-oba-auth.revolut.com/distinguished-name'</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl --cert transport.pem --key private.key <span class="se">\</span>
+--location --request GET <span class="s1">'https://oba-auth.revolut.com/distinguished-name'</span>
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell"><code><span class="o">{</span>
+  <span class="s2">"tls_client_auth_dn"</span>:<span class="s2">"organizationIdentifier=PSDUK-REVCA-6885ef16-75dc-4be8-8f8a-228fbd3a1e7d,CN=2kiXQyo0podjW2somjHo67,OU=001570000113UAvAAM,O=OpenBanking,C=GB"</span>
+<span class="o">}</span>
+</code></pre>
+<p>The distinguished name (DN), is a set of parameters that identify a certificate. Your DN must be added to the JWT during the registration of your app (see step 4) using the <code>tls_client_auth_dn</code> field. </p>
+
+<p>Due to differing versions of OpenSSL, we recommend making a GET request to the <code>/distinguished-name</code>  endpoint to obtain this value for your certificate. This should reduce friction in getting your app live.    </p>
+<h3 id='register-your-application-using-dcr-4-create-a-jwt'><a href='#register-your-application-using-dcr-4-create-a-jwt' class='header-link'><i></i></a>4. Create a JWT</h3>
 <p>To create a <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a>, specify the parameters that are required for your application in the JWT header and the payload. For the JWT signature, include both the public key and the signing certificate&#39;s RSA private key. <a href="https://jwt.io/">jwt.io</a> is a helpful tool for debugging JWTs. </p>
 
 <p>Ensure that the parameters meet the following format. You can also check the examples on the right.</p>
@@ -905,36 +937,14 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 <td>Yes</td>
 </tr>
 </tbody></table>
-<blockquote>
-      <div><p>certificates in DER format:</p>
-</div>
-      <div class='env-selector'>
-        <select>
-          <option value="sandbox">Sandbox</option>
-          <option value="production">Production</option>
-        </select>
-      </div>
-    </blockquote><pre class="highlight shell tab-shell"><code>openssl x509 -in /path/to/your/cert.der -inform der -noout -subject -nameopt RFC2253
-</code></pre><blockquote>
-      <div><p>Certificates in PEM format:</p>
-</div>
-      <div class='env-selector'>
-        <select>
-          <option value="sandbox">Sandbox</option>
-          <option value="production">Production</option>
-        </select>
-      </div>
-    </blockquote><pre class="highlight shell tab-shell"><code>openssl x509 -in /path/to/your/cert.pem -inform pem -noout -subject -nameopt RFC2253
-</code></pre>
-<p>To get the value of the <code>tls_client_auth_dn</code> parameter, run the command based on the format of your certificates to obtain the distinguished name.  </p>
 
 <div class="feedback"></div>
-<h3 id='register-your-application-using-dcr-4-validate-your-jwt'><a href='#register-your-application-using-dcr-4-validate-your-jwt' class='header-link'><i></i></a>4. Validate your JWT</h3>
+<h3 id='register-your-application-using-dcr-5-validate-your-jwt'><a href='#register-your-application-using-dcr-5-validate-your-jwt' class='header-link'><i></i></a>5. Validate your JWT</h3>
 <p>Before you register your application, check if your JWT is valid. You can use the <a href="https://jwt.io/#debugger-io">JWT debugging tool</a>.</p>
 
 <div class="feedback"></div>
  
-<h3 id='register-your-application-using-dcr-5-get-a-client-id'><a href='#register-your-application-using-dcr-5-get-a-client-id' class='header-link'><i></i></a>5. Get a client ID</h3><blockquote>
+<h3 id='register-your-application-using-dcr-6-get-a-client-id'><a href='#register-your-application-using-dcr-6-get-a-client-id' class='header-link'><i></i></a>6. Get a client ID</h3><blockquote>
       <div><p>Register your application</p>
 </div>
       <div class='env-selector'>
