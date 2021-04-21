@@ -274,13 +274,13 @@
                       </ul>
                       </li>
                     <li>
-                      <a href="#instance-instance-paywithrevolut" class="toc-h3 toc-link" data-title="instance-paywithrevolut">Instance.payWithRevolut</a>
+                      <a href="#instance-instance-revolutpay" class="toc-h3 toc-link" data-title="instance-revolutpay">Instance.revolutPay</a>
                       <ul class="toc-list-h4">
                           <li>
-                            <a href="#instance-instance-instance-paywithrevolut-returns" class="toc-h4 toc-link" data-title="returns">Returns</a>
+                            <a href="#instance-instance-instance-revolutpay-returns" class="toc-h4 toc-link" data-title="returns">Returns</a>
                           </li>
                           <li>
-                            <a href="#instance-instance-instance-paywithrevolut-example" class="toc-h4 toc-link" data-title="example">Example</a>
+                            <a href="#instance-instance-instance-revolutpay-example" class="toc-h4 toc-link" data-title="example">Example</a>
                           </li>
                       </ul>
                       </li>
@@ -1044,8 +1044,8 @@
 <p>See the <a href="#integration-examples-integrating-and-customising-the-card-field">card field integration</a> example.</p>
 
 <div class="feedback"></div>
-<h3 id='instance-instance-paywithrevolut'><a href='#instance-instance-paywithrevolut' class='header-link'><i></i></a>Instance.payWithRevolut</h3>
-<p>Display the <strong>Pay with Revolut</strong> button to allow your customer to make a payment with their Revolut app.</p>
+<h3 id='instance-instance-revolutpay'><a href='#instance-instance-revolutpay' class='header-link'><i></i></a>Instance.revolutPay</h3>
+<p>Display the <strong>Revolut Pay</strong> button to allow your customer to make a payment with their Revolut app.</p>
 <blockquote>
       <div><p>Display the button</p>
 </div>
@@ -1057,7 +1057,7 @@
       </div>
     </blockquote><pre class="highlight typescript"><code><span class="kr">interface</span> <span class="nx">Instance</span> <span class="p">{</span>
   <span class="c1">// ...</span>
-  <span class="nl">payWithRevolut</span><span class="p">:</span> <span class="p">(</span><span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nl">revolutPay</span><span class="p">:</span> <span class="p">(</span><span class="nx">options</span><span class="p">:</span> <span class="nx">Options</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="na">destroy</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -1117,7 +1117,7 @@
 <td>String</td>
 </tr>
 </tbody></table>
-<h4 id='instance-instance-instance-paywithrevolut-returns'><a href='#instance-instance-instance-paywithrevolut-returns' class='header-link'><i></i></a>Returns</h4>
+<h4 id='instance-instance-instance-revolutpay-returns'><a href='#instance-instance-instance-revolutpay-returns' class='header-link'><i></i></a>Returns</h4>
 <p><code>Methods</code> object:</p>
 
 <table><thead>
@@ -1133,7 +1133,7 @@
 <td>String</td>
 </tr>
 </tbody></table>
-<h4 id='instance-instance-instance-paywithrevolut-example'><a href='#instance-instance-instance-paywithrevolut-example' class='header-link'><i></i></a>Example</h4>
+<h4 id='instance-instance-instance-revolutpay-example'><a href='#instance-instance-instance-revolutpay-example' class='header-link'><i></i></a>Example</h4>
 <p>Example with minimal parameters recommended:</p>
 <blockquote>
       <div><p>Example</p>
@@ -1144,11 +1144,11 @@
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight typescript"><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s1">'pay-with-revolut'</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+    </blockquote><pre class="highlight typescript"><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s1">'revolut-pay'</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span>
 <span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"XXX"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithRevolut</span><span class="p">({</span>
-    <span class="na">target</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'pay-with-revolut'</span><span class="p">),</span>
+  <span class="nx">instance</span><span class="p">.</span><span class="nx">revolutPay</span><span class="p">({</span>
+    <span class="na">target</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'revolut-pay'</span><span class="p">),</span>
     <span class="na">phone</span><span class="p">:</span> <span class="s1">'+441632960022'</span><span class="p">,</span> <span class="c1">// recommended</span>
     <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Payment completed'</span><span class="p">)</span>

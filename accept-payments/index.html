@@ -261,13 +261,13 @@
                       </ul>
                       </li>
                     <li>
-                      <a href="#tutorials-accept-payments-via-pay-with-revolut" class="toc-h3 toc-link" data-title="accept-payments-via-pay-with-revolut">Accept payments via Pay with Revolut</a>
+                      <a href="#tutorials-accept-payments-via-revolut-pay" class="toc-h3 toc-link" data-title="accept-payments-via-revolut-pay">Accept payments via Revolut Pay</a>
                       <ul class="toc-list-h4">
                           <li>
-                            <a href="#tutorials-tutorials-accept-payments-via-pay-with-revolut-how-pay-with-revolut-works" class="toc-h4 toc-link" data-title="how-pay-with-revolut-works">How Pay with Revolut works</a>
+                            <a href="#tutorials-tutorials-accept-payments-via-revolut-pay-how-revolut-pay-works" class="toc-h4 toc-link" data-title="how-revolut-pay-works">How Revolut Pay works</a>
                           </li>
                           <li>
-                            <a href="#tutorials-tutorials-accept-payments-via-pay-with-revolut-implement-pay-with-revolut" class="toc-h4 toc-link" data-title="implement-pay-with-revolut">Implement Pay with Revolut</a>
+                            <a href="#tutorials-tutorials-accept-payments-via-revolut-pay-implement-revolut-pay" class="toc-h4 toc-link" data-title="implement-revolut-pay">Implement Revolut Pay</a>
                           </li>
                       </ul>
                       </li>
@@ -659,20 +659,20 @@ load"</span><span class="p">))}}};</span><span class="k">return</span><span clas
 </ul>
 
 <div class="feedback"></div>
-<h3 id='tutorials-accept-payments-via-pay-with-revolut'><a href='#tutorials-accept-payments-via-pay-with-revolut' class='header-link'><i></i></a>Accept payments via Pay with Revolut</h3>
-<p>The <code>Pay with Revolut</code> payment method enables your users to pay with their Revolut account directly after they authorize this payment method on the Revolut App.</p>
+<h3 id='tutorials-accept-payments-via-revolut-pay'><a href='#tutorials-accept-payments-via-revolut-pay' class='header-link'><i></i></a>Accept payments via Revolut Pay</h3>
+<p>The <code>Revolut Pay</code> payment method enables your users to pay with their Revolut account directly after they authorize this payment method on the Revolut App.</p>
 
 <p>In this way, you can accept payments without having to ask your users to enter their card details. This improves the checkout experience for your users greatly.</p>
-<h4 id='tutorials-tutorials-accept-payments-via-pay-with-revolut-how-pay-with-revolut-works'><a href='#tutorials-tutorials-accept-payments-via-pay-with-revolut-how-pay-with-revolut-works' class='header-link'><i></i></a>How Pay with Revolut works</h4>
-<p>See how the <code>Pay with Revolut</code> works the first time a user is directed to a checkout page on a web browser:</p>
+<h4 id='tutorials-tutorials-accept-payments-via-revolut-pay-how-revolut-pay-works'><a href='#tutorials-tutorials-accept-payments-via-revolut-pay-how-revolut-pay-works' class='header-link'><i></i></a>How Revolut Pay works</h4>
+<p>See how the <code>Revolut Pay</code> works the first time a user is directed to a checkout page on a web browser:</p>
 
 <ol>
-<li><p>The user finds the <code>Pay with Revolut</code> payment method on the checkout page, and scans the QR code. This starts the authorization process of paying with their Revolut account.</p>
+<li><p>The user finds the <code>Revolut Pay</code> payment method on the checkout page, and scans the QR code. This starts the authorization process of paying with their Revolut account.</p>
 
 <p><strong>Note</strong>: If the user doesn&#39;t have the Revolut app installed on the phone, the user is redirected to a promotional page to download the app and open an account.</p></li>
 <li><p>The user receives a notification on their Revolut app to authorize this payment method.</p></li>
 <li><p>After the user makes the first payment successfully on the checkout page, the Revolut checkout widget saves a token in local storage of the browser.</p></li>
-<li><p>The next time the user visits your site or any other site with the <code>Pay with Revolut</code> payment method, the user doesn&#39;t need to scan the QR code, and the notification for authorization appears directly on their Revolut app. </p></li>
+<li><p>The next time the user visits your site or any other site with the <code>Revolut Pay</code> payment method, the user doesn&#39;t need to scan the QR code, and the notification for authorization appears directly on their Revolut app. </p></li>
 </ol>
 
 <aside class="notice">
@@ -682,24 +682,24 @@ load"</span><span class="p">))}}};</span><span class="k">return</span><span clas
 <p>You can check the payment process in the following diagram:</p>
 
 <p><img src="https://assets.revolut.com/business/merchant/docs/pwr-flow%402x.png" /></p>
-<h4 id='tutorials-tutorials-accept-payments-via-pay-with-revolut-implement-pay-with-revolut'><a href='#tutorials-tutorials-accept-payments-via-pay-with-revolut-implement-pay-with-revolut' class='header-link'><i></i></a>Implement Pay with Revolut</h4>
-<p>Because the <code>Pay with Revolut</code> method is included in the Revolut Checkout Widget, the steps to accept a payment via <code>Pay with Revolut</code> are similar to those to accept a card payment.</p>
+<h4 id='tutorials-tutorials-accept-payments-via-revolut-pay-implement-revolut-pay'><a href='#tutorials-tutorials-accept-payments-via-revolut-pay-implement-revolut-pay' class='header-link'><i></i></a>Implement Revolut Pay</h4>
+<p>Because the <code>Revolut Pay</code> method is included in the Revolut Checkout Widget, the steps to accept a payment via <code>Revolut Pay</code> are similar to those to accept a card payment.</p>
 
-<p>Check the following high-level procedure to integrate a Revolut Checkout Widget for the <code>Pay with Revolut</code> method with the Merchant API:</p>
+<p>Check the following high-level procedure to integrate a Revolut Checkout Widget for the <code>Revolut Pay</code> method with the Merchant API:</p>
 
 <ol>
 <li>Server side: <a href="#tutorials-tutorials-accept-your-first-payment-1-create-an-order">Create an order</a> via the Merchant API request</li>
 <li>Client side: <a href="#tutorials-tutorials-accept-your-first-payment-2-install-the-widget">Install the widget</a> by adding RevolutCheckout to your application</li>
-<li>Client side: Choose the option to load <code>Pay with Revolut</code> and call the widget instance.</li>
+<li>Client side: Choose the option to load <code>Revolut Pay</code> and call the widget instance.</li>
 </ol>
 
 <aside class="notice">
-    <b>Note:</b> As you can see, the only difference is in Step 3 where you need to insert the <b>Pay with Revolut</b> button to call the widget instance. Check the following implementation details below.
+    <b>Note:</b> As you can see, the only difference is in Step 3 where you need to insert the <b>Revolut Pay</b> button to call the widget instance. Check the following implementation details below.
 </aside>
 
 <p><strong>Calling the widget instance</strong></p>
 <blockquote>
-      <div><p>Insert the Pay with Revolut button</p>
+      <div><p>Insert the Revolut Pay button</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -707,11 +707,11 @@ load"</span><span class="p">))}}};</span><span class="k">return</span><span clas
           <option value="production">Production</option>
         </select>
       </div>
-    </blockquote><pre class="highlight typescript"><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s1">'pay-with-revolut'</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+    </blockquote><pre class="highlight typescript"><code><span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s1">'revolut-pay'</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
 </span>
 <span class="nx">RevolutCheckout</span><span class="p">(</span><span class="s2">"&lt;PUBLIC_ID&gt;"</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">instance</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">instance</span><span class="p">.</span><span class="nx">payWithRevolut</span><span class="p">({</span>
-    <span class="na">target</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'pay-with-revolut'</span><span class="p">),</span>
+  <span class="nx">instance</span><span class="p">.</span><span class="nx">revolutPay</span><span class="p">({</span>
+    <span class="na">target</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'revolut-pay'</span><span class="p">),</span>
     <span class="na">phone</span><span class="p">:</span> <span class="s1">'+441632960022'</span><span class="p">,</span> <span class="c1">// recommended</span>
     <span class="nx">onSuccess</span><span class="p">()</span> <span class="p">{</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Payment completed'</span><span class="p">)</span>
@@ -722,7 +722,7 @@ load"</span><span class="p">))}}};</span><span class="k">return</span><span clas
   <span class="p">})</span>
 <span class="p">})</span>
 </code></pre>
-<p>Insert the <strong>Pay with Revolut</strong> button using the code snippet on the right that contains an example with minimum required parameters, where:</p>
+<p>Insert the <strong>Revolut Pay</strong> button using the code snippet on the right that contains an example with minimum required parameters, where:</p>
 
 <ul>
 <li><code>RevolutCheckout</code> is the widget instance</li>
@@ -734,7 +734,7 @@ load"</span><span class="p">))}}};</span><span class="k">return</span><span clas
 
 <p><img src="https://assets.revolut.com/business/merchant/docs/pwr-screenshot%402x.png" /></p>
 
-<p>To view the full list of parameters, take a look at the <a href="https://developer.revolut.com/docs/revolut-checkout-js/#instance-instance-paywithrevolut" target="_blank">documentation</a>.</p>
+<p>To view the full list of parameters, take a look at the <a href="https://developer.revolut.com/docs/revolut-checkout-js/#instance-instance-revolutpay" target="_blank">documentation</a>.</p>
 
 <div class="feedback"></div>
 <h3 id='tutorials-charge-a-customer-s-saved-payment-method'><a href='#tutorials-charge-a-customer-s-saved-payment-method' class='header-link'><i></i></a>Charge a customer’s saved payment method</h3>
