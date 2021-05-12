@@ -1189,9 +1189,9 @@
 
 <p><strong>Note</strong>: If you fork the example - you will need to create a new <a href="https://sandbox-business.revolut.com/" target="_blank">Revolut Business Sandbox</a> account and set the <a href="https://sandbox-business.revolut.com/merchant/api" target="_blank">API key</a> as <code>REVOLUT_API_KEY</code> inside <a href="https://codesandbox.io/docs/secrets#adding-secrets" target="_blank">CodeSandbox secrets</a>.</p>
 <h2 id='3d-secure'><a href='#3d-secure' class='header-link'><i></i></a>3D Secure</h2>
-<p>Revolut performs a 3D Secure (3DS) challenge when needed when a card payment is being made.</p>
+<p>When a customer initiates a card payment, Revolut performs a 3D Secure (3DS) challenge if it&#39;s required.</p>
 
-<p>On the client side, you don’t need to implement additional changes to allow these challenges. <a href="#revolutcheckout">Revolut’s iFrame</a> (<code>instance.paywithPopup</code> and <code>instance.createCardField</code>) takes care of every stage:</p>
+<p>On the client side, you don’t need to implement additional changes to allow these challenges. The instance methods (<code>instance.paywithPopup</code> and <code>instance.createCardField</code>) of <a href="#revolutcheckout">Revolut’s iFrame</a> take care of every stage:</p>
 
 <ol>
 <li>Sending all the relevant information to the 3DS Server.</li>
@@ -1204,7 +1204,7 @@
 
 <ul>
 <li><a href="https://developer.revolut.com/docs/accept-payments/#introduction-to-the-merchant-api-3d-secure-overview">3D Secure overview</a></li>
-<li>Download 3D Secure protocol and core functions specifications: <a href="https://www.emvco.com/wp-content/plugins/pmpro-customizations/oy-getfile.php?u=/wp-content/uploads/documents/EMVCo_3DS_Spec_210_1017_0318.pdf">Version 2.1.0</a> and <a href="https://www.emvco.com/wp-content/plugins/pmpro-customizations/oy-getfile.php?u=/wp-content/uploads/documents/EMVCo_3DS_Spec_v220_122018.pdf">Version 2.2.0</a>.</li>
+<li>3D Secure protocol and core functions specifications: <a href="https://www.emvco.com/wp-content/plugins/pmpro-customizations/oy-getfile.php?u=/wp-content/uploads/documents/EMVCo_3DS_Spec_210_1017_0318.pdf">Version 2.1.0</a> and <a href="https://www.emvco.com/wp-content/plugins/pmpro-customizations/oy-getfile.php?u=/wp-content/uploads/documents/EMVCo_3DS_Spec_v220_122018.pdf">Version 2.2.0</a>.</li>
 </ul>
 
 <div class="feedback"></div>
