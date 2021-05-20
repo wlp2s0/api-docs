@@ -3066,6 +3066,7 @@ In case of any questions, reach out to Revolut Business support to get further h
     </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b36b0bb7-c162-4919-8205-32f914b4fa29"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awaiting"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"IdempotencyKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3cffda-15d9-4596-8068-e95321319973"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AccessTokenId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f947d250-0996-4cc1-b2ac-0b17a285240a"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><blockquote>
@@ -3083,7 +3084,8 @@ In case of any questions, reach out to Revolut Business support to get further h
   </span><span class="s2">"EventId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e6784099-4925-430d-8a38-c51eab865620"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b36b0bb7-c162-4919-8205-32f914b4fa29"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Processed"</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Processed"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AccessTokenId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f947d250-0996-4cc1-b2ac-0b17a285240a"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><blockquote>
@@ -3101,7 +3103,8 @@ In case of any questions, reach out to Revolut Business support to get further h
   </span><span class="s2">"EventId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"51350d68-e285-406e-8571-6f7b13f9e024"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7e18d804-b154-4035-bc8e-7a038acbb104"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="w">
+    </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"AccessTokenId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f947d250-0996-4cc1-b2ac-0b17a285240a"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><blockquote>
@@ -3138,12 +3141,12 @@ In case of any questions, reach out to Revolut Business support to get further h
 
 <p>The <code>Status</code> field corresponds to those detailed <a href='#tutorials-tutorials-work-with-draft-payments-payment-orders-vs-transfers'>here</a>.</p>
 
-<p>Please see examples of two payloads to the right. The <code>ID</code> field indicates the relevant object that has changed state, while <code>EventId</code> can be used as a unique identifier for a specific event. For Draft Payment Order creation, we will also include the <code>IdempotencyKey</code> that was provided in the creation request. </p>
+<p>Please see examples of two payloads to the right. The <code>ID</code> field indicates the relevant object that has changed state, while <code>EventId</code> can be used as a unique identifier for a specific event. For Draft Payment Order creation, we will also include the <code>IdempotencyKey</code> that was provided in the creation request. <code>AccessTokenId</code> identifies the <code>access_token</code> that the draft payment was created by. </p>
 
 <p>The header in the request will contain a detached JWS containing a <code>kid</code>. Please use the JWKS endpoint to the right to validate this signature.</p>
 
 <aside class="warning">
-<b>Note:</b> we guarantee at-least-once delivery of webhooks, all duplicate events will have the same idempotency key
+<b>Note:</b> we guarantee at-least-once delivery of webhooks, all duplicate events will have the same <code>EventId</code> 
 </aside>
 <h4 id='tutorials-tutorials-work-with-webhooks-5-delete-a-webhook'><a href='#tutorials-tutorials-work-with-webhooks-5-delete-a-webhook' class='header-link'><i></i></a>5. Delete a webhook</h4><blockquote>
       <div><p>Unsubscribe from a topic</p>
