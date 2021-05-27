@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/api-reference/static/css/main.dbd200d2.chunk.css",
-    "main.js": "/api-reference/static/js/main.4a3dfe8a.chunk.js",
-    "main.js.map": "/api-reference/static/js/main.4a3dfe8a.chunk.js.map",
+    "main.js": "/api-reference/static/js/main.2f6a7e3b.chunk.js",
+    "main.js.map": "/api-reference/static/js/main.2f6a7e3b.chunk.js.map",
     "runtime-main.js": "/api-reference/static/js/runtime-main.a5048bed.js",
     "runtime-main.js.map": "/api-reference/static/js/runtime-main.a5048bed.js.map",
     "static/js/2.a1963765.chunk.js": "/api-reference/static/js/2.a1963765.chunk.js",
@@ -10,18 +10,18 @@
     "static/js/3.6b254fbb.chunk.js": "/api-reference/static/js/3.6b254fbb.chunk.js",
     "static/js/3.6b254fbb.chunk.js.map": "/api-reference/static/js/3.6b254fbb.chunk.js.map",
     "index.html": "/api-reference/index.html",
-    "precache-manifest.ca475370534c07715e97085472d2c0c4.js": "/api-reference/precache-manifest.ca475370534c07715e97085472d2c0c4.js",
+    "precache-manifest.25ae9a6b2366c9ee1c89da85041c8e0a.js": "/api-reference/precache-manifest.25ae9a6b2366c9ee1c89da85041c8e0a.js",
     "service-worker.js": "/api-reference/service-worker.js",
     "static/css/main.dbd200d2.chunk.css.map": "/api-reference/static/css/main.dbd200d2.chunk.css.map",
     "static/js/2.a1963765.chunk.js.LICENSE.txt": "/api-reference/static/js/2.a1963765.chunk.js.LICENSE.txt",
     "static/media/business.yaml": "/api-reference/static/media/business.2eeb4911.yaml",
     "static/media/merchant.yaml": "/api-reference/static/media/merchant.4df949c0.yaml",
-    "static/media/open-banking.yaml": "/api-reference/static/media/open-banking.33572807.yaml"
+    "static/media/open-banking.yaml": "/api-reference/static/media/open-banking.4761eaa1.yaml"
   },
   "entrypoints": [
     "static/js/runtime-main.a5048bed.js",
     "static/js/2.a1963765.chunk.js",
     "static/css/main.dbd200d2.chunk.css",
-    "static/js/main.4a3dfe8a.chunk.js"
+    "static/js/main.2f6a7e3b.chunk.js"
   ]
 }
