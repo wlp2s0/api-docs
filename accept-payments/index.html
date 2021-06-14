@@ -293,19 +293,36 @@
                           </li>
                       </ul>
                       </li>
+                    <li>
+                      <a href="#tutorials-accept-payments-directly-from-your-xero-invoices" class="toc-h3 toc-link" data-title="accept-payments-directly-from-your-xero-invoices">Accept payments directly from your Xero invoices</a>
+                      <ul class="toc-list-h4">
+                          <li>
+                            <a href="#tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-1-setup-the-xero-app-in-the-revolut-business-marketplace" class="toc-h4 toc-link" data-title="1-setup-the-xero-app-in-the-revolut-business-marketplace">1. Setup the Xero app in the Revolut Business marketplace</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-2-sync-merchant-accounts" class="toc-h4 toc-link" data-title="2-sync-merchant-accounts">2. Sync Merchant accounts</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-3-enable-xero-invoice-payments-from-revolut-business-39-side" class="toc-h4 toc-link" data-title="3-enable-xero-invoice-payments-from-revolut-business-side">3. Enable Xero invoice payments from Revolut Business' side</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-4-configure-revolut-as-a-payment-service-for-your-xero-invoices" class="toc-h4 toc-link" data-title="4-configure-revolut-as-a-payment-service-for-your-xero-invoices">4. Configure Revolut as a payment service for your Xero invoices</a>
+                          </li>
+                      </ul>
+                      </li>
                 </ul>
             </li>
             <li>
               <a href="#3d-secure-overview" class="toc-h2 toc-link" data-title="3d-secure-overview">3D Secure overview</a>
                 <ul class="toc-list-h3">
                     <li>
-                      <a href="#3d-secure-overview-tutorials-test-in-the-sandbox-environment-how-it-works" class="toc-h3 toc-link" data-title="how-it-works">How it works</a>
+                      <a href="#3d-secure-overview-tutorials-accept-payments-directly-from-your-xero-invoices-how-it-works" class="toc-h3 toc-link" data-title="how-it-works">How it works</a>
                       </li>
                     <li>
-                      <a href="#3d-secure-overview-tutorials-test-in-the-sandbox-environment-benefits" class="toc-h3 toc-link" data-title="benefits">Benefits</a>
+                      <a href="#3d-secure-overview-tutorials-accept-payments-directly-from-your-xero-invoices-benefits" class="toc-h3 toc-link" data-title="benefits">Benefits</a>
                       </li>
                     <li>
-                      <a href="#3d-secure-overview-tutorials-test-in-the-sandbox-environment-our-3ds-solution" class="toc-h3 toc-link" data-title="our-3ds-solution">Our 3DS solution</a>
+                      <a href="#3d-secure-overview-tutorials-accept-payments-directly-from-your-xero-invoices-our-3ds-solution" class="toc-h3 toc-link" data-title="our-3ds-solution">Our 3DS solution</a>
                       </li>
                 </ul>
             </li>
@@ -930,9 +947,64 @@ To get started, complete the following steps:</p>
 <p>Now you are ready to accept real payments!</p>
 
 <div class="feedback"></div>
+<h3 id='tutorials-accept-payments-directly-from-your-xero-invoices'><a href='#tutorials-accept-payments-directly-from-your-xero-invoices' class='header-link'><i></i></a>Accept payments directly from your Xero invoices</h3>
+<p>Accepting payments from your Xero invoices directly into your merchant account is possible thanks to our integration with the Xero accounting system. Additionally, you can <strong>sync all other payments that have been made to your merchant account (payment link, eCommerce, etc) and their corresponding fees</strong>.</p>
+
+<p>To do this you just need to follow these steps:</p>
+<h4 id='tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-1-setup-the-xero-app-in-the-revolut-business-marketplace'><a href='#tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-1-setup-the-xero-app-in-the-revolut-business-marketplace' class='header-link'><i></i></a>1. Setup the Xero app in the Revolut Business marketplace</h4>
+<aside class="notice">
+    <b>Note:</b> If you already had the Xero app connected to upload your Business Bank feeds, you can skip this step.
+</aside>
+
+<ol>
+<li>Click the <code>Marketplace</code> section on the left navigation panel in your Revolut Business web portal (or visit this <a href="https://business.revolut.com/marketplace" target="_blank">link</a>)</li>
+<li>Find the <strong>Xero</strong> app</li>
+<li>Click the <code>Get</code> button to initiate the connection process</li>
+<li>You will be redirected to Xero to grant permissions to Revolut Business to upload the transactions of your choice in Xero</li>
+<li>When you are redirected back to the Revolut Business Web portal, you have two options:</li>
+</ol>
+
+<p>* You can click the <code>Sync all accounts</code> button to start syncing all the transactions from both your Bank and Merchant accounts (We will create corresponding Bank accounts in Xero for you);
+    * Or, if you prefer not to sync all your transactions, you can click <code>Manage accounts manually</code> to select which accounts should be synced. Take a look at the next step for more information.</p>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/xero-sync_accounts.png"></p>
+<h4 id='tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-2-sync-merchant-accounts'><a href='#tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-2-sync-merchant-accounts' class='header-link'><i></i></a>2. Sync Merchant accounts</h4>
+<aside class="notice">
+    <b>Note:</b> If you clicked <code>Sync all accounts</code> in the previous step, you can skip this step.
+</aside>
+
+<p>If you already had the app installed or you exited the process of connection before choosing the accounts to sync, you can get to this screen by going to your Xero app in the marketplace and selecting <code>Manage bank and merchant accounts</code>.</p>
+
+<p>To make Invoice payments work, you need to enable <strong>at least</strong> the merchant account with the currency that will be used to pay your Xero invoices.</p>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/xero-account_list.png"></p>
+<h4 id='tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-3-enable-xero-invoice-payments-from-revolut-business-39-side'><a href='#tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-3-enable-xero-invoice-payments-from-revolut-business-39-side' class='header-link'><i></i></a>3. Enable Xero invoice payments from Revolut Business&#39; side</h4>
+<p>Once you have the app connected and have selected a merchant account for syncing, you can go back to the Xero App main screen and click the <code>Set up invoice payments</code> button.</p>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/xero-main_app_screen.png"></p>
+
+<p>This will kick off a series of checks and processes to make it as simple as possible for you to get your invoices paid via Revolut. You might get prompted to grant permissions again to Revolut Business to make changes to your Xero account. This is to make sure we can set everything up for you so you don&#39;t have to worry about the detailed process.</p>
+
+<p>Once done, you will get a prompt that will redirect you to step #4 of this guide: doing the final adjustments in your Xero account to have Revolut available as a payment method on your invoices.</p>
+
+<aside class="notice">
+    <b>Note:</b> If the integration ever gets out of sync or broken, you can come back to this page and click this button to set everything up again.
+</aside>
+<h4 id='tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-4-configure-revolut-as-a-payment-service-for-your-xero-invoices'><a href='#tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-4-configure-revolut-as-a-payment-service-for-your-xero-invoices' class='header-link'><i></i></a>4. Configure Revolut as a payment service for your Xero invoices</h4>
+<p>All is done from Revolut&#39;s side. Now we just need to make Revolut Business available as a payment method:</p>
+
+<ol>
+<li>Login to your Xero account and access the <a href="https://go.xero.com/InvoiceSettings/InvoiceSettings.aspx" target="_blank">Invoice settings</a> page</li>
+<li>Edit your existing Branding theme by clicking <code>Options</code> and selecting <code>Edit</code>. You can also create a new Branding theme if you prefer</li>
+<li><p>In the <code>Payment Services (Credit Card)</code> section, select <code>Revolut</code> from the dropdown</p>
+
+<p><img src="https://assets.revolut.com/api-docs/merchant-api/images/xero-branding_theme_options.png"></p></li>
+</ol>
+
+<p>All done! Now all the invoices that are generated using this Branding theme will have a <code>Pay now</code> button that will redirect your customers to Revolut Business&#39; Hosted Payment Page. In there, they will be able to choose their preferred payment method (Credit card, Revolut Pay, Apple Pay, etc) to pay your invoice. Finally, as soon as the payment is received, your invoice will be automatically marked as <code>Paid</code> in Xero and you will see an Account transaction that is ready to be reconciled against the bank statements of the Merchant account that was synced in step #2.</p>
 <h2 id='3d-secure-overview'><a href='#3d-secure-overview' class='header-link'><i></i></a>3D Secure overview</h2>
 <p>3-D Secure (3DS) is a protocol designed to be an additional security layer for online transactions. During the checkout process, the customers are required to complete an extra authentication step to verify the cardholder&#39;s identity, which reduces fraud and meets regulatory requirements.</p>
-<h4 id='3d-secure-overview-tutorials-test-in-the-sandbox-environment-how-it-works'><a href='#3d-secure-overview-tutorials-test-in-the-sandbox-environment-how-it-works' class='header-link'><i></i></a>How it works</h4>
+<h4 id='3d-secure-overview-tutorials-accept-payments-directly-from-your-xero-invoices-how-it-works'><a href='#3d-secure-overview-tutorials-accept-payments-directly-from-your-xero-invoices-how-it-works' class='header-link'><i></i></a>How it works</h4>
 <p>3DS allows the merchant to challenge its customers by asking them to perform an action that only cardholders are able to complete. Based on different mechanisms, the challenge can have different formats: </p>
 
 <ul>
@@ -940,7 +1012,7 @@ To get started, complete the following steps:</p>
 <li>The cardholder is asked to provide a one-time password (OTP) sent to their phone, which is registered with their bank account. This is the usual format of the challenge.</li>
 <li>The cardholder is asked to verify the transaction using their card bank application. This is a more modern and common format.</li>
 </ul>
-<h4 id='3d-secure-overview-tutorials-test-in-the-sandbox-environment-benefits'><a href='#3d-secure-overview-tutorials-test-in-the-sandbox-environment-benefits' class='header-link'><i></i></a>Benefits</h4>
+<h4 id='3d-secure-overview-tutorials-accept-payments-directly-from-your-xero-invoices-benefits'><a href='#3d-secure-overview-tutorials-accept-payments-directly-from-your-xero-invoices-benefits' class='header-link'><i></i></a>Benefits</h4>
 <p>Payments that are successfully authenticated using 3DS are covered by a liability shift, which means that <strong>the liability of the payment in case of fraud is with the issuing bank</strong> and not with you as a merchant. </p>
 
 <p>In case of a <a href="https://www.revolut.com/en-PL/business/help/merchant-accounts/chargebacks-refunds/what-is-a-chargeback">chargeback</a> for a payment where 3DS was used, by default the cardholder’s bank is responsible and liable to refund this amount to the cardholder.</p>
@@ -948,7 +1020,7 @@ To get started, complete the following steps:</p>
 <aside class="notice">
   <b>Note:</b> As a merchant, using 3DS for payment authentication does not mean that you are immune to any disputed payments. 
 </aside>
-<h4 id='3d-secure-overview-tutorials-test-in-the-sandbox-environment-our-3ds-solution'><a href='#3d-secure-overview-tutorials-test-in-the-sandbox-environment-our-3ds-solution' class='header-link'><i></i></a>Our 3DS solution</h4>
+<h4 id='3d-secure-overview-tutorials-accept-payments-directly-from-your-xero-invoices-our-3ds-solution'><a href='#3d-secure-overview-tutorials-accept-payments-directly-from-your-xero-invoices-our-3ds-solution' class='header-link'><i></i></a>Our 3DS solution</h4>
 <p>The Payments Services Directive (PSD2) regulations stipulate that merchants must be compliant with the Strong Customer Authentication (SCA) procedures from 1st January 2021. The Financial Conduct Authority FCA has extended the deadline for the UK to 14th September 2021. </p>
 
 <p>To ensure your safety as a merchant and to protect cardholders from having their stolen cards being used without their knowledge, Revolut performs a 3DS challenge when needed when a card payment is being made. This also ensures that you don&#39;t have to worry about being compliant with PSD2, Revolut takes care of it for you.</p>
