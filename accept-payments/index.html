@@ -948,7 +948,9 @@ To get started, complete the following steps:</p>
 
 <div class="feedback"></div>
 <h3 id='tutorials-accept-payments-directly-from-your-xero-invoices'><a href='#tutorials-accept-payments-directly-from-your-xero-invoices' class='header-link'><i></i></a>Accept payments directly from your Xero invoices</h3>
-<p>Accepting payments from your Xero invoices directly into your merchant account is possible thanks to our integration with the Xero accounting system. Additionally, you can <strong>sync all other payments that have been made to your merchant account (payment link, eCommerce, etc) and their corresponding fees</strong>.</p>
+<p>Accepting payments from your Xero invoices directly into your merchant account is possible thanks to our integration with the Xero accounting system. </p>
+
+<p>Additionally, you can <strong>sync all other payments that have been made to your merchant account (payment link, eCommerce, etc) and their corresponding fees</strong>.</p>
 
 <p>To do this you just need to follow these steps:</p>
 <h4 id='tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-1-setup-the-xero-app-in-the-revolut-business-marketplace'><a href='#tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-1-setup-the-xero-app-in-the-revolut-business-marketplace' class='header-link'><i></i></a>1. Setup the Xero app in the Revolut Business marketplace</h4>
@@ -961,11 +963,13 @@ To get started, complete the following steps:</p>
 <li>Find the <strong>Xero</strong> app</li>
 <li>Click the <code>Get</code> button to initiate the connection process</li>
 <li>You will be redirected to Xero to grant permissions to Revolut Business to upload the transactions of your choice in Xero</li>
-<li>When you are redirected back to the Revolut Business Web portal, you have two options:</li>
-</ol>
+<li>When you are redirected back to the Revolut Business Web portal, you have two options:
 
-<p>* You can click the <code>Sync all accounts</code> button to start syncing all the transactions from both your Bank and Merchant accounts (We will create corresponding Bank accounts in Xero for you);
-    * Or, if you prefer not to sync all your transactions, you can click <code>Manage accounts manually</code> to select which accounts should be synced. Take a look at the next step for more information.</p>
+<ul>
+<li>You can click the <code>Sync all accounts</code> button to start syncing all the transactions from both your Bank and Merchant accounts (We will create corresponding Bank accounts in Xero for you);</li>
+<li>Or, if you prefer not to sync all your transactions, you can click <code>Manage accounts manually</code> to select which accounts should be synced. Take a look at the next step for more information.</li>
+</ul></li>
+</ol>
 
 <p><img src="https://assets.revolut.com/api-docs/merchant-api/images/xero-sync_accounts.png"></p>
 <h4 id='tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-2-sync-merchant-accounts'><a href='#tutorials-tutorials-accept-payments-directly-from-your-xero-invoices-2-sync-merchant-accounts' class='header-link'><i></i></a>2. Sync Merchant accounts</h4>
@@ -975,6 +979,8 @@ To get started, complete the following steps:</p>
 
 <p>If you already had the app installed or you exited the process of connection before choosing the accounts to sync, you can get to this screen by going to your Xero app in the marketplace and selecting <code>Manage bank and merchant accounts</code>.</p>
 
+<p>In the screen that contains all the accounts, enable the relevant accounts and select the date from where you would like the transactions to start being synced.</p>
+
 <p>To make Invoice payments work, you need to enable <strong>at least</strong> the merchant account with the currency that will be used to pay your Xero invoices.</p>
 
 <p><img src="https://assets.revolut.com/api-docs/merchant-api/images/xero-account_list.png"></p>
@@ -983,7 +989,9 @@ To get started, complete the following steps:</p>
 
 <p><img src="https://assets.revolut.com/api-docs/merchant-api/images/xero-main_app_screen.png"></p>
 
-<p>This will kick off a series of checks and processes to make it as simple as possible for you to get your invoices paid via Revolut. You might get prompted to grant permissions again to Revolut Business to make changes to your Xero account. This is to make sure we can set everything up for you so you don&#39;t have to worry about the detailed process.</p>
+<p>This will kick off a series of checks and processes to make it as simple as possible for you to get your invoices paid via Revolut. </p>
+
+<p>You might get prompted to grant permissions again to Revolut Business to make changes to your Xero account. This is to make sure we can set everything up for you so you don&#39;t have to worry about the detailed process.</p>
 
 <p>Once done, you will get a prompt that will redirect you to step #4 of this guide: doing the final adjustments in your Xero account to have Revolut available as a payment method on your invoices.</p>
 
@@ -1001,7 +1009,11 @@ To get started, complete the following steps:</p>
 <p><img src="https://assets.revolut.com/api-docs/merchant-api/images/xero-branding_theme_options.png"></p></li>
 </ol>
 
-<p>All done! Now all the invoices that are generated using this Branding theme will have a <code>Pay now</code> button that will redirect your customers to Revolut Business&#39; Hosted Payment Page. In there, they will be able to choose their preferred payment method (Credit card, Revolut Pay, Apple Pay, etc) to pay your invoice. Finally, as soon as the payment is received, your invoice will be automatically marked as <code>Paid</code> in Xero and you will see an Account transaction that is ready to be reconciled against the bank statements of the Merchant account that was synced in step #2.</p>
+<p>All done! Now all the invoices that are generated using this Branding theme will have a <code>Pay now</code> button that will redirect your customers to Revolut Business&#39; Hosted Payment Page. In there, they will be able to choose their preferred payment method (Credit card, Revolut Pay, Apple Pay, etc) to pay your invoice. </p>
+
+<p>Finally, as soon as the payment is received, your invoice will be automatically marked as <code>Paid</code> in Xero and you will see an Account transaction that is ready to be reconciled against the bank statements of the Merchant account that was synced in step #2.</p>
+
+<div class="feedback"></div>
 <h2 id='3d-secure-overview'><a href='#3d-secure-overview' class='header-link'><i></i></a>3D Secure overview</h2>
 <p>3-D Secure (3DS) is a protocol designed to be an additional security layer for online transactions. During the checkout process, the customers are required to complete an extra authentication step to verify the cardholder&#39;s identity, which reduces fraud and meets regulatory requirements.</p>
 <h4 id='3d-secure-overview-tutorials-accept-payments-directly-from-your-xero-invoices-how-it-works'><a href='#3d-secure-overview-tutorials-accept-payments-directly-from-your-xero-invoices-how-it-works' class='header-link'><i></i></a>How it works</h4>
