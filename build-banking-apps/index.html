@@ -305,6 +305,9 @@
               <a href="#manage-your-applications" class="toc-h2 toc-link" data-title="manage-your-applications">Manage your applications</a>
                 <ul class="toc-list-h3">
                     <li>
+                      <a href="#manage-your-applications-get-an-application" class="toc-h3 toc-link" data-title="get-an-application">Get an application</a>
+                      </li>
+                    <li>
                       <a href="#manage-your-applications-update-an-application" class="toc-h3 toc-link" data-title="update-an-application">Update an application</a>
                       <ul class="toc-list-h4">
                           <li>
@@ -479,7 +482,7 @@
 
 <div class="feedback"></div>
 <h3 id='introduction-to-the-open-banking-api-who-can-access-the-api'><a href='#introduction-to-the-open-banking-api-who-can-access-the-api' class='header-link'><i></i></a>Who can access the API</h3><h4 id='introduction-to-the-open-banking-api-introduction-to-the-open-banking-api-who-can-access-the-api-regulated-third-party-providers-under-psd2'><a href='#introduction-to-the-open-banking-api-introduction-to-the-open-banking-api-who-can-access-the-api-regulated-third-party-providers-under-psd2' class='header-link'><i></i></a>Regulated Third Party Providers under PSD2</h4>
-<p>Third Party Providers (TPPs) are authorized online service providers under PSD2 (Revised Payment Services Directive). If you are either a Payment Initiation Service Provider (PISP) or Account Information Service Provider (AISP) in the European Union (EU) or the United Kingdom (UK), you are regulated by financial regulatory bodies in the relevant jurisdictions. </p>
+<p>Third Party Providers (TPPs) are authorized online service providers under PSD2 (Revised Payment Services Directive). If you are either a Payment Initiation Service Provider (PISP) or Account Information Service Provider (AISP) in the European Union (EU) or the United Kingdom (UK), you are regulated by financial regulatory bodies in the relevant jurisdictions.</p>
 
 <p>To access our Open Banking API, you must use a valid eIDAS certificate or Open Banking (OBIE) certificate to register your application for production.</p>
 
@@ -492,7 +495,7 @@ eIDAS certificates are issued by Qualified Trust Service Providers (QTSPs) in th
 <p>If you are not a regulated TPP under PDS2, but would like to access the API, you can <a href="https://revolut.com/app-business-form/c96408ed-2ca0-4229-be18-e49b0965a47e">contact us</a> to see if you’re qualified for access to our endpoints.</p>
 
 <aside class="notice">
-Ensure that you seek your own legal advice to understand if you need to be regulated to access financial data from the Revolut Open Banking API. 
+Ensure that you seek your own legal advice to understand if you need to be regulated to access financial data from the Revolut Open Banking API.
 </aside>
 
 <div class="feedback"></div>
@@ -549,7 +552,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 
 <div class="feedback"></div>
 <h2 id='get-started'><a href='#get-started' class='header-link'><i></i></a>Get Started</h2>
-<p>To start using our Open Banking API, you must register your application. In addition, you need to set up your Sandbox environment to test your integration. </p>
+<p>To start using our Open Banking API, you must register your application. In addition, you need to set up your Sandbox environment to test your integration.</p>
 
 <p>You can use one of the following ways to register your application:</p>
 
@@ -561,7 +564,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 <aside class="warning">
     Before starting to build your integration, please read the section on <a href='#introduction-to-the-open-banking-api-global-customer-access-controls'>global customer access</a> carefully.
 </a>
-</aside> 
+</aside>
 
 <div class="feedback"></div>
 <h3 id='get-started-register-your-application-in-the-developer-portal'><a href='#get-started-register-your-application-in-the-developer-portal' class='header-link'><i></i></a>Register your application in the Developer Portal</h3>
@@ -588,8 +591,8 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 </code></pre>
 <ol>
 <li>Run the command to the right to generate a private RSA key and CSR file.</li>
-<li>Log in to the <a href='https://developer.revolut.com/portal/applications'>Developer Portal </a>, navigate to the Sandbox tab, and upload the CSR file in the Sandbox authentication. </li>
-<li>Download the Sandbox certificates. </li>
+<li>Log in to the <a href='https://developer.revolut.com/portal/applications'>Developer Portal </a>, navigate to the Sandbox tab, and upload the CSR file in the Sandbox authentication.</li>
+<li>Download the Sandbox certificates.</li>
 </ol>
 
 <div class="feedback"></div>
@@ -603,22 +606,21 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 <li><p>Create a personal test account from the <a href='https://developer.revolut.com/portal/applications'> Developer Portal</a>.</p></li>
 </ul>
 
-<p><strong>What’s next</strong> </p>
+<p><strong>What’s next</strong></p>
 
 <p>You are ready to start requesting user consents and make API calls to our endpoints. For more information, see our <a href="#tutorials">tutorials</a> to walk you through the steps for different use cases.</p>
 <h2 id='register-your-application-using-dcr'><a href='#register-your-application-using-dcr' class='header-link'><i></i></a>Register your application using DCR</h2>
 <aside class="warning">
     Alternatively, you can <a href='#get-started-register-your-application-in-the-developer-portal'>register your application in the Developer Portal</a>.
 </aside>
- 
 
 <p>You can use the <code>/register</code> endpoint to register your application.</p>
 
 <p>Before you begin, check the following high-level procedure to register using DCR:</p>
 
 <ol>
-<li>Get the JWKs URL. </li>
-<li>Get the software statement. The type of software statement depends on the certificate that you register your application with: 
+<li>Get the JWKs URL.</li>
+<li>Get the software statement. The type of software statement depends on the certificate that you register your application with:
 
 <ul>
 <li>Open Banking software statement when you register with your Open Banking certificate.</li>
@@ -633,7 +635,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 
 <div class="feedback"></div>
 <h3 id='register-your-application-using-dcr-1-get-the-jwks-url'><a href='#register-your-application-using-dcr-1-get-the-jwks-url' class='header-link'><i></i></a>1. Get the JWKs URL</h3>
-<p>JWKs (JWK Set) is a JSON data structure that represents a set of JWKs. A JSON Web Key (JWK) is a (JSON) data structure that represents a cryptographic key. </p>
+<p>JWKs (JWK Set) is a JSON data structure that represents a set of JWKs. A JSON Web Key (JWK) is a (JSON) data structure that represents a cryptographic key.</p>
 
 <p>If you are using your Open Banking certificate, you should receive your JWKs URL from the Open Banking Directory.</p>
 
@@ -673,7 +675,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 
 <div class="feedback"></div>
 <h3 id='register-your-application-using-dcr-2-get-the-software-statement'><a href='#register-your-application-using-dcr-2-get-the-software-statement' class='header-link'><i></i></a>2. Get the software statement</h3><h4 id='register-your-application-using-dcr-register-your-application-using-dcr-2-get-the-software-statement-open-banking-software-statement'><a href='#register-your-application-using-dcr-register-your-application-using-dcr-2-get-the-software-statement-open-banking-software-statement' class='header-link'><i></i></a>Open Banking software statement</h4>
-<p>If you&#39;re using your Open Banking certificate, use the software statement signed by Open Banking, which you can obtain from the <a href="https://www.openbanking.org.uk/providers/directory/">Open Banking Directory</a>. You need this software statement when you create the JWT later. </p>
+<p>If you&#39;re using your Open Banking certificate, use the software statement signed by Open Banking, which you can obtain from the <a href="https://www.openbanking.org.uk/providers/directory/">Open Banking Directory</a>. You need this software statement when you create the JWT later.</p>
 <h4 id='register-your-application-using-dcr-register-your-application-using-dcr-2-get-the-software-statement-self-signed-software-statement'><a href='#register-your-application-using-dcr-register-your-application-using-dcr-2-get-the-software-statement-self-signed-software-statement' class='header-link'><i></i></a>Self-signed software statement</h4>
 <p>If you&#39;re using your eIDAS certificate, use the self-signed software statement. You need this software statement when you create the JWT later.</p>
 
@@ -761,7 +763,6 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 <aside class="warning">
     <b>Note</b>: Signature of the self-signed software statement is an empty string.
 </aside>
- 
 
 <div class="feedback"></div>
 <h3 id='register-your-application-using-dcr-3-get-your-certificate-39-s-distinguished-name'><a href='#register-your-application-using-dcr-3-get-your-certificate-39-s-distinguished-name' class='header-link'><i></i></a>3. Get your certificate&#39;s distinguished name</h3><blockquote>
@@ -790,11 +791,11 @@ Ensure that you seek your own legal advice to understand if you need to be regul
   <span class="s2">"tls_client_auth_dn"</span>:<span class="s2">"organizationIdentifier=PSDUK-REVCA-6885ef16-75dc-4be8-8f8a-228fbd3a1e7d,CN=2kiXQyo0podjW2somjHo67,OU=001570000113UAvAAM,O=OpenBanking,C=GB"</span>
 <span class="o">}</span>
 </code></pre>
-<p>The distinguished name (DN), is a set of parameters that identify a certificate. Your DN must be added to the JWT during the registration of your app (see step 4) using the <code>tls_client_auth_dn</code> field. </p>
+<p>The distinguished name (DN), is a set of parameters that identify a certificate. Your DN must be added to the JWT during the registration of your app (see step 4) using the <code>tls_client_auth_dn</code> field.</p>
 
 <p>Due to differing versions of OpenSSL, we recommend making a GET request to the <code>/distinguished-name</code>  endpoint to obtain this value for your certificate. This should reduce friction in getting your app live.    </p>
 <h3 id='register-your-application-using-dcr-4-create-a-jwt'><a href='#register-your-application-using-dcr-4-create-a-jwt' class='header-link'><i></i></a>4. Create a JWT</h3>
-<p>To create a <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a>, specify the parameters that are required for your application in the JWT header and the payload. For the JWT signature, include both the public key and the signing certificate&#39;s RSA private key. <a href="https://jwt.io/">jwt.io</a> is a helpful tool for debugging JWTs. </p>
+<p>To create a <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JWT</a>, specify the parameters that are required for your application in the JWT header and the payload. For the JWT signature, include both the public key and the signing certificate&#39;s RSA private key. <a href="https://jwt.io/">jwt.io</a> is a helpful tool for debugging JWTs.</p>
 
 <p>Ensure that the parameters meet the following format. You can also check the examples on the right.</p>
 <blockquote>
@@ -943,7 +944,6 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 <p>Before you register your application, check if your JWT is valid. You can use the <a href="https://jwt.io/#debugger-io">JWT debugging tool</a>.</p>
 
 <div class="feedback"></div>
- 
 <h3 id='register-your-application-using-dcr-6-get-a-client-id'><a href='#register-your-application-using-dcr-6-get-a-client-id' class='header-link'><i></i></a>6. Get a client ID</h3><blockquote>
       <div><p>Register your application</p>
 </div>
@@ -957,14 +957,14 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 --header <span class="s1">'Content-Type: application/jwt'</span> <span class="se">\</span>
 --data-raw <span class="s1">'&lt;insert JWT&gt;'</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://oba.revolut.com/register <span class="se">\</span>
---header <span class="s1">'Content-Type: application/jwt'</span> <span class="se">\ </span>
+--header <span class="s1">'Content-Type: application/jwt'</span> <span class="se">\</span>
 --data-raw <span class="s1">'&lt;insert JWT&gt;'</span>
 </code></pre>
 <p>When you have a valid JWT, you can use the <code>/register</code> endpoint to dynamically register your application. From the response, you can obtain your <code>client_id</code> that you can use to make requests to the Open Banking API.</p>
 
 <p>The <code>/register</code> endpoint is implemented as is described in the <a href="https://openbanking.atlassian.net/wiki/spaces/DZ/pages/937066600/Dynamic+Client+Registration+-+v3.1#DynamicClientRegistration-v3.1-POST/register">Open Banking: Dynamic Client Registration - v3.1</a> documentation.</p>
 
-<p><strong>What’s next</strong> </p>
+<p><strong>What’s next</strong></p>
 
 <p>You are ready to start requesting user consents and make API calls to our endpoints. For more information, see our <a href="#tutorials">tutorials</a> to walk you through the steps for different use cases.</p>
 
@@ -978,7 +978,42 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 </ul>
 
 <div class="feedback"></div>
-<h2 id='manage-your-applications'><a href='#manage-your-applications' class='header-link'><i></i></a>Manage your applications</h2><h3 id='manage-your-applications-update-an-application'><a href='#manage-your-applications-update-an-application' class='header-link'><i></i></a>Update an application</h3><blockquote>
+<h2 id='manage-your-applications'><a href='#manage-your-applications' class='header-link'><i></i></a>Manage your applications</h2><h3 id='manage-your-applications-get-an-application'><a href='#manage-your-applications-get-an-application' class='header-link'><i></i></a>Get an application</h3><blockquote>
+      <div><p>Get an application</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-oba.revolut.com/register/&lt;insert client_id&gt;
+--header <span class="s1">'Authorisation: Bearer &lt;your token&gt;'</span>
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://oba.revolut.com/register/&lt;insert client_id&gt;
+--header <span class="s1">'Authorisation: Bearer &lt;your token&gt;'</span>
+</code></pre>
+<p>In order to retrieve information of an existing application, make a GET request to the register endpoint. Provide the <code>access token</code> in the request header and add the <code>client_id</code> as a URL parameter to your request.</p>
+<blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"client_id"</span><span class="p">:</span><span class="err">&lt;your</span><span class="w"> </span><span class="err">client_id&gt;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"token_endpoint_auth_method"</span><span class="p">:</span><span class="s2">"tls_client_auth"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tls_client_auth_dn"</span><span class="p">:</span><span class="err">&lt;your</span><span class="w"> </span><span class="err">DN</span><span class="w"> </span><span class="err">value&gt;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id_token_signed_response_alg"</span><span class="p">:</span><span class="s2">"PS256"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"request_object_signing_alg"</span><span class="p">:</span><span class="s2">"PS256"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"redirect_uris"</span><span class="p">:</span><span class="err">&lt;your</span><span class="w"> </span><span class="err">redirect_url&gt;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"org_jwks_endpoint"</span><span class="p">:</span><span class="err">&lt;your</span><span class="w"> </span><span class="err">jwks_url&gt;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"org_name"</span><span class="p">:</span><span class="err">&lt;your</span><span class="w"> </span><span class="err">org_name&gt;</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"scope"</span><span class="p">:</span><span class="err">&lt;your</span><span class="w"> </span><span class="err">scope&gt;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='manage-your-applications-update-an-application'><a href='#manage-your-applications-update-an-application' class='header-link'><i></i></a>Update an application</h3><blockquote>
       <div><p>Update an application</p>
 </div>
       <div class='env-selector'>
@@ -993,7 +1028,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 <p>To update the information for an existing application, make a <code>PUT</code> request to the <code>register</code> endpoint:</p>
 
 <ul>
-<li>In the request header, provide the <code>client_id</code> to represent which application you want to update and the access token. </li>
+<li>In the request header, provide the <code>client_id</code> to represent which application you want to update and the access token.</li>
 <li>In the request body, you can pass the updated JWT for the specified application. For simplicity, use the same JWT you created for the registration request but only with the updated fields because any additional fields are ignored.</li>
 </ul>
 <h4 id='manage-your-applications-manage-your-applications-update-an-application-fields-for-updating-an-application'><a href='#manage-your-applications-manage-your-applications-update-an-application-fields-for-updating-an-application' class='header-link'><i></i></a>Fields for updating an application</h4>
@@ -1046,9 +1081,9 @@ Ensure that you seek your own legal advice to understand if you need to be regul
 
 <div class="feedback"></div>
 <h2 id='tutorials'><a href='#tutorials' class='header-link'><i></i></a>Tutorials</h2><h3 id='tutorials-get-account-and-transaction-information'><a href='#tutorials-get-account-and-transaction-information' class='header-link'><i></i></a>Get account and transaction information</h3>
-<p>This tutorial walks you through the steps to pull the data of a user&#39;s account from the <code>/accounts</code> endpoint. </p>
+<p>This tutorial walks you through the steps to pull the data of a user&#39;s account from the <code>/accounts</code> endpoint.</p>
 
-<p>Similar steps apply to all of accounts and transactions endpoints. Therefore, after you complete this tutorial, you will know how to use all the accounts and transactions endpoints. </p>
+<p>Similar steps apply to all of accounts and transactions endpoints. Therefore, after you complete this tutorial, you will know how to use all the accounts and transactions endpoints.</p>
 
 <p>See the <a href="https://developer.revolut.com/api-reference/open-banking/#tag/Account-and-Transactions">API Reference</a> for all the available endpoints.</p>
 
@@ -1098,7 +1133,7 @@ Ensure that you seek your own legal advice to understand if you need to be regul
   </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">2399</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Request an access token for client credentials using the <code>/token</code> endpoint and the <code>client_credentials</code> grant type. </p>
+<p>Request an access token for client credentials using the <code>/token</code> endpoint and the <code>client_credentials</code> grant type.</p>
 
 <p>You use this token to:</p>
 
@@ -1255,7 +1290,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 </code></pre><pre class="highlight shell tab-shell--production"><code>https://oba.revolut.com/ui/index.html?response_type<span class="o">=</span>code%26id_token&amp;scope<span class="o">=</span>accounts&amp;redirect_uri<span class="o">=</span>&lt;insert redirect URL&gt;&amp;client_id<span class="o">=</span>&lt;insert client_id&gt;&amp;request<span class="o">=</span>&lt;insert JWT&gt;
 
 </code></pre>
-<p>Redirect the user to the authorization URL with the following parameters. </p>
+<p>Redirect the user to the authorization URL with the following parameters.</p>
 
 <table><thead>
 <tr>
@@ -1306,17 +1341,17 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
       </div>
     </blockquote><pre class="highlight plaintext"><code>https://www.revolut_redirect.com/?code=oa_sand_sPoyVs-oMhyR36j5N-ZEVLfK9rQWPNssgIQqsOFZQ-c&amp;id_token=eyJraWQiOiJxRlFQaTRPVkJVLVNaVk5iMjJ5VjVHQVZDN1UiLCJhbGciOiJQUzI1NiJ9.eyJpc3MiOiJodHRwczovL29iYS5yZXZvbHV0LmNvZGVzIiwiaWF0IjoxNjA0OTM2ODUzLCJzdWIiOiI0NjdiYzg3MC1jOTllLTQ0MzQtYTk1OS1iOGM1NmVlNmEwMjciLCJhY3IiOiJ1cm46b3BlbmJhbmtpbmc6cHNkMjpzY2EiLCJvcGVuYmFua2luZ19pbnRlbnRfaWQiOiI0NjdiYzg3MC1jOTllLTQ0MzQtYTk1OS1iOGM1NmVlNmEwMjciLCJhdWQiOiIxZWMxZGIyZC0zZTViLTRkODItYjQyZS0wNjc5NDU2MmUyMGUiLCJub25jZSI6Im4tMFM2X1d6QTJNaiIsImV4cCI6MTYwNDkzNzQ1MywiY19oYXNoIjoiTXNfRnRwdWs0U2VDNW4zdUNMTTc0ZyIsInNfaGFzaCI6IlM2YVhOY3BUZGw3V3B3bnR0V3h1b2cifQ.m-EvhggqLg7ZXh0we_PLKNsc248p8Bn_o5nj7_6CQHkiRI23ZrYjJLlz_1BhvZ_iY1Tll2gybq_0eSKRgHpvOPnhvCbcSAyfkE8YERZoVkIe-64cyiomhaqBzMzjQyghaL4KrnKH667wR1gTjVhwyJyztalTKidoLZ5OFVWRSHkqW3YLm-_q51wP0k7HHvJ-fnkGcIoCv2TYXpb9xykvgGRJv9KIISbQtM_bLBpo5Q6Q1fxNc-LK2iT-o22xQzLhzvGHtXLTl7Kn5xYf8quDjA5zG0iCAGLJ-Fo9NuTobcKjJOaNYpQ_Y2ilKMmtXqRdgAF_in4Lydt2dn9duxFvJA&amp;state=state
 </code></pre>
-<p>On successful completion of the authorization flow, you receive an authorization code (<code>code</code>) as a URL parameter in the redirect. </p>
+<p>On successful completion of the authorization flow, you receive an authorization code (<code>code</code>) as a URL parameter in the redirect.</p>
 
 <p>Check the response example on the right to see what the <code>code</code> looks like.</p>
 
 <aside class="warning">
-<b>Note</b>: The <code>code</code> is valid only for two minutes. 
+<b>Note</b>: The <code>code</code> is valid only for two minutes.
 </aside>
 
 <div class="feedback"></div>
 <h4 id='tutorials-tutorials-get-account-and-transaction-information-5-exchange-authorization-code-for-access-token'><a href='#tutorials-tutorials-get-account-and-transaction-information-5-exchange-authorization-code-for-access-token' class='header-link'><i></i></a>5. Exchange authorization code for access token</h4><blockquote>
-      <div><p>Exchange for access token </p>
+      <div><p>Exchange for access token</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -1412,7 +1447,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>After you generate this access token, you can use it to send requests to the API. Make a call to the <code>/accounts</code> endpoint to retrieve a list of the user&#39;s accounts. </p>
+<p>After you generate this access token, you can use it to send requests to the API. Make a call to the <code>/accounts</code> endpoint to retrieve a list of the user&#39;s accounts.</p>
 
 <p>Congratulations! You have successfully made your first API request to one of our Accounts and Transactions endpoints.</p>
 
@@ -1425,19 +1460,19 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 
 <div class="feedback"></div>
 <h3 id='tutorials-initiate-your-first-payment'><a href='#tutorials-initiate-your-first-payment' class='header-link'><i></i></a>Initiate your first payment</h3>
-<p>This tutorial walks you through the steps to initiate a <code>domestic-payment</code>. </p>
+<p>This tutorial walks you through the steps to initiate a <code>domestic-payment</code>.</p>
 
-<p>Similar steps apply to all of our payments endpoints. Therefore, after you complete this tutorial, you will know how to use all the payments endpoints. </p>
+<p>Similar steps apply to all of our payments endpoints. Therefore, after you complete this tutorial, you will know how to use all the payments endpoints.</p>
 
 <p>See the <a href="https://developer.revolut.com/api-reference/open-banking/#tag/Payment-Initiation">API Reference</a> for all the supported payments.</p>
 
 <p>Before you begin, ensure that you have:</p>
 
 <ul>
-<li>Registered your application with the <code>payments</code> scope in Developer Portal </li>
+<li>Registered your application with the <code>payments</code> scope in Developer Portal</li>
 <li>Obtained a sandbox/production <code>client_id</code>  from Developer Portal</li>
 <li>Obtained sandbox/production <code>transport.pem</code> and <code>signing.pem</code> certificates, from Developer Portal or QTSP issuing body</li>
-<li>Uploaded the <a href='https://developer.revolut.com/docs/build-banking-apps/#register-your-application-using-dcr-1-get-the-jwks-url'><code>jwks_url</code></a> in Developer Portal that is specific to your <code>transport.pem</code> certificate. Ensure that the <code>x5c</code> claim is specified. </li>
+<li>Uploaded the <a href='https://developer.revolut.com/docs/build-banking-apps/#register-your-application-using-dcr-1-get-the-jwks-url'><code>jwks_url</code></a> in Developer Portal that is specific to your <code>transport.pem</code> certificate. Ensure that the <code>x5c</code> claim is specified.</li>
 </ul>
 
 <div class="feedback"></div>
@@ -1654,9 +1689,9 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 <p>When you create the consent, ensure that you</p>
 
 <ul>
-<li>Use your <code>client_credentials</code> token from the previous step in the <code>Authorization</code> field. </li>
+<li>Use your <code>client_credentials</code> token from the previous step in the <code>Authorization</code> field.</li>
 <li>Pass <code>x-jws-signature header</code> in the API request that contains a detached JWS signature of the body of the payload. The signature must be generated from the request body with the TPP signing key that is specified in the JWS header.</li>
-<li>Pass the head and signature in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format. </li>
+<li>Pass the head and signature in <code>&lt;jws_head&gt;..&lt;jws_signature&gt;</code> format.</li>
 <li>Specify the <code>x-idempotency-key</code> field so that when there is a network failure and you do not receive the ID from the response, you can retry the request.</li>
 </ul>
 
@@ -1724,7 +1759,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 </code></pre><pre class="highlight shell tab-shell--production"><code>https://oba.revolut.com/ui/index.html?response_type<span class="o">=</span>code%26id_token&amp;scope<span class="o">=</span>accounts&amp;redirect_uri<span class="o">=</span>&lt;insert redirect URL&gt;&amp;client_id<span class="o">=</span>&lt;insert client_id&gt;&amp;request<span class="o">=</span>&lt;insert JWT&gt;
 
 </code></pre>
-<p>Redirect the user to the authorization URL with the following parameters. </p>
+<p>Redirect the user to the authorization URL with the following parameters.</p>
 
 <table><thead>
 <tr>
@@ -1775,17 +1810,17 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
       </div>
     </blockquote><pre class="highlight plaintext"><code>https://www.revolut_redirect.com/?code=oa_sand_sPoyVs-oMhyR36j5N-ZEVLfK9rQWPNssgIQqsOFZQ-c&amp;id_token=eyJraWQiOiJxRlFQaTRPVkJVLVNaVk5iMjJ5VjVHQVZDN1UiLCJhbGciOiJQUzI1NiJ9.eyJpc3MiOiJodHRwczovL29iYS5yZXZvbHV0LmNvZGVzIiwiaWF0IjoxNjA0OTM2ODUzLCJzdWIiOiI0NjdiYzg3MC1jOTllLTQ0MzQtYTk1OS1iOGM1NmVlNmEwMjciLCJhY3IiOiJ1cm46b3BlbmJhbmtpbmc6cHNkMjpzY2EiLCJvcGVuYmFua2luZ19pbnRlbnRfaWQiOiI0NjdiYzg3MC1jOTllLTQ0MzQtYTk1OS1iOGM1NmVlNmEwMjciLCJhdWQiOiIxZWMxZGIyZC0zZTViLTRkODItYjQyZS0wNjc5NDU2MmUyMGUiLCJub25jZSI6Im4tMFM2X1d6QTJNaiIsImV4cCI6MTYwNDkzNzQ1MywiY19oYXNoIjoiTXNfRnRwdWs0U2VDNW4zdUNMTTc0ZyIsInNfaGFzaCI6IlM2YVhOY3BUZGw3V3B3bnR0V3h1b2cifQ.m-EvhggqLg7ZXh0we_PLKNsc248p8Bn_o5nj7_6CQHkiRI23ZrYjJLlz_1BhvZ_iY1Tll2gybq_0eSKRgHpvOPnhvCbcSAyfkE8YERZoVkIe-64cyiomhaqBzMzjQyghaL4KrnKH667wR1gTjVhwyJyztalTKidoLZ5OFVWRSHkqW3YLm-_q51wP0k7HHvJ-fnkGcIoCv2TYXpb9xykvgGRJv9KIISbQtM_bLBpo5Q6Q1fxNc-LK2iT-o22xQzLhzvGHtXLTl7Kn5xYf8quDjA5zG0iCAGLJ-Fo9NuTobcKjJOaNYpQ_Y2ilKMmtXqRdgAF_in4Lydt2dn9duxFvJA&amp;state=state
 </code></pre>
-<p>On successful completion of the authorization flow, you receive an authorization code (<code>code</code>) as a URL parameter in the redirect. </p>
+<p>On successful completion of the authorization flow, you receive an authorization code (<code>code</code>) as a URL parameter in the redirect.</p>
 
 <p>Check the response example on the right to see what the <code>code</code> looks like.</p>
 
 <aside class="warning">
-<b>Note</b>: The <code>code</code> is valid only for two minutes. 
+<b>Note</b>: The <code>code</code> is valid only for two minutes.
 </aside>
 
 <div class="feedback"></div>
 <h4 id='tutorials-tutorials-initiate-your-first-payment-5-exchange-authorization-code-for-access-token'><a href='#tutorials-tutorials-initiate-your-first-payment-5-exchange-authorization-code-for-access-token' class='header-link'><i></i></a>5. Exchange authorization code for access token</h4><blockquote>
-      <div><p>Exchange for access token </p>
+      <div><p>Exchange for access token</p>
 </div>
       <div class='env-selector'>
         <select>
@@ -1963,9 +1998,9 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 
 
 </span></code></pre>
-<p>After you generate this access token, you can initiate a domestic payment on the user&#39;s behalf. Make a call to the <code>/domestic-payments</code> endpoint to initiate the payment. </p>
+<p>After you generate this access token, you can initiate a domestic payment on the user&#39;s behalf. Make a call to the <code>/domestic-payments</code> endpoint to initiate the payment.</p>
 
-<p>Congratulations! You have successfully initiated your first payment. </p>
+<p>Congratulations! You have successfully initiated your first payment.</p>
 
 <p><strong>What’s next</strong></p>
 
@@ -1981,13 +2016,13 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 <p>Before you begin, ensure that you have:</p>
 
 <ul>
-<li>Registered your application with the <code>draftpayments</code> in Developer Portal </li>
+<li>Registered your application with the <code>draftpayments</code> in Developer Portal</li>
 <li>Obtained a sandbox/production <code>client_id</code>  from Developer Portal</li>
 <li>Obtained a sandbox/production <code>transport.pem</code> certificate from Developer Portal</li>
 </ul>
 
 <aside class="warning">
-<b>Note:</b> The draft payment function is available only for Revolut Business customers. 
+<b>Note:</b> The draft payment function is available only for Revolut Business customers.
 </aside>
 
 <div class="feedback"></div>
@@ -2013,9 +2048,9 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
       </div>
     </blockquote><pre class="highlight plaintext"><code>https://www.revolut_redirect.com/revolut_redirect?code=oa_sand_kiLg3m7xrNua0rbShC1GQZfbk0DthUhOpVA9xX2oRY0&amp;state=state
 </code></pre>
-<p>Before you can start creating draft payments, you must get authorization from the user to make draft payments on their behalf. </p>
+<p>Before you can start creating draft payments, you must get authorization from the user to make draft payments on their behalf.</p>
 
-<p>Redirect the user to the authorization URL with the following parameters. </p>
+<p>Redirect the user to the authorization URL with the following parameters.</p>
 
 <table><thead>
 <tr>
@@ -2056,7 +2091,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 <p>Check the response example on the right to see what the code looks like.</p>
 
 <aside class="warning">
-<b>Note</b>: The <code>code</code> is valid only for two minutes. 
+<b>Note</b>: The <code>code</code> is valid only for two minutes.
 </aside>
 
 <div class="feedback"></div>
@@ -2179,7 +2214,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 <p>After you create the draft payment, it appears in the user&#39;s Revolut Business account where user can approve or reject.</p>
 
 <aside class="warning">
-<b>Note:</b> The maximum number of rows in a CSV file is 50 and all the payments must be in the same currency. 
+<b>Note:</b> The maximum number of rows in a CSV file is 50 and all the payments must be in the same currency.
 </aside>
 
 <p>For information about which fields are required based on the country and the currency, see <a href="#tutorials-tutorials-work-with-draft-payments-international-payments">International payments</a>.</p>
@@ -2351,7 +2386,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get the details about a specific draft payment with the given draft payment ID. </p>
+<p>Get the details about a specific draft payment with the given draft payment ID.</p>
 
 <p><code>Index</code> indicates the row number the draft payment represents in the CSV file.</p>
 <h4 id='tutorials-tutorials-create-your-first-draft-payment-6-get-list-of-draft-payments'><a href='#tutorials-tutorials-create-your-first-draft-payment-6-get-list-of-draft-payments' class='header-link'><i></i></a>6. Get list of draft payments</h4><blockquote>
@@ -2383,7 +2418,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
                 </span><span class="s2">"CreatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-28T15:16:20.444101Z"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awaiting"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_1"</span><span class="w">
-              </span><span class="p">},</span><span class="w"> 
+              </span><span class="p">},</span><span class="w">
               </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"Id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d9ab7bf0-5781-46ab-b503-d962ae5715ea"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"CreatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-03-24T19:03:03.367473Z"</span><span class="p">,</span><span class="w">
@@ -2391,13 +2426,13 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
                 </span><span class="s2">"Title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_2"</span><span class="w">
               </span><span class="p">}</span><span class="w">
           </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w"> 
+  </span><span class="s2">"Links"</span><span class="p">:</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="s2">"Next"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/draft-payments?to=2021-03-24T19:02:21.351937Z&amp;limit=2"</span><span class="w">
           </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Get a list of draft payments created by your application. </p>
+<p>Get a list of draft payments created by your application.</p>
 
 <p>This endpoint returns draft payments in descending order of creation time and supports pagination: use the <code>limit</code> field to specify the number of orders returned in the request. The location of the next page of results will be returned in the <code>Links.Next</code> field.</p>
 
@@ -2448,7 +2483,7 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 
 <div class="feedback"></div>
 <h3 id='tutorials-work-with-draft-payments'><a href='#tutorials-work-with-draft-payments' class='header-link'><i></i></a>Work with draft payments</h3>
-<p>Review the important considerations when you build your draft payments integration. </p>
+<p>Review the important considerations when you build your draft payments integration.</p>
 <h4 id='tutorials-tutorials-work-with-draft-payments-international-payments'><a href='#tutorials-tutorials-work-with-draft-payments-international-payments' class='header-link'><i></i></a>International payments</h4>
 <p>In the CSV file that you upload to create draft payments, the following fields and multiple address fields are provided for draft payments made to bank accounts across the globe.</p>
 
@@ -2528,10 +2563,10 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 </tr>
 </tbody></table>
 
-<p>See the following lists for IBAN/SEPA countries and currencies supported. </p>
+<p>See the following lists for IBAN/SEPA countries and currencies supported.</p>
 
 <aside class="warning">
-To use our draft payments endpoint in any countries/currencies not listed below, <a href="mailto:api-requests@revolut.com">reach out</a> and we can look to incorporate your request. 
+To use our draft payments endpoint in any countries/currencies not listed below, <a href="mailto:api-requests@revolut.com">reach out</a> and we can look to incorporate your request.
 </aside>
 
 <table><thead>
@@ -2555,7 +2590,7 @@ To use our draft payments endpoint in any countries/currencies not listed below,
 </tbody></table>
 
 <aside class="warning">
-Address is defined as <code>Country</code>, <code>Address line 1</code>, <code>City</code> and <code>Postcode</code> fields. It should be the address of the recipient. 
+Address is defined as <code>Country</code>, <code>Address line 1</code>, <code>City</code> and <code>Postcode</code> fields. It should be the address of the recipient.
 <br><br>
 PHP and IDR transfers are only supported within the Philippines and Indonesia respectively.
 </aside>
@@ -2568,7 +2603,7 @@ PHP and IDR transfers are only supported within the Philippines and Indonesia re
 
 <p>The pocket selected for a draft payment is the pocket with the highest amount of currency that matches the currency of the payment.</p>
 
-<p>If no pocket matches the currency of the payment, the pocket with the default currency of the account is chosen and there is an automatic currency conversion while the payment is being executed. </p>
+<p>If no pocket matches the currency of the payment, the pocket with the default currency of the account is chosen and there is an automatic currency conversion while the payment is being executed.</p>
 
 <div class="feedback"></div>
 <h4 id='tutorials-tutorials-work-with-draft-payments-csv-validation'><a href='#tutorials-tutorials-work-with-draft-payments-csv-validation' class='header-link'><i></i></a>CSV validation</h4><blockquote>
@@ -2689,7 +2724,7 @@ Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,GBP,10,User comment,GB,,Revolutest LT
 </span></code></pre>
 <p>We validate if the fields in the CSV match the format required and if the bank account details provided are valid for a payment to be made.</p>
 
-<p>If there is an issue with the CSV uploaded, the API responds with a <code>3039</code> error code and give details of the CSV validation errors row by row. Each error message is accompanied by a corresponding <code>code</code>. </p>
+<p>If there is an issue with the CSV uploaded, the API responds with a <code>3039</code> error code and give details of the CSV validation errors row by row. Each error message is accompanied by a corresponding <code>code</code>.</p>
 
 <p>In addition, with the exception of error codes <code>2008</code> and <code>1000</code>, we will also pass the relevant <code>Field</code> that causes the validation to fail.</p>
 
@@ -2752,7 +2787,7 @@ Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,GBP,10,User comment,GB,,Revolutest LT
 </tbody></table>
 
 <aside class="warning">
-<b>Note:</b> Though the error codes above encapsulate all potential errors, the message provided is subject to changes. Reach out for further details. 
+<b>Note:</b> Though the error codes above encapsulate all potential errors, the message provided is subject to changes. Reach out for further details.
 </aside>
 <h4 id='tutorials-tutorials-work-with-draft-payments-error-codes'><a href='#tutorials-tutorials-work-with-draft-payments-error-codes' class='header-link'><i></i></a>Error codes</h4>
 <p>Check the following table to understand the error messages for draft payments:</p>
@@ -2805,7 +2840,7 @@ Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,GBP,10,User comment,GB,,Revolutest LT
 
 <div class="feedback"></div>
 <h4 id='tutorials-tutorials-work-with-draft-payments-payment-orders-vs-transfers'><a href='#tutorials-tutorials-work-with-draft-payments-payment-orders-vs-transfers' class='header-link'><i></i></a>Payment orders vs transfers</h4>
-<p>When you create a bulk draft payment, it consists of a <i>draft payment order</i>, which in turn contains a set of <i> transfers</i>. </p>
+<p>When you create a bulk draft payment, it consists of a <i>draft payment order</i>, which in turn contains a set of <i> transfers</i>.</p>
 
 <p>Both a draft payment order and transfers have own independent states.</p>
 
@@ -2871,7 +2906,7 @@ Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,GBP,10,User comment,GB,,Revolutest LT
 
 <div class="feedback"></div>
 <h4 id='tutorials-tutorials-work-with-draft-payments-failure-codes'><a href='#tutorials-tutorials-work-with-draft-payments-failure-codes' class='header-link'><i></i></a>Failure codes</h4>
-<p>There are a number of different reasons that transfers can fail. </p>
+<p>There are a number of different reasons that transfers can fail.</p>
 
 <p>Check the following table about different values of <code>FailedReasonCode</code>:</p>
 
@@ -2906,12 +2941,12 @@ Dmitry Vim,INDIVIDUAL,40513598,207409,,,GB,GBP,10,User comment,GB,,Revolutest LT
 <p>Each <code>FailedReasonCode</code> is accompanied by a custom <code>FailedReasonMessage</code> to give detail on the failure.</p>
 
 <aside class="warning">
-In case of any questions, reach out to Revolut Business support to get further help in understanding the failure of specific transfers. 
+In case of any questions, reach out to Revolut Business support to get further help in understanding the failure of specific transfers.
 </aside>
 
 <div class="feedback"></div>
 <h3 id='tutorials-work-with-webhooks'><a href='#tutorials-work-with-webhooks' class='header-link'><i></i></a>Work with webhooks</h3>
-<p>Webhooks allow you to receive real-time notifications for events that are happening in relation to your application. </p>
+<p>Webhooks allow you to receive real-time notifications for events that are happening in relation to your application.</p>
 
 <p>When a supported event occurs, a real-time notification is posted, via HTTP POST method, to the specified endpoint.</p>
 
@@ -2976,7 +3011,7 @@ In case of any questions, reach out to Revolut Business support to get further h
   </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">2399</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>Request an access token for client credentials using the <code>/token</code> endpoint and the <code>client_credentials</code> grant type. </p>
+<p>Request an access token for client credentials using the <code>/token</code> endpoint and the <code>client_credentials</code> grant type.</p>
 
 <aside class="warning">
 <b>Note:</b> <code>tokens</code> topic works for all consents no matter the scope. Depending on your application, adjust the <code>scope</code> parameter accordingly.
@@ -2996,7 +3031,7 @@ In case of any questions, reach out to Revolut Business support to get further h
 {
     "Topic": "draftpayments/transfers",
     "Version": 1,
-    "Uri": "https://revolut_test.com" 
+    "Uri": "https://revolut_test.com"
 }'</span>
 </code></pre><pre class="highlight shell tab-shell--production"><code>curl --location --request POST <span class="s1">'https://apis.revolut.com/webhooks/subscribe'</span> <span class="se">\</span>
 --header <span class="s1">'Authorization: Bearer &lt;insert access_token&gt;'</span> <span class="se">\</span>
@@ -3004,7 +3039,7 @@ In case of any questions, reach out to Revolut Business support to get further h
 {
     "Topic": "draftpayments/transfers",
     "Version": 1,
-    "Uri": "https://revolut_test.com" 
+    "Uri": "https://revolut_test.com"
 }'</span>
 </code></pre>
 <p>To create a webhook, make a call to the <code>/webhooks/subscribe</code> endpoint.</p>
@@ -3141,12 +3176,12 @@ In case of any questions, reach out to Revolut Business support to get further h
 
 <p>The <code>Status</code> field corresponds to those detailed <a href='#tutorials-tutorials-work-with-draft-payments-payment-orders-vs-transfers'>here</a>.</p>
 
-<p>Please see examples of two payloads to the right. The <code>ID</code> field indicates the relevant object that has changed state, while <code>EventId</code> can be used as a unique identifier for a specific event. For Draft Payment Order creation, we will also include the <code>IdempotencyKey</code> that was provided in the creation request. <code>AccessTokenId</code> identifies the <code>access_token</code> that the draft payment was created by. </p>
+<p>Please see examples of two payloads to the right. The <code>ID</code> field indicates the relevant object that has changed state, while <code>EventId</code> can be used as a unique identifier for a specific event. For Draft Payment Order creation, we will also include the <code>IdempotencyKey</code> that was provided in the creation request. <code>AccessTokenId</code> identifies the <code>access_token</code> that the draft payment was created by.</p>
 
 <p>The header in the request will contain a detached JWS containing a <code>kid</code>. Please use the JWKS endpoint to the right to validate this signature.</p>
 
 <aside class="warning">
-<b>Note:</b> we guarantee at-least-once delivery of webhooks, all duplicate events will have the same <code>EventId</code> 
+<b>Note:</b> we guarantee at-least-once delivery of webhooks, all duplicate events will have the same <code>EventId</code>
 </aside>
 <h4 id='tutorials-tutorials-work-with-webhooks-5-delete-a-webhook'><a href='#tutorials-tutorials-work-with-webhooks-5-delete-a-webhook' class='header-link'><i></i></a>5. Delete a webhook</h4><blockquote>
       <div><p>Unsubscribe from a topic</p>
@@ -3171,7 +3206,7 @@ In case of any questions, reach out to Revolut Business support to get further h
     "Topic": "draftpayments/transfers"
 }'</span>
 </code></pre>
-<p>If you no longer want to receive notifications on a webhook, you can unsubscribe by running a <code>POST</code> request to the <code>/webhooks/unsubscribe</code> endpoint. </p>
+<p>If you no longer want to receive notifications on a webhook, you can unsubscribe by running a <code>POST</code> request to the <code>/webhooks/unsubscribe</code> endpoint.</p>
 
 <p>Congratulations! You have successfully set up webhooks to receive relevant notifications about your application.</p>
 <h2 id='api-metrics'><a href='#api-metrics' class='header-link'><i></i></a>API Metrics</h2>
