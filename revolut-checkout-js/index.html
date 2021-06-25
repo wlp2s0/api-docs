@@ -1097,6 +1097,11 @@
 <td>String</td>
 </tr>
 <tr>
+<td><code>validate</code></td>
+<td>Function that needs to be fulfilled before payment is processed</td>
+<td>Function</td>
+</tr>
+<tr>
 <td><code>onSuccess</code></td>
 <td>Callback when the payment is successfully completed</td>
 <td>Function</td>
@@ -1115,6 +1120,42 @@
 <td><code>locale</code></td>
 <td>Controls the language of the text in the widget. Possible values are: <code>en</code> (English), <code>es</code> (Spanish), <code>de</code> (German), <code>fr</code> (French), <code>it</code> (Italian), <code>nl</code> (Dutch), <code>pl</code> (Polish), <code>pt</code> (Portuguese)</td>
 <td>String</td>
+</tr>
+<tr>
+<td><code>buttonStyle</code></td>
+<td>Dictionary that controls the style of the button</td>
+<td>Dictionary</td>
+</tr>
+</tbody></table>
+
+<p>The <code>buttonStyle</code> dictionary accepts the following parameters:</p>
+
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Enum</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>action</code></td>
+<td>Replace the default text of <code>Revolut Pay</code> for an action. For example, <code>Pay with Revolut</code>. This can be useful depending on the context of the button. Default: <code>null</code></td>
+<td><code>pay</code>, <code>donate</code>, <code>buy</code>, <code>subscribe</code></td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td>Control whether the button should occupy the full width of the division it is in (<code>large</code>) or not (<code>small</code>). Default: <code>large</code></td>
+<td><code>small</code>, <code>large</code></td>
+</tr>
+<tr>
+<td><code>radius</code></td>
+<td>Control the size of the border radius. Default: <code>small</code></td>
+<td><code>none</code>, <code>small</code>, <code>large</code></td>
+</tr>
+<tr>
+<td><code>variant</code></td>
+<td>Control the theme of the button. Default: <code>dark</code></td>
+<td><code>light</code>, <code>dark</code>, <code>light-outlined</code></td>
 </tr>
 </tbody></table>
 <h4 id='instance-instance-instance-revolutpay-returns'><a href='#instance-instance-instance-revolutpay-returns' class='header-link'><i></i></a>Returns</h4>
