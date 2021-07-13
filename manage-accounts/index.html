@@ -784,7 +784,7 @@
 </aside>
 
 <div class="feedback"></div>
-<h4 id='tutorials-tutorials-create-a-counterparty-add-a-revolut-counterparty'><a href='#tutorials-tutorials-create-a-counterparty-add-a-revolut-counterparty' class='header-link'><i></i></a>Add a Revolut counterparty</h4><blockquote>
+<h4 id='tutorials-tutorials-create-a-counterparty-add-a-revolut-counterparty'><a href='#tutorials-tutorials-create-a-counterparty-add-a-revolut-counterparty' class='header-link'><i></i></a>Add a Revolut counterparty</h4><blockquote>
       <div><p>Add a Revolut user as counterparty</p>
 </div>
       <div class='env-selector'>
@@ -833,9 +833,12 @@ EOF
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-19T15:58:34.485Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>If a counterparty has a Revolut account, you need to only provide the phone number, and you don&#39;t need full account details to add. However, if you add full account details, this also works. </p>
+<p>If a counterparty has a Revolut account, you need to only provide the phone number and name, and you don&#39;t need full account details to add. However, if you add full account details, this also works. </p>
 
-<div class="feedback"></div>
+<aside class="warning">
+     <b>Note</b>: from 18th October 2021, when creating a Revolut personal counterparty using a phone number the <code>name</code> field provided on the request must match exactly the name of the user as it is recorded on the user's Revolut profile. For example if the name of the user has <code>first_name=John</code>  and <code>last_name=Smith</code> on their Revolut personal profile, <code>"name":"John Smith"</code> should be provided on the request. The matching is case insensitive.<br><br>
+     On the same date, the ability to upload a Revolut Business counterparty using only the <code>email</code> field will be fully deprecated. To pay Revolut Business counterparties via API, you should upload their bank details as a normal counterparty.
+</aside>
 <h4 id='tutorials-tutorials-create-a-counterparty-add-a-uk-counterparty'><a href='#tutorials-tutorials-create-a-counterparty-add-a-uk-counterparty' class='header-link'><i></i></a>Add a UK counterparty</h4><blockquote>
       <div><p>Add a UK bank account as counterparty</p>
 </div>
