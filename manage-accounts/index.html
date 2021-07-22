@@ -315,7 +315,16 @@
                             <a href="#tutorials-tutorials-work-with-webhooks-set-up-a-webhook" class="toc-h4 toc-link" data-title="set-up-a-webhook">Set up a webhook</a>
                           </li>
                           <li>
-                            <a href="#tutorials-tutorials-work-with-webhooks-delete-a-webhook" class="toc-h4 toc-link" data-title="delete-a-webhook">Delete a webhook</a>
+                            <a href="#tutorials-tutorials-work-with-webhooks-set-up-multiple-webhooks" class="toc-h4 toc-link" data-title="set-up-multiple-webhooks">Set up multiple webhooks</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-work-with-webhooks-get-list-of-webhooks" class="toc-h4 toc-link" data-title="get-list-of-webhooks">Get list of webhooks</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-work-with-webhooks-update-a-webhook" class="toc-h4 toc-link" data-title="update-a-webhook">Update a webhook</a>
+                          </li>
+                          <li>
+                            <a href="#tutorials-tutorials-work-with-webhooks-delete-a-specific-webhook" class="toc-h4 toc-link" data-title="delete-a-specific-webhook">Delete a specific webhook</a>
                           </li>
                           <li>
                             <a href="#tutorials-tutorials-work-with-webhooks-transaction-created-event" class="toc-h4 toc-link" data-title="transaction-created-event">Transaction created event</a>
@@ -837,7 +846,9 @@ EOF
 
 <aside class="warning">
      <b>Note</b>: from 18th October 2021, when creating a Revolut personal counterparty using a phone number the <code>name</code> field provided on the request must match exactly the name of the user as it is recorded on the user's Revolut profile. For example if the name of the user has <code>first_name=John</code>  and <code>last_name=Smith</code> on their Revolut personal profile, <code>"name":"John Smith"</code> should be provided on the request. The matching is case insensitive.<br><br>
+
      On the same date, the ability to upload a Revolut Business counterparty using only the <code>email</code> field will be fully deprecated. To pay Revolut Business counterparties via API, you should upload their bank details as a normal counterparty.
+
 </aside>
 <h4 id='tutorials-tutorials-create-a-counterparty-add-a-uk-counterparty'><a href='#tutorials-tutorials-create-a-counterparty-add-a-uk-counterparty' class='header-link'><i></i></a>Add a UK counterparty</h4><blockquote>
       <div><p>Add a UK bank account as counterparty</p>
@@ -1642,7 +1653,7 @@ EOF
 </tbody></table>
 
 <div class="feedback"></div>
-<h4 id='tutorials-tutorials-work-with-webhooks-delete-a-webhook'><a href='#tutorials-tutorials-work-with-webhooks-delete-a-webhook' class='header-link'><i></i></a>Delete a webhook</h4><blockquote>
+<h5 id='tutorials-tutorials-work-with-webhooks-tutorials-tutorials-work-with-webhooks-set-up-a-webhook-delete-a-webhook'><a href='#tutorials-tutorials-work-with-webhooks-tutorials-tutorials-work-with-webhooks-set-up-a-webhook-delete-a-webhook' class='header-link'><i></i></a>Delete a webhook</h5><blockquote>
       <div><p>Delete a webhook</p>
 </div>
       <div class='env-selector'>
@@ -1659,6 +1670,124 @@ EOF
 <p>Delete a webhook so that events are not sent to the specified URL any more.</p>
 
 <div class="feedback"></div>
+<h4 id='tutorials-tutorials-work-with-webhooks-set-up-multiple-webhooks'><a href='#tutorials-tutorials-work-with-webhooks-set-up-multiple-webhooks' class='header-link'><i></i></a>Set up multiple webhooks</h4><blockquote>
+      <div><p>Set up a webhook</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X POST https://sandbox-b2b.revolut.com/api/2.0/webhook <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your access token&gt;"</span> <span class="se">\</span>
+  --data @- <span class="sh">&lt;&lt; EOF
+
+{
+  "url": "https://example.com/example/path"
+}
+
+EOF
+</span></code></pre><pre class="highlight shell tab-shell--production"><code>curl -X POST https://b2b.revolut.com/api/2.0/webhook <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your access token&gt;"</span> <span class="se">\</span>
+  --data @- <span class="sh">&lt;&lt; EOF
+
+{
+  "url": "https://example.com/example/path"
+}
+
+EOF
+</span></code></pre><blockquote>
+      <div><p>Response </p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/example/path"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"67b51b40-a6bc-4f87-c3e6-c05ea203a762"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Set up to 3 webhooks by leveraging <code>version 2.0</code> of our webhooks API. The response will contain an <code>id</code> that can be used to then delete a specific webhook. </p>
+
+<p>The same notifications go to each webhook. The <code>request_id</code> field can be used to distinguish payments from different sources if needed. </p>
+<h4 id='tutorials-tutorials-work-with-webhooks-get-list-of-webhooks'><a href='#tutorials-tutorials-work-with-webhooks-get-list-of-webhooks' class='header-link'><i></i></a>Get list of webhooks</h4><blockquote>
+      <div><p>Get a list of webhooks</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X GET https://sandbox-b2b.revolut.com/api/2.0/webhook <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your access token&gt;"</span> 
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X GET https://b2b.revolut.com/api/2.0/webhook/ <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your access token&gt;"</span> 
+</code></pre><blockquote>
+      <div><p>Response</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fd82ac5-4bc2-40b0-b6a5-1e8fc8f66792"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/example/path1"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0bcab550-2e36-4245-8f84-d663192a5fa3"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/example/path2"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1023de5b-8a57-4a89-8025-b30504c3a25b"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/example/path3"</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre>
+<p>Make a GET request to the <code>/webhooks</code> endpoint to get a list of webhooks. Pass the <code>id</code> as a parameter on the URL to return only a specific one.</p>
+<h4 id='tutorials-tutorials-work-with-webhooks-update-a-webhook'><a href='#tutorials-tutorials-work-with-webhooks-update-a-webhook' class='header-link'><i></i></a>Update a webhook</h4><blockquote>
+      <div><p>Update a webhook</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X PATCH https://sandbox-b2b.revolut.com/api/2.0/webhook/67b51b40-a6bc-4f87-c3e6-c05ea203a762 <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your access token&gt;"</span> 
+--data @- <span class="sh">&lt;&lt; EOF
+{
+  "url": "https://example.com/example/path"
+}
+EOF
+</span></code></pre><pre class="highlight shell tab-shell--production"><code>curl -X PATCH https://b2b.revolut.com/api/2.0/webhook/67b51b40-a6bc-4f87-c3e6-c05ea203a762 <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your access token&gt;"</span> 
+--data @- <span class="sh">&lt;&lt; EOF
+{
+  "url": "https://example.com/example/path"
+}
+EOF
+</span></code></pre>
+<p>Pass the <code>id</code>  on a PATCH request to replace the webhook URL.</p>
+<h4 id='tutorials-tutorials-work-with-webhooks-delete-a-specific-webhook'><a href='#tutorials-tutorials-work-with-webhooks-delete-a-specific-webhook' class='header-link'><i></i></a>Delete a specific webhook</h4><blockquote>
+      <div><p>Delete a specific webhook</p>
+</div>
+      <div class='env-selector'>
+        <select>
+          <option value="sandbox">Sandbox</option>
+          <option value="production">Production</option>
+        </select>
+      </div>
+    </blockquote><pre class="highlight shell tab-shell--sandbox"><code>curl -X DELETE https://sandbox-b2b.revolut.com/api/2.0/webhook/67b51b40-a6bc-4f87-c3e6-c05ea203a762 <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your access token&gt;"</span> 
+</code></pre><pre class="highlight shell tab-shell--production"><code>curl -X DELETE https://b2b.revolut.com/api/2.0/webhook/67b51b40-a6bc-4f87-c3e6-c05ea203a762 <span class="se">\</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your access token&gt;"</span> 
+</code></pre>
+<p>Pass the <code>id</code>  on a DELETE request to delete a specific webhook. </p>
 <h4 id='tutorials-tutorials-work-with-webhooks-transaction-created-event'><a href='#tutorials-tutorials-work-with-webhooks-transaction-created-event' class='header-link'><i></i></a>Transaction created event</h4>
 <p>See the example response of a <code>TransactionCreated</code> event on the right. </p>
 <blockquote>
@@ -1674,7 +1803,8 @@ EOF
   </span><span class="s2">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TransactionCreated"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-06T12:21:49.865Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20ed4029-1af8-405d-b515-0ee5e020a850"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cad82fa6-ead6-11eb-9a03-0242ac130003"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"request_id"</span><span class="p">:</span><span class="s2">"d0c0009c-ead6-11eb-9a03-0242ac130003"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transfer"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e0cbf84637264ee082a848b"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="p">,</span><span class="w">
@@ -1844,6 +1974,7 @@ EOF
   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-06T12:21:49.865Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9a6434d8-3581-4faa-988b-48875e785be7"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"request_id"</span><span class="p">:</span><span class="s2">"d0c0009c-ead6-11eb-9a03-0242ac130003"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"old_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"new_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reverted"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -1871,6 +2002,11 @@ EOF
 <tr>
 <td><code>data.id</code></td>
 <td>The ID of the transaction.</td>
+<td>UUID</td>
+</tr>
+<tr>
+<td><code>data.request_id</code></td>
+<td>The client provided request ID.</td>
 <td>UUID</td>
 </tr>
 <tr>
