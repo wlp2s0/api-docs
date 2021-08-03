@@ -1695,6 +1695,12 @@ The value of <code>openbanking_intent_id</code> is the value of the <code>Consen
 <li>Specify the <code>x-idempotency-key</code> field so that when there is a network failure and you do not receive the ID from the response, you can retry the request.</li>
 </ul>
 
+<aside class="warning">
+<code>CreditorPostalAddress</code> is not a mandatory section for the <code>/domestic-payments</code> endpoint, however, if you decide to use it, you must provide <code>Country</code> and <code>PostCode</code> fields.
+<br><br>
+There is one exception for making payments to Swiss counterparties: <code>CreditorPostalAddress</code> section must be used  with the fields <code>TownName</code>, <code>PostCode</code>, <code>Country</code> and <code>AddressLine</code>. 
+</aside>
+
 <div class="feedback"></div>
 <h4 id='tutorials-tutorials-initiate-your-first-payment-3-create-a-jwt-url-parameter'><a href='#tutorials-tutorials-initiate-your-first-payment-3-create-a-jwt-url-parameter' class='header-link'><i></i></a>3. Create a JWT URL parameter</h4>
 <p>After you create a consent, you need the users to authorize the consent so that you can initiate a payment on their behalf.</p>
