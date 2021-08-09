@@ -1,0 +1,1 @@
+(self.webpackChunkdev_rev_docs=self.webpackChunkdev_rev_docs||[]).push([[4195],{2841:function(e,n,t){"use strict";t.r(n),t.d(n,{default:function(){return c}});var r=t(7294),u=t(5977);function c(){return r.createElement(u.l_,{to:"/"})}}}]);
