@@ -1,0 +1,1 @@
+(self.webpackChunkdev_rev_docs=self.webpackChunkdev_rev_docs||[]).push([[4195],{2841:function(e,n,t){"use strict";t.r(n),t.d(n,{default:function(){return c}});var u=t(7294);function c(){return u.useEffect((function(){window.location.href="https://developer.revolut.com"}),[]),null}}}]);
